@@ -158,6 +158,15 @@ h6 {
   color: #222222;
 }
 
+.medium-font {
+  font-size: 20px;
+}
+
+.border-b-2 {
+  border-bottom: 1px solid black;
+  padding-bottom: 12px;
+}
+
 h1,
 .h1 {
   font-size: 36px;
@@ -3978,4 +3987,101 @@ p {
 
 ul {
   font-size: 16px;
+}
+
+/* download section */
+/* General Styles */
+.zorb-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Competition Section Styles */
+.flibber-section {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flibber-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Header Styles */
+.snork-header .gloop-title {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.snork-header .blorp-description {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+/* Download Button Styles */
+.wibble-download {
+  text-align: center;
+}
+
+.quax-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: #ffffff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.quax-btn:hover {
+  background-color: #2980b9;
+}
+
+.fizz-text {
+  margin-right: 10px;
+}
+
+.zap-icon {
+  font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .snork-header .gloop-title {
+    font-size: 20px;
+  }
+
+  .snork-header .blorp-description {
+    font-size: 14px;
+  }
+
+  .quax-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+.collaborator {
+  text-align: center;
+  padding: 20px;
+}
+.collaborator img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 10px;
 }
