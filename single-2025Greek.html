@@ -17,6 +17,246 @@
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/mobile.css">
+
+                    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            /* background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); */
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .choirs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .choir-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
+        
+        .choir-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .choir-header {
+            text-align: center;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #6c5ce7, #3498db);
+            color: white;
+        }
+        
+        .choir-name {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .choir-location {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .choir-image {
+            width: 100%;
+            /* height: 420px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ecf0f1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .choir-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.3), rgba(155, 89, 182, 0.3));
+            z-index: 1;
+        }
+
+        .choir-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* makes sure the whole image fits */
+}
+        
+        .image-placeholder {
+            font-size: 4.5rem;
+            color: #7f8c8d;
+            z-index: 2;
+        }
+        
+        .choir-details {
+            padding: 25px;
+        }
+        
+        .choir-conductor {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            font-style: italic;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .choir-description {
+            margin-bottom: 20px;
+            color: #34495e;
+            line-height: 1.7;
+            text-align: center;
+        }
+        
+        .choir-highlights {
+            background-color: #f8f9fa;
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        
+        .highlight-icon {
+            margin-right: 12px;
+            min-width: 24px;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+        
+        .choir-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 18px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .country-flag {
+            font-size: 1.8rem;
+            margin-right: 12px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            padding: 20px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .choir-name {
+                font-size: 1.5rem;
+            }
+            
+            .choir-location {
+                font-size: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .choir-details {
+                padding: 15px;
+            }
+            
+            .image-placeholder {
+                font-size: 3.5rem;
+            }
+            
+            /* .choir-image {
+                height: 420px;
+            } */
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .choir-header {
+                padding: 15px 10px;
+            }
+            
+            .choir-conductor {
+                font-size: 1rem;
+            }
+            
+            .highlight-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .highlight-icon {
+                margin-bottom: 5px;
+                margin-right: 0;
+            }
+        }
+    </style>
     </head>
     <body>
         <header id="header" id="home" class="height-zero">
@@ -641,6 +881,7 @@ Choral Competition κ.ά. Ο Δρ. Ku είναι κάτοχος Διδακτορ
                         </div>
                         <!-- end commitee -->
                     </div>
+                    
                     <div>
                         <div class="zorb-container">
                             <!-- Section for the 29th International Choral Competition -->
@@ -696,6 +937,1098 @@ Choral Competition κ.ά. Ο Δρ. Ku είναι κάτοχος Διδακτορ
                             </div>
                         </div>
                     </div>
+            <div class="container">
+                <header>
+                    <h1>Participating Choirs</h1>
+                </header>
+
+                <div class="choirs-container">
+                    <!-- Choir 0 -->
+
+                    <!-- Choir 1 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Χορωδία Γυναικών "Cantigas"</h2>
+                            <div class="choir-location">Νιου Τζέρσεϊ, ΗΠΑ</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Cantigas.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Dr. Hannah Carr</div>
+                            <p class="choir-description">Η Χορωδία Γυναικών «Cantigas» ιδρύθηκε το 2002 στο Hudson
+                                County των
+                                Ηνωμένων Πολιτειών και αποτελείται από γυναίκες με πολιτισμική και ηλικιακή
+                                ποικιλομορφία που μοιράζονται την αγάπη τους για το χορωδιακό τραγούδι. Το σύνολο
+                                παρουσιάζει δύο ετήσιες συναυλίες και υλοποιεί πλήθος κοινωνικών δράσεων, όπως
+                                εμφανίσεις σε δομές φιλοξενίας, φυλακές γυναικών και
+                                κέντρα ηλικιωμένων.
+                                Το ρεπερτόριό τους περιλαμβάνει άγνωστα έργα σύγχρονων συνθετών, όπως
+                                οι Leonardo San Juan, Lillian Redl, και Wassim Ibrahim. Το 2015, η «Cantigas»
+                                παρουσίασε σε παγκόσμια πρώτη το «Damascus Breeze». Το 2023 ταξίδεψε στην Ιρλανδία για
+                                την πρώτη παρουσίαση του έργου «Eternal Rebel» του
+                                Sean Doherty. Το 2016 εμφανίστηκε στο Μπουένος Άιρες με αδελφές χορωδίες
+                                της Αργεντινής.
+                                Ιδιαίτερη έμφαση δίνεται σε παραδοσιακά τραγούδια και ανώνυμες γυναικείες
+                                φωνές, ενώ συνεργάζονται με παραδοσιακούς μουσικούς και πολιτισμικούς
+                                συνεργάτες. Η χορωδία καθοδηγείται από την Dr. Hannah Carr, διευθύντρια
+                                χορωδιών στο William Paterson University, και την Erasmia Voukelatos, Ελληνοκαναδή
+                                πιανίστα και συνοδό από την ίδρυσή της.</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2002 στο Hudson County (ΗΠΑ) — Χορωδία γυναικών με πολιτισμική &
+                                        ηλικιακή ποικιλομορφία</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Σύγχρονα έργα (San Juan, Redl, Ibrahim), παραδοσιακά τραγούδια &
+                                        γυναικείες φωνές</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Εμφανίσεις: Πρεμιέρα «Damascus Breeze» (2015), «Eternal Rebel» στην Ιρλανδία
+                                        (2023), συναυλία στο Μπουένος Άιρες (2016)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Μουσική διεύθυνση: Dr. Hannah Carr & Erasmia Voukelatos (από την
+                                        ίδρυση)</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇺🇸</span>
+                            <span>ΗΠΑ</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 2 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Χορωδία Ομοίων Φωνών “Αριέττα”</h2>
+                            <div class="choir-location">Αθήνα, Ελλάδα</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Arietta.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Αθηνά Γρατσούνα
+                            </div>
+                            <p class="choir-description">“Αριέττα” είναι χορωδία ομοίων φωνών (γυναικείων/νεανικών), που
+                                ιδρύθηκε το 2023 ως φυσική συνέχεια της παιδικής – νεανικής χορωδίας του Ωδείου
+                                “Εν Οργάνοις”, με έδρα τη Νέα Ιωνία Αττικής. Το σχήμα δημιουργήθηκε από
+                                παλαιότερα μέλη της παιδικής χορωδίας και νέα κορίτσια, με στόχο τη μελέτη
+                                απαιτητικού ρεπερτορίου για γυναικείες φωνές, από την κλασική έως τη σύγχρονη χορωδιακή
+                                μουσική.
+                                Έχει ήδη αποσπάσει το Χρυσό Μετάλλιο στον 10ο Διαγωνισμό ARTIVA (Ναύπλιο, 2024) και
+                                Χάλκινο Μετάλλιο στο Φεστιβάλ “Μίκης Θεοδωράκης” (Ναύπακτος, 2023). Η χορωδία
+                                συμμετέχει σε συναυλίες και φεστιβάλ σε όλη την
+                                Ελλάδα, με εμφανίσεις σε σημαντικούς χώρους όπως ο Φιλολογικός Σύλλογος
+                                Παρνασσός και σε διοργανώσεις του Δήμου Νέας Ιωνίας.
+                                Η μαέστρος Αθηνά Γρατσούνα είναι βιολονίστρια, διπλωματούχος διεύθυνσης
+                                χορωδίας και εκπαιδευτικός. Είναι απόφοιτος του ΕΚΠΑ και του μεταπτυχιακού προγράμματος
+                                βιολιού υπό τον Γιώργο Δεμερτζή. Από το 2012 ασχολείται
+                                ενεργά με τη χορωδιακή διδασκαλία και διεύθυνση, ενώ από το 2023 διευθύνει
+                                την “Αριέττα” και από το 2024 την παιδική χορωδία “Αριεττίνα”</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2023 στη Νέα Ιωνία, συνέχεια της παιδικής χορωδίας «Εν
+                                        Οργάνοις»</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Απαιτητικά έργα για γυναικείες φωνές — από κλασική έως σύγχρονη
+                                        χορωδιακή μουσική</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🏆</span>
+                                    <span>Βραβεία: Χρυσό Μετάλλιο (ARTIVA, Ναύπλιο 2024), Χάλκινο Μετάλλιο (Φεστιβάλ
+                                        «Μίκης Θεοδωράκης», Ναύπακτος 2023)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Μαέστρος: Αθηνά Γρατσούνα — βιολονίστρια, διπλωματούχος διεύθυνσης χορωδίας
+                                        και εκπαιδευτικός</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇬🇷</span>
+                            <span>Ελλάδα</span>
+                        </div>
+                    </div>
+                    <!-- Choir 4 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Κοινοτική Χορωδία Σχολής Μωραΐτη</h2>
+                            <div class="choir-location">Ψυχικό, Αθήνα, Ελλάδα</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Moraiti.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Βάγια Παπαγιαννοπούλου</div>
+                            <p class="choir-description">Η Χορωδία Ενηλίκων της Σχολής Μωραΐτη ιδρύθηκε τον Ιανουάριο
+                                του 2019
+                                από τη μαέστρο Βάγια Παπαγιαννοπούλου και αποτελείται από 42 μέλη. Λειτουργεί ως
+                                κοινοτική χορωδία, προωθώντας τη μουσική συμμετοχή και κοινωνική αλληλεπίδραση μέσα από
+                                το χορωδιακό τραγούδι, χωρίς προαπαιτούμενες μουσικές γνώσεις. Έχει συμμετάσχει σε
+                                συναυλίες και φεστιβάλ στις
+                                πόλεις Αθήνα, Ναύπλιο, Θεσσαλονίκη, Βόλο και Αγρίνιο.
+                                Η μαέστρος Βάγια Παπαγιαννοπούλου είναι πτυχιούχος Διεύθυνσης Χορωδίας του Ιονίου
+                                Πανεπιστημίου με μεταπτυχιακές σπουδές στο University of
+                                York. Έχει σημαντική διδακτική και καλλιτεχνική δραστηριότητα στην Ελλάδα</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2019 από τη μαέστρο Βάγια Παπαγιαννοπούλου — 42 μέλη</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Λειτουργία: Κοινοτική χορωδία, συμμετοχή χωρίς προαπαιτούμενες μουσικές
+                                        γνώσεις</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Συναυλίες: Φεστιβάλ και εμφανίσεις σε Αθήνα, Ναύπλιο, Θεσσαλονίκη, Βόλο &
+                                        Αγρίνιο</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Μαέστρος: Βάγια Παπαγιαννοπούλου — πτυχιούχος Διεύθυνσης Χορωδίας &
+                                        μεταπτυχιακές σπουδές στο University of York</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇬🇷</span>
+                            <span>Ελλάδα</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 5 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Ανδρικό φωνητικό σύνολο “Vírilis”</h2>
+                            <div class="choir-location">Πρέσερς, Σλοβενία</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Virilis.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Συλλογική καλλιτεχνική καθοδήγηση</div>
+                            <p class="choir-description">Το ανδρικό φωνητικό σύνολο «Vírilis» από τη Σλοβενία
+                                ειδικεύεται στην ερμηνεία σλοβενικών παραδοσιακών και εθνικών τραγουδιών με υψηλό
+                                καλλιτεχνικό επίπεδο. Αν και το σύνολο είναι επίσημα ενεργό από το 2022, τα μέλη
+                                του τραγουδούν μαζί εδώ και αρκετά χρόνια. Το ρεπερτόριό τους περιλαμβάνει
+                                κυρίως παραδοσιακά και λόγια σλοβενικά έργα, αλλά επεκτείνεται κατά διαστήματα και σε
+                                διεθνές φωνητικό ρεπερτόριο.
+                                Το 2023 και το 2024 πραγματοποίησαν δύο εορταστικές χριστουγεννιάτικες
+                                συναυλίες, εμφανίστηκαν δύο φορές στην κρατική τηλεόραση της Σλοβενίας
+                                στην εκπομπή V petek zvečer και έλαβαν μέρος σε φιλανθρωπικές εκδηλώσεις
+                                σε γειτονικές πόλεις. Το 2023 πραγματοποίησαν περιοδεία στις Ηνωμένες Πολιτείες
+                                Αμερικής, δίνοντας συναυλία στη Νέα Υόρκη για τη σλοβενική ομογένεια, στον ναό του
+                                Αγίου Κύριλλου.
+                                Έχουν συνεργαστεί με την Συμφωνική Ορχήστρα «Cantabile», καθώς και
+                                με διακεκριμένους σολίστ και μουσικούς. Τα μέλη του συνόλου είναι: Nino
+                                Koritnik (πρώτος τενόρος), Tomaž Švigelj και Peter Grdadolnik (δεύτεροι τενόροι), Jan
+                                Jerman (βαρύτονος και πρόεδρος του συνόλου) και Blaž Stanjko (μπάσος).</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2022 στη Σλοβενία — ανδρικό φωνητικό σύνολο με έμπειρα μέλη</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Σλοβενικά παραδοσιακά και εθνικά τραγούδια, με επεκτάσεις σε
+                                        διεθνές φωνητικό υλικό</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Συναυλίες & εμφανίσεις: Χριστουγεννιάτικες συναυλίες, TV Σλοβενίας,
+                                        φιλανθρωπικές εκδηλώσεις, περιοδεία ΗΠΑ 2023</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Συνεργασίες: Συμφωνική Ορχήστρα Cantabile & διακεκριμένοι σολίστ — βασικά
+                                        μέλη: Nino Koritnik, Tomaž Švigelj, Peter Grdadolnik, Jan Jerman, Blaž
+                                        Stanjko</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇸🇮</span>
+                            <span>Σλοβενία</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 6 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Γυναικεία Χορωδία “Νηρηίδες”</h2>
+                            <div class="choir-location">Δήμος Παλαιού Φαλήρου, Ελλάδα</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Niriides.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Κατερίνα Βασιλικού</div>
+                            <p class="choir-description">Η Γυναικεία Χορωδία “Νηρηίδες” του Δήμου Παλαιού Φαλήρου
+                                ιδρύθηκε τον
+                                Οκτώβριο του 2013, κατόπιν ακροάσεων, και από τότε διευθύνεται από την Κατερίνα
+                                Βασιλικού. Έχει αποσπάσει Χρυσό Δίπλωμα στον 2ο Διεθνή Διαγωνισμό
+                                Interkultur στην Καλαμάτα (2017) και Αργυρό Μετάλλιο στο 10ο Διεθνές Χορωδιακό Φεστιβάλ
+                                “Μαριλένα” Artiva στο Ναύπλιο (2024).
+                                Σημαντικές εμφανίσεις της περιλαμβάνουν τις συναυλίες στο Ωδείο Ηρώδου του
+                                Αττικού σε παραγωγές του Ελληνικού Ερυθρού Σταυρού για την ειρήνη, την αλληλεγγύη και
+                                το περιβάλλον (2023, 2024). Έχει συμμετάσχει σε χορωδιακά φεστιβάλ
+                                σε Κηφισιά, Ναύπλιο, Τρίπολη, Νέα Μάκρη, Λουτράκι, καθώς και σε εκδηλώσεις
+                                σε Αθήνα και Θεσσαλονίκη. Παράλληλα, υποστηρίζει ενεργά τις πολιτιστικές δράσεις του
+                                Δήμου Παλαιού Φαλήρου και φιλοξενεί χορωδίες από όλη την Ελλάδα.
+                                Η Κατερίνα Βασιλικού είναι μουσικοπαιδαγωγός, με σπουδές στο πιάνο και το
+                                κλασικό τραγούδι, και εμπειρία στη διεύθυνση παιδικών, νεανικών και γυναικείων
+                                χορωδιών. Διδάσκει Μουσική στη Λεόντειο Σχολή Νέας Σμύρνης και έχει συνεργαστεί με
+                                σημαντικούς μουσικούς φορείς της χώρας.</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2013 στον Δήμο Παλαιού Φαλήρου — Γυναικεία χορωδία μετά από
+                                        ακροάσεις</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🏆</span>
+                                    <span>Βραβεία: Χρυσό Δίπλωμα (Interkultur Καλαμάτα 2017), Αργυρό Μετάλλιο (Artiva
+                                        Ναύπλιο 2024)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Συναυλίες & φεστιβάλ: Ωδείο Ηρώδου Αττικού, Κηφισιά, Ναύπλιο, Τρίπολη, Νέα
+                                        Μάκρη, Λουτράκι, Αθήνα & Θεσσαλονίκη</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Μαέστρος: Κατερίνα Βασιλικού — μουσικοπαιδαγωγός με εμπειρία σε παιδικές,
+                                        νεανικές & γυναικείες χορωδίες</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇬🇷</span>
+                            <span>Ελλάδα</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 7 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Χορωδία Δωματίου ASTIBO</h2>
+                            <div class="choir-location">Shtip, Βόρεια Μακεδονία</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Astibo.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Ivana Djurdjevic-Jankov</div>
+                            <p class="choir-description"> Χορωδία ASTIBO ιδρύθηκε το 2009 στη Στιπ και από το 2023 φέρει
+                                την ονομασία «Χορωδία Δωματίου Πόλης ASTIBO». Πρόκειται για μικτό σύνολο 25 μελών,
+                                με πλούσιο ρεπερτόριο που καλύπτει διαφορετικά μουσικά είδη, από παραδοσιακά μέχρι
+                                σύγχρονα έργα. Οι εμφανίσεις της χαρακτηρίζονται από χορογραφικά
+                                στοιχεία και άμεση αλληλεπίδραση με το κοινό.
+                                Η πολυγενεακή σύνθεση της χορωδίας (με διαφορά ηλικίας άνω των 50 ετών μεταξύ των
+                                μελών) ενισχύει τη δημιουργική της φυσιογνωμία, συνδυάζοντας νεανικότητα και εμπειρία.
+                                Η ASTIBO έχει συμμετάσχει σε διεθνή φεστιβάλ και έχει κερδίσει σημαντικές διακρίσεις,
+                                όπως:
+                            <ul>
+                                <li>Αργυρό Μετάλλιο στο Διεθνές Φεστιβάλ Bijeljina (Βοσνία, 2024)</li>
+                                <li>Grand Prix στο φεστιβάλ “Sing My Heart” (Kyustendil, Βουλγαρία, 2019)</li>
+                                <li>Πρώτο βραβείο στο Φεστιβάλ του Kostandovo (Βουλγαρία, 2017)</li>
+                            </ul>
+                            Είναι επίσης ιδρυτής και διοργανωτής του διεθνούς φεστιβάλ ASTIBO-FEST
+                            (2017–2024).
+                            Η Ivana Djurdjevic-Jankov είναι επίκουρη καθηγήτρια στο Πανεπιστήμιο Goce Delchev –
+                            Στιπ, με σπουδές διεύθυνσης χορωδίας στο Βελιγράδι και μεταπτυχιακό στη μουσική
+                            ανάλυση. Από το 2014 διευθύνει τη χορωδία ASTIBO, ενώ έχει συνεργαστεί με πλήθος
+                            χορωδιών σε Σερβία και Βόρεια Μακεδονία</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2009 στη Στιπ — μετονομάστηκε σε «Χορωδία Δωματίου Πόλης ASTIBO»
+                                        το 2023</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Σύνολο: 25 μέλη με ποικίλο ρεπερτόριο — από παραδοσιακά έως σύγχρονα
+                                        έργα</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🏆</span>
+                                    <span>Διακρίσεις: Grand Prix “Sing My Heart” (2019), 1ο Βραβείο Kostandovo (2017),
+                                        Αργυρό Μετάλλιο Bijeljina (2024)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Διευθύντρια: Ivana Djurdjevic-Jankov — από το 2014, ιδρύτρια του
+                                        ASTIBO-FEST</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇲🇰</span>
+                            <span>Βόρεια Μακεδονία</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 8 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Μικτή Νεανική Χορωδία “SOLARTE”</h2>
+                            <div class="choir-location">Σύγχρονο Ωδείο Λάρισας, Ελλάδα</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Solarte.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Νίκος Στ. Ευθυμιάδης</div>
+                            <p class="choir-description">Η Μικτή Νεανική Χορωδία “SOLARTE” του Σύγχρονου Ωδείου Λάρισας
+                                ιδρύθηκε
+                                το 2004 από τον Γιώργο Γράμψα και αποτελεί ένα ευέλικτο χορωδιακό σύνολο, με
+                                πλούσια καλλιτεχνική δράση στην Ελλάδα και το εξωτερικό. Το ρεπερτόριό της
+                                εκτείνεται από τη μεσαιωνική και αναγεννησιακή μουσική έως τη σύγχρονη δημιουργία.
+                                Η χορωδία έχει εμφανιστεί σε φεστιβάλ, συναυλίες και πολιτιστικές εκδηλώσεις σε
+                                πόλεις όπως οι Αθήνα, Θεσσαλονίκη, Βόλος, Δελφοί, Πειραιάς, καθώς και σε εμβληματικούς
+                                χώρους όπως το Μέγαρο Μουσικής Θεσσαλονίκης και το Αρχαίο Θέατρο Δελφών. Διεθνώς, έχει
+                                συνεργαστεί με ορχήστρες και μαέστρους σε Αυστρία,
+                                Ιταλία, Ουγγαρία και Σερβία, ενώ έχει εμφανιστεί στην τηλεόραση και συμμετάσχει
+                                σε δισκογραφικές παραγωγές.
+                                Συνεργάστηκε με σημαντικούς καλλιτέχνες όπως ο Γιώργος Νταλάρας και ο Κώστας Χατζής,
+                                και ορχήστρες όπως της ΕΡΤ3 και του Αριστοτελείου Πανεπιστημίου
+                                Θεσσαλονίκης. Την καλλιτεχνική διεύθυνση έχει ο Νίκος Στ. Ευθυμιάδης.</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2004 από τον Γιώργο Γράμψα — Μικτή Νεανική Χορωδία του Σύγχρονου
+                                        Ωδείου Λάρισας</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Μεσαιωνική και αναγεννησιακή μουσική έως σύγχρονη
+                                        δημιουργία</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Εμφανίσεις: Ελλάδα & διεθνείς συνεργασίες σε Αυστρία, Ιταλία, Ουγγαρία, Σερβία
+                                        — τηλεόραση & δισκογραφία</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Καλλιτεχνική Διεύθυνση: Νίκος Στ. Ευθυμιάδης — συνεργασίες με σημαντικούς
+                                        καλλιτέχνες και ορχήστρες</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇬🇷</span>
+                            <span>Greece</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 9 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Χορωδία Mik'ados</h2>
+                            <div class="choir-location">Λυών, Γαλλία</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Mikados.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Sibylle Chassaigne</div>
+                            <p class="choir-description">Η Χορωδία Mik'ados ανήκει στον οργανισμό La Chanterie de Lyon
+                                και αποτελείται από περίπου εβδομήντα νέους ηλικίας 12 έως 18 ετών από διάφορες
+                                γειτονιές της Λυών. Αποτελεί συνέχεια της εμπειρίας που αποκτούν τα παιδιά
+                                στις τοπικές «chanteries» (ηλικίας 8–12 ετών) και απευθύνεται σε όσους επιθυμούν να
+                                συνεχίσουν το χορωδιακό τραγούδι.
+                                Η χορωδία συμμετέχει τακτικά σε συναυλίες με άλλα σύνολα του οργανισμού και έχει λάβει
+                                μέρος σε σημαντικές διοργανώσεις, όπως στο φεστιβάλ
+                                Choralies στο Vaison-la-Romaine. Από το 2015, έχει συμμετάσχει σε φεστιβάλ
+                                και ανταλλαγές σε Γαλλία, Τουρκία, Ισπανία, Εσθονία, Αυστρία, ενώ το 2022
+                                κατέκτησε το 3ο βραβείο στον Διεθνή Διαγωνισμό της Προβηγκίας.
+                                Ιδρύτρια και μαέστρος της χορωδίας είναι η Sibylle Chassaigne, καθηγήτρια
+                                μουσικής και χορωδιακού τραγουδιού. Δίνει έμφαση στην προσβασιμότητα
+                                χωρίς κριτήρια επιλογής, με μοναδική προϋπόθεση το πάθος για το τραγούδι.
+                                Παράλληλα, συμμετέχει στο φωνητικό σύνολο The Women’s Choir, εμπνέοντας
+                                σταθερά τους νέους με το έργο της.</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ανήκει στον οργανισμό La Chanterie de Lyon — περίπου 70 νέοι ηλικίας 12–18
+                                        ετών</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Χορωδιακό τραγούδι για νέους, συνέχεια των «chanteries» (8–12
+                                        ετών)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Συμμετοχές: Φεστιβάλ Choralies, διεθνείς φεστιβάλ & ανταλλαγές σε Γαλλία,
+                                        Τουρκία, Ισπανία, Εσθονία, Αυστρία — 3ο βραβείο Διεθνούς Διαγωνισμού Προβηγκίας
+                                        (2022)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Ιδρύτρια & μαέστρος: Sibylle Chassaigne — έμφαση στην προσβασιμότητα και πάθος
+                                        για το τραγούδι</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇫🇷</span>
+                            <span>Γαλλία</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 10 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Γυναικεία Χορωδία “Αρμονιστές”</h2>
+                            <div class="choir-location">Δήμος Δέλτα, Ελλάδα</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Armonistes.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Χρήστος Αβράμογλου</div>
+                            <p class="choir-description">Η Γυναικεία Χορωδία «Αρμονιστές» του Δήμου Δέλτα ιδρύθηκε το
+                                2023 με πρωτοβουλία του Συλλόγου Γυναικών Δήμου Δέλτα. Η χορωδία αποτελείται από
+                                γυναικείες φωνές όλων των ηλικιών, οι οποίες ενώνουν τις δυνάμεις τους με μουσικούς
+                                και χορευτές της τοπικής κοινότητας, δημιουργώντας ένα δυναμικό μουσικό σύνολο
+                                αφιερωμένο στο ελληνικό ρεπερτόριο.
+                                Υπό τη συνεχή συνεργασία με το Ωδείο Σίνδου «Αλέξανδρος», οι «Αρμονιστές»
+                                εξελίσσονται διαρκώς, προσφέροντας ποιοτική μουσική εκπαίδευση και εκφραστική ερμηνεία.
+                                Στην ομάδα συμμετέχουν οι μουσικοί: Κατερίνα Μακρή (φωνητική),
+                                Έλενα Τριανταφύλλου (φλάουτο), Δημήτρης Ιωαννίδης (τρομπέτα), Αμαλία Καλτσίδου
+                                (ακορντεόν), Φωτεινή Καλτσίδου (πιάνο) και ο μαέστρος Χρήστος Αβράμογλου.
+                                Ο Χρήστος Αβράμογλου, γεννημένος στη Θεσσαλονίκη, είναι πτυχιούχος πιάνου,
+                                αρμονίας, αντίστιξης, φούγκας και ωδικής, ενώ έχει ολοκληρώσει και το πρώτο
+                                έτος σύνθεσης. Από το 2002, διδάσκει στο Ωδείο Σίνδου, διευθύνει την ορχήστρα
+                                και τη χορωδία του και είναι υπεύθυνος για σεμινάρια και καλλιτεχνικές διοργανώσεις,
+                                όπως το G.A Festival. Ως ενορχηστρωτής, πιανίστας και κρουστός, έχει εμφανιστεί σε
+                                φεστιβάλ και σκηνές εντός και εκτός Ελλάδας, ενώ έχει γράψει
+                                μουσική για ντοκιμαντέρ του Φεστιβάλ Θεσσαλονίκης</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2023 από τον Σύλλογο Γυναικών Δήμου Δέλτα — γυναικεία φωνές όλων
+                                        των ηλικιών</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Ελληνική μουσική, σε συνεργασία με μουσικούς και χορευτές της
+                                        τοπικής κοινότητας</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Δραστηριότητες: Συνεχής εξέλιξη μέσω Ωδείου Σίνδου «Αλέξανδρος», συμμετοχή σε
+                                        σεμινάρια και καλλιτεχνικές διοργανώσεις</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Διεύθυνση: Χρήστος Αβράμογλου — πιανίστας, ενορχηστρωτής, μαέστρος και
+                                        συνθέτης</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇬🇷</span>
+                            <span>Ελλάδα</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 11 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Χορωδία Δωματίου PRO ARTE</h2>
+                            <div class="choir-location">Inowrocław, Πολωνία</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Proarte.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Conductors: Grażyna Wolter-Kaźmierczak & Monika Wilkiewicz
+                            </div>
+                            <p class="choir-description">Η Χορωδία Δωματίου PRO ARTE ιδρύθηκε το 2000 με αφορμή τον
+                                εορτασμό του
+                                Έτους Μπαχ. Από το 2015, τη διεύθυνση έχουν αναλάβει η καθηγήτρια Monika
+                                Wilkiewicz και η δρα Grażyna Wolter-Kaźmierczak, διακεκριμένες μαέστροι και
+                                πανεπιστημιακοί διδάσκοντες στο Μουσικό Πανεπιστήμιο του Μπίντγκοστς.
+                                Η χορωδία έχει δώσει συναυλίες στην Πολωνία και το εξωτερικό, συμμετέχοντας
+                                σε σημαντικά φεστιβάλ και διαγωνισμούς. Ανάμεσα στις πρόσφατες διακρίσεις
+                                της συγκαταλέγονται:
+                            <ul>
+                                <li>2 Χρυσά Διπλώματα στον διαγωνισμό Chorus Inside Croatia (2023)</li>
+                                <li>2ο Βραβείο στο Διεθνές Χορωδιακό Φεστιβάλ Προβηγκίας, Γαλλία (2024)</li>
+                                <li>Χρυσό Δίπλωμα στον διαγωνισμό Chorus Inside Poland, Βαρσοβία</li>
+                            </ul>
+                            Το ρεπερτόριό της περιλαμβάνει a cappella, θρησκευτική, λαϊκή, πατριωτική μουσική, και
+                            έργα σύγχρονων συνθετών. Έχει παρουσιάσει πρεμιέρες έργων των
+                            Aleksandra Brejza, Marcin Kopczyński και άλλων.</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2000 με αφορμή τον εορτασμό του Έτους Μπαχ — Χορωδία Δωματίου PRO
+                                        ARTE</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: a cappella, θρησκευτική, λαϊκή, πατριωτική μουσική και έργα
+                                        σύγχρονων συνθετών</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🏆</span>
+                                    <span>Διακρίσεις: 2 Χρυσά Διπλώματα (Chorus Inside Croatia 2023), 2ο Βραβείο
+                                        (Διεθνές Χορωδιακό Φεστιβάλ Προβηγκίας 2024), Χρυσό Δίπλωμα (Chorus Inside
+                                        Poland)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Μαέστροι: Monika Wilkiewicz & Grażyna Wolter-Kaźmierczak — διακεκριμένες
+                                        μαέστροι και πανεπιστημιακοί διδάσκοντες</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇵🇱</span>
+                            <span>Πολωνία</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 12 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Χορωδία Cantus Atenas</h2>
+                            <div class="choir-location">Σταμάτα Αττικής, Ελλάδα</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/CantusAntenas.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Δήμητρα Χανού</div>
+                            <p class="choir-description">Οι Χορωδίες Cantus Atenas λειτουργούν από το 2010, υπό τη
+                                διεύθυνση της μαέστρου Δήμητρας Χανού, και πρόσφατα απέκτησαν νέα ονομασία. Έχουν
+                                συμμετάσχει σε πολυάριθμες συναυλίες, αφιερώματα και φιλανθρωπικές εκδηλώσεις,
+                                καθώς και σε μεγάλα διεθνή φεστιβάλ χορωδιών, όπως το Διεθνές Χορωδιακό
+                                Φεστιβάλ Πρέβεζας, το Παγκόσμιο Φεστιβάλ Κοραής Θεσσαλονίκης, το Artiva
+                                Ναυπλίου, και το Antonio Vivaldi Καρπενησίου.
+                                Έχουν εμφανιστεί σε κορυφαίους χώρους, όπως το Βεάκειο Θέατρο, το Καλλιμάρμαρο, το
+                                Ηρώδειο και το Μέγαρο Μουσικής Αθηνών. Σημαντικές διακρίσεις
+                                περιλαμβάνουν: Αργυρό βραβείο (Jazz-Pop) στο Φεστιβάλ Καρπενησίου, τρεις
+                                αργυρές διακρίσεις στο Artiva Ναυπλίου, αργυρό και χάλκινο βραβείο στο Φεστιβάλ
+                                Μιούζικαλ Κοραής και χάλκινο βραβείο στο ελεύθερο πρόγραμμα του Δ.Χ.Φ.
+                                Πρέβεζας.
+                                Με πλούσιο ρεπερτόριο και αφοσιωμένη καθοδήγηση, οι Cantus Atenas συνδυάζουν μουσική
+                                ποιότητα, πολυφωνική έκφραση και πολιτισμική εξωστρέφεια,
+                                αποτελώ</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Λειτουργούν από το 2010 υπό τη διεύθυνση της μαέστρου Δήμητρας Χανού —
+                                        πρόσφατα με νέα ονομασία</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Συναυλίες & φεστιβάλ: Διεθνές Φεστιβάλ Πρέβεζας, Παγκόσμιο Φεστιβάλ Κοραής,
+                                        Artiva Ναυπλίου, Antonio Vivaldi Καρπενησίου</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🏆</span>
+                                    <span>Διακρίσεις: Αργυρό βραβείο (Jazz-Pop, Καρπενήσι), 3 Αργυρά (Artiva Ναυπλίου),
+                                        Αργυρό & Χάλκινο (Φεστιβάλ Μιούζικαλ Κοραής), Χάλκινο (ΔΧΦ Πρέβεζας)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Πλούσιο και πολυφωνικό — μουσική ποιότητα και πολιτισμική
+                                        εξωστρέφεια</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇬🇷</span>
+                            <span>Ελλάδα</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 13 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Χορωδία του Τιμπάε</h2>
+                            <div class="choir-location">Μπράγκα, Πορτογαλία</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Tibaes.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Alexandre Silva</div>
+                            <p class="choir-description">Η Coro de Tibães ιδρύθηκε στην κοινότητα Mire de Tibães στην
+                                Μπράγκα της
+                                Πορτογαλίας και εδρεύει στο ιστορικό Μοναστήρι του Αγίου Μαρτίνου του Τιμπάες – ένα από
+                                τα σημαντικότερα μοναστικά συγκροτήματα της χώρας. Η χορωδία δημιουργήθηκε με σκοπό την
+                                προώθηση της πνευματικής, πολιτιστικής
+                                και μουσικής κληρονομιάς της περιοχής μέσω της χορωδιακής μουσικής.
+                                Το ρεπερτόριό της εκτείνεται από την παλαιά εκκλησιαστική μουσική έως σύγχρονα έργα,
+                                ενώ ιδιαίτερη έμφαση δίνεται στη μελέτη και παρουσίαση της πορτογαλικής πολυφωνικής
+                                παράδοσης. Η χορωδία αποτελείται από ερασιτέχνες
+                                και επαγγελματίες χορωδούς που συνδέονται με πάθος για τη μουσική και την
+                                προσφορά στην κοινότητα.
+                                Έχει συμμετάσχει σε πλήθος εκδηλώσεων σε Πορτογαλία και εξωτερικό, και έχει
+                                εμφανιστεί σε φεστιβάλ, συναυλίες και λειτουργίες, συχνά στον επιβλητικό χώρο
+                                του μοναστηριού. Το 2025 επιλέχθηκε να εκπροσωπήσει την Πορτογαλία στο
+                                43ο Διεθνές Χορωδιακό Φεστιβάλ Πρέβεζας, μεταφέροντας το πνεύμα της παράδοσης και της
+                                μουσικής από τη Braga στην Ελλάδα.</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε στην κοινότητα Mire de Tibães, Μπράγκα, Πορτογαλία — εδρεύει στο
+                                        ιστορικό Μοναστήρι του Αγίου Μαρτίνου</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Από παλαιά εκκλησιαστική μουσική έως σύγχρονα έργα — έμφαση στην
+                                        πορτογαλική πολυφωνική παράδοση</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Συναυλίες & φεστιβάλ: Εκδηλώσεις σε Πορτογαλία και εξωτερικό — συμμετοχή σε
+                                        φεστιβάλ, συναυλίες και λειτουργίες</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">👥</span>
+                                    <span>Μέλη: Ερασιτέχνες και επαγγελματίες χορωδοί, συνδεδεμένοι με πάθος για μουσική
+                                        και προσφορά στην κοινότητα — εκπροσωπούν την Πορτογαλία στο 43ο Διεθνές
+                                        Χορωδιακό Φεστιβάλ Πρέβεζας (2025)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇵🇹</span>
+                            <span>Πορτογαλία</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 14 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Χορωδία Δωματίου “Fermata”</h2>
+                            <div class="choir-location">Σμύρνη, Τουρκία</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Fermata.png" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Hasan Can İşgüden</div>
+                            <p class="choir-description">Η Fermata Chamber Choir ιδρύθηκε τον Δεκέμβριο του 2019 στη
+                                Σμύρνη από τον
+                                Hasan Can İşgüden και αποτελείται από 25 χορωδούς με εμπειρία σε πολυφωνικά σύνολα. Το
+                                ρεπερτόριό της καλύπτει από την Αναγέννηση μέχρι σύγχρονα έργα, με ιδιαίτερη έμφαση σε
+                                Τούρκους συνθέτες και τραγούδια σε πολλές
+                                γλώσσες.
+                                Μετά την πανδημία, το σύνολο επανήλθε δυναμικά, συμμετέχοντας σε φεστιβάλ
+                                όπως η Παγκόσμια Ημέρα Χορωδιακής Μουσικής, το Διεθνές Φεστιβάλ Πολυφωνικών Χορωδιών
+                                Σμύρνης, κα. Παρουσίασαν θεματικά προγράμματα όπως
+                                το BİR (2022) και το DÖNGÜ (2024), συνδυάζοντας τη χορωδιακή με την εικαστική τέχνη,
+                                προσφέροντας στο κοινό μια πολυαισθητηριακή εμπειρία.
+                                Έχουν αποσπάσει βραβεία όπως “Μουσικότητα και Δυναμική” (2022), “Ομοιογένεια και
+                                Χορωδιακός Ήχος” (2023) και “Ερμηνεία Σύγχρονου Έργου”. Το 2023
+                                συμμετείχαν στο Παγκόσμιο Συμπόσιο Χορωδιακής Μουσικής στην Τουρκία,
+                                που διοργανώθηκε από το Υπουργείο Πολιτισμού και την IFCM.
+                                Ο Hasan Can İşgüden είναι τραγουδιστής όπερας, καθηγητής φωνητικής και μαέστρος με
+                                διδακτικό έργο στο Πανεπιστήμιο Dokuz Eylül και στο Πανεπιστήμιο Yaşar. Είναι μέλος του
+                                International Federation for Choral Music (IFCM)
+                                από το 2023.</p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2019 στη Σμύρνη από τον Hasan Can İşgüden — 25 έμπειροι
+                                        χορωδοί</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Από Αναγέννηση έως σύγχρονα έργα — έμφαση σε Τούρκους συνθέτες και
+                                        πολυγλωσσικά τραγούδια</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🌍</span>
+                                    <span>Συναυλίες & φεστιβάλ: Παγκόσμια Ημέρα Χορωδιακής Μουσικής, Διεθνές Φεστιβάλ
+                                        Πολυφωνικών Χορωδιών Σμύρνης, θεματικά προγράμματα BİR (2022) & DÖNGÜ
+                                        (2024)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🏆</span>
+                                    <span>Διακρίσεις: “Μουσικότητα και Δυναμική” (2022), “Ομοιογένεια και Χορωδιακός
+                                        Ήχος” (2023), “Ερμηνεία Σύγχρονου Έργου” — συμμετοχή στο Παγκόσμιο Συμπόσιο
+                                        Χορωδιακής Μουσικής (2023)</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇹🇷</span>
+                            <span>Τουρκία</span>
+                        </div>
+                    </div>
+
+                    <!-- Choir 15 -->
+                    <div class="choir-card">
+                        <div class="choir-header">
+                            <h2 class="choir-name">Παιδική Χορωδία “Lastivka”</h2>
+                            <div class="choir-location">Κίεβο, Ουκρανία</div>
+                        </div>
+                        <div class="choir-image">
+                            <img src="/img/Lativka.jpg" />
+                        </div>
+                        <div class="choir-details">
+                            <div class="choir-conductor">Διευθύνει: Oksana Ursatii</div>
+                            <p class="choir-description">Η Παιδική Χορωδία “Lastivka” (Χελιδόνι) ιδρύθηκε το 2005 από
+                                την Oksana
+                                Ursatii στο Σπίτι Δημιουργικής Απασχόλησης Παιδιών και Νέων της περιοχής
+                                Holosiivski του Κιέβου. Η χορωδία λειτουργεί ως χορωδιακό στούντιο και αποτελείται από
+                                τρεις ομάδες: την προπαρασκευαστική (4–5 ετών), την παιδική
+                                (6–10 ετών) και τη συναυλιακή χορωδία (10–18 ετών). Συνολικά, πάνω από 50
+                                παιδιά φοιτούν υπό την καθοδήγηση τεσσάρων δασκάλων.
+                                Η “Lastivka” έχει διακριθεί σε δεκάδες διεθνείς διαγωνισμούς σε χώρες όπως
+                                Πολωνία, Γερμανία, Γαλλία, Ουγγαρία, Εσθονία, Ρουμανία, Βέλγιο και Ελλάδα, αποσπώντας
+                                χρυσά μετάλλια, πρώτα βραβεία και Grand Prix. Σημαντική
+                                στιγμή αποτέλεσε η συμμετοχή της στη UNICEF Παιδική Χορωδιακή Συνάντηση στη Δρέσδη
+                                (2014) και το Διεθνές Φεστιβάλ Πρέβεζας, όπου η μαέστρος
+                                τιμήθηκε για την εκπαιδευτική της προσφορά.
+                                Το 2011 ονομάστηκε “Πρότυπο Καλλιτεχνικό Σύνολο” και το 2021 έλαβε τον
+                                τίτλο “Εθνικό Καλλιτεχνικό Συγκρότημα”. Το ρεπερτόριο της περιλαμβάνει έργα
+                                από όλες τις εποχές, θρησκευτική και κοσμική μουσική, σύγχρονη ουκρανική
+                                χορωδιακή δημιουργία και λαογραφία.
+                            </p>
+                            <div class="choir-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🗓️</span>
+                                    <span>Ιδρύθηκε το 2005 στο Κίεβο από την Oksana Ursatii — πάνω από 50 παιδιά σε
+                                        τρεις ομάδες ηλικιών</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎼</span>
+                                    <span>Ρεπερτόριο: Θρησκευτική και κοσμική μουσική, σύγχρονη ουκρανική χορωδιακή
+                                        δημιουργία και λαογραφία</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🏆</span>
+                                    <span>Διακρίσεις: Χρυσά μετάλλια, πρώτα βραβεία και Grand Prix σε διεθνείς
+                                        διαγωνισμούς — UNICEF Χορωδιακή Συνάντηση Δρέσδης (2014)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">🎶</span>
+                                    <span>Τίτλοι: “Πρότυπο Καλλιτεχνικό Σύνολο” (2011) και “Εθνικό Καλλιτεχνικό
+                                        Συγκρότημα” (2021)</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="choir-footer">
+                            <span class="country-flag">🇺🇦</span>
+                            <span>Ουκρανία</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Choir 16 -->
+                <div class="choir-card">
+                    <div class="choir-header">
+                        <h2 class="choir-name">Μικτή Χορωδία Πάργας</h2>
+                        <div class="choir-location">Πάργα, Ελλάδα</div>
+                    </div>
+                    <div class="choir-image">
+                        <img src="/img/PargaChoir.jpg" />
+                    </div>
+                    <div class="choir-details">
+                        <div class="choir-conductor">Διευθύνει: Βαλεντίν Στεφάνωφ</div>
+                        <p class="choir-description">Η Μικτή Χορωδία Πάργας ιδρύθηκε τον Φεβρουάριο του 2016 από μία
+                            μικρή
+                            ομάδα φιλόμουσων κατοίκων της περιοχής. Το ρεπερτόριό της περιλαμβάνει
+                            κλασικά και έντεχνα έργα Ελλήνων και ξένων συνθετών. Η χορωδία έχει ενεργή
+                            συμμετοχή στην πολιτιστική ζωή της Πάργας, αναδεικνύοντας την αξία του
+                            χορωδιακού τραγουδιού και ενθαρρύνοντας τη συμμετοχή νέων μελών.
+                            Κάθε χρόνο διοργανώνει ανοιχτές συναυλίες, παρουσιάζοντας το έργο της
+                            στο κοινό. Έχει συμμετάσχει σε σημαντικές χορωδιακές εκδηλώσεις, όπως
+                            οι δύο φιλανθρωπικές συναυλίες με τη Συμφωνική Ορχήστρα Νέων Ελλάδος
+                            στη Θεσσαλονίκη (Νοέμβριος 2019 και Μάρτιος 2023). Το Ιούνιο του 2019,
+                            συμμετείχε στη συναυλία-αφιέρωμα στο “Άξιον Εστί” του Μίκη Θεοδωράκη σε
+                            ποίηση Οδυσσέα Ελύτη, στο Αρχαίο Ωδείο της Νικόπολης.
+                            Τη χορωδία διευθύνει ο Βαλεντίν Στεφάνωφ.
+                        </p>
+                        <div class="choir-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🗓️</span>
+                                <span>Ιδρύθηκε το 2016 από φιλόμουσους κατοίκους της Πάργας — Μικτή Χορωδία</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🎼</span>
+                                <span>Ρεπερτόριο: Κλασικά και έντεχνα έργα Ελλήνων και ξένων συνθετών</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🌍</span>
+                                <span>Συναυλίες & εκδηλώσεις: Ανοιχτές συναυλίες, φιλανθρωπικές συναυλίες με Συμφωνική
+                                    Ορχήστρα Νέων Ελλάδος, αφιέρωμα στο “Άξιον Εστί” (Αρχαίο Ωδείο Νικόπολης,
+                                    2019)</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🎶</span>
+                                <span>Μαέστρος: Βαλεντίν Στεφάνωφ</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="choir-footer">
+                        <span class="country-flag">🇬🇷</span>
+                        <span>Ελλάδα</span>
+                    </div>
+                </div>
+
+                <!-- Choir 17 -->
+                <div class="choir-card">
+                    <div class="choir-header">
+                        <h2 class="choir-name">BUMC Jazz Choir</h2>
+                        <div class="choir-location">Κωνσταντινούπολη, Τουρκία</div>
+                    </div>
+                    <div class="choir-image">
+                        <img src="/img/Bogazici.jpg" />
+                    </div>
+                    <div class="choir-details">
+                        <div class="choir-conductor">Διευθύνει: Zülal Ekiz</div>
+                        <p class="choir-description"> BUMC Jazz Choir (BÜMK Caz Korosu) ιδρύθηκε το 1994 στο πλαίσιο του
+                            Μουσικού Ομίλου του Πανεπιστημίου του Βοσπόρου (Boğaziçi University Music Club)
+                            με στόχο την ερμηνεία πολυφωνικών διασκευών κλασικών κομματιών της jazz.
+                            Από το 2001, το σύνολο επικεντρώνεται σε a cappella εκτελέσεις, και αποτελεί την
+                            πρώτη jazz χορωδία του είδους της στην Τουρκία.
+                            Έχει αποσπάσει σημαντικές διακρίσεις, όπως το 1ο βραβείο στην κατηγορία
+                            “Young Jazz” στο Διεθνές Φεστιβάλ Τζαζ Κωνσταντινούπολης (2008) και τρεις
+                            Χρυσές Διακρίσεις στους World Choir Games στη Σαοσίνγκ της Κίνας (2010).
+                            Έκτοτε, έχει πραγματοποιήσει δεκάδες συναυλίες στην Τουρκία και το εξωτερικό
+                            και έχει συμμετάσχει σε πολιτιστικές διοργανώσεις, με πιο πρόσφατη τη συμμετοχή στο
+                            Benyamin Sönmez Classical Music Festival (2024) και στο BUMC Jazz
+                            Festival (2025).
+                            Η Zülal Ekiz, γεννημένη το 2002, είναι φοιτήτρια Ψυχολογίας στο Πανεπιστήμιο
+                            του Βοσπόρου και μουσικός με πολυετή εμπειρία στο πιάνο και τη φωνή. Ξεκίνησε
+                            στη Rock Choir του πανεπιστημίου και το 2023 εντάχθηκε ως άλτο στην BUMC
+                            Jazz Choir. Από τον Οκτώβριο του 2024, είναι μαέστρος του συνόλου και συνεχίζει σπουδές στη
+                            μουσική θεωρία.
+                        </p>
+                        <div class="choir-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🗓️</span>
+                                <span>Ιδρύθηκε το 1994 στο πλαίσιο του Μουσικού Ομίλου του Πανεπιστημίου του Βοσπόρου —
+                                    πρώτη a cappella jazz χορωδία στην Τουρκία</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🏆</span>
+                                <span>Διακρίσεις: 1ο βραβείο Young Jazz (Διεθνές Φεστιβάλ Κωνσταντινούπολης 2008), 3
+                                    Χρυσές Διακρίσεις (World Choir Games, Κίνα 2010)</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🌍</span>
+                                <span>Συναυλίες: Πολιτιστικές διοργανώσεις Τουρκίας & εξωτερικού, Benyamin Sönmez
+                                    Festival (2024), BUMC Jazz Festival (2025)</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🎶</span>
+                                <span>Μαέστρος: Zülal Ekiz (από 2024) — άλτο, πιανίστρια & φοιτήτρια μουσικής
+                                    θεωρίας</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="choir-footer">
+                        <span class="country-flag">🇹🇷</span>
+                        <span>Τουρκία</span>
+                    </div>
+                </div>
+
+                <!-- Choir 18 -->
+                <div class="choir-card">
+                    <div class="choir-header">
+                        <h2 class="choir-name">Γυναικεία Χορωδία “Trimontium”</h2>
+                        <div class="choir-location">Φιλιππούπολη, Βουλγαρία</div>
+                    </div>
+                    <div class="choir-image">
+                        <img src="/img/Trimortium.jpg" />
+                    </div>
+                    <div class="choir-details">
+                        <div class="choir-conductor">Διευθύνει: Vanya Atanasova</div>
+                        <p class="choir-description">Η Γυναικεία Χορωδία «Trimontium» ιδρύθηκε το 1965 στη Φιλιππούπολη
+                            και αποτελεί διαρκώς ενεργό φορέα πολιτισμού. Έχει συμμετάσχει σε φεστιβάλ και διαγωνισμούς
+                            σε όλη την Ευρώπη, αποσπώντας διεθνείς διακρίσεις. Το ρεπερτόριό της περιλαμβάνει έργα
+                            Βούλγαρων και ξένων συνθετών, με έμφαση στη βουλγαρική παράδοση, την ορθόδοξη εκκλησιαστική
+                            μουσική και τις σύγχρονες διασκευές. Ξεχωρίζουν οι συμπράξεις με την Όπερα Φιλιππούπολης
+                            στα έργα «Gloria» του Vivaldi και «Nabucco» του Verdi, καθώς και η εμφάνιση στο «Όνειρο
+                            Καλοκαιρινής Νύχτας» του Mendelssohn με τη Συμφωνική Ορχήστρα Νέων της Βρέμης, στο πλαίσιο
+                            της Πολιτιστικής Πρωτεύουσας της Ευρώπης – Plovdiv 2019. Από το
+                            2010 τη διεύθυνση έχει η Vanya Atanasova, διακεκριμένη μαέστρος και απόφοιτος της Ακαδημίας
+                            Τεχνών Φιλιππούπολης, η οποία έχει τιμηθεί από τον Δήμο Φιλιππούπολης και το Υπουργείο
+                            Παιδείας της Βουλγαρίας για τη συμβολή της στην καλλιτεχνική δημιουργία.
+                        </p>
+                        <div class="choir-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🗓️</span>
+                                <span>Ιδρύθηκε το 1965 στη Φιλιππούπολη — Γυναικεία Χορωδία «Trimontium»</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🎼</span>
+                                <span>Ρεπερτόριο: Έργα Βούλγαρων και ξένων συνθετών — βουλγαρική παράδοση, ορθόδοξη
+                                    εκκλησιαστική μουσική, σύγχρονες διασκευές</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🏆</span>
+                                <span>Διακρίσεις: Χάλκινο Μετάλλιο (Βάρνα 1989), Α΄ Βραβείο (Παραλία Κατερίνης 2015),
+                                    Αργυρό Μετάλλιο (Πρέβεζα 2018)</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🎶</span>
+                                <span>Μαέστρος: Vanya Atanasova από το 2010 — διακεκριμένη μαέστρος, τιμημένη από Δήμο
+                                    Φιλιππούπολης και Υπουργείο Παιδείας Βουλγαρίας</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="choir-footer">
+                        <span class="country-flag">🇧🇬</span>
+                        <span>Βουλγαρία</span>
+                    </div>
+                </div>
+
+                <!-- Choir 19 -->
+                <div class="choir-card">
+                    <div class="choir-header">
+                        <h2 class="choir-name">Χορωδία Gagarin – Saint Louis College of Music</h2>
+                        <div class="choir-location">Ρώμη, Ιταλία</div>
+                    </div>
+                    <div class="choir-image">
+                        <img src="/img/Gagarin.jpg" />
+                    </div>
+                    <div class="choir-details">
+                        <div class="choir-conductor">Διευθύνει: Jacopo Tarchi</div>
+                        <p class="choir-description">Το φωνητικό σύνολο Coro Gagarin δημιουργήθηκε τον Ιανουάριο του
+                            2024
+                            από τον Jacopo Tarchi, στο Saint Louis College of Music στη Ρώμη. Η ίδρυση
+                            της χορωδίας εντάσσεται στο πλαίσιο της προσωπικής του έρευνας για την
+                            ιταλική παραδοσιακή μουσική και αποσκοπεί στην ανάδειξη της πολιτιστικής
+                            συνέχειας της Ιταλίας μέσα από έναν διάλογο μεταξύ παλαιού και σύγχρονου.
+                            Η χορωδία λειτουργεί ως καλλιτεχνικός φορέας που υπηρετεί με σεβασμό την
+                            ιταλική λαϊκή κληρονομιά, ερμηνεύοντας παραδοσιακά τραγούδια είτε με αυθεντικό τρόπο είτε
+                            μέσω πρωτότυπων ενορχηστρώσεων. Το ρεπερτόριό της
+                            χαρακτηρίζεται από ποικιλομορφία, επιλέγοντας συνθέσεις που μεταφέρουν
+                            τον πλούτο των τοπικών παραδόσεων της Ιταλίας, χωρίς να αλλοιώνεται ο
+                            λαϊκός χαρακτήρας τους.
+                            Ο Jacopo Tarchi, φοιτητής διεύθυνσης και ενορχήστρωσης στο Saint Louis,
+                            είναι επίσης μέλος της επαγγελματικής χορωδίας Flowing Chords, ενώ έχει
+                            ήδη εμπειρία ως ερμηνευτής και leader σε συναυλιακές δράσεις στη Ρώμη.
+                            Με πάθος για τη φωνητική αρμονία και βαθιά κατανόηση της παραδοσιακής
+                            μουσικής, καθοδηγεί το Coro Gagarin με μουσικότητα και καλλιτεχνικό όραμα.
+                        </p>
+                        <div class="choir-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🗓️</span>
+                                <span>Ιδρύθηκε τον Ιανουάριο του 2024 από τον Jacopo Tarchi — Saint Louis College of
+                                    Music, Ρώμη</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🎼</span>
+                                <span>Ρεπερτόριο: Παραδοσιακά ιταλικά τραγούδια — αυθεντικές ερμηνείες και πρωτότυπες
+                                    ενορχηστρώσεις</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🌍</span>
+                                <span>Στόχος: Ανάδειξη της πολιτιστικής συνέχειας της Ιταλίας — διάλογος μεταξύ παλαιού
+                                    και σύγχρονου</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🎶</span>
+                                <span>Μαέστρος: Jacopo Tarchi — φοιτητής διεύθυνσης και ενορχήστρωσης, μέλος της
+                                    επαγγελματικής χορωδίας Flowing Chords, με εμπειρία σε συναυλιακές δράσεις στη
+                                    Ρώμη</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="choir-footer">
+                        <span class="country-flag">🇮🇹</span>
+                        <span>Ιταλία</span>
+                    </div>
+                </div>
+
+
+                <!-- Choir 20 -->
+                <div class="choir-card">
+                    <div class="choir-header">
+                        <h2 class="choir-name">Χορωδία Shiran, Ramat Hasharon</h2>
+                    </div>
+                    <div class="choir-image">
+                        <img src="/img/Shiran.jpg" />
+                    </div>
+                    <div class="choir-details">
+                        <div class="choir-conductor">Διευθύνει: Doron Ben-Ami</div>
+                        <p class="choir-description">Η Χορωδία Shiran ιδρύθηκε το 1979 από τον αείμνηστο συνθέτη και
+                            μαέστρο
+                            Yaacov Hollander, υπό τη διεύθυνση του οποίου παρέμεινε έως το 1997. Η
+                            χορωδία αριθμεί σήμερα 40 μέλη, αρκετά εκ των οποίων συμμετέχουν από
+                            την ίδρυσή της. Ακολούθησαν οι μαέστροι Doron Shenkar (1997–2002) και
+                            Dudi Zeba (2002–2021), ενώ από το 2021 τη διεύθυνση έχει αναλάβει ο Doron
+                            Ben-Ami.
+                            Το ρεπερτόριό της εστιάζει στο ισραηλινό τραγούδι, με τακτικές εμφανίσεις σε
+                            συναυλίες, φεστιβάλ και τηλεοπτικές ή ραδιοφωνικές παραγωγές. Έχει συνεργαστεί με την
+                            Ισραηλινή Φιλαρμονική Ορχήστρα και τη Ra’anana Symphonette,
+                            ενώ έχει πραγματοποιήσει περιοδείες σε χώρες όπως οι Γερμανία, Ιταλία,
+                            Πορτογαλία, Τσεχία, Ουγγαρία, Πολωνία, Ρωσία, Ιρλανδία, Ελλάδα, Λετονία
+                            και Ισπανία. Έχει αποσπάσει χρυσό μετάλλιο στη Γερμανία, καθώς και αργυρά στο Ισραήλ, στη
+                            Ρίγα (2017) και στην Καλαμάτα (2019).
+                            Ο μαέστρος Doron Ben-Ami είναι τραγουδιστής, μουσικός και ιστορικός, με
+                            ευρεία δράση στη διεύθυνση φωνητικών συνόλων. Είναι ιδρυτής του επιτυχημένου a cappella
+                            συνόλου «One and a Half Quintets», συνδυάζοντας την καλλιτεχνική δημιουργία με την
+                            ακαδημαϊκή διδασκαλία
+                        </p>
+                        <div class="choir-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🗓️</span>
+                                <span>Ιδρύθηκε το 1979 από τον Yaacov Hollander — σήμερα 40 μέλη με μακροχρόνια
+                                    συμμετοχή</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🎼</span>
+                                <span>Ρεπερτόριο: Ισραηλινό τραγούδι — τακτικές εμφανίσεις σε συναυλίες, φεστιβάλ και
+                                    μέσα ενημέρωσης</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🌍</span>
+                                <span>Συναυλίες & περιοδείες: Συνεργασίες με Ισραηλινή Φιλαρμονική & Ra’anana
+                                    Symphonette, περιοδείες σε Γερμανία, Ιταλία, Πορτογαλία, Τσεχία, Ουγγαρία, Πολωνία,
+                                    Ρωσία, Ιρλανδία, Ελλάδα, Λετονία, Ισπανία</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🏆</span>
+                                <span>Διακρίσεις: Χρυσό μετάλλιο (Γερμανία), αργυρά μετάλλια στο Ισραήλ, Ρίγα (2017) και
+                                    Καλαμάτα (2019) — Μαέστρος Doron Ben-Ami, ιδρυτής a cappella συνόλου «One and a Half
+                                    Quintets»</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
                     <div class="container">
                         <section class="gallery-area section-gap gallery-page-area" id="gallery">
                             <div class="container">
