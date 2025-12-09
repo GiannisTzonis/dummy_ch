@@ -214,13 +214,6 @@
   .margined {
     margin: auto;
   }
-  /* .translate {
-    display: none;
-  } */
-  .translate {
-    top: 7px;
-    left: 7px;
-  }
   .flag-container {
     margin-left: 120px;
   }

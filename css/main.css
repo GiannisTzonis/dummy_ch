@@ -809,11 +809,11 @@ p {
   background: #f9fafc;
 }
 
-.translate {
-  position: absolute;
-  right: 15px;
-  top: 30px;
-}
+  .translate {
+    position: fixed;
+    top: 12px;
+  right: 14px;
+  }
 /* .translated {
   display: none;
 } */
@@ -2035,7 +2035,7 @@ h6 {
 
 @media (max-width: 673px) {
   #logo {
-    margin-left: 20px;
+    margin-left: 0px;
   }
 }
 
@@ -2196,8 +2196,8 @@ h6 {
 }
 
 #flags {
-  width: 35px;
-  height: 35px;
+  width: 26px;
+  height: 26px;
 }
 
 #flag-button-a {
@@ -2217,7 +2217,7 @@ h6 {
   position: fixed;
   right: 15px;
   z-index: 999;
-  top: 28px;
+  top: 48px;
   border: 0;
   background: none;
   font-size: 24px;
@@ -2582,6 +2582,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
+
+@media (min-width: 1381px) {
+  .translate {
+    position: fixed;
+    top: 35px;
+  right: 14px;
+  }
+}
+
+
 @media (max-width: 960px) {
   .quote-left,
   .quote-right {
@@ -2668,6 +2678,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .news-img {
+  border-radius: 5px;
+  border: solid 1px #e9e9e9;
   padding-bottom: 0;
   width: 280px;
   height: 400px;
@@ -3162,7 +3174,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (max-width: 960px) {
   .cat-top-area .cat-top-right {
-    margin-top: 50px;
+    margin-top: 5px;
   }
   .cat-top-area .cat-top-right img {
     margin-left: auto !important;
@@ -3961,10 +3973,10 @@ p {
   .same-size {
     width: auto;
   }
-  .translate {
+  /* .translate {
     top: 7px;
     left: 7px;
-  }
+  } */
   .flag-container {
     margin-left: 120px;
   }
