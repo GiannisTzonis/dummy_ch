@@ -7,6 +7,7 @@
 //     loader adds the "armonia-fallback" marker) points search engines at the English page and is
 //     left out of the sitemap and of the other pages' hreflang links
 //   - sitemap.xml (every page with its versions) and robots.txt
+//   - index.html (the root): a bare redirect to /en/
 //   - 404.html, which GitHub Pages serves for any unknown address: the app starts there and shows
 //     its "page not found" page in the address's language (root.tsx)
 // Page addresses end in "/", as GitHub Pages serves them (the legacy redirect pages point there too).
@@ -126,4 +127,11 @@ if (fs.existsSync(spa)) {
   const page = fs.readFileSync(spa, "utf8").replace("</head>", `<meta name="robots" content="noindex"><meta name="armonia-not-found" content="1"></head>`);
   fs.writeFileSync(path.join(out, "404.html"), page);
 }
-console.log(`seo: ${pages.length} pages tagged (${fallbackRoutes.size} not yet translated, pointed at the English), sitemap.xml (${entries.length} URLs), robots.txt, 404.html`);
+// index.html (the site's root, and the legacy /index.html): a bare redirect to the English home, like
+// the legacy redirect pages. Prerendered, it was the whole app (scripts, styles, fonts) loaded only to
+// move on, which a first visit then paid for twice.
+fs.writeFileSync(
+  path.join(out, "index.html"),
+  `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Armonia Choir | International Choral Festival of Preveza, Greece</title>\n<link rel="canonical" href="${SITE}/en/">\n<meta http-equiv="refresh" content="0; url=/en/">\n<script>location.replace("/en/" + location.search + location.hash);</script>\n</head>\n<body><a href="/en/">${SITE}/en/</a></body>\n</html>\n`
+);
+console.log(`seo: ${pages.length} pages tagged (${fallbackRoutes.size} not yet translated, pointed at the English), sitemap.xml (${entries.length} URLs), robots.txt, 404.html, index.html (redirect)`);

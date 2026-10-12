@@ -13,14 +13,12 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { useAnchorScroll } from "./lib/anchor-scroll";
 import { localeOf } from "./lib/locale";
-import { isLocale } from "./content/types";
+import { isLocale } from "./content/locales";
 import { recoverNavigation, useStaleDeployRecovery } from "./lib/stale-deploy";
 import { useEffect } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/webp", href: "/img/logo.w400.webp" },
-  // Font Awesome 4.7 from the legacy site (footer social icons).
-  { rel: "stylesheet", href: "/vendor/font-awesome/css/font-awesome.min.css" },
 ];
 
 export const meta: Route.MetaFunction = () => [

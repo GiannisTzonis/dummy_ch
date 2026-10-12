@@ -1,6 +1,7 @@
 @import "tailwindcss";
-/* Inter (variable, optical sizes), self-hosted, with Greek and Latin subsets. */
-@import "@fontsource-variable/inter/opsz.css";
+/* Inter (variable weight), self-hosted, with Greek and Latin subsets. (The optical-size version
+   is a third larger per file, which slowed the first visit on phones.) */
+@import "@fontsource-variable/inter/index.css";
 
 /*
  * Design tokens. Brand colours come from the legacy site (#2b287a navy,

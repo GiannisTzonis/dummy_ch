@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
-import { isLocale, type Locale, type MaybeLocalized } from "~/content/types";
+import { isLocale, type Locale } from "~/content/locales";
+import type { MaybeLocalized } from "~/content/types";
 import { siteLocales } from "~/content/site-locales";
 
 // The language of an address's first segment ("/fr/festival/2026" -> "fr"): one of the published
