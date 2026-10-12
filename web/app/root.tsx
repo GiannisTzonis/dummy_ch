@@ -37,6 +37,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Google Search Console ownership of armoniachoir.org (keep: removing it can unverify the site) */}
+        <meta name="google-site-verification" content="pjWBeMgIwD-LrvHLt-QrVZvE4VHSc3qdYe21uLZSJDA" />
         <Meta />
         <Links />
       </head>

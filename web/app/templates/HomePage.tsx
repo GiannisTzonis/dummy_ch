@@ -82,7 +82,8 @@ function Collaborations({ items, locale }: { items: HomePageContent["collaborati
 // "**Welcome** to ...\n**Armonia Choir** & ..." -> highlighted spans and line breaks.
 function welcomeLines(text: string): ReactNode[] {
   return text.split("\n").flatMap((line, i) => [
-    ...(i > 0 ? [<br key={`br${i}`} />] : []),
+    // (a space before each break: phones hide the breaks, and the words must not run together)
+    ...(i > 0 ? [" ", <br key={`br${i}`} />] : []),
     ...line.split(/(\*\*[^*]+\*\*)/).map((part, j) =>
       part.startsWith("**") ? (
         <span key={`${i}-${j}`} className="font-semibold">

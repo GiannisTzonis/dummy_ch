@@ -206,7 +206,22 @@ type Group =
   | { kind: "narrow"; cols: number; blocks: RichBlock[] }
   | { kind: "columns"; columns: { cols: number; blocks: RichBlock[] }[] }
   | { kind: "gallery"; blocks: RichBlock[] }
-  | { kind: "row"; img: RichBlock; text: RichBlock[]; imageFirst: boolean };
+  | { kind: "row"; img: RichBlock; text: RichBlock[]; imageFirst: boolean }
+  | { kind: "cards"; cards: EditionCardData[] };
+
+// An edition in the Previous Festivals / Previous Masterclasses lists: a legacy column holding the
+// poster (linked), a dates line, the title (a link to the same page) and the edition's events.
+type EditionCardData = { img: string; href: string; dates: string; title: string; items: string[] };
+function asEditionCard(blocks: RichBlock[]): EditionCardData | null {
+  const [img, dates, heading, list, ...rest] = blocks;
+  if (rest.length || typeof img === "string" || !("img" in img) || !img.href) return null;
+  if (typeof dates !== "string" || dates.length > 40) return null;
+  if (typeof heading === "string" || !("heading" in heading)) return null;
+  const link = heading.heading.match(/^\[([^\]]+)\]\(([^)\s]+)\)$/);
+  if (!link || link[2] !== img.href) return null;
+  if (list !== undefined && (typeof list === "string" || !("list" in list))) return null;
+  return { img: img.img, href: img.href, dates, title: link[1], items: list && typeof list !== "string" && "list" in list ? list.list : [] };
+}
 
 // Consecutive gallery thumbnails become one grid; a portrait ("side" image) and
 // the text between the surrounding headings become a two-column row with the
@@ -254,7 +269,73 @@ function group(blocks: RichBlock[]): Group[] {
       last.columns.push({ cols: g.cols, blocks: g.blocks });
     else merged.push(g.kind === "narrow" ? { kind: "columns", columns: [{ cols: g.cols, blocks: g.blocks }] } : g);
   }
-  return merged;
+  // Rows of edition columns become one uniform card grid (the posters differ in shape, so the
+  // legacy columns had uneven heights).
+  const out2: Group[] = [];
+  for (const g of merged) {
+    const cards = g.kind === "columns" ? g.columns.map((c) => asEditionCard(c.blocks)) : null;
+    if (g.kind !== "columns" || !cards || cards.every((c) => !c)) { out2.push(g); continue; }
+    // a row can hold other columns too (Previous Masterclasses: the page title beside the newest
+    // edition): those stay a row of their own, above the grid
+    const rest = g.columns.filter((_, k) => !cards[k]);
+    if (rest.length) out2.push({ kind: "columns", columns: rest });
+    const found = cards.filter((c): c is EditionCardData => !!c);
+    const last = out2[out2.length - 1];
+    if (last?.kind === "cards") last.cards.push(...found);
+    else out2.push({ kind: "cards", cards: found });
+  }
+  return out2;
+}
+
+const viewLabel = { en: "View edition", el: "Δείτε τη διοργάνωση" } as const;
+
+// One edition as a card: the poster on a fixed 4:5 stage over a blurred copy of itself (every
+// poster whole, every card the same size), the dates as a chip, the title, the edition's events,
+// and the whole card as one link.
+function EditionCard({ card, locale }: { card: EditionCardData; locale: Locale }) {
+  return (
+    <a
+      href={resolve(card.href, locale)}
+      className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgb(15_23_42/0.06),0_4px_16px_rgb(15_23_42/0.06)] ring-1 ring-rule transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgb(15_23_42/0.06),0_18px_40px_rgb(15_23_42/0.14)] hover:ring-brand-navy/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-navy"
+    >
+      <div className="relative aspect-[4/5] overflow-hidden bg-brand-navy-dark">
+        <img src={sized(card.img, 400)} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-60 blur-2xl" />
+        <img
+          {...responsive(card.img, "(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw")}
+          alt=""
+          loading="lazy"
+          className="relative h-full w-full object-contain p-3 drop-shadow-[0_10px_24px_rgb(0_0_0/0.35)] transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+        <p className="type-caption absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 font-semibold text-brand-maroon shadow-sm backdrop-blur">
+          <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          {card.dates}
+        </p>
+      </div>
+      <div className="flex flex-1 flex-col px-6 pt-5 pb-6">
+        <div className="mb-3 h-0.5 w-8 bg-brand-maroon transition-all duration-300 group-hover:w-14" aria-hidden="true" />
+        <h4 className="type-h5 text-ink transition-colors group-hover:text-brand-navy">{card.title}</h4>
+        {card.items.length > 0 && (
+          <ul className="mt-3 space-y-1.5">
+            {card.items.map((it) => (
+              <li key={it} className="type-small flex gap-2.5 text-muted">
+                <span className="mt-[0.6em] h-1 w-1 shrink-0 rounded-full bg-brand-maroon/70" aria-hidden="true" />
+                {it}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="min-h-5 flex-1" aria-hidden="true" />
+        <p data-legacy-ignore="" className="type-label inline-flex items-center gap-1.5 border-t border-rule pt-4 font-semibold tracking-wide text-brand-navy uppercase">
+          {viewLabel[locale === "el" ? "el" : "en"]}
+          <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-6-6 6 6-6 6" />
+          </svg>
+        </p>
+      </div>
+    </a>
+  );
 }
 
 export function RichText({ paragraphs }: { paragraphs: RichBlock[] }) {
@@ -294,6 +375,14 @@ export function RichText({ paragraphs }: { paragraphs: RichBlock[] }) {
               ))}
             </div>
           </div>
+        ) : g.kind === "cards" ? (
+          <ul key={i} className="!mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {g.cards.map((c) => (
+              <li key={c.href}>
+                <EditionCard card={c} locale={locale} />
+              </li>
+            ))}
+          </ul>
         ) : g.kind === "block" ? (
           <Block key={i} block={g.block} locale={locale} dupes={dupes} />
         ) : null,

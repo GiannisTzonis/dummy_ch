@@ -124,11 +124,15 @@ export function Navbar() {
                 )}
               </li>
             ))}
+            {/* the language selector: one more entry of the menu, on the same line */}
+            <li className="relative min-[90rem]:ml-[10px]">
+              <LanguageSwitch variant="menu" locale={locale} pathname={location.pathname} />
+            </li>
           </ul>
         </nav>
 
-        <div className="ml-auto flex shrink-0 items-center gap-3 sm:gap-4 lg:ml-4 min-[90rem]:ml-[32px]">
-          <LanguageSwitch locale={locale} pathname={location.pathname} />
+        <div className="ml-auto flex shrink-0 items-center gap-3 sm:gap-4 lg:hidden">
+          <LanguageSwitch variant="compact" locale={locale} pathname={location.pathname} />
           {/* Mobile toggle */}
           <button
             type="button"
