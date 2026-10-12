@@ -6,12 +6,15 @@
 // numbers as written in the English, and the ways a translation may write the same number:
 // 1,000 / 1.000 / 1 000; 91.67 / 91,67; "8:30 p.m." may become 20:30 / 20h30 / 20.30
 function numbers(s) {
+  // a date written with dots or slashes ("31.12.1999", "31/12/1999") is three numbers, not a decimal
+  s = s.replace(/\b(\d{1,2})[./](\d{1,2})[./](\d{2,4})\b/g, "$1 $2 $3");
   return [...s.matchAll(/\d+(?:[.,\s]\d{3})*(?:[.,]\d+)?/g)].map((m) => m[0].replace(/[.,\s](?=\d{3}\b)/g, "").replace(",", "."));
 }
 function eveningHours(s) {
   // hours given with p.m.: their 24-hour form is also accepted
   return [...s.matchAll(/\b(\d{1,2})(?:[:.](\d{2}))?\s*(?:p\.?\s?m\.?|pm)\b/gi)].map((m) => +m[1]).filter((h) => h >= 1 && h <= 11);
 }
+const roman = (n) => [[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]].reduce((s, [v, r]) => { while (n >= v) { s += r; n -= v; } return s; }, "");
 const links = (s) => [...s.matchAll(/\]\(([^)\s]+)\)/g)].map((m) => m[1]).sort();
 const count = (s, re) => (s.match(re) || []).length;
 const letters = (s) => s.replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/[^\p{L}]/gu, "");
@@ -37,13 +40,19 @@ function checkText(en, tr, names, where, errors, warnings) {
     if (i >= 0) { have.splice(i, 1); continue; }
     const h = +n;
     if (pm.has(h) && have.includes(String(h + 12))) { have.splice(have.indexOf(String(h + 12)), 1); continue; }
+    // a century in Roman numerals (XVIe siècle, siglo XVI) for "16th century"
+    if (h >= 1 && h <= 30 && /centur/i.test(en) && new RegExp(`\\b${roman(h)}`).test(tr)) continue;
     errors.push(`${where}: number ${n} missing`);
   }
   if (links(en).join(" ") !== links(tr).join(" ")) errors.push(`${where}: links differ (${links(en).join(" ")} vs ${links(tr).join(" ")})`);
   if (count(en, /\*\*/g) !== count(tr, /\*\*/g)) errors.push(`${where}: bold markers differ`);
   if (count(en, /\n/g) !== count(tr, /\n/g)) errors.push(`${where}: line breaks differ (${count(en, /\n/g)} vs ${count(tr, /\n/g)})`);
   if (isCaps(en) && !isCaps(tr)) errors.push(`${where}: the English is in capitals, the translation is not`);
-  for (const n of protectedNames(en, names)) if (!tr.includes(n)) errors.push(`${where}: name "${n}" missing`);
+  // registered person and choir names must appear as written; another accented word may be a
+  // town with a name of its own in the target language (Kraków -> Cracovie): for the reviewer
+  const registered = new Set(names.filter((n) => n.length > 3 && en.includes(n)));
+  for (const n of protectedNames(en, names))
+    if (!tr.includes(n)) (registered.has(n) ? errors : warnings).push(`${where}: name "${n}" missing`);
   // length: no dropped or invented sentences
   if (en.length >= 60) {
     const r = tr.length / en.length;

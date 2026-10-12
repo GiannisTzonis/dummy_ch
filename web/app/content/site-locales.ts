@@ -5,7 +5,7 @@ import type { Locale } from "./types";
 // (I18N.md at the repo root). English must stay first: it is the fallback for every other one.
 //
 // For a local preview of a language not yet published: VITE_PREVIEW_LOCALES=fr npm run dev
-const published: Locale[] = ["en", "el"];
+const published: Locale[] = ["en", "el", "fr", "it", "de", "es"];
 const preview = String(import.meta.env.VITE_PREVIEW_LOCALES ?? "")
   .split(",")
   .map((s: string) => s.trim())

@@ -12,16 +12,27 @@ embellish: same meaning, same facts, natural wording in the target language.
 - Greek people and Greek choirs: the Latin spelling used on the English page ("Kosmas Koronaios",
   "Theodora Pavlovitch"), never re-transliterated.
 - Titles of musical works stay as written (also when they are English).
-- Greek towns: the usual name in the target language where one exists (Athènes / Atene / Athen /
-  Atenas; Thessalonique / Salonicco / Thessaloniki / Tesalónica), otherwise the English spelling
-  (Preveza, Nikopolis, Parga).
+- **Choir names stay exactly as listed in the English, descriptive words included**, everywhere
+  (schedules, headings, biographies): "Female Chamber Choir Caloroso", "Children's Choir
+  "Okarina"", "Choir PRIMO Secondary School nr1". They are the choirs' registered names; a
+  translated form in one place and the listed form in another would read as two choirs. Only the
+  festival's own choirs use the forms in the table below.
+- Towns and countries, Greek or foreign: the usual name in the target language where one exists
+  (Athènes / Atene / Athen / Atenas; Thessalonique / Salonicco / Thessaloniki / Tesalónica;
+  Cracovie / Cracovia / Krakau / Cracovia; Lubiana for Ljubljana in Italian), otherwise the English
+  spelling (Preveza, Parga, Iasi). Nikopolis: Nicopolis / Nicopoli / Nikopolis / Nicópolis.
+- Organisations: an official name stays as it is (Westminster Choir College, ACDA, Choral Festival
+  Network); where the English page itself only describes a foreign institution in English
+  ("Academy of Music in Ljubljana"), it may be described in the target language.
 
 ## The organisation and its events
 
 | English | French | Italian | German | Spanish |
 |---|---|---|---|---|
 | Armonia Choir | Chœur Armonia | Coro Armonia | Chor Armonia | Coro Armonia |
-| Choral Society "Armonia" of Preveza | Société chorale « Armonia » de Preveza | Società corale "Armonia" di Preveza | Chorverein „Armonia“ Preveza | Sociedad Coral "Armonia" de Preveza |
+| Choral Society "Armonia" of Preveza | Société chorale « Armonia » de Preveza | Società corale «Armonia» di Preveza | Chorverein „Armonia“ Preveza | Sociedad Coral «Armonia» de Preveza |
+| Children's Choir "Armonia" of Preveza | Chœur d'enfants « Armonia » de Preveza | Coro di voci bianche «Armonia» di Preveza | Kinderchor „Armonia“ Preveza | Coro Infantil «Armonia» de Preveza |
+| Mixed Choir "Armonia" of Preveza | Chœur mixte « Armonia » de Preveza | Coro misto «Armonia» di Preveza | Gemischter Chor „Armonia“ Preveza | Coro Mixto «Armonia» de Preveza |
 | International Choral Festival of Preveza | Festival choral international de Preveza | Festival corale internazionale di Preveza | Internationales Chorfestival Preveza | Festival Coral Internacional de Preveza |
 | 44th International Choral Festival of Preveza | 44e Festival choral international de Preveza | 44° Festival corale internazionale di Preveza | 44. Internationales Chorfestival Preveza | 44.º Festival Coral Internacional de Preveza |
 | International Choral Competition | Concours choral international | Concorso corale internazionale | Internationaler Chorwettbewerb | Concurso Coral Internacional |
@@ -34,6 +45,13 @@ embellish: same meaning, same facts, natural wording in the target language.
 | Participating Choirs | Chœurs participants | Cori partecipanti | Teilnehmende Chöre | Coros participantes |
 | Demonstrative choir | Chœur de démonstration | Coro dimostrativo | Demonstrationschor | Coro de demostración |
 | Mentors | Mentors | Docenti | Dozenten | Mentores |
+| Commissioner (committee member) | membre | consigliere / consigliera | Beisitzer / Beisitzerin | vocal |
+| President / Vice President / General Secretary / Treasurer | président(e) / vice-président(e) / secrétaire général(e) / trésorier (trésorière) | presidente / vicepresidente / segretario (segretaria) generale / tesoriere (tesoriera) | Präsident(in) / Vizepräsident(in) / Generalsekretär(in) / Schatzmeister(in) | presidente (presidenta) / vicepresidente (vicepresidenta) / secretario (secretaria) general / tesorero (tesorera) |
+| Masterclass for Choral Conductors (title) | Masterclass de direction de chœur | Masterclass per direttori di coro | Meisterkurs für Chordirigenten | Clase magistral para directores de coro |
+| Seminar for Choral Conductors | Séminaire pour chefs de chœur | Seminario per direttori di coro | Seminar für Chordirigenten | Seminario para directores de coro |
+| Fr. (an Orthodox priest, before a name) | père | padre | Pfr. | P. |
+| Early Bird / Regular (fees) | tarif préférentiel / tarif normal | tariffa agevolata / tariffa ordinaria | Frühbucherpreis / Normalpreis | tarifa anticipada / tarifa general |
+| Cultural Centre of the Holy Metropolis (of Nikopolis and Preveza) | Centre culturel de la Sainte Métropole | Centro culturale della Sacra Metropolia | Kulturzentrum der Heiligen Metropolie | Centro Cultural de la Santa Metrópolis |
 | Programme / Schedule | Programme | Programma | Programm | Programa |
 | Rules & practical information | Règlement et informations pratiques | Regolamento e informazioni pratiche | Teilnahmebedingungen und praktische Hinweise | Reglamento e información práctica |
 | Application form | Formulaire d'inscription | Modulo di iscrizione | Anmeldeformular | Formulario de inscripción |
@@ -47,6 +65,8 @@ embellish: same meaning, same facts, natural wording in the target language.
 | vocal ensemble | ensemble vocal | ensemble vocale | Vokalensemble | conjunto vocal |
 | conductor (of a choir) | chef de chœur | direttore (del coro) | Chorleiter / Dirigent | director (del coro) |
 | conductor (person on a jury list) | chef de chœur | direttore | Dirigent | director |
+| a woman conductor (and other roles: feminine forms for women) | cheffe de chœur | direttrice | Chorleiterin / Dirigentin | directora |
+| "Dr." before a name | Dr. (as written in the name) | Dr. | Dr. | Dr. |
 | composer | compositeur | compositore | Komponist | compositor |
 | a cappella | a cappella | a cappella | a cappella | a cappella |
 | category (Category A…) | catégorie (Catégorie A…) | categoria (Categoria A…) | Kategorie (Kategorie A…) | categoría (Categoría A…) |
@@ -61,7 +81,26 @@ embellish: same meaning, same facts, natural wording in the target language.
 | free programme | programme libre | programma libero | freies Programm | programa libre |
 | active / passive participant | participant actif / auditeur | partecipante effettivo / uditore | aktiver / passiver Teilnehmer | participante activo / oyente |
 
+## Places in Preveza and programme labels
+
+| English | French | Italian | German | Spanish |
+|---|---|---|---|---|
+| (Open) Garden Theatre "Giannis Ritsos" | Théâtre de verdure « Giannis Ritsos » | Teatro all'aperto «Giannis Ritsos» | Gartentheater „Giannis Ritsos“ | Teatro al aire libre «Giannis Ritsos» |
+| Courts Square | place du Palais de justice | piazza del Tribunale | Platz am Gericht | plaza de los Juzgados |
+| Preveza Marina | port de plaisance de Preveza | porto turistico di Preveza | Yachthafen Preveza | puerto deportivo de Preveza |
+| Municipality of Preveza Art Gallery (Athanasiadis' House) | Galerie d'art municipale de Preveza (maison Athanasiadis) | Pinacoteca comunale di Preveza (Casa Athanasiadis) | Städtische Kunstgalerie Preveza (Haus Athanasiadis) | Pinacoteca Municipal de Preveza (Casa Athanasiadis) |
+| Roman Odeon of Nikopolis | Odéon romain de Nicopolis | Odeon romano di Nicopoli | Römisches Odeon von Nikopolis | Odeón romano de Nicópolis |
+| programme labels: Competition / Concert / Ceremony / Street performance / Seminar / Social | Concours / Concert / Cérémonie / Concert en ville / Séminaire / Moment convivial | Concorso / Concerto / Cerimonia / Esibizione in città / Seminario / Momento conviviale | Wettbewerb / Konzert / Zeremonie / Auftritt in der Stadt / Seminar / Geselliges Beisammensein | Concurso / Concierto / Ceremonia / Actuación en la ciudad / Seminario / Encuentro social |
+
 ## Form
+
+- Quotation marks: French « » (with a space inside: « Armonia »), Italian «», German „ “, Spanish
+  «». Titles of works in a list keep the marks the English gives them.
+- Centuries: the target language's usual form — Roman numerals in French, Italian and Spanish
+  (XVIe siècle, XVI secolo, siglo XVI), digits in German (16. Jahrhundert).
+- Italian ordinals agree with the noun: 44° Festival, 7ª edizione / masterclass.
+- Spanish ordinals agree with the noun: 44.º Festival, 7.ª edición / clase magistral; 1.er and 3.er
+  before a masculine noun (1.er premio).
 
 - Dates, times, numbers and scores exactly as in the English, written the target language's way:
   "6–12 July 2026" -> "6–12 juillet 2026" / "6–12 luglio 2026" / "6.–12. Juli 2026" /
