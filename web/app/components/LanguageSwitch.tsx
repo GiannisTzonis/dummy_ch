@@ -1,14 +1,22 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Link } from "react-router";
 import type { Locale } from "~/content/types";
+import { siteLocales } from "~/content/site-locales";
+import { tr } from "~/lib/locale";
 
 // Each language as it names itself, so a visitor can find their own in any interface language.
 // (No flags: a language is not a country.)
-const languages: { code: Locale; name: string }[] = [
-  { code: "en", name: "English" },
-  { code: "el", name: "Ελληνικά" },
-];
-const label = { en: "Language", el: "Γλώσσα" } as const;
+// Only the published languages are listed (app/content/site-locales.ts).
+const names: Record<Locale, string> = {
+  en: "English",
+  el: "Ελληνικά",
+  fr: "Français",
+  it: "Italiano",
+  de: "Deutsch",
+  es: "Español",
+};
+const languages = siteLocales.map((code) => ({ code, name: names[code] }));
+const label: Record<Locale, string> = { en: "Language", el: "Γλώσσα", fr: "Langue", it: "Lingua", de: "Sprache", es: "Idioma" };
 
 function swapLocaleInPath(pathname: string, target: Locale): string {
   const segments = pathname.split("/");
@@ -86,7 +94,7 @@ export function LanguageSwitch({ locale, pathname, variant, className = "" }: { 
         }
       >
         <Globe className={menu ? "h-[1.15em] w-[1.15em]" : "h-5 w-5"} />
-        <span className="sr-only">{`${label[locale]}: ${current.name}, `}</span>
+        <span className="sr-only">{`${tr(label, locale)}: ${current.name}, `}</span>
         <span className={menu ? "" : "text-[13px] font-semibold tracking-[0.08em]"}>{current.code.toUpperCase()}</span>
         <Chevron className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>

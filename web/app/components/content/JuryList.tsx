@@ -1,5 +1,5 @@
 import type { JuryMember } from "~/content/types";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 import { RichText } from "./RichText";
 import { sized } from "~/lib/img";
 
@@ -24,7 +24,7 @@ export function JuryList({ title, members }: { title: string; members: JuryMembe
           )}
           <div>
             <h3 className="mb-2 type-h4 text-ink">{member.name}</h3>
-            {member.bio && <RichText paragraphs={member.bio[locale]} />}
+            {member.bio && <RichText paragraphs={tr(member.bio, locale)} />}
             {member.profileLink && (
               <a
                 href={member.profileLink}

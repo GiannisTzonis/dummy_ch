@@ -1,4 +1,4 @@
-import { locales } from "./types";
+import { siteLocales } from "./site-locales";
 import { festivals } from "./festivals";
 import { masterclasses } from "./masterclasses";
 import { competitions } from "./competitions";
@@ -18,7 +18,7 @@ export async function getPrerenderPaths(
 ): Promise<string[]> {
   const paths = ["/"];
 
-  for (const lang of locales) {
+  for (const lang of siteLocales) {
     paths.push(`/${lang}`);
     paths.push(`/${lang}/festivals`);
     paths.push(`/${lang}/masterclasses`);

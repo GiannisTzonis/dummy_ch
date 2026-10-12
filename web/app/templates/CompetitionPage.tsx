@@ -1,7 +1,7 @@
 import type { Competition } from "~/content/types";
 import { FestivalContent } from "~/components/content/FestivalContent";
 import type { EditionNav } from "~/content/edition-nav";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 import { PageHero } from "~/components/content/PageHero";
 import { CommitteeList } from "~/components/content/CommitteeList";
 import { JuryList } from "~/components/content/JuryList";
@@ -12,12 +12,26 @@ import { RichText } from "~/components/content/RichText";
 import { responsive } from "~/lib/img";
 
 const labels = {
-  committee: { en: "Organising Committee", el: "Οργανωτική Επιτροπή" },
-  jury: { en: "Jury Committee", el: "Κριτική Επιτροπή" },
-  awards: { en: "Awards", el: "Βραβεία" },
-  recommended: { en: "Recommended Works for Performance", el: "Προτεινόμενα Έργα για Εκτέλεση" },
-  demoChoirs: { en: "Demonstrative Choirs", el: "Επίδειξη Χορωδιών" },
-  gallery: { en: "Gallery", el: "Φωτογραφίες" },
+  committee: { en: "Organising Committee", el: "Οργανωτική Επιτροπή", fr: "Comité d'organisation", it: "Comitato organizzatore", de: "Organisationskomitee", es: "Comité Organizador" },
+  jury: { en: "Jury Committee", el: "Κριτική Επιτροπή", fr: "Jury", it: "Giuria", de: "Jury", es: "Jurado" },
+  awards: { en: "Awards", el: "Βραβεία", fr: "Prix", it: "Premi", de: "Preise", es: "Premios" },
+  recommended: {
+    en: "Recommended Works for Performance",
+    el: "Προτεινόμενα Έργα για Εκτέλεση",
+    fr: "Œuvres recommandées pour l'exécution",
+    it: "Opere raccomandate per l'esecuzione",
+    de: "Zur Aufführung empfohlene Werke",
+    es: "Obras recomendadas para su interpretación",
+  },
+  demoChoirs: {
+    en: "Demonstrative Choirs",
+    el: "Επίδειξη Χορωδιών",
+    fr: "Chœurs de démonstration",
+    it: "Cori dimostrativi",
+    de: "Demonstrationschöre",
+    es: "Coros de demostración",
+  },
+  gallery: { en: "Gallery", el: "Φωτογραφίες", fr: "Photos", it: "Galleria fotografica", de: "Fotogalerie", es: "Galería de fotos" },
 } as const;
 
 export function CompetitionPage({ competition, others }: { competition: Competition; others: EditionNav }) {
@@ -27,7 +41,7 @@ export function CompetitionPage({ competition, others }: { competition: Competit
     return (
       // same page design as the festival and masterclass pages
       <FestivalContent
-        title={competition.title[locale]}
+        title={tr(competition.title, locale)}
         content={competition.content}
         aside={competition.aside}
         others={others}
@@ -38,23 +52,23 @@ export function CompetitionPage({ competition, others }: { competition: Competit
   return (
     <div>
       <PageHero
-        title={competition.title[locale]}
-        subtitle={competition.dates?.[locale]}
+        title={tr(competition.title, locale)}
+        subtitle={(competition.dates && tr(competition.dates, locale))}
         image={competition.poster}
       />
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 py-12 lg:grid-cols-[1fr_320px] lg:px-8">
         <div className="space-y-16">
-          <RichText paragraphs={competition.intro[locale]} />
+          <RichText paragraphs={tr(competition.intro, locale)} />
 
           <ContentSections sections={competition.sections} />
 
           {competition.kind === "composition" && (
             <>
-              <AwardsList title={labels.awards[locale]} awards={competition.awards} />
+              <AwardsList title={tr(labels.awards, locale)} awards={competition.awards} />
               {competition.recommendedWorks.length > 0 && (
                 <div>
-                  <h2 className="mb-4 type-h2 text-ink">{labels.recommended[locale]}</h2>
+                  <h2 className="mb-4 type-h2 text-ink">{tr(labels.recommended, locale)}</h2>
                   <ul className="space-y-1 text-body">
                     {competition.recommendedWorks.map((w, i) => (
                       <li key={i}>
@@ -70,7 +84,7 @@ export function CompetitionPage({ competition, others }: { competition: Competit
 
           {competition.kind === "conducting" && competition.demonstrativeChoirs.length > 0 && (
             <div>
-              <h2 className="mb-6 type-h2 text-ink">{labels.demoChoirs[locale]}</h2>
+              <h2 className="mb-6 type-h2 text-ink">{tr(labels.demoChoirs, locale)}</h2>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {competition.demonstrativeChoirs.map((choir) => (
                   <div key={choir.name} className="overflow-hidden rounded-lg border border-surface-muted">
@@ -80,7 +94,7 @@ export function CompetitionPage({ competition, others }: { competition: Competit
                     <div className="p-4">
                       <h3 className="mb-2 font-semibold text-ink">{choir.name}</h3>
                       <div className="type-small">
-                        <RichText paragraphs={choir.bio[locale]} />
+                        <RichText paragraphs={tr(choir.bio, locale)} />
                       </div>
                     </div>
                   </div>
@@ -89,18 +103,18 @@ export function CompetitionPage({ competition, others }: { competition: Competit
             </div>
           )}
 
-          <JuryList title={labels.jury[locale]} members={competition.jury} />
+          <JuryList title={tr(labels.jury, locale)} members={competition.jury} />
 
           {competition.gallery.length > 0 && (
             <div>
-              <h2 className="mb-4 type-h2 text-ink">{labels.gallery[locale]}</h2>
+              <h2 className="mb-4 type-h2 text-ink">{tr(labels.gallery, locale)}</h2>
               <GalleryGrid images={competition.gallery} />
             </div>
           )}
         </div>
 
         <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          <CommitteeList title={labels.committee[locale]} members={competition.committee} />
+          <CommitteeList title={tr(labels.committee, locale)} members={competition.committee} />
         </div>
       </div>
     </div>

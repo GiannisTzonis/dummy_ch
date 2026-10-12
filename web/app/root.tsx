@@ -12,6 +12,8 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { useAnchorScroll } from "./lib/anchor-scroll";
+import { localeOf } from "./lib/locale";
+import { isLocale } from "./content/types";
 import { recoverNavigation, useStaleDeployRecovery } from "./lib/stale-deploy";
 import { useEffect } from "react";
 
@@ -33,7 +35,7 @@ export const meta: Route.MetaFunction = () => [
 export function Layout({ children }: { children: React.ReactNode }) {
   const { lang } = useParams();
   return (
-    <html lang={lang === "el" ? "el" : "en"}>
+    <html lang={localeOf(lang)}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -82,6 +84,50 @@ const errorText = {
       ["/el/festivals", "Προηγούμενα φεστιβάλ"],
     ],
   },
+  fr: {
+    notFound: "Page introuvable",
+    notFoundText: "La page que vous recherchez n'existe pas ou a été déplacée.",
+    error: "Une erreur s'est produite",
+    errorText: "Cette page n'a pas pu être affichée. Veuillez réessayer dans un instant.",
+    links: [
+      ["/fr/", "Accueil"],
+      ["/fr/festival/2026", "Festival 2026"],
+      ["/fr/festivals", "Festivals précédents"],
+    ],
+  },
+  it: {
+    notFound: "Pagina non trovata",
+    notFoundText: "La pagina che sta cercando non esiste o è stata spostata.",
+    error: "Si è verificato un errore",
+    errorText: "Non è stato possibile visualizzare questa pagina. La preghiamo di riprovare tra qualche istante.",
+    links: [
+      ["/it/", "Home"],
+      ["/it/festival/2026", "Festival 2026"],
+      ["/it/festivals", "Festival precedenti"],
+    ],
+  },
+  de: {
+    notFound: "Seite nicht gefunden",
+    notFoundText: "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    error: "Etwas ist schiefgelaufen",
+    errorText: "Diese Seite konnte nicht angezeigt werden. Bitte versuchen Sie es in Kürze erneut.",
+    links: [
+      ["/de/", "Startseite"],
+      ["/de/festival/2026", "Festival 2026"],
+      ["/de/festivals", "Frühere Festivals"],
+    ],
+  },
+  es: {
+    notFound: "Página no encontrada",
+    notFoundText: "La página que busca no existe o ha sido trasladada.",
+    error: "Algo ha salido mal",
+    errorText: "No se ha podido mostrar esta página. Vuelva a intentarlo en unos instantes.",
+    links: [
+      ["/es/", "Inicio"],
+      ["/es/festival/2026", "Festival 2026"],
+      ["/es/festivals", "Festivales anteriores"],
+    ],
+  },
 } as const;
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -90,7 +136,9 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     recoverNavigation();
   }, []);
   const { pathname } = useLocation();
-  const t = errorText[pathname.startsWith("/el") ? "el" : "en"];
+  // the language of the address's first segment ("/fr/festival/2030" -> "fr"), else English
+  const first = pathname.split("/")[1];
+  const t = errorText[isLocale(first) ? first : "en"];
   // (or GitHub Pages served its 404.html for this address: an unknown festival year, say, which
   // fails while loading its data rather than as a route that does not exist)
   const notFound =

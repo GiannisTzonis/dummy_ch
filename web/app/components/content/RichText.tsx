@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Locale, RichBlock } from "~/content/types";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 import { responsive, sized } from "~/lib/img";
 
 // "@/festival/2022" is a link to another page of this site, in the current
@@ -51,19 +51,26 @@ const measure = "max-w-[72ch]";
 // gaps stay even; phones keep ragged-right text, where justification would open wide gaps.
 const justify = "sm:text-justify sm:hyphens-auto [text-wrap:pretty] [text-justify:inter-word]";
 
-const photoLabel = { en: "Open photo", el: "Άνοιγμα φωτογραφίας" } as const;
+const photoLabel = {
+  en: "Open photo",
+  el: "Άνοιγμα φωτογραφίας",
+  fr: "Ouvrir la photo",
+  it: "Apri la foto",
+  de: "Foto öffnen",
+  es: "Abrir la foto",
+} as const;
 
 // Accessible name for an image that is the only link to a page, from its route.
 const sections = {
-  festival: { en: "Festival", el: "Φεστιβάλ" },
-  masterclass: { en: "Masterclass", el: "Masterclass" },
-  competition: { en: "Competition", el: "Διαγωνισμός" },
-  news: { en: "News", el: "Νέα" },
+  festival: { en: "Festival", el: "Φεστιβάλ", fr: "Festival", it: "Festival", de: "Festival", es: "Festival" },
+  masterclass: { en: "Masterclass", el: "Masterclass", fr: "Masterclass", it: "Masterclass", de: "Meisterkurs", es: "Clase magistral" },
+  competition: { en: "Competition", el: "Διαγωνισμός", fr: "Concours", it: "Concorso", de: "Wettbewerb", es: "Concurso" },
+  news: { en: "News", el: "Νέα", fr: "Actualités", it: "Notizie", de: "Neuigkeiten", es: "Noticias" },
 } as const;
 function linkLabel(href: string, locale: Locale) {
-  if (/\.(jpe?g|png|webp|gif)$/i.test(href)) return photoLabel[locale];
+  if (/\.(jpe?g|png|webp|gif)$/i.test(href)) return tr(photoLabel, locale);
   const m = href.match(/^@\/(festival|masterclass|competition|news)\/([^/#]+)/);
-  return m ? `${sections[m[1] as keyof typeof sections][locale]} ${m[2].replace(/-/g, " ")}` : undefined;
+  return m ? `${tr(sections[m[1] as keyof typeof sections], locale)} ${m[2].replace(/-/g, " ")}` : undefined;
 }
 
 // Links that already appear as text in the same blocks: an image linking to the
@@ -154,12 +161,19 @@ function Block({ block, locale, dupes = new Set<string>() }: { block: RichBlock;
   return <StatsTable {...block.stats} locale={locale} />;
 }
 
-const statsLabel = { en: "Participation by country", el: "Συμμετοχές ανά χώρα" } as const;
+const statsLabel = {
+  en: "Participation by country",
+  el: "Συμμετοχές ανά χώρα",
+  fr: "Participation par pays",
+  it: "Partecipazione per paese",
+  de: "Teilnahme nach Ländern",
+  es: "Participación por países",
+} as const;
 
 function StatsTable({ head, rows, locale }: Extract<RichBlock, { stats: unknown }>["stats"] & { locale: Locale }) {
   return (
     // focusable so keyboard users can scroll it sideways on small screens
-    <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={statsLabel[locale]}>
+    <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={tr(statsLabel, locale)}>
       <table className="type-small w-full min-w-[32rem] text-left">
         {head.length > 0 && (
           <thead className="border-b border-rule text-ink">
@@ -287,7 +301,14 @@ function group(blocks: RichBlock[]): Group[] {
   return out2;
 }
 
-const viewLabel = { en: "View page", el: "Δείτε τη σελίδα" } as const;
+const viewLabel = {
+  en: "View page",
+  el: "Δείτε τη σελίδα",
+  fr: "Voir la page",
+  it: "Vai alla pagina",
+  de: "Zur Seite",
+  es: "Ver la página",
+} as const;
 
 // One edition as a card: the poster on a fixed 4:5 stage over a blurred copy of itself (every
 // poster whole, every card the same size), the dates as a chip, the title, the edition's events,
@@ -328,7 +349,7 @@ function EditionCard({ card, locale }: { card: EditionCardData; locale: Locale }
         )}
         <div className="min-h-5 flex-1" aria-hidden="true" />
         <p data-legacy-ignore="" className="type-label inline-flex items-center gap-1.5 border-t border-rule pt-4 font-semibold tracking-wide text-brand-navy uppercase">
-          {viewLabel[locale === "el" ? "el" : "en"]}
+          {tr(viewLabel, locale)}
           <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-6-6 6 6-6 6" />
           </svg>

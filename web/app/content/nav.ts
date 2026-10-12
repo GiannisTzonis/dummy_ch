@@ -11,14 +11,28 @@ import type { NavItem } from "./types";
  */
 export const primaryNav: NavItem[] = [
   {
-    label: { en: "Armonia Choir", el: "Χορωδία Αρμονία" },
+    label: { en: "Armonia Choir", el: "Χορωδία Αρμονία", fr: "Chœur Armonia", it: "Coro Armonia", de: "Chor Armonia", es: "Coro Armonia" },
     children: [
       {
-        label: { en: "The history of our Choir", el: "Η ιστορία της χορωδίας" },
+        label: {
+          en: "The history of our Choir",
+          el: "Η ιστορία της χορωδίας",
+          fr: "L'histoire de notre chœur",
+          it: "La storia del nostro coro",
+          de: "Die Geschichte unseres Chores",
+          es: "La historia de nuestro coro",
+        },
         href: "/our-choir",
       },
       {
-        label: { en: "Our Conductor", el: "Η Μαέστρος της χορωδίας" },
+        label: {
+          en: "Our Conductor",
+          el: "Η Μαέστρος της χορωδίας",
+          fr: "Notre cheffe de chœur",
+          it: "La nostra direttrice",
+          de: "Unsere Chorleiterin",
+          es: "Nuestra directora",
+        },
         href: "/our-conductor",
       },
     ],
@@ -27,24 +41,52 @@ export const primaryNav: NavItem[] = [
     label: {
       en: "International Choral Festival",
       el: "Διεθνές Χορωδιακό Φεστιβάλ",
+      fr: "Festival choral international",
+      it: "Festival corale internazionale",
+      de: "Internationales Chorfestival",
+      es: "Festival Coral Internacional",
     },
     children: [
-      { label: { en: "Festival 2026", el: "Φεστιβάλ 2026" }, href: "/festival/2026" },
       {
-        label: { en: "Previous Festivals", el: "Προηγούμενα Φεστιβάλ" },
+        label: { en: "Festival 2026", el: "Φεστιβάλ 2026", fr: "Festival 2026", it: "Festival 2026", de: "Festival 2026", es: "Festival 2026" },
+        href: "/festival/2026",
+      },
+      {
+        label: {
+          en: "Previous Festivals",
+          el: "Προηγούμενα Φεστιβάλ",
+          fr: "Festivals précédents",
+          it: "Festival precedenti",
+          de: "Frühere Festivals",
+          es: "Festivales anteriores",
+        },
         href: "/festivals",
       },
     ],
   },
   {
-    label: { en: "Masterclass", el: "Masterclass" },
+    label: { en: "Masterclass", el: "Masterclass", fr: "Masterclass", it: "Masterclass", de: "Meisterkurs", es: "Clase magistral" },
     children: [
       {
-        label: { en: "Masterclass 2026", el: "Masterclass 2026" },
+        label: {
+          en: "Masterclass 2026",
+          el: "Masterclass 2026",
+          fr: "Masterclass 2026",
+          it: "Masterclass 2026",
+          de: "Meisterkurs 2026",
+          es: "Clase magistral 2026",
+        },
         href: "/masterclass/2026",
       },
       {
-        label: { en: "Previous Masterclasses", el: "Προηγούμενα Masterclass" },
+        label: {
+          en: "Previous Masterclasses",
+          el: "Προηγούμενα Masterclass",
+          fr: "Masterclasses précédentes",
+          it: "Masterclass precedenti",
+          de: "Frühere Meisterkurse",
+          es: "Clases magistrales anteriores",
+        },
         href: "/masterclasses",
       },
     ],
@@ -53,12 +95,20 @@ export const primaryNav: NavItem[] = [
     label: {
       en: "International Competition of Conductors",
       el: "Διεθνής Διαγωνισμός Διευθυντών Χορωδιών",
+      fr: "Concours international de direction de chœur",
+      it: "Concorso internazionale di direzione corale",
+      de: "Internationaler Wettbewerb für Chordirigieren",
+      es: "Concurso Internacional de Dirección Coral",
     },
     children: [
       {
         label: {
           en: "2nd International Choral Composition Competition of Preveza",
           el: "2ος Διεθνής Διαγωνισμός Σύνθεσης Χορωδιών Πρέβεζας",
+          fr: "2e Concours international de composition chorale de Preveza",
+          it: "2° Concorso internazionale di composizione corale di Preveza",
+          de: "2. Internationaler Wettbewerb für Chorkomposition Preveza",
+          es: "2.º Concurso Internacional de Composición Coral de Preveza",
         },
         href: "/competition/composition-2025",
       },
@@ -66,6 +116,10 @@ export const primaryNav: NavItem[] = [
         label: {
           en: "2nd International Choral Conductors' Competition of Preveza",
           el: "2ος Διεθνής Διαγωνισμός Διεύθυνσης Χορωδιών της Πρέβεζας",
+          fr: "2e Concours international de direction de chœur de Preveza",
+          it: "2° Concorso internazionale di direzione corale di Preveza",
+          de: "2. Internationaler Wettbewerb für Chordirigieren Preveza",
+          es: "2.º Concurso Internacional de Dirección Coral de Preveza",
         },
         href: "/competition/conducting-2025",
       },
@@ -73,6 +127,10 @@ export const primaryNav: NavItem[] = [
         label: {
           en: "1st International Choral Composition Competition of Preveza",
           el: "1ος Διεθνής Διαγωνισμός Σύνθεσης Χορωδιών Πρέβεζας",
+          fr: "1er Concours international de composition chorale de Preveza",
+          it: "1° Concorso internazionale di composizione corale di Preveza",
+          de: "1. Internationaler Wettbewerb für Chorkomposition Preveza",
+          es: "1.er Concurso Internacional de Composición Coral de Preveza",
         },
         href: "/competition/composition-2022",
       },
@@ -80,6 +138,10 @@ export const primaryNav: NavItem[] = [
         label: {
           en: "1st International Choral Conductors' Competition",
           el: "1ος Διεθνής Διαγωνισμός Χορωδιακών Διευθυντών",
+          fr: "1er Concours international de direction de chœur",
+          it: "1° Concorso internazionale di direzione corale",
+          de: "1. Internationaler Wettbewerb für Chordirigieren",
+          es: "1.er Concurso Internacional de Dirección Coral",
         },
         href: "/competition/conducting-2022",
       },

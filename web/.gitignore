@@ -8,3 +8,4 @@
 
 # legacy import working data (scripts/legacy/registry.mjs)
 /scripts/legacy/.cache/
+/scripts/i18n/work/

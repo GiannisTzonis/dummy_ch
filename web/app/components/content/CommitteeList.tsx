@@ -1,5 +1,5 @@
 import type { CommitteeMember } from "~/content/types";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 
 export function CommitteeList({
   title,
@@ -18,7 +18,7 @@ export function CommitteeList({
         {members.map((m) => (
           <li key={m.name} className="type-small">
             <div className="font-medium text-ink">{m.name}</div>
-            <div className="text-body">{m.role[locale]}</div>
+            <div className="text-body">{tr(m.role, locale)}</div>
           </li>
         ))}
       </ul>

@@ -1,24 +1,29 @@
-import { forLocale, pageTitle } from "~/lib/locale";
+import { forLocale, pageTitle, localeOf, tr } from "~/lib/locale";
 import { useLoaderData } from "react-router";
 import { masterclasses } from "~/content/masterclasses";
 import { masterclassNav } from "~/content/edition-nav";
 import { MasterclassPage } from "~/templates/MasterclassPage";
 import type { Locale } from "~/content/types";
+import { fallbackMeta, translate, translationId } from "~/lib/translations.server";
 
-// Runs at build time (the site is prerendered): the browser downloads this masterclass only.
+// Runs at build time (the site is prerendered): the browser downloads this masterclass only, in
+// the page's language (French etc.: its translation, English where there is none).
 export function loader({ params }: { params: { lang?: string; year?: string } }) {
-  const locale: Locale = params.lang === "el" ? "el" : "en";
-  const masterclass = masterclasses.find((m) => String(m.year) === params.year);
-  if (!masterclass) return null;
+  const locale: Locale = localeOf(params.lang);
+  const source = masterclasses.find((m) => String(m.year) === params.year);
+  if (!source) return null;
+  const { data: masterclass, translated } = translate(translationId.masterclass(source.year), source, locale);
   return {
     masterclass: forLocale(masterclass, locale),
+    translated,
     others: masterclassNav(masterclass.slug, locale),
-    title: masterclass.pageTitle?.[locale] ?? pageTitle(masterclass.title[locale], locale),
+    title: (masterclass.pageTitle && tr(masterclass.pageTitle, locale)) ?? pageTitle(tr(masterclass.title, locale), locale),
+    fallback: fallbackMeta(locale, translated),
   };
 }
 
 export function meta({ loaderData: data }: { loaderData: Awaited<ReturnType<typeof loader>> }) {
-  return [{ title: data ? data.title : "Armonia Choir" }];
+  return data ? [{ title: data.title }, ...data.fallback] : [{ title: "Armonia Choir" }];
 }
 
 export default function MasterclassRoute() {

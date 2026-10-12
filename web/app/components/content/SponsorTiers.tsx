@@ -1,5 +1,5 @@
 import type { SponsorTier } from "~/content/types";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 import { sized } from "~/lib/img";
 
 export function SponsorTiers({ tiers }: { tiers: SponsorTier[] }) {
@@ -11,7 +11,7 @@ export function SponsorTiers({ tiers }: { tiers: SponsorTier[] }) {
       {tiers.map((tier) => (
         <div key={tier.tier.en}>
           <h4 className="mb-4 type-label text-muted">
-            {tier.tier[locale]}
+            {tr(tier.tier, locale)}
           </h4>
           <div className="flex flex-wrap items-center gap-8">
             {tier.sponsors.map((sponsor) => {

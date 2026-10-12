@@ -1,17 +1,16 @@
 import type { ReactNode } from "react";
-import type { Locale, NewsPost, RichBlock } from "~/content/types";
+import type { HomePageContent, Locale, NewsPost, RichBlock } from "~/content/types";
 import { Link } from "react-router";
-import { localizedHref, useLocale } from "~/lib/locale";
-import home from "~/content/pages/home";
+import { localizedHref, useLocale, tr } from "~/lib/locale";
 import { RichText } from "~/components/content/RichText";
 import { LightboxProvider, Zoomable, type LightboxImage } from "~/components/content/Lightbox";
 import { responsive } from "~/lib/img";
 
 const labels = {
-  kicker: { en: "News", el: "Νέα" },
-  itinerary: { en: "Itinerary", el: "Πρόγραμμα Ταξιδιού" },
-  thanks: { en: "Acknowledgments", el: "Ευχαριστίες" },
-  other: { en: "Other News", el: "Άλλα Νέα" },
+  kicker: { en: "News", el: "Νέα", fr: "Actualités", it: "Notizie", de: "Neuigkeiten", es: "Noticias" },
+  itinerary: { en: "Itinerary", el: "Πρόγραμμα Ταξιδιού", fr: "Itinéraire", it: "Itinerario", de: "Reiseverlauf", es: "Itinerario" },
+  thanks: { en: "Acknowledgments", el: "Ευχαριστίες", fr: "Remerciements", it: "Ringraziamenti", de: "Danksagung", es: "Agradecimientos" },
+  other: { en: "Other News", el: "Άλλα Νέα", fr: "Autres actualités", it: "Altre notizie", de: "Weitere Neuigkeiten", es: "Otras noticias" },
 } as const;
 
 type Img = Extract<RichBlock, { img: string }>;
@@ -80,7 +79,8 @@ function Article({ blocks, locale }: { blocks: RichBlock[]; locale: Locale }) {
   );
 }
 
-export function NewsPostPage({ post }: { post: NewsPost }) {
+// newsItems: the site's news list (home page slider), from the route's loader in the page's language
+export function NewsPostPage({ post, newsItems }: { post: NewsPost; newsItems: HomePageContent["newsItems"] }) {
   const locale = useLocale();
   const gallery = post.gallery.map((g) => ({ src: g.src, caption: g.alt }));
 
@@ -92,27 +92,27 @@ export function NewsPostPage({ post }: { post: NewsPost }) {
         <div className={`${column} pt-[124px] pb-12 sm:pb-14 lg:pt-[150px] lg:pb-16`}>
           <p data-legacy-ignore="" className="type-label mb-4 inline-flex items-center gap-2 text-white/85">
             <span className="h-px w-8 bg-brand-maroon" aria-hidden="true" />
-            {labels.kicker[locale]}
+            {tr(labels.kicker, locale)}
           </p>
-          <h1 className="type-h1 text-balance text-white [text-shadow:0_2px_24px_rgb(0_0_0/0.35)]">{post.title[locale]}</h1>
+          <h1 className="type-h1 text-balance text-white [text-shadow:0_2px_24px_rgb(0_0_0/0.35)]">{tr(post.title, locale)}</h1>
         </div>
       </section>
 
       <article className={`${column} py-12 lg:py-16`}>
-        <Article blocks={post.body[locale]} locale={locale} />
+        <Article blocks={tr(post.body, locale)} locale={locale} />
 
         {post.participantCount && (
-          <p className="mt-10 rounded-xl bg-surface p-5 type-small font-medium text-ink">{post.participantCount[locale]}</p>
+          <p className="mt-10 rounded-xl bg-surface p-5 type-small font-medium text-ink">{tr(post.participantCount, locale)}</p>
         )}
 
         {post.itinerary && post.itinerary.length > 0 && (
           <div className="mt-12">
-            <h2 className="mb-4 type-h3 text-ink">{labels.itinerary[locale]}</h2>
+            <h2 className="mb-4 type-h3 text-ink">{tr(labels.itinerary, locale)}</h2>
             <ol className="space-y-2">
               {post.itinerary.map((stop, i) => (
                 <li key={i} className="flex gap-4 type-small">
                   <span className="w-28 flex-shrink-0 font-medium text-brand-navy">{stop.date}</span>
-                  <span className="text-body">{stop.description[locale]}</span>
+                  <span className="text-body">{tr(stop.description, locale)}</span>
                 </li>
               ))}
             </ol>
@@ -121,11 +121,11 @@ export function NewsPostPage({ post }: { post: NewsPost }) {
 
         {post.acknowledgments && post.acknowledgments.length > 0 && (
           <div className="mt-12">
-            <h2 className="mb-4 type-h3 text-ink">{labels.thanks[locale]}</h2>
+            <h2 className="mb-4 type-h3 text-ink">{tr(labels.thanks, locale)}</h2>
             <ul className="space-y-2 type-small text-muted">
               {post.acknowledgments.map((a, i) => (
                 <li key={i}>
-                  <span className="font-medium text-ink">{a.name}</span> — {a.title[locale]}
+                  <span className="font-medium text-ink">{a.name}</span> — {tr(a.title, locale)}
                 </li>
               ))}
             </ul>
@@ -148,7 +148,7 @@ export function NewsPostPage({ post }: { post: NewsPost }) {
         </div>
       )}
 
-      <OtherNews post={post} locale={locale} />
+      <OtherNews post={post} newsItems={newsItems} locale={locale} />
     </LightboxProvider>
   );
 }
@@ -162,12 +162,12 @@ const sameStory: Record<string, string> = { "berlin-2024": "france-2024" };
 // masterclass or competition page such as the 2026 results -- in the same order, without the
 // current page. (It replaces the legacy per-page previous/next strip; see corrections.mjs.)
 // New site furniture, skipped by the content check.
-function OtherNews({ post, locale }: { post: NewsPost; locale: Locale }) {
+function OtherNews({ post, newsItems, locale }: { post: NewsPost; newsItems: HomePageContent["newsItems"]; locale: Locale }) {
   const self = `/news/${sameStory[post.slug] ?? post.slug}`;
   const seen = new Set<string>();
-  const cards = home.newsItems
+  const cards = newsItems
     .filter((n) => n.href !== self && n.href !== `/news/${post.slug}` && !seen.has(n.href) && seen.add(n.href))
-    .map((n) => ({ href: n.href, title: n.title[locale], image: n.thumbnail }));
+    .map((n) => ({ href: n.href, title: tr(n.title, locale), image: n.thumbnail }));
   if (!cards.length) return null;
 
   return (
@@ -175,7 +175,7 @@ function OtherNews({ post, locale }: { post: NewsPost; locale: Locale }) {
       <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-10">
         <h2 id="other-news" data-legacy-ignore="" className="type-h2 mb-8 border-b border-rule pb-4 text-ink lg:mb-10">
           <span className="mr-3 inline-block h-6 w-1 translate-y-0.5 rounded-full bg-brand-maroon align-baseline" aria-hidden="true" />
-          {labels.other[locale]}
+          {tr(labels.other, locale)}
         </h2>
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((c) => (

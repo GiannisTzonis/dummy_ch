@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router";
 import type { Locale, RichBlock } from "~/content/types";
-import { localizedHref, useLocale } from "~/lib/locale";
+import { localizedHref, useLocale, tr } from "~/lib/locale";
 import { RichText } from "./RichText";
 import { SectionNav, type NavSection } from "./SectionNav";
 import { LightboxProvider, Zoomable, type LightboxImage } from "./Lightbox";
@@ -19,6 +19,9 @@ const slug = (s: string, i: number) =>
 const asHeading = (b: RichBlock | undefined): Heading | null => (b && typeof b !== "string" && "heading" in b ? b : null);
 const asImg = (b: RichBlock | undefined): Img | null => (b && typeof b !== "string" && "img" in b ? b : null);
 const levelOf = (h: Heading) => h.level ?? 3;
+// The text the layout reads to recognise a heading ("Jury", "Participating Choirs", weekdays...):
+// on a translated page the English it was translated from, so every language is laid out alike.
+const srcText = (h: Heading) => plain(h.src ?? h.heading);
 const isGallery = (b: RichBlock) => asImg(b)?.layout === "gallery";
 const isAnchor = (b: RichBlock) => typeof b !== "string" && "anchor" in b;
 const isStats = (b: RichBlock) => typeof b !== "string" && "stats" in b;
@@ -32,7 +35,7 @@ function sectionStarts(blocks: RichBlock[]) {
       const h = asHeading(b);
       if (!h) return [];
       const lvl = levelOf(h);
-      const ok = lvl === 1 || (lvl === 2 && h.align === "center") || (!strict && lvl === 3 && h.align === "center" && plain(h.heading).length <= 40);
+      const ok = lvl === 1 || (lvl === 2 && h.align === "center") || (!strict && lvl === 3 && h.align === "center" && srcText(h).length <= 40);
       return ok ? [i] : [];
     });
   const strict = pick(true);
@@ -225,8 +228,8 @@ function parts(blocks: RichBlock[]): Part[] {
       const cardRun = run.findIndex((e) => !isCardEntry(e.body));
       let nCards = cardRun < 0 ? run.length : cardRun;
       // programme days form their own group: the headings after them (venues, notes) are not days
-      if (weekday.test(plain(h.heading))) {
-        const days = run.findIndex((e) => !weekday.test(plain(e.heading.heading)));
+      if (weekday.test(srcText(h))) {
+        const days = run.findIndex((e) => !weekday.test(srcText(e.heading)));
         if (days >= 0) nCards = Math.min(nCards, days);
       }
       if (nCards >= 2) {
@@ -248,7 +251,14 @@ const photo = (entries: Entry[]) => (entries.every((e) => e.photo?.layout === "s
 
 // ---------------------------------------------------------------------------------------------
 
-const moreLabel = { en: ["Read more", "Show less"], el: ["Περισσότερα", "Λιγότερα"] } as const;
+const moreLabel = {
+  en: ["Read more", "Show less"],
+  el: ["Περισσότερα", "Λιγότερα"],
+  fr: ["Lire la suite", "Réduire"],
+  it: ["Leggi di più", "Mostra meno"],
+  de: ["Weiterlesen", "Weniger anzeigen"],
+  es: ["Leer más", "Mostrar menos"],
+} as const;
 
 // Cards in a two-column grid open and close together with their row neighbour, so a row never
 // shows one long card beside a clipped one. `wide` is the media query at which the grid has two
@@ -309,7 +319,7 @@ function Clamp({ height, children, locale, open: openProp, onToggle }: { height:
           onClick={() => setOpen(!open)}
           className="type-label mt-auto inline-flex items-center self-start pt-3 gap-1.5 font-semibold tracking-wide text-brand-navy uppercase hover:text-brand-maroon"
         >
-          {moreLabel[locale][open ? 1 : 0]}
+          {tr(moreLabel, locale)[open ? 1 : 0]}
           <svg viewBox="0 0 20 20" className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} fill="currentColor" aria-hidden="true">
             <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
           </svg>
@@ -396,7 +406,7 @@ const weekday = /(?<!\p{L})(monday|tuesday|wednesday|thursday|friday|saturday|su
 function Cards({ entries }: { entries: Entry[] }) {
   // programme days stay in date order: consecutive short days side by side, a long day as one
   // full-width card with its events in columns
-  if (entries.every((e) => weekday.test(plain(e.heading.heading)))) {
+  if (entries.every((e) => weekday.test(srcText(e.heading)))) {
     const long = (e: Entry) => textLength(e.body) > 1200;
     const rows: Entry[][] = [];
     for (const e of entries) {
@@ -539,7 +549,7 @@ const NOT_CHOIR = /repertoire|ρεπερτ|schedule|programme|πρόγραμμ|m
 // section is skipped by the content check. A deep-blue band in the colours of the result images;
 // pages are numbered, open in the viewer as one series, and a short last row is centred.
 function Results({ results, locale }: { results: FestivalResults; locale: Locale }) {
-  const images = results.slides.map((s) => ({ src: s.src, caption: s.caption[locale] }));
+  const images = results.slides.map((s) => ({ src: s.src, caption: tr(s.caption, locale) }));
   return (
     <section id="results" data-legacy-ignore="" className="relative isolate overflow-hidden bg-brand-navy-dark py-14 text-white lg:py-20">
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgb(76_72_168/0.55),transparent_60%)]" />
@@ -547,20 +557,20 @@ function Results({ results, locale }: { results: FestivalResults; locale: Locale
         <div className="mb-10 max-w-[70ch] lg:mb-12">
           <h2 className="type-h2 text-white">
             <span className="mr-3 inline-block h-6 w-1 translate-y-0.5 rounded-full bg-brand-maroon align-baseline" aria-hidden="true" />
-            {results.heading[locale]}
+            {tr(results.heading, locale)}
           </h2>
-          <p className="type-lead mt-4 text-white/80">{results.intro[locale]}</p>
+          <p className="type-lead mt-4 text-white/80">{tr(results.intro, locale)}</p>
         </div>
         <ul className="flex flex-wrap justify-center gap-4 sm:gap-6">
           {results.slides.map((s, i) => (
             <li key={s.src} className="w-[calc(50%-0.5rem)] md:w-[calc((100%-3rem)/3)] lg:w-[calc((100%-4.5rem)/4)]">
               <figure>
-                <Zoomable images={images} index={i} label={s.caption[locale]} locale={locale} className="rounded-lg shadow-[0_24px_50px_-24px_rgb(0_0_0/0.7)] ring-1 ring-white/15">
-                  <img {...responsive(s.src, "(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw")} alt={s.caption[locale]} loading="lazy" width={1080} height={1350} className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+                <Zoomable images={images} index={i} label={tr(s.caption, locale)} locale={locale} className="rounded-lg shadow-[0_24px_50px_-24px_rgb(0_0_0/0.7)] ring-1 ring-white/15">
+                  <img {...responsive(s.src, "(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw")} alt={tr(s.caption, locale)} loading="lazy" width={1080} height={1350} className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
                 </Zoomable>
                 <figcaption className="type-small mt-3 flex gap-2 text-white/80">
                   <span className="font-semibold text-white tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                  <span>{s.caption[locale]}</span>
+                  <span>{tr(s.caption, locale)}</span>
                 </figcaption>
               </figure>
             </li>
@@ -570,7 +580,7 @@ function Results({ results, locale }: { results: FestivalResults; locale: Locale
     </section>
   );
 }
-const contentsLabel = { en: "Contents", el: "Περιεχόμενα" } as const;
+const contentsLabel = { en: "Contents", el: "Περιεχόμενα", fr: "Sommaire", it: "Indice", de: "Inhalt", es: "Índice" } as const;
 
 export function FestivalContent({
   title,
@@ -594,7 +604,7 @@ export function FestivalContent({
 }) {
   const locale = useLocale();
   // the legacy narrow-column markers only limited the page width; this layout uses the full width
-  const blocks = content[locale].filter((b) => typeof b === "string" || !("narrow" in b));
+  const blocks = tr(content, locale).filter((b) => typeof b === "string" || !("narrow" in b));
   const split = blocks.findIndex((b) => typeof b !== "string" && "wide" in b);
   // pages without the marker (the composition competitions): the overview ends at the first
   // section title
@@ -634,20 +644,20 @@ export function FestivalContent({
   // the main column opens with its own title and a dates line as headings (Masterclass 2026):
   // they introduce the page, so they go beside the poster with the text under them
   const h0 = sections[0]?.heading, h1 = sections[1]?.heading;
-  if (top.length === 0 && h0 && levelOf(h0) === 1 && sections[0].blocks.length === 0 && h1 && DATE_LINE.test(plain(h1.heading))) {
+  if (top.length === 0 && h0 && levelOf(h0) === 1 && sections[0].blocks.length === 0 && h1 && DATE_LINE.test(srcText(h1))) {
     if (!dates) dates = plain(h1.heading);
     top = [{ heading: h0.heading, level: 3 }, ...(dates === plain(h1.heading) ? [] : [plain(h1.heading)]), ...sections[1].blocks];
     sections.splice(0, 2);
   }
   // pages whose mentors have no section of their own (Masterclass 2017-2019: they follow the
   // seminar topics): the run of person entries closing a section becomes a "Mentors" section
-  if (mentorsLabel && !sections.some((s) => s.heading && JURY.test(plain(s.heading.heading)))) {
+  if (mentorsLabel && !sections.some((s) => s.heading && JURY.test(srcText(s.heading)))) {
     for (let i = 0; i < sections.length; i++) {
       const b = sections[i].blocks;
       const people = b.flatMap((x, j) => (asHeading(x) && levelOf(asHeading(x)!) === 3 && asHeading(x)!.align !== "center" ? [j] : []));
       // at least two people, and nothing but people's entries after the first one
       if (people.length < 2 || !b.slice(people[0]).every((x, j) => !asHeading(x) || people.includes(people[0] + j))) continue;
-      sections.splice(i, 1, { ...sections[i], blocks: b.slice(0, people[0]) }, { id: "mentors", heading: { heading: mentorsLabel[locale], level: 2 }, blocks: b.slice(people[0]), added: true });
+      sections.splice(i, 1, { ...sections[i], blocks: b.slice(0, people[0]) }, { id: "mentors", heading: { heading: tr(mentorsLabel, locale), level: 2 }, blocks: b.slice(people[0]), added: true });
       break;
     }
   }
@@ -655,9 +665,9 @@ export function FestivalContent({
   // belong to the section above them: they become entries inside it
   for (let i = 1; i < sections.length; i++) {
     const prev = sections[i - 1], h = sections[i].heading;
-    const prevTitle = prev.heading ? plain(prev.heading.heading) : "";
+    const prevTitle = prev.heading ? srcText(prev.heading) : "";
     if (!h || !prev.heading) continue;
-    const t = plain(h.heading);
+    const t = srcText(h);
     // under a repertoire section any short title is a choir's name ("Voci Contra Tempo")
     const named = CHOIR_NAME.test(t) || (REPERTOIRE.test(prevTitle) && t.length <= 40);
     if (!named || NOT_CHOIR.test(t) || JURY.test(t) || CHOIRS.test(t) || PARTICIPANTS.test(t)) continue;
@@ -668,7 +678,7 @@ export function FestivalContent({
   // (competitions: the competing conductors), then the participating (masterclasses/competitions:
   // demonstrative) choirs, then everything else in the legacy order.
   const roleOf = (s: (typeof sections)[number]) => {
-    const t = s.heading ? plain(s.heading.heading) : "";
+    const t = s.heading ? srcText(s.heading) : "";
     if (JURY.test(t) && !/evaluation|αξιολ[οό]γηση/i.test(t)) return "jury"; // not the marking rules
     if (PARTICIPANTS.test(t)) return "participants";
     if (CHOIRS.test(t)) return "choirs";
@@ -704,13 +714,13 @@ export function FestivalContent({
   const navOf = (list: typeof sections) => list.filter((s) => s.id).map((s) => ({ id: s.id!, label: plain(s.heading!.heading).replace(/:$/, "") }));
   const nav: NavSection[] = [
     ...navOf(sections.slice(0, leading)),
-    ...(results ? [{ id: "results", label: results.heading[locale] }] : []),
+    ...(results ? [{ id: "results", label: tr(results.heading, locale) }] : []),
     ...navOf(sections.slice(leading)),
-    ...(others && others.items.length ? [{ id: othersId, label: others.heading[locale] }] : []),
+    ...(others && others.items.length ? [{ id: othersId, label: tr(others.heading, locale) }] : []),
   ];
   // the legacy lists of links to the page's own sections are left out: the section bar does that
   const ownLink = (s: string) => /^\s*\[[^\]]+\]\(#[^)]*\)\s*$/.test(s);
-  const asideBlocks = (aside?.[locale] ?? []).filter((b) => !(typeof b === "string" ? ownLink(b) : "list" in b && b.list.every(ownLink)));
+  const asideBlocks = ((aside && tr(aside, locale)) ?? []).filter((b) => !(typeof b === "string" ? ownLink(b) : "list" in b && b.list.every(ownLink)));
   const renderBand = (band: typeof sections, i: number) => {
     const bg = i % 2 === 0 ? "bg-surface" : "bg-white";
     if (band.length > 1)
@@ -800,7 +810,7 @@ export function FestivalContent({
             )}
             {top.length === 0 && nav.length > 0 && (
               // pages without an introduction: the page's sections as tiles beside the poster
-              <nav aria-label={contentsLabel[locale]} data-legacy-ignore="" className="grid gap-4 sm:grid-cols-2">
+              <nav aria-label={tr(contentsLabel, locale)} data-legacy-ignore="" className="grid gap-4 sm:grid-cols-2">
                 {nav.map((n, i) => (
                   <a
                     key={n.id}
@@ -835,7 +845,7 @@ export function FestivalContent({
           <div className={container}>
             <h2 className="type-h2 mb-8 border-b border-rule pb-4 text-ink lg:mb-10">
               <span className="mr-3 inline-block h-6 w-1 translate-y-0.5 rounded-full bg-brand-maroon align-baseline" aria-hidden="true" />
-              {others.heading[locale]}
+              {tr(others.heading, locale)}
             </h2>
             <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
               {others.items.map((o) => (

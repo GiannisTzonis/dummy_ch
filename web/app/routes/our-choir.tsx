@@ -1,13 +1,21 @@
-import { pageTitle } from "~/lib/locale";
+import { useLoaderData } from "react-router";
 import page from "~/content/pages/our-choir";
 import { StaticPage } from "~/templates/StaticPage";
-import type { Locale } from "~/content/types";
+import { localeOf, pageTitle, tr } from "~/lib/locale";
+import { fallbackMeta, translate, translationId } from "~/lib/translations.server";
 
-export function meta({ params }: { params: { lang?: string } }) {
-  const locale: Locale = params.lang === "el" ? "el" : "en";
-  return [{ title: pageTitle(page.title[locale], locale) }];
+// Runs at build time (the site is prerendered): the page in its language (French etc.: its
+// translation, English where there is none).
+export function loader({ params }: { params: { lang?: string } }) {
+  const locale = localeOf(params.lang);
+  const { data, translated } = translate(translationId.page("our-choir"), page, locale);
+  return { page: data, translated, title: pageTitle(tr(data.title, locale), locale), fallback: fallbackMeta(locale, translated) };
+}
+
+export function meta({ loaderData: data }: { loaderData: ReturnType<typeof loader> }) {
+  return [{ title: data.title }, ...data.fallback];
 }
 
 export default function OurChoirRoute() {
-  return <StaticPage page={page} />;
+  return <StaticPage page={useLoaderData<typeof loader>().page} />;
 }

@@ -7,10 +7,20 @@ import { z } from "zod";
  * repo root for which legacy HTML file each data file replaces.
  */
 
-export const locales = ["en", "el"] as const;
-export type Locale = (typeof locales)[number];
+// Every language the site can be shown in. English and Greek are the source languages (the legacy
+// pages): every localized value has both. French, Italian, German and Spanish are translations
+// (app/content/translations), optional per value: where one is missing the English is shown.
+// Which languages are published is set in app/content/site-locales.ts.
+export const allLocales = ["en", "el", "fr", "it", "de", "es"] as const;
+export type Locale = (typeof allLocales)[number];
+export const sourceLocales = ["en", "el"] as const;
+export type SourceLocale = (typeof sourceLocales)[number];
+export const isLocale = (v: unknown): v is Locale => typeof v === "string" && (allLocales as readonly string[]).includes(v);
 
-const localizedString = z.object({ en: z.string(), el: z.string() });
+// {en, el} required, the translations optional
+const localized = <T extends z.ZodTypeAny>(t: T) =>
+  z.object({ en: t, el: t, fr: t.optional(), it: t.optional(), de: t.optional(), es: t.optional() });
+const localizedString = localized(z.string());
 export type LocalizedString = z.infer<typeof localizedString>;
 
 // A value that is usually identical in both languages (a person's name, a
@@ -33,7 +43,9 @@ const richBlock = z.union([
   // container (e.g. medal results); legacy <p>s are always justified.
   z.object({ p: z.string(), align: z.enum(["center", "right"]) }),
   z.object({ list: z.array(z.string()), align }),
-  z.object({ heading: z.string(), level: z.number().int().min(1).max(6).optional(), align }),
+  // src: on a translated heading, the English it was translated from (the layout reads that, so
+  // every language is laid out alike: app/lib/translations.server.ts)
+  z.object({ heading: z.string(), level: z.number().int().min(1).max(6).optional(), align, src: z.string().optional() }),
   // layout: "side" = portrait beside text (legacy narrow column), "gallery" =
   // thumbnail (consecutive ones render as a grid); default fills the column.
   z.object({ img: z.string(), href: z.string().optional(), layout: z.enum(["side", "gallery"]).optional() }),
@@ -61,10 +73,7 @@ const richBlock = z.union([
   }),
 ]);
 export type RichBlock = z.infer<typeof richBlock>;
-const localizedRichText = z.object({
-  en: z.array(richBlock),
-  el: z.array(richBlock),
-});
+const localizedRichText = localized(z.array(richBlock));
 export type LocalizedRichText = z.infer<typeof localizedRichText>;
 
 export const committeeMemberSchema = z.object({

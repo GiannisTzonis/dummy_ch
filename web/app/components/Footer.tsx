@@ -1,4 +1,4 @@
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 
 // Footer of index.html / indexGreek.html: same text, links, colours (#2b287a
 // background, whitesmoke text, maroon Font Awesome icons) and layout (Bootstrap
@@ -28,6 +28,54 @@ const copy = {
     fax: "Φαξ: +30 26820 29852",
     followUs: "Ακολουθήστε μας",
   },
+  fr: {
+    prevezaLinks: "Liens utiles sur Preveza",
+    visitPreveza: "Visiter Preveza",
+    map: "Plan de Preveza",
+    usefulPhones: "Numéros utiles",
+    emergency: "Numéros d'urgence",
+    contact: "Contact",
+    address: "Preveza, Épire (Grèce)",
+    tel: "Tél. : +30 26820 24915",
+    fax: "Fax : +30 26820 29852",
+    followUs: "Suivez-nous",
+  },
+  it: {
+    prevezaLinks: "Link su Preveza",
+    visitPreveza: "Visitare Preveza",
+    map: "Mappa di Preveza",
+    usefulPhones: "Numeri utili",
+    emergency: "Numeri di emergenza",
+    contact: "Contatti",
+    address: "Preveza, Epiro (Grecia)",
+    tel: "Tel.: +30 26820 24915",
+    fax: "Fax: +30 26820 29852",
+    followUs: "Seguici",
+  },
+  de: {
+    prevezaLinks: "Links zu Preveza",
+    visitPreveza: "Preveza besuchen",
+    map: "Karte von Preveza",
+    usefulPhones: "Nützliche Telefonnummern",
+    emergency: "Notrufnummern",
+    contact: "Kontakt",
+    address: "Preveza, Epirus (Griechenland)",
+    tel: "Tel.: +30 26820 24915",
+    fax: "Fax: +30 26820 29852",
+    followUs: "Folgen Sie uns",
+  },
+  es: {
+    prevezaLinks: "Enlaces sobre Preveza",
+    visitPreveza: "Visitar Preveza",
+    map: "Mapa de Preveza",
+    usefulPhones: "Teléfonos útiles",
+    emergency: "Teléfonos de emergencia",
+    contact: "Contacto",
+    address: "Preveza, Epiro (Grecia)",
+    tel: "Tel.: +30 26820 24915",
+    fax: "Fax: +30 26820 29852",
+    followUs: "Síganos",
+  },
 } as const;
 
 const links = [
@@ -50,7 +98,7 @@ const heading = "type-h5 mb-4 text-white";
 
 export function Footer() {
   const locale = useLocale();
-  const t = copy[locale];
+  const t = tr(copy, locale);
 
   return (
     <footer className="type-small bg-brand-navy pb-10 pt-12 text-whitesmoke lg:pb-[30px] lg:pt-[100px]">

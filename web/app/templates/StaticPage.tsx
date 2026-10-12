@@ -1,5 +1,5 @@
 import type { StaticPageContent } from "~/content/types";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 import { PageHero } from "~/components/content/PageHero";
 import { ContentSections } from "~/components/content/ContentSections";
 
@@ -9,8 +9,8 @@ export function StaticPage({ page }: { page: StaticPageContent }) {
   return (
     <div>
       <PageHero
-        title={page.hideTitle ? undefined : page.title[locale]}
-        subtitle={page.subtitle?.[locale]}
+        title={page.hideTitle ? undefined : tr(page.title, locale)}
+        subtitle={page.subtitle && tr(page.subtitle, locale)}
         image={page.hero}
       />
 
@@ -23,7 +23,7 @@ export function StaticPage({ page }: { page: StaticPageContent }) {
               <li key={i} className="relative">
                 <span className="absolute -left-[29px] flex h-3 w-3 rounded-full bg-brand-maroon" />
                 <span className="type-small font-semibold text-brand-navy">{m.year}</span>
-                <p className="text-body">{m.description[locale]}</p>
+                <p className="text-body">{tr(m.description, locale)}</p>
               </li>
             ))}
           </ol>

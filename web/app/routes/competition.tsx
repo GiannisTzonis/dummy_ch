@@ -1,24 +1,29 @@
-import { forLocale, pageTitle } from "~/lib/locale";
+import { forLocale, pageTitle, localeOf, tr } from "~/lib/locale";
 import { useLoaderData } from "react-router";
 import { competitions } from "~/content/competitions";
 import { competitionNav } from "~/content/edition-nav";
 import { CompetitionPage } from "~/templates/CompetitionPage";
 import type { Locale } from "~/content/types";
+import { fallbackMeta, translate, translationId } from "~/lib/translations.server";
 
-// Runs at build time (the site is prerendered): the browser downloads this competition only.
+// Runs at build time (the site is prerendered): the browser downloads this competition only, in
+// the page's language (French etc.: its translation, English where there is none).
 export function loader({ params }: { params: { lang?: string; slug?: string } }) {
-  const locale: Locale = params.lang === "el" ? "el" : "en";
-  const competition = competitions.find((c) => c.slug === params.slug);
-  if (!competition) return null;
+  const locale: Locale = localeOf(params.lang);
+  const source = competitions.find((c) => c.slug === params.slug);
+  if (!source) return null;
+  const { data: competition, translated } = translate(translationId.competition(source.slug), source, locale);
   return {
     competition: forLocale(competition, locale),
+    translated,
     others: competitionNav(competition.slug, locale),
-    title: pageTitle(competition.title[locale], locale),
+    title: pageTitle(tr(competition.title, locale), locale),
+    fallback: fallbackMeta(locale, translated),
   };
 }
 
 export function meta({ loaderData: data }: { loaderData: Awaited<ReturnType<typeof loader>> }) {
-  return [{ title: data ? data.title : "Armonia Choir" }];
+  return data ? [{ title: data.title }, ...data.fallback] : [{ title: "Armonia Choir" }];
 }
 
 export default function CompetitionRoute() {

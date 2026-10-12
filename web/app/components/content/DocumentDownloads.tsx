@@ -1,5 +1,5 @@
 import type { DocumentLink } from "~/content/types";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 
 export function DocumentDownloads({ documents }: { documents: DocumentLink[] }) {
   const locale = useLocale();
@@ -17,7 +17,7 @@ export function DocumentDownloads({ documents }: { documents: DocumentLink[] }) 
           <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded bg-brand-navy type-label text-white">
             {doc.type}
           </span>
-          <span className="type-small font-medium text-ink">{doc.label[locale]}</span>
+          <span className="type-small font-medium text-ink">{tr(doc.label, locale)}</span>
         </a>
       ))}
     </div>

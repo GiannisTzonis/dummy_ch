@@ -1,21 +1,40 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router";
 import type { HomePageContent, Locale } from "~/content/types";
-import { localizedHref, pick, useLocale } from "~/lib/locale";
+import { localizedHref, pick, useLocale, tr } from "~/lib/locale";
 import { CoverBanner } from "~/components/content/PageHero";
 import { responsive, sized } from "~/lib/img";
 
 // Layout and styles follow index.html / indexGreek.html and css/main.css.
 
 const labels = {
-  download: { en: "Download", el: "Λήψη" },
-  news: { en: "News - Announcements", el: "Νέα - Ανακοινώσεις" },
+  download: { en: "Download", el: "Λήψη", fr: "Télécharger", it: "Scarica", de: "Herunterladen", es: "Descargar" },
+  news: {
+    en: "News - Announcements",
+    el: "Νέα - Ανακοινώσεις",
+    fr: "Actualités - Annonces",
+    it: "Notizie - Annunci",
+    de: "Neuigkeiten - Ankündigungen",
+    es: "Noticias - Anuncios",
+  },
   newsIntro: {
     en: "Stay tuned with all the latest news about our festival.",
     el: "Μείνετε ενήμεροι με όλα τα τελευταία νέα για το φεστιβάλ μας.",
+    fr: "Suivez toute l'actualité de notre festival.",
+    it: "Resti aggiornato su tutte le ultime notizie del nostro festival.",
+    de: "Bleiben Sie über alle Neuigkeiten unseres Festivals auf dem Laufenden.",
+    es: "Manténgase al día de todas las novedades de nuestro festival.",
   },
-  collaborations: { en: "Collaborations", el: "Συνεργασίες" },
-  readMore: { en: "Read more", el: "Διαβάστε περισσότερα" },
+  collaborations: { en: "Collaborations", el: "Συνεργασίες", fr: "Collaborations", it: "Collaborazioni", de: "Kooperationen", es: "Colaboraciones" },
+  readMore: { en: "Read more", el: "Διαβάστε περισσότερα", fr: "Lire la suite", it: "Leggi di più", de: "Weiterlesen", es: "Leer más" },
+  newTab: {
+    en: "(opens in a new tab)",
+    el: "(ανοίγει σε νέα καρτέλα)",
+    fr: "(s'ouvre dans un nouvel onglet)",
+    it: "(si apre in una nuova scheda)",
+    de: "(öffnet in einem neuen Tab)",
+    es: "(se abre en una nueva pestaña)",
+  },
 } as const;
 
 // Partner wall over a faint five-line music staff. Every logo sits on the same square stage
@@ -38,7 +57,7 @@ function Collaborations({ items, locale }: { items: HomePageContent["collaborati
       <div className="relative mx-auto max-w-[1180px] px-4 sm:px-6">
         <div className="mb-10 text-center lg:mb-14">
           <span aria-hidden="true" className="mx-auto mb-4 block h-1 w-12 rounded-full bg-brand-maroon" />
-          <h2 id="collaborations" className="type-h2 text-ink">{labels.collaborations[locale]}</h2>
+          <h2 id="collaborations" className="type-h2 text-ink">{tr(labels.collaborations, locale)}</h2>
         </div>
         <ul className="flex flex-wrap justify-center gap-4 sm:gap-6">
           {items.map((c) => {
@@ -66,7 +85,7 @@ function Collaborations({ items, locale }: { items: HomePageContent["collaborati
                       <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="h-3 w-3">
                         <path d="M6 4h10v10h-2V7.4l-8.3 8.3-1.4-1.4L12.6 6H6V4Z" />
                       </svg>
-                      <span className="sr-only">{locale === "el" ? "(ανοίγει σε νέα καρτέλα)" : "(opens in a new tab)"}</span>
+                      <span className="sr-only">{tr(labels.newTab, locale)}</span>
                     </p>
                   </div>
                 </a>
@@ -151,14 +170,14 @@ function NewsCard({ item, href, locale }: { item: HomePageContent["newsItems"][n
       </div>
       <div className="flex flex-1 flex-col px-6 pt-5 pb-6">
         <div className="mb-3 h-0.5 w-8 bg-brand-maroon transition-all duration-300 group-hover:w-14" aria-hidden="true" />
-        <h3 className="type-h5 text-ink transition-colors group-hover:text-brand-navy">{item.title[locale]}</h3>
-        {item.subtitle && <p className="type-small mt-2 line-clamp-3 text-muted">{item.subtitle[locale]}</p>}
+        <h3 className="type-h5 text-ink transition-colors group-hover:text-brand-navy">{tr(item.title, locale)}</h3>
+        {item.subtitle && <p className="type-small mt-2 line-clamp-3 text-muted">{tr(item.subtitle, locale)}</p>}
         <div className="min-h-5 flex-1" aria-hidden="true" />
         <p
           data-legacy-ignore=""
           className="type-label inline-flex items-center gap-1.5 border-t border-rule pt-4 font-semibold tracking-wide text-brand-navy uppercase"
         >
-          {labels.readMore[locale]}
+          {tr(labels.readMore, locale)}
           <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-6-6 6 6-6 6" />
           </svg>
@@ -286,7 +305,7 @@ export function HomePage({ page }: { page: HomePageContent }) {
 
   return (
     <div>
-      <Hero text={page.welcome[locale]} />
+      <Hero text={tr(page.welcome, locale)} />
 
       {(page.upcomingEdition || page.documents.length > 0) && (
         <section className="py-8 md:px-6 lg:px-8">
@@ -294,10 +313,10 @@ export function HomePage({ page }: { page: HomePageContent }) {
             {page.upcomingEdition && (
               <div className="flex w-full flex-col items-center justify-between px-4 pt-3 lg:flex-row">
                 <h2 className="type-h1 text-center text-ink lg:text-left">
-                  {page.upcomingEdition.title[locale]}
+                  {tr(page.upcomingEdition.title, locale)}
                 </h2>
                 <div className="type-h5 mt-4 inline-block shrink-0 rounded-full bg-brand-maroon px-6 py-3 text-white shadow-md lg:mt-0">
-                  {page.upcomingEdition.dates[locale]}
+                  {tr(page.upcomingEdition.dates, locale)}
                 </div>
               </div>
             )}
@@ -310,12 +329,12 @@ export function HomePage({ page }: { page: HomePageContent }) {
                       className="flex h-full flex-col items-center justify-center rounded-xl border-2 border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 p-6 shadow-md"
                     >
                       <h4 className="type-h4 mb-3 text-center text-ink">
-                        {doc.label[locale]}
+                        {tr(doc.label, locale)}
                       </h4>
                       {doc.date && (
                         <div className="mb-3 flex items-center space-x-3">
                           <CalendarIcon />
-                          <span className="type-small font-semibold text-brand-maroon">{doc.date[locale]}</span>
+                          <span className="type-small font-semibold text-brand-maroon">{tr(doc.date, locale)}</span>
                         </div>
                       )}
                       <a
@@ -324,7 +343,7 @@ export function HomePage({ page }: { page: HomePageContent }) {
                         className="type-small inline-flex items-center space-x-2 rounded-lg bg-brand-navy px-5 py-2.5 font-semibold text-white shadow-lg transition-all duration-300 hover:bg-brand-navy-dark lg:hover:scale-105"
                       >
                         <DownloadIcon />
-                        <span>{labels.download[locale]}</span>
+                        <span>{tr(labels.download, locale)}</span>
                       </a>
                     </div>
                   ))}
@@ -339,8 +358,8 @@ export function HomePage({ page }: { page: HomePageContent }) {
         <section className="bg-surface py-[30px]">
           <div className="mx-auto max-w-[1140px] px-[15px]">
             <div className="mx-auto pb-[30px] text-center lg:w-5/6">
-              <h2 className="type-h1 mt-5 mb-3 text-ink">{labels.news[locale]}</h2>
-              <p className="type-lead text-muted">{labels.newsIntro[locale]}</p>
+              <h2 className="type-h1 mt-5 mb-3 text-ink">{tr(labels.news, locale)}</h2>
+              <p className="type-lead text-muted">{tr(labels.newsIntro, locale)}</p>
             </div>
             <NewsCarousel items={page.newsItems} />
           </div>

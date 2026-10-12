@@ -1,7 +1,17 @@
 import type { ParticipatingChoir } from "~/content/types";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 import { RichText } from "~/components/content/RichText";
 import { responsive } from "~/lib/img";
+
+// the line naming a choir's conductor (gender-neutral wording: "Direction", "Leitung"...)
+const conductorLabel = {
+  en: "Conductor:",
+  el: "Διεύθυνση:",
+  fr: "Direction :",
+  it: "Direzione:",
+  de: "Leitung:",
+  es: "Dirección:",
+} as const;
 
 export function ParticipatingChoirs({
   title,
@@ -34,19 +44,19 @@ export function ParticipatingChoirs({
               )}
               {choir.conductor && (
                 <p className="mb-3 type-small text-muted">
-                  <span className="font-medium text-ink">Conductor: </span>
+                  <span className="font-medium text-ink">{tr(conductorLabel, locale)} </span>
                   {choir.conductor}
                 </p>
               )}
               <div className="mb-3 type-small">
-                <RichText paragraphs={choir.description[locale]} />
+                <RichText paragraphs={tr(choir.description, locale)} />
               </div>
               {choir.highlights && choir.highlights.length > 0 && (
                 <ul className="space-y-1 type-small text-muted">
                   {choir.highlights.map((h, i) => (
                     <li key={i} className="flex gap-2">
                       <span className="text-brand-maroon">•</span>
-                      <span>{h[locale]}</span>
+                      <span>{tr(h, locale)}</span>
                     </li>
                   ))}
                 </ul>

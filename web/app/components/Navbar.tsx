@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { primaryNav } from "~/content/nav";
 import type { Locale, NavItem } from "~/content/types";
-import { localizedHref as withLocale, useLocale } from "~/lib/locale";
+import { localizedHref as withLocale, useLocale, tr, siteNameOf } from "~/lib/locale";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { sized } from "~/lib/img";
 
@@ -10,8 +10,19 @@ import { sized } from "~/lib/img";
 // banner, transparent until the page scrolls past 100px, then rgba(0,0,0,0.8).
 // Festival, masterclass and competition pages show the festival logo; the
 // rest show the choir logo. Every page but the home page has a "Home" link.
-const homeItem: NavItem = { label: { en: "Home", el: "Αρχική" }, href: "/" };
-const FESTIVAL_SECTIONS = /^\/(en|el)\/(festival|festivals|masterclass|masterclasses|competition)(\/|$)/;
+const homeItem: NavItem = {
+  label: { en: "Home", el: "Αρχική", fr: "Accueil", it: "Home", de: "Startseite", es: "Inicio" },
+  href: "/",
+};
+const toggleMenu = {
+  en: "Toggle menu",
+  el: "Εναλλαγή μενού",
+  fr: "Ouvrir ou fermer le menu",
+  it: "Apri o chiudi il menu",
+  de: "Menü ein-/ausblenden",
+  es: "Abrir o cerrar el menú",
+} as const;
+const FESTIVAL_SECTIONS = /^\/[a-z]{2}\/(festival|festivals|masterclass|masterclasses|competition)(\/|$)/;
 
 // From 1024px the whole menu is shown. Entries longer than 20 characters ("International Choral
 // Festival", the Greek ones) are set on two lines, split at the word boundary that makes the lines
@@ -38,7 +49,7 @@ function splitEven(label: string): [string, string] | null {
 function Label({ text, locale, chevron }: { text: string; locale: Locale; chevron: boolean }) {
   const lines = splitEven(text);
   if (!lines) return <span className="whitespace-nowrap">{text}{chevron && <Chevron />}</span>;
-  const fit = labelFit[locale];
+  const fit = tr(labelFit, locale);
   return (
     <>
       <span className="whitespace-nowrap">
@@ -76,7 +87,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isHome = /^\/(en|el)\/?$/.test(location.pathname);
+  const isHome = /^\/[a-z]{2}\/?$/.test(location.pathname);
   const logo = FESTIVAL_SECTIONS.test(location.pathname) ? "/img/fest-logo.webp" : "/img/logo.webp";
   const items: NavItem[] = isHome ? primaryNav : [homeItem, ...primaryNav];
   const solid = scrolled || mobileOpen;
@@ -87,7 +98,7 @@ export function Navbar() {
     >
       <div className="flex h-[90px] items-center px-4 lg:pr-4 lg:pl-6 min-[90rem]:pr-[14px] min-[90rem]:pl-[60px]">
         <Link to={withLocale(locale, "/")} onClick={() => setMobileOpen(false)} className="shrink-0">
-          <img src={sized(logo, 400)} alt="Armonia Choir" className="h-auto w-[60px] xl:w-[75px]" />
+          <img src={sized(logo, 400)} alt={siteNameOf(locale)} className="h-auto w-[60px] xl:w-[75px]" />
         </Link>
 
         {/* Desktop nav: entries top-aligned (first lines share a baseline, level with the language
@@ -99,13 +110,13 @@ export function Navbar() {
                 {item.href ? (
                   <Link
                     to={withLocale(locale, item.href === "/" ? "" : item.href)}
-                    className={`type-label ${labelFit[locale].text} block px-[10px] py-[6px] text-white hover:text-white/80`}
+                    className={`type-label ${tr(labelFit, locale).text} block px-[10px] py-[6px] text-white hover:text-white/80`}
                   >
-                    <Label text={item.label[locale]} locale={locale} chevron={false} />
+                    <Label text={tr(item.label, locale)} locale={locale} chevron={false} />
                   </Link>
                 ) : (
-                  <span className={`type-label ${labelFit[locale].text} block cursor-pointer px-[10px] py-[6px] text-white`}>
-                    <Label text={item.label[locale]} locale={locale} chevron={!!item.children} />
+                  <span className={`type-label ${tr(labelFit, locale).text} block cursor-pointer px-[10px] py-[6px] text-white`}>
+                    <Label text={tr(item.label, locale)} locale={locale} chevron={!!item.children} />
                   </span>
                 )}
                 {item.children && (
@@ -116,7 +127,7 @@ export function Navbar() {
                           to={withLocale(locale, child.href!)}
                           className="type-small block whitespace-nowrap px-3 py-2 text-body transition-colors duration-200 hover:bg-surface hover:text-brand-navy"
                         >
-                          {child.label[locale]}
+                          {tr(child.label, locale)}
                         </Link>
                       </li>
                     ))}
@@ -136,7 +147,7 @@ export function Navbar() {
           {/* Mobile toggle */}
           <button
             type="button"
-            aria-label="Toggle menu"
+            aria-label={tr(toggleMenu, locale)}
             aria-expanded={mobileOpen}
             className="flex h-8 w-8 items-center justify-center lg:hidden"
             onClick={() => setMobileOpen((v) => !v)}
@@ -162,7 +173,7 @@ export function Navbar() {
                     className="type-label block py-3"
                     onClick={() => setMobileOpen(false)}
                   >
-                    {item.label[locale]}
+                    {tr(item.label, locale)}
                   </Link>
                 ) : (
                   <button
@@ -170,7 +181,7 @@ export function Navbar() {
                     className="type-label flex w-full items-center justify-between py-3 text-left"
                     onClick={() => setOpenSubmenu((cur) => (cur === item.label.en ? null : item.label.en))}
                   >
-                    {item.label[locale]}
+                    {tr(item.label, locale)}
                     <span>{openSubmenu === item.label.en ? "−" : "+"}</span>
                   </button>
                 )}
@@ -183,7 +194,7 @@ export function Navbar() {
                           className="type-small block py-2.5 text-white/90 hover:text-white"
                           onClick={() => setMobileOpen(false)}
                         >
-                          {child.label[locale]}
+                          {tr(child.label, locale)}
                         </Link>
                       </li>
                     ))}

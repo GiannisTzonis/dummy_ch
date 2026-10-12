@@ -1,9 +1,18 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { scrollToId } from "~/lib/anchor-scroll";
+import type { Locale } from "~/content/types";
+import { tr } from "~/lib/locale";
 
 export type NavSection = { id: string; label: string };
 
-const navLabel = { en: "On this page", el: "Σε αυτή τη σελίδα" } as const;
+const navLabel = {
+  en: "On this page",
+  el: "Σε αυτή τη σελίδα",
+  fr: "Sur cette page",
+  it: "In questa pagina",
+  de: "Auf dieser Seite",
+  es: "En esta página",
+} as const;
 const SITE_MENU = 90; // height of the fixed site menu (Navbar), which this bar sits under
 
 const goTo = (id: string) => {
@@ -21,7 +30,7 @@ const Chevron = ({ className }: { className: string }) => (
 // Sticky bar of in-page section links with scroll-spy, just under the fixed site menu. Phones get
 // one row naming the section being read, which opens the full list; wider screens get a row of
 // pills (scrollable, with faded edges while more pills are out of view).
-export function SectionNav({ sections, locale }: { sections: NavSection[]; locale: "en" | "el" }) {
+export function SectionNav({ sections, locale }: { sections: NavSection[]; locale: Locale }) {
   const [active, setActive] = useState(sections[0]?.id);
   const [open, setOpen] = useState(false);
   const [edges, setEdges] = useState({ left: false, right: false });
@@ -102,7 +111,7 @@ export function SectionNav({ sections, locale }: { sections: NavSection[]; local
   return (
     <nav
       ref={nav}
-      aria-label={navLabel[locale]}
+      aria-label={tr(navLabel, locale)}
       // page furniture repeating the section headings: the legacy content check ignores it
       data-legacy-ignore=""
       className="sticky top-[90px] z-40 border-y border-rule bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75"
@@ -117,7 +126,7 @@ export function SectionNav({ sections, locale }: { sections: NavSection[]; local
           className="flex w-full items-center gap-3 px-4 py-2.5 text-left"
         >
           <span className="min-w-0 flex-1">
-            <span className="type-label block font-semibold tracking-wide text-muted uppercase">{navLabel[locale]}</span>
+            <span className="type-label block font-semibold tracking-wide text-muted uppercase">{tr(navLabel, locale)}</span>
             <span className="type-small block truncate font-semibold text-brand-navy">{current.label}</span>
           </span>
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface text-brand-navy">

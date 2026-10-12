@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import type { RelatedLinks as RelatedLinksData } from "~/content/types";
-import { localizedHref, pick, useLocale } from "~/lib/locale";
+import { localizedHref, pick, useLocale, tr } from "~/lib/locale";
 import { sized } from "~/lib/img";
 
 export function RelatedLinks({ blocks, vertical = false, narrow = false }: { blocks: RelatedLinksData[]; vertical?: boolean; narrow?: boolean }) {
@@ -11,7 +11,7 @@ export function RelatedLinks({ blocks, vertical = false, narrow = false }: { blo
     <div className="space-y-8">
       {blocks.map((block, b) => (
         <div key={b}>
-          {block.heading && <h2 className="type-h4 mb-4 text-ink">{block.heading[locale]}</h2>}
+          {block.heading && <h2 className="type-h4 mb-4 text-ink">{tr(block.heading, locale)}</h2>}
           <div className={vertical ? "grid grid-cols-1 gap-4" : narrow ? "grid grid-cols-1 gap-4 sm:grid-cols-2" : "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"}>
             {block.items.map((item, i) => (
               <Link

@@ -1,13 +1,21 @@
+import { useLoaderData } from "react-router";
 import page from "~/content/pages/previous-festivals";
 import { StaticPage } from "~/templates/StaticPage";
-import { pageTitle } from "~/lib/locale";
-import type { Route } from "./+types/festivals-index";
+import { localeOf, pageTitle, tr } from "~/lib/locale";
+import { fallbackMeta, translate, translationId } from "~/lib/translations.server";
 
-export function meta({ params }: Route.MetaArgs) {
-  const locale = params.lang === "el" ? "el" : "en";
-  return [{ title: pageTitle(page.title[locale], locale) }];
+// Runs at build time (the site is prerendered): the page in its language (French etc.: its
+// translation, English where there is none).
+export function loader({ params }: { params: { lang?: string } }) {
+  const locale = localeOf(params.lang);
+  const { data, translated } = translate(translationId.page("previous-festivals"), page, locale);
+  return { page: data, translated, title: pageTitle(tr(data.title, locale), locale), fallback: fallbackMeta(locale, translated) };
+}
+
+export function meta({ loaderData: data }: { loaderData: ReturnType<typeof loader> }) {
+  return [{ title: data.title }, ...data.fallback];
 }
 
 export default function FestivalsIndexRoute() {
-  return <StaticPage page={page} />;
+  return <StaticPage page={useLoaderData<typeof loader>().page} />;
 }

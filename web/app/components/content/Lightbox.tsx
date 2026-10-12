@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import type { Locale } from "~/content/types";
+import { tr } from "~/lib/locale";
 
 export type LightboxImage = { src: string; caption?: string };
 type Open = (images: LightboxImage[], index: number) => void;
@@ -9,6 +10,10 @@ const LightboxContext = createContext<Open | null>(null);
 const labels = {
   en: { close: "Close", prev: "Previous photo", next: "Next photo", view: "View larger" },
   el: { close: "Κλείσιμο", prev: "Προηγούμενη φωτογραφία", next: "Επόμενη φωτογραφία", view: "Μεγέθυνση" },
+  fr: { close: "Fermer", prev: "Photo précédente", next: "Photo suivante", view: "Agrandir" },
+  it: { close: "Chiudi", prev: "Foto precedente", next: "Foto successiva", view: "Ingrandisci" },
+  de: { close: "Schließen", prev: "Vorheriges Foto", next: "Nächstes Foto", view: "Vergrößern" },
+  es: { close: "Cerrar", prev: "Foto anterior", next: "Foto siguiente", view: "Ampliar" },
 } as const;
 
 // Full-screen photo viewer on a native <dialog> (focus trap, Esc to close), with previous/next
@@ -16,7 +21,7 @@ const labels = {
 export function LightboxProvider({ locale, children }: { locale: Locale; children: ReactNode }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [state, setState] = useState<{ images: LightboxImage[]; index: number } | null>(null);
-  const t = labels[locale];
+  const t = tr(labels, locale);
 
   const open = useCallback<Open>((images, index) => setState({ images, index }), []);
   const close = () => dialog.current?.close();
@@ -106,7 +111,7 @@ export function Zoomable({
   return (
     <a
       href={images[index].src}
-      aria-label={`${labels[locale].view}${label ? `: ${label}` : ""}`}
+      aria-label={`${tr(labels, locale).view}${label ? `: ${label}` : ""}`}
       onClick={(e) => {
         if (!open || e.metaKey || e.ctrlKey || e.shiftKey) return;
         e.preventDefault();

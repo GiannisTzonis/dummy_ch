@@ -1,5 +1,5 @@
 import type { RelatedLinks as RelatedLinksData, RichBlock } from "~/content/types";
-import { useLocale } from "~/lib/locale";
+import { useLocale, tr } from "~/lib/locale";
 import { RichText } from "./RichText";
 import { RelatedLinks } from "./RelatedLinks";
 
@@ -17,10 +17,10 @@ export function EditionContent({
   related?: RelatedLinksData[];
 }) {
   const locale = useLocale();
-  const hasSide = (aside && aside[locale].length > 0) || (related && related.length > 0);
+  const hasSide = (aside && tr(aside, locale).length > 0) || (related && related.length > 0);
   // Legacy pages put only the top of the page beside the sidebar; the rest
   // (jury, choirs, results, gallery...) runs full width below it.
-  const blocks = content[locale];
+  const blocks = tr(content, locale);
   const split = blocks.findIndex((b) => typeof b !== "string" && "wide" in b);
   const top = split < 0 ? blocks : blocks.slice(0, split);
   const wide = split < 0 ? [] : blocks.slice(split + 1);
@@ -37,9 +37,9 @@ export function EditionContent({
       {hasSide && (
         // The legacy sidebar's widgets are plain bordered boxes.
         <aside className="space-y-[30px]">
-          {aside && aside[locale].length > 0 && (
+          {aside && tr(aside, locale).length > 0 && (
             <div className="border border-[#eee] p-[30px]">
-              <RichText paragraphs={aside[locale]} />
+              <RichText paragraphs={tr(aside, locale)} />
             </div>
           )}
           {related && (
