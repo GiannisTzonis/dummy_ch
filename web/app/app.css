@@ -1,0 +1,182 @@
+@import "tailwindcss";
+/* Inter (variable, optical sizes), self-hosted, with Greek and Latin subsets. */
+@import "@fontsource-variable/inter/opsz.css";
+
+/*
+ * Design tokens. Brand colours come from the legacy site (#2b287a navy,
+ * #ac2e48 maroon). Text colours are chosen for WCAG contrast on white and on
+ * the #f9f9ff surface: ink 17.8:1, body 14.6:1, muted 7.6:1 (AAA), link 6.7:1.
+ */
+@theme {
+  /* wide screens, where the navbar fits every entry on one line (English 3xl, Greek 4xl) */
+  --breakpoint-3xl: 100rem;
+  --breakpoint-4xl: 120rem;
+
+  --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+
+  --color-brand-navy: #2b287a;
+  --color-brand-navy-dark: #1c1a52;
+  --color-brand-navy-light: #4c48a8;
+  --color-brand-maroon: #ac2e48;
+  --color-brand-maroon-dark: #841f36;
+  --color-whitesmoke: whitesmoke;
+
+  --color-ink: #0f172a;
+  --color-body: #1e293b;
+  --color-muted: #475569;
+  --color-link: #1d4ed8;
+  --color-link-hover: #1e3a8a;
+  --color-surface: #f9f9ff;
+  --color-surface-muted: #f1f1f1;
+  --color-rule: #e2e8f0;
+}
+
+/*
+ * Type scale -- one set of named styles used by every page. Sizes are fluid:
+ * the first value is the size on a 360px phone, the last on a 1280px+ desktop.
+ */
+@utility type-display {
+  font-size: clamp(2rem, 1.5109rem + 2.1739vw, 3.25rem);
+  line-height: 1.08;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+@utility type-h1 {
+  font-size: clamp(1.75rem, 1.4076rem + 1.5217vw, 2.625rem);
+  line-height: 1.15;
+  font-weight: 650;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+@utility type-h2 {
+  font-size: clamp(1.5rem, 1.3043rem + 0.8696vw, 2rem);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+@utility type-h3 {
+  font-size: clamp(1.25rem, 1.1277rem + 0.5435vw, 1.5625rem);
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+@utility type-h4 {
+  font-size: clamp(1.125rem, 1.0761rem + 0.2174vw, 1.25rem);
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.008em;
+}
+@utility type-h5 {
+  font-size: clamp(1rem, 0.9633rem + 0.163vw, 1.0938rem);
+  line-height: 1.4;
+  font-weight: 600;
+}
+@utility type-h6 {
+  font-size: clamp(0.9375rem, 0.913rem + 0.1087vw, 1rem);
+  line-height: 1.45;
+  font-weight: 600;
+}
+@utility type-lead {
+  font-size: clamp(1.0938rem, 1.0326rem + 0.2717vw, 1.25rem);
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility type-body {
+  font-size: clamp(1rem, 0.9755rem + 0.1087vw, 1.0625rem);
+  line-height: 1.7;
+  font-weight: 400;
+}
+@utility type-small {
+  font-size: clamp(0.875rem, 0.8505rem + 0.1087vw, 0.9375rem);
+  line-height: 1.55;
+  font-weight: 400;
+}
+@utility type-caption {
+  font-size: clamp(0.8125rem, 0.8003rem + 0.0543vw, 0.8438rem);
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+/* small uppercase labels: menu items, kickers ("Other News") */
+@utility type-label {
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* In a layer so utilities (e.g. text-white on a heading) win. */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body {
+    @apply bg-white text-body;
+  }
+
+  /* In-page targets land just below the fixed site menu (90px) and, where a page has one, the
+     sticky section bar: SectionNav sets --anchor-offset to their combined height. */
+  [id] {
+    scroll-margin-top: var(--anchor-offset, 106px);
+  }
+
+  body {
+    @apply type-body;
+    /* a word longer than its line (an e-mail address in a heading) breaks instead of pushing the
+       page wider than a small phone's screen */
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-ink;
+  }
+  h1 {
+    @apply type-h1;
+  }
+  h2 {
+    @apply type-h2;
+  }
+  h3 {
+    @apply type-h3;
+  }
+  h4 {
+    @apply type-h4;
+  }
+  h5 {
+    @apply type-h5;
+  }
+  h6 {
+    @apply type-h6;
+  }
+
+  strong,
+  b {
+    font-weight: 650;
+  }
+
+  /* visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-brand-navy) 18%, transparent);
+  }
+}

@@ -1,0 +1,3141 @@
+{
+ "note": "Non-Greek names in the Greek legacy pages, written in their original (Latin-script) spelling as on the English pages -- client rule of 2026-10-11. Applied by corrections.mjs. find = exact text in the legacy file, count = its occurrences.",
+ "replacements": [
+  {
+   "file": "masterclass2017Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 3,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "masterclass2018Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 4,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 2,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "masterclass2021Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 1,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 3,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Θεοδώρα\r\n                                Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 2,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 2,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 1,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 2,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 2,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "single-2021Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 2,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Θεοδώρα Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 2,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (BG conductor)"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Θεοδώρα Παύλοβιτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 1,
+   "kind": "person",
+   "note": "Theodora Pavlovitch"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Θεοδώρα Παύλοβιτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 1,
+   "kind": "person",
+   "note": "Theodora Pavlovitch"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Θεοδώρα Παύλοβιτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 1,
+   "kind": "person",
+   "note": "Theodora Pavlovitch"
+  },
+  {
+   "file": "masterclass2017Greek.html",
+   "find": "Θεοδώρας Παυλοβίτς",
+   "replace": "Theodora Pavlovitch",
+   "count": 1,
+   "kind": "person",
+   "note": "Theodora Pavlovitch (genitive)"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Άμπροζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 1,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "masterclass2017Greek.html",
+   "find": "Άμπροζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 2,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "masterclass2018Greek.html",
+   "find": "Άμπροζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 2,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Άμπροζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 2,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "masterclass2021Greek.html",
+   "find": "Αμπρόζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 1,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Αμπρόζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 1,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Αμπρόζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 4,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Αμβρόζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 1,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Άμπρος Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 1,
+   "kind": "person",
+   "note": "Ambrož Čopi"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Aμπρόζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 1,
+   "kind": "person",
+   "note": "Ambrož Čopi (first letter is a Latin \"A\" in the legacy file)"
+  },
+  {
+   "file": "icc2025Greek.html",
+   "find": "Aμπρόζ Τσόπι",
+   "replace": "Ambrož Čopi",
+   "count": 1,
+   "kind": "person",
+   "note": "Ambrož Čopi (first letter is a Latin \"A\" in the legacy file)"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "icc2025Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "masterclass2017Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "masterclass2018Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "single-2021Greek.html",
+   "find": "Οβάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ομπάλα",
+   "replace": "Obala",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Obala\" Koper (Čopi bio)"
+  },
+  {
+   "file": "masterclass2018Greek.html",
+   "find": "Τζον Φιτζπάτρικ",
+   "replace": "John Fitzpatrick",
+   "count": 1,
+   "kind": "person",
+   "note": "John Fitzpatrick"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Τζον Φιτζπάτρικ",
+   "replace": "John Fitzpatrick",
+   "count": 1,
+   "kind": "person",
+   "note": "John Fitzpatrick"
+  },
+  {
+   "file": "masterclass2021Greek.html",
+   "find": "Τζον Φιτζπάτρικ",
+   "replace": "John Fitzpatrick",
+   "count": 1,
+   "kind": "person",
+   "note": "John Fitzpatrick"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Τζον Φιτζπάτρικ",
+   "replace": "John Fitzpatrick",
+   "count": 2,
+   "kind": "person",
+   "note": "John Fitzpatrick"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Τζον Φιτζπάτρικ",
+   "replace": "John Fitzpatrick",
+   "count": 2,
+   "kind": "person",
+   "note": "John Fitzpatrick"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Τζον Φιτζπάτρικ",
+   "replace": "John Fitzpatrick",
+   "count": 2,
+   "kind": "person",
+   "note": "John Fitzpatrick"
+  },
+  {
+   "file": "single-2021Greek.html",
+   "find": "Τζον Φιτζπάτρικ",
+   "replace": "John Fitzpatrick",
+   "count": 2,
+   "kind": "person",
+   "note": "John Fitzpatrick"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "find": "Τζον Φιτζπάτρικ",
+   "replace": "John Fitzpatrick",
+   "count": 1,
+   "kind": "person",
+   "note": "John Fitzpatrick"
+  },
+  {
+   "file": "masterclass2017Greek.html",
+   "find": "Τζάστιν Σμιθ",
+   "replace": "Justin Smith",
+   "count": 1,
+   "kind": "person",
+   "note": "Justin Smith"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Τζάστιν Σμιθ",
+   "replace": "Justin Smith",
+   "count": 2,
+   "kind": "person",
+   "note": "Justin Smith"
+  },
+  {
+   "file": "masterclass2017Greek.html",
+   "find": "Περλ Σανγκκουάν",
+   "replace": "Pearl Shangkuan",
+   "count": 1,
+   "kind": "person",
+   "note": "Pearl Shangkuan"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Περλ Σανγκκουάν",
+   "replace": "Pearl Shangkuan",
+   "count": 2,
+   "kind": "person",
+   "note": "Pearl Shangkuan"
+  },
+  {
+   "file": "masterclass2017Greek.html",
+   "find": "Ούρσα Λαχ",
+   "replace": "Urša Lah",
+   "count": 1,
+   "kind": "person",
+   "note": "Urša Lah"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ούρσα Λαχ",
+   "replace": "Urša Lah",
+   "count": 1,
+   "kind": "person",
+   "note": "Urša Lah"
+  },
+  {
+   "file": "masterclass2017Greek.html",
+   "find": "Ράγκναρ Ράσμουσεν",
+   "replace": "Ragnar Rasmussen",
+   "count": 1,
+   "kind": "person",
+   "note": "Ragnar Rasmussen"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ράγκναρ Ράσμουσεν",
+   "replace": "Ragnar Rasmussen",
+   "count": 1,
+   "kind": "person",
+   "note": "Ragnar Rasmussen"
+  },
+  {
+   "file": "masterclass2023Greek.html",
+   "find": "Ράγναρ Ράσμουσεν",
+   "replace": "Ragnar Rasmussen",
+   "count": 1,
+   "kind": "person",
+   "note": "Ragnar Rasmussen"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ράγναρ Ράσμουσεν",
+   "replace": "Ragnar Rasmussen",
+   "count": 1,
+   "kind": "person",
+   "note": "Ragnar Rasmussen"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Ράγναρ Ράσμουσεν",
+   "replace": "Ragnar Rasmussen",
+   "count": 2,
+   "kind": "person",
+   "note": "Ragnar Rasmussen"
+  },
+  {
+   "file": "masterclass2023Greek.html",
+   "find": "Ο Ράσμουσεν",
+   "replace": "Ο Rasmussen",
+   "count": 1,
+   "kind": "person",
+   "note": "Ragnar Rasmussen (surname only)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ο Ράσμουσεν",
+   "replace": "Ο Rasmussen",
+   "count": 1,
+   "kind": "person",
+   "note": "Ragnar Rasmussen (surname only)"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Ο Ράσμουσεν",
+   "replace": "Ο Rasmussen",
+   "count": 1,
+   "kind": "person",
+   "note": "Ragnar Rasmussen (surname only)"
+  },
+  {
+   "file": "masterclass2018Greek.html",
+   "find": "Κλάους-Γιούργκεν Έτζολντ",
+   "replace": "Klaus-Jürgen Etzold",
+   "count": 1,
+   "kind": "person",
+   "note": "Klaus-Jürgen Etzold"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Κλάους-Γιούργκεν Έτζολντ",
+   "replace": "Klaus-Jürgen Etzold",
+   "count": 1,
+   "kind": "person",
+   "note": "Klaus-Jürgen Etzold"
+  },
+  {
+   "file": "masterclass2021Greek.html",
+   "find": "Κλάους-Γιούργκεν Έτσολντ",
+   "replace": "Klaus-Jürgen Etzold",
+   "count": 1,
+   "kind": "person",
+   "note": "Klaus-Jürgen Etzold"
+  },
+  {
+   "file": "masterclass2018Greek.html",
+   "find": "Τζονγκ-Γουον Παρκ",
+   "replace": "Jong-Won Park",
+   "count": 1,
+   "kind": "person",
+   "note": "Jong-Won Park"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Γραίμ Λάνγκαγκερ",
+   "replace": "Graeme Langager",
+   "count": 1,
+   "kind": "person",
+   "note": "Graeme Langager"
+  },
+  {
+   "file": "masterclass2021Greek.html",
+   "find": "Γκρέιμ Λάνγκαγκερ",
+   "replace": "Graeme Langager",
+   "count": 1,
+   "kind": "person",
+   "note": "Graeme Langager"
+  },
+  {
+   "file": "single-2024Greek.html",
+   "find": "Γκρέιμ Λάνγκεϊτζερ",
+   "replace": "Graeme Langager",
+   "count": 1,
+   "kind": "person",
+   "note": "Graeme Langager"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Μάρκο Αντόνιο Γκαρσία ντε Παζ",
+   "replace": "Marco Antonio García de Paz",
+   "count": 1,
+   "kind": "person",
+   "note": "Marco Antonio García de Paz"
+  },
+  {
+   "file": "masterclass2021Greek.html",
+   "find": "Μάρκο Αντόνιο Γκαρσία ντε Παζ",
+   "replace": "Marco Antonio García de Paz",
+   "count": 1,
+   "kind": "person",
+   "note": "Marco Antonio García de Paz"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Χαβιέρ Μπούστο",
+   "replace": "Javier Busto",
+   "count": 3,
+   "kind": "person",
+   "note": "Javier Busto"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Χαβιέρ Μπούστο",
+   "replace": "Javier Busto",
+   "count": 1,
+   "kind": "person",
+   "note": "Javier Busto"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Χαβιέρ Μπούστο",
+   "replace": "Javier Busto",
+   "count": 3,
+   "kind": "person",
+   "note": "Javier Busto"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Χαβιέ Μπούστο",
+   "replace": "Javier Busto",
+   "count": 2,
+   "kind": "person",
+   "note": "Javier Busto"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Ο Μπούστο",
+   "replace": "Ο Busto",
+   "count": 2,
+   "kind": "person",
+   "note": "Javier Busto (surname only)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ο Μπούστο",
+   "replace": "Ο Busto",
+   "count": 2,
+   "kind": "person",
+   "note": "Javier Busto (surname only)"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Μάιστρο Έρβιν Λιστ",
+   "replace": "Μάιστρο Erwin List",
+   "count": 1,
+   "kind": "person",
+   "note": "Erwin List (Busto bio)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Μαέστρο Έρβιν\r\n              Λιστ",
+   "replace": "Μαέστρο Erwin List",
+   "count": 1,
+   "kind": "person",
+   "note": "Erwin List (Busto bio)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Γκάρι Γκράντεν",
+   "replace": "Gary Graden",
+   "count": 2,
+   "kind": "person",
+   "note": "Gary Graden"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Γκάρι Γκράντεν",
+   "replace": "Gary Graden",
+   "count": 1,
+   "kind": "person",
+   "note": "Gary Graden"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Γκάρι Γκρέιντεν",
+   "replace": "Gary Graden",
+   "count": 1,
+   "kind": "person",
+   "note": "Gary Graden"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Βυταούτας Μίσκινις",
+   "replace": "Vytautas Miškinis",
+   "count": 3,
+   "kind": "person",
+   "note": "Vytautas Miškinis"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Βυταούτας Μίσκινις",
+   "replace": "Vytautas Miškinis",
+   "count": 2,
+   "kind": "person",
+   "note": "Vytautas Miškinis"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Βυτάουτας Μίσκινις",
+   "replace": "Vytautas Miškinis",
+   "count": 2,
+   "kind": "person",
+   "note": "Vytautas Miškinis"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Βιτάουτας Μίσκινις",
+   "replace": "Vytautas Miškinis",
+   "count": 1,
+   "kind": "person",
+   "note": "Vytautas Miškinis"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "καθηγητής Μίσκινις",
+   "replace": "καθηγητής Miškinis",
+   "count": 1,
+   "kind": "person",
+   "note": "Vytautas Miškinis (surname only)"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Χορωδίας Αζουόλιουκας",
+   "replace": "Χορωδίας Azuoliukas",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Azuoliukas boys choir (EN spelling on site: \"Azuoliukas\", original \"Ąžuoliukas\")"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Χορωδίας Αζουόλιουκας",
+   "replace": "Χορωδίας Azuoliukas",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Azuoliukas boys choir (EN spelling on site: \"Azuoliukas\", original \"Ąžuoliukas\")"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "στους\r\n              Αζουόλιουκας",
+   "replace": "στους Azuoliukas",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Azuoliukas boys choir"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "στην Αζουόλιουκας",
+   "replace": "στην Azuoliukas",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Azuoliukas boys choir"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Μουσείου\r\n                            Μουσικούμ",
+   "replace": "Museum Musicum",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Museum Musicum vocal group"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Κο Ματσουσίτα",
+   "replace": "Ko Matsushita",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita"
+  },
+  {
+   "file": "icc2025Greek.html",
+   "find": "Κο Ματσουσίτα",
+   "replace": "Ko Matsushita",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Κο Ματσουσίτα",
+   "replace": "Ko Matsushita",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Ο Ματσουσίτα είναι",
+   "replace": "Ο Matsushita είναι",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita (surname only)"
+  },
+  {
+   "file": "icc2025Greek.html",
+   "find": "Ο Ματσουσίτα είναι",
+   "replace": "Ο Matsushita είναι",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita (surname only)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ο Ματσουσίτα είναι",
+   "replace": "Ο Matsushita είναι",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita (surname only)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "του Ματσουσίτα",
+   "replace": "του Matsushita",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita (surname only)"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Ο Ματσουσίτας είναι",
+   "replace": "Ο Matsushita είναι",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita (surname only, Greek has extra -ς)"
+  },
+  {
+   "file": "icc2025Greek.html",
+   "find": "Ο Ματσουσίτας είναι",
+   "replace": "Ο Matsushita είναι",
+   "count": 1,
+   "kind": "person",
+   "note": "Ko Matsushita (surname only, Greek has extra -ς)"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Ρόμπερτ Έντλερ",
+   "replace": "Robert Edler",
+   "count": 1,
+   "kind": "person",
+   "note": "Robert Edler Prize (named after person)"
+  },
+  {
+   "file": "icc2025Greek.html",
+   "find": "Ρόμπερτ Έντλερ",
+   "replace": "Robert Edler",
+   "count": 1,
+   "kind": "person",
+   "note": "Robert Edler Prize (named after person)"
+  },
+  {
+   "file": "france2024Greek.html",
+   "find": "Ανέλια Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Ανέλια Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "iccc2025Greek.html",
+   "find": "Ανέλια Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Ανέλια Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "ourchoirGreek.html",
+   "find": "Ανέλια Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "find": "Ανέλια Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 2,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "find": "Ανέλια Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 3,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "find": "Ανέλια\r\n                        Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "berlin2024.html",
+   "find": "Ανέλια Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Ανελία Στεφάνοβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "ourchoirGreek.html",
+   "find": "Ανέλια Στεφάνωβα",
+   "replace": "Anelia Stefanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Anelia Stefanova"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Βαλεντίν Στέφανοβ",
+   "replace": "Valentin Stefanov",
+   "count": 1,
+   "kind": "person",
+   "note": "Valentin Stefanov"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "find": "Βαλεντίν Στεφάνωφ",
+   "replace": "Valentin Stefanov",
+   "count": 3,
+   "kind": "person",
+   "note": "Valentin Stefanov"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "find": "Βαλεντίν Στεφάνωφ",
+   "replace": "Valentin Stefanov",
+   "count": 1,
+   "kind": "person",
+   "note": "Valentin Stefanov"
+  },
+  {
+   "file": "ourchoirGreek.html",
+   "find": "Βαλεντιν Στεφάνωφ",
+   "replace": "Valentin Stefanov",
+   "count": 1,
+   "kind": "person",
+   "note": "Valentin Stefanov"
+  },
+  {
+   "file": "ourchoirGreek.html",
+   "find": "Βαλεντίνος Στεφάνωφ",
+   "replace": "Valentin Stefanov",
+   "count": 1,
+   "kind": "person",
+   "note": "Valentin Stefanov"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Γκούσταβ Χολστ",
+   "replace": "Gustav Holst",
+   "count": 1,
+   "kind": "person",
+   "note": "Gustav Holst (composer)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Γκούσταβ Χολστ",
+   "replace": "Gustav Holst",
+   "count": 1,
+   "kind": "person",
+   "note": "Gustav Holst (composer)"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Κλοντ Ντεμπισί",
+   "replace": "Claude Debussy",
+   "count": 1,
+   "kind": "person",
+   "note": "Claude Debussy (composer)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Κλοντ Ντεμπισί",
+   "replace": "Claude Debussy",
+   "count": 1,
+   "kind": "person",
+   "note": "Claude Debussy (composer)"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Σάλβο Γκάνγκι",
+   "replace": "Salvo Gangi",
+   "count": 1,
+   "kind": "person",
+   "note": "Salvo Gangi"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Σάλβο Γκάνγκι",
+   "replace": "Salvo Gangi",
+   "count": 1,
+   "kind": "person",
+   "note": "Salvo Gangi"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Τίνε Μπεκ",
+   "replace": "Tine Bec",
+   "count": 1,
+   "kind": "person",
+   "note": "Tine Bec"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Τίνε Μπεκ",
+   "replace": "Tine Bec",
+   "count": 2,
+   "kind": "person",
+   "note": "Tine Bec"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Τίνε Μπεκ",
+   "replace": "Tine Bec",
+   "count": 2,
+   "kind": "person",
+   "note": "Tine Bec"
+  },
+  {
+   "file": "icc2025Greek.html",
+   "find": "Πάβεου Βουκασέφσκι",
+   "replace": "Paweł Łukaszewski",
+   "count": 1,
+   "kind": "person",
+   "note": "Paweł Łukaszewski"
+  },
+  {
+   "file": "single-2024Greek.html",
+   "find": "Πάβεου Βουκασέφσκι",
+   "replace": "Paweł Łukaszewski",
+   "count": 1,
+   "kind": "person",
+   "note": "Paweł Łukaszewski"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Χορωδία\r\n              \"Βασίλης Αρναούτοβ\"",
+   "replace": "Χορωδία \"Vassil Arnaudov\"",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Vassil Arnaudov Sofia Chamber Choir"
+  },
+  {
+   "file": "erasmusGreek.html",
+   "find": "Χορωδία Βασίλ Αρνάουντοφ",
+   "replace": "Χορωδία Vassil Arnaudov",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Vassil Arnaudov Sofia Chamber Choir"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Βραβείο Πρεσβερ",
+   "replace": "Βραβείο Prešeren",
+   "count": 1,
+   "kind": "person",
+   "note": "Prešeren Prize (named after France Prešeren)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Μετάλλιο Γκάλους",
+   "replace": "Μετάλλιο Gallus",
+   "count": 1,
+   "kind": "person",
+   "note": "Gallus Medal (named after Jacobus Gallus)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Βλαντίμιρ Λοβετς",
+   "replace": "Vladimir Lovec",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Vladimir Lovec\" Chamber Orchestra"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ισκρα",
+   "replace": "Iskra",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Chamber Choir \"Iskra\", Bovec"
+  },
+  {
+   "file": "icc2025Greek.html",
+   "find": "Τζόσου Ελμπερντίν Μπαντιόλα",
+   "replace": "Josu Elberdin Badiola",
+   "count": 1,
+   "kind": "person",
+   "note": "Josu Elberdin Badiola"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Λουκ Μάγιερνικ",
+   "replace": "Luke Mayernik",
+   "count": 3,
+   "kind": "person",
+   "note": "Luke Mayernik"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Λουκ Μαγιέρνικ",
+   "replace": "Luke Mayernik",
+   "count": 1,
+   "kind": "person",
+   "note": "Luke Mayernik"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Τζούλιο ντε Κάρλο",
+   "replace": "Giulio de Carlo",
+   "count": 1,
+   "kind": "person",
+   "note": "Giulio De Carlo (EN uses \"Giulio de Carlo\" in results, \"Giulio De Carlo\" in text)"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Κλάρα Μλάκαρ",
+   "replace": "Klara Mlakar",
+   "count": 3,
+   "kind": "person",
+   "note": "Klara Mlakar"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Τζιουζέπε ντε Ρόσα",
+   "replace": "Giuseppe de Rosa",
+   "count": 1,
+   "kind": "person",
+   "note": "Giuseppe de Rosa"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Κλάουντιο Φερράρα",
+   "replace": "Claudio Ferrara",
+   "count": 1,
+   "kind": "person",
+   "note": "Claudio Ferrara"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "find": "Μιγκέλ Άνχελ Μουσουμάνο",
+   "replace": "Miguel Angel Musumano",
+   "count": 1,
+   "kind": "person",
+   "note": "Miguel Angel Musumano"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Ρόμπερτ Σούμαν",
+   "replace": "Robert Schumann",
+   "count": 1,
+   "kind": "person",
+   "note": "Robert Schumann (composer)"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Ίουστινος Κέρνερ",
+   "replace": "Justinus Kerner",
+   "count": 1,
+   "kind": "person",
+   "note": "Justinus Kerner (poet)"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Τζουζέπε ντε Ρόζα",
+   "replace": "Giuseppe de Rosa",
+   "count": 1,
+   "kind": "person",
+   "note": "Giuseppe de Rosa"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Κουέντιν Μπίρ",
+   "replace": "Quentin Beer",
+   "count": 2,
+   "kind": "person",
+   "note": "Quentin Beer"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Πάτρικ\r\n                Ράσιλ",
+   "replace": "Patrick Russill",
+   "count": 1,
+   "kind": "person",
+   "note": "Patrick Russill"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Μάρτιν Χέλμπεργκ",
+   "replace": "Martin Hellberg",
+   "count": 2,
+   "kind": "person",
+   "note": "Martin Hellberg"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Ολεξάνδρα Πολύτσια",
+   "replace": "Olexandra Polytsia",
+   "count": 2,
+   "kind": "person",
+   "note": "Olexandra Polytsia"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Ματθίας Σκομπερβάλτερ",
+   "replace": "Matthias Schoberwalter",
+   "count": 2,
+   "kind": "person",
+   "note": "Matthias Schoberwalter"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Τόμας Σζάρκα",
+   "replace": "Tamas Szarka",
+   "count": 2,
+   "kind": "person",
+   "note": "Tamas Szarka"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Αρτούρς Σβαρτμπαχς",
+   "replace": "Artūrs Švarcbahs",
+   "count": 2,
+   "kind": "person",
+   "note": "Artūrs Švarcbahs"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Κρίσταπς Σολοβγιόβς",
+   "replace": "Kristaps Solovjovs",
+   "count": 2,
+   "kind": "person",
+   "note": "Kristaps Solovjovs"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Βιατσέσλαβ Πάλκιν",
+   "replace": "Viacheslav Palkin",
+   "count": 1,
+   "kind": "person",
+   "note": "Viacheslav Palkin (competition named after him)"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Χιούντζου Κβον",
+   "replace": "Hyunju Kwon",
+   "count": 2,
+   "kind": "person",
+   "note": "Hyunju Kwon"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Μιτκούβιενε",
+   "replace": "Mitkuviene",
+   "count": 1,
+   "kind": "person",
+   "note": "Gintare Barisaite – Mitkuviene (second surname)"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Γκιντάρε Μπαρισαΐτε",
+   "replace": "Gintare Barisaite",
+   "count": 2,
+   "kind": "person",
+   "note": "Gintare Barisaite"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "find": "Η Γκιντάρε έχει",
+   "replace": "Η Gintare έχει",
+   "count": 1,
+   "kind": "person",
+   "note": "Gintare Barisaite (first name only)"
+  },
+  {
+   "file": "iccc2025Greek.html",
+   "find": "Φεστιβάλ Μπαχ",
+   "replace": "Φεστιβάλ Bach",
+   "count": 2,
+   "kind": "person",
+   "note": "Oregon Bach Festival (J. S. Bach); another sentence in the same file already has \"Φεστιβάλ Bach\""
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Λορέντζο Ντονάτι",
+   "replace": "Lorenzo Donati",
+   "count": 2,
+   "kind": "person",
+   "note": "Lorenzo Donati"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Καμίλο Τόνι",
+   "replace": "Camillo Togni",
+   "count": 1,
+   "kind": "person",
+   "note": "Camillo Togni"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Έννιο Μορικόνε",
+   "replace": "Ennio Morricone",
+   "count": 1,
+   "kind": "person",
+   "note": "Ennio Morricone"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Πακουάλ Ντουσαπέν",
+   "replace": "Paqual Dusapin",
+   "count": 1,
+   "kind": "person",
+   "note": "Pascal Dusapin - EN page has the typo \"Paqual Dusapin\" (verbatim)"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Άζιο Κοργκί",
+   "replace": "Azio Corghi",
+   "count": 1,
+   "kind": "person",
+   "note": "Azio Corghi"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Ροζάριο Μιρίγλιανο",
+   "replace": "Rosario Mirigliano",
+   "count": 1,
+   "kind": "person",
+   "note": "Rosario Mirigliano"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Ρομάνο Πετσάτι",
+   "replace": "Romano Pezzati",
+   "count": 1,
+   "kind": "person",
+   "note": "Romano Pezzati"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Ντιέγκο Φασολή",
+   "replace": "Diego Fasolis",
+   "count": 1,
+   "kind": "person",
+   "note": "Diego Fasolis"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Ρινάλντο Αλεσαντρίνι",
+   "replace": "Rinaldo Alessandrini",
+   "count": 1,
+   "kind": "person",
+   "note": "Rinaldo Alessandrini"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Ότταβιο Ντάντονε",
+   "replace": "Ottavio Dantone",
+   "count": 1,
+   "kind": "person",
+   "note": "Ottavio Dantone"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Καρλ\r\n                            Χέγκσετ",
+   "replace": "Carl Høgset",
+   "count": 1,
+   "kind": "person",
+   "note": "Carl Høgset"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Ρομπέρτο Γκαμπιάνι",
+   "replace": "Roberto Gabbiani",
+   "count": 1,
+   "kind": "person",
+   "note": "Roberto Gabbiani"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "find": "Πέτερ Νόιμαν",
+   "replace": "Peter Neumann",
+   "count": 1,
+   "kind": "person",
+   "note": "Peter Neumann"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Μιγκέλ Άνχελ Φελίπε",
+   "replace": "Miguel Ángel Felipe",
+   "count": 2,
+   "kind": "person",
+   "note": "Miguel Ángel Felipe (EN heading has \"Miguel Angel Felipe\", EN bio \"Miguel Ángel Felipe\")"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ο Φελίπε",
+   "replace": "Ο Felipe",
+   "count": 2,
+   "kind": "person",
+   "note": "Miguel Ángel Felipe (surname only)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "του Φελίπε",
+   "replace": "του Felipe",
+   "count": 1,
+   "kind": "person",
+   "note": "Miguel Ángel Felipe (surname only)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ντέιβιντ Μέανς",
+   "replace": "David Means",
+   "count": 2,
+   "kind": "person",
+   "note": "David Means"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "τον Μέανς",
+   "replace": "τον Means",
+   "count": 1,
+   "kind": "person",
+   "note": "David Means (surname only)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Βοξ Άνιμε",
+   "replace": "Vox Animae",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Vox Animae, Le Landeron"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Μπερνάρ Γκι",
+   "replace": "Bernard Guye",
+   "count": 2,
+   "kind": "person",
+   "note": "Bernard Guye"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ελευθερία",
+   "replace": "Elefteria",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "choir \"Elefteria\", Chisinau (Moldova) - Greek word, but a foreign choir; EN \"Elefteria\""
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Κορίνα Μίρζα",
+   "replace": "Corina Mirza",
+   "count": 2,
+   "kind": "person",
+   "note": "Corina Mirza"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Οι Αδελφοί Μπαρούχ",
+   "replace": "The Baruch Brothers",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"The Baruch Brothers\", Belgrade (translated name)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Στέφαν Ζέκιτς",
+   "replace": "Stefan Zekic",
+   "count": 1,
+   "kind": "person",
+   "note": "Stefan Zekic"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Αγγλική Συναυλιακή Χορωδία",
+   "replace": "English Concert Singers",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "English Concert Singers (translated name)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ρόι Γουέιλς",
+   "replace": "Roy Wales",
+   "count": 1,
+   "kind": "person",
+   "note": "Roy Wales"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Τρίσον",
+   "replace": "Trison",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Trison, Braila"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Μαρτσίκα Λούπου",
+   "replace": "Marcica Lupu",
+   "count": 1,
+   "kind": "person",
+   "note": "Marcica Lupu"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Στέφαν Λούπου",
+   "replace": "Stefan Lupu",
+   "count": 1,
+   "kind": "person",
+   "note": "Stefan Lupu"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Τε Ντέουμ Λαυδάμους",
+   "replace": "Te Deum Laudamus",
+   "count": 3,
+   "kind": "ensemble",
+   "note": "Te Deum Laudamus, Bucharest"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ζαχαρίας Ματεί",
+   "replace": "Zaharia Matei",
+   "count": 3,
+   "kind": "person",
+   "note": "Priest Zaharia Matei (\"Παπάς\" kept)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Μοτίλι Σούμπερκ",
+   "replace": "Motyli Šumperk",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Motyli Šumperk"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Τόμας Μοτίλ",
+   "replace": "Tomas Motýl",
+   "count": 1,
+   "kind": "person",
+   "note": "Tomas Motýl"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ελένα Στογιανίκοβα",
+   "replace": "Helena Stojaníková",
+   "count": 2,
+   "kind": "person",
+   "note": "Helena Stojaníková"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Φωνές του Ορφέα",
+   "replace": "Voices of Orpheus",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Voices of Orpheus\", Sofia (translated name)"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Βενετία Καραμανόβα",
+   "replace": "Venezia Karamanova",
+   "count": 1,
+   "kind": "person",
+   "note": "Venezia Karamanova"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Λαβιρίνθος",
+   "replace": "Lavirint",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Lavirint\" (translated name). NB legacy error: Greek says Ζάγκρεμπ (Zagreb), EN says Zaječar"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Ζέλικα Αλεξίτς",
+   "replace": "Željka Aleksić",
+   "count": 1,
+   "kind": "person",
+   "note": "Željka Aleksić"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "find": "Σαμπίν Ντραγκόι",
+   "replace": "Sabin Dragoi",
+   "count": 1,
+   "kind": "person",
+   "note": "Sabin Dragoi (composer)"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Ράντοσλαβ Μιτούρα",
+   "replace": "Radoslaw Mitura",
+   "count": 1,
+   "kind": "person",
+   "note": "Radoslaw Mitura"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Χαντζί Ρούβιμ",
+   "replace": "Hadzi Ruvim",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed choir \"Hadzi Ruvim\", Valjevo"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Μίλιτσα Στέπανοβιτς Μπάμπα-Μίλκιτς",
+   "replace": "Milica Stepanovic Baba-Milkic",
+   "count": 1,
+   "kind": "person",
+   "note": "Milica Stepanovic Baba-Milkic"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Μ. Λύσενκο",
+   "replace": "M. Lysenko",
+   "count": 3,
+   "kind": "person",
+   "note": "M. Lysenko (school named after him)"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Γιούλια Πούτσκο-Κολέσνικ",
+   "replace": "Julia Puchko-Kolesnik",
+   "count": 3,
+   "kind": "person",
+   "note": "Julia Puchko-Kolesnik"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Κάντους Ντομίνι",
+   "replace": "Cantus Domini",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Cantus Domini male choir, Bucharest"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Ράζβαν - Κωνσταντίν Στέφαν",
+   "replace": "Răzvan - Constantin Ștefan",
+   "count": 3,
+   "kind": "person",
+   "note": "Răzvan - Constantin Ștefan"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Κούλλι Κίβετ",
+   "replace": "Külli Kiivet",
+   "count": 1,
+   "kind": "person",
+   "note": "Külli Kiivet"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Σίλια Ουχς",
+   "replace": "Silja Uhs",
+   "count": 1,
+   "kind": "person",
+   "note": "Silja Uhs"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Λάουτιτια",
+   "replace": "Lautitia",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "\"Lautitia\", Debrecen"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Ιόζεφ Νέμες",
+   "replace": "József Nemes",
+   "count": 3,
+   "kind": "person",
+   "note": "József Nemes"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Ράντοστ",
+   "replace": "Radost",
+   "count": 3,
+   "kind": "ensemble",
+   "note": "Children choir \"Radost\", Prague"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Γιαν Πίρνερ",
+   "replace": "Jan Pirner",
+   "count": 3,
+   "kind": "person",
+   "note": "Jan Pirner"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Ελευθερία",
+   "replace": "Elefteria",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "choir \"Elefteria\", Chisinau (Moldova) - EN \"Elefteria\""
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Ζαρίνα Γιούτκινα",
+   "replace": "Zarina Iutkina",
+   "count": 2,
+   "kind": "person",
+   "note": "Zarina Iutkina"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Γιτρένκα",
+   "replace": "Jitřenka",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Jitřenka\", Červený Kostelec"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Εύα Κουμπέτσκοβα",
+   "replace": "Eva Kubečková",
+   "count": 1,
+   "kind": "person",
+   "note": "Eva Kubečková"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Χορωδία Πέντερς",
+   "replace": "Χορωδία Peders",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Peders Youthchoir, Randers"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Κάρστεν Μπλοντ",
+   "replace": "Karsten Blond",
+   "count": 1,
+   "kind": "person",
+   "note": "Karsten Blond"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Σκέρζο",
+   "replace": "Scherzo",
+   "count": 3,
+   "kind": "ensemble",
+   "note": "Youth Choir \"Scherzo\", Nowy Sącz"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Αντρέι Τσιτάκ",
+   "replace": "Andrzej Citak",
+   "count": 3,
+   "kind": "person",
+   "note": "Andrzej Citak"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Εμανουήλ",
+   "replace": "Emanuil",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "\"Emanuil\", Valjevo"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Βάνια Ντραγόγιλοβιτς",
+   "replace": "Vanja Dragojlovic",
+   "count": 2,
+   "kind": "person",
+   "note": "Vanja Dragojlovic"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Χορους Εγκρηνσίς",
+   "replace": "Chorus Egrensis",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Chorus Egrensis, Aš"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Αλεξάνδρα Μπενέσοβα",
+   "replace": "Alexandra Benešová",
+   "count": 2,
+   "kind": "person",
+   "note": "Alexandra Benešová"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Σασάτσι",
+   "replace": "Sašáci",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Sašáci\", Aš"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Κάντα Κιάρα",
+   "replace": "Canta Chiara",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "\"Canta Chiara\", Berlin"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Κάρστεν Σούλτσε",
+   "replace": "Carsten Schultze",
+   "count": 2,
+   "kind": "person",
+   "note": "Carsten Schultze"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Κανταμπίλε",
+   "replace": "Cantabile",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Cantabile\" Chamber Choir, Panciu"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Αντρέι-Ίγκορ Μάνοβιτς",
+   "replace": "Andrei-Igor Manovici",
+   "count": 1,
+   "kind": "person",
+   "note": "Andrei-Igor Manovici"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Σβιτιτσ",
+   "replace": "Svitych",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Youth choir \"Svitych\", Nizhyn"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Λυντμίλα Σούμσκα",
+   "replace": "Lyudmyla Shumska",
+   "count": 1,
+   "kind": "person",
+   "note": "Lyudmyla Shumska"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Λυντμίλα Κοστένκο",
+   "replace": "Lyudmyla Kostenko",
+   "count": 1,
+   "kind": "person",
+   "note": "Lyudmyla Kostenko"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Αλέξανδρος\r\n                                Μαργιλόμαν",
+   "replace": "Alexandru Marghiloman",
+   "count": 1,
+   "kind": "person",
+   "note": "Cultural Centre \"Alexandru Marghiloman\", Buzău"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Πάννωνας",
+   "replace": "Pannon",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Pannon Philharmonic Orchestra"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "του\r\n                                Κόδαϊ",
+   "replace": "του Kodály",
+   "count": 1,
+   "kind": "person",
+   "note": "Zoltán Kodály (Hungarian Kodály Association)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Τζούλια Φέιχι",
+   "replace": "Julia Fahey",
+   "count": 1,
+   "kind": "person",
+   "note": "Julia Fahey"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "κας Φέιχι",
+   "replace": "κας Fahey",
+   "count": 2,
+   "kind": "person",
+   "note": "Julia Fahey (surname only)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Συνεργάτες στην Επαινετική",
+   "replace": "Partners in Praise",
+   "count": 3,
+   "kind": "ensemble",
+   "note": "\"Partners in Praise\" Girls Choir, Minneapolis (translated name)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Συνεργάτες\r\n                                στην Επαινετική",
+   "replace": "Partners in Praise",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Partners in Praise\" Girls Choir, Minneapolis (translated name)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Μάξιμ Σιντόροβ",
+   "replace": "Maxim Sidorov",
+   "count": 1,
+   "kind": "person",
+   "note": "Maxim Sidorov"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ραφαήλ Άντζελ Σουεσκούν Μαρίνιο",
+   "replace": "Rafael Ángel Suescún Mariño",
+   "count": 2,
+   "kind": "person",
+   "note": "Rafael Ángel Suescún Mariño"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Γκουστάβο Γκόμες Αρδίλα",
+   "replace": "Gustavo Gómez Ardila",
+   "count": 1,
+   "kind": "person",
+   "note": "Gustavo Gómez Ardila"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ρες Μιράντα",
+   "replace": "Res miranda",
+   "count": 3,
+   "kind": "ensemble",
+   "note": "Female vocal ensemble \"Res miranda\", Novi Sad (EN spelling \"Res miranda\")"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ρες\r\n                                Μιράντα",
+   "replace": "Res miranda",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Female vocal ensemble \"Res miranda\", Novi Sad (EN spelling \"Res miranda\")"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ντούνια Χούζιαν",
+   "replace": "Dunja Huzjan",
+   "count": 2,
+   "kind": "person",
+   "note": "Dunja Huzjan"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Κρένταριτσα",
+   "replace": "Kredarica",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed choir \"Kredarica\", Novi Sad"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Σόνια Μαρινκοβίτς",
+   "replace": "Sonja Marinković",
+   "count": 1,
+   "kind": "person",
+   "note": "Academic society \"Sonja Marinković\" (named after person)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Άρβο Πέρτ",
+   "replace": "Arvo Pärt",
+   "count": 1,
+   "kind": "person",
+   "note": "Arvo Pärt"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Βέλιο Τόρμις",
+   "replace": "Veljo Tormis",
+   "count": 1,
+   "kind": "person",
+   "note": "Veljo Tormis"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Κυρίλλος Κρεέκ",
+   "replace": "Cyrillus Kreek",
+   "count": 1,
+   "kind": "person",
+   "note": "Cyrillus Kreek"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Τόνου Κέρβιτς",
+   "replace": "Tõnu Kõrvits",
+   "count": 1,
+   "kind": "person",
+   "note": "Tõnu Kõrvits"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Περτ\r\n                                Ούουσμπεργκ",
+   "replace": "Pärt Uusberg",
+   "count": 1,
+   "kind": "person",
+   "note": "Pärt Uusberg"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ραλφ Βων Ουίλιαμς",
+   "replace": "Ralph Vaughan Williams",
+   "count": 1,
+   "kind": "person",
+   "note": "Ralph Vaughan Williams"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Τζάκο Μάντιγιαρβι",
+   "replace": "Jaakko Mäntyjärvi",
+   "count": 1,
+   "kind": "person",
+   "note": "Jaakko Mäntyjärvi"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Έρικ Γουίτακερ",
+   "replace": "Eric Whitacre",
+   "count": 1,
+   "kind": "person",
+   "note": "Eric Whitacre"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Έρικς Έσενβαλντς",
+   "replace": "Eriks Ešenvalds",
+   "count": 1,
+   "kind": "person",
+   "note": "Eriks Ešenvalds (EN spelling, original Ēriks)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Τζέικ Ρούνεσταντ",
+   "replace": "Jake Runestad",
+   "count": 1,
+   "kind": "person",
+   "note": "Jake Runestad"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Κίλικε Γιόσινγκ",
+   "replace": "Küllike Joosing",
+   "count": 1,
+   "kind": "person",
+   "note": "Küllike Joosing"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Κίλικε\r\n                                Γιόσινγκ",
+   "replace": "Küllike Joosing",
+   "count": 1,
+   "kind": "person",
+   "note": "Küllike Joosing"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ε Στούντιο",
+   "replace": "E Stuudio",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Children choir \"E Stuudio\", Tartu"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ζόλταν Πάντ",
+   "replace": "Zoltan Pad",
+   "count": 1,
+   "kind": "person",
+   "note": "Zoltan Pad"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Καταλίν Κις",
+   "replace": "Katalin Kiss",
+   "count": 1,
+   "kind": "person",
+   "note": "Katalin Kiss"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Πέτερ Έρντει",
+   "replace": "Peter Erdei",
+   "count": 1,
+   "kind": "person",
+   "note": "Peter Erdei"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Τριμόρντιουμ",
+   "replace": "Trimontium",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "Female choir \"Trimontium\", Plovdiv"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Βάνια Ατανάσοβα",
+   "replace": "Vanya Atanasova",
+   "count": 2,
+   "kind": "person",
+   "note": "Vanya Atanasova"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Βασιλική Σπάσοβα",
+   "replace": "Vasilika Spasova",
+   "count": 1,
+   "kind": "person",
+   "note": "Vasilika Spasova"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Κρ. Χετινιάν",
+   "replace": "Kr. Chetinyan",
+   "count": 1,
+   "kind": "person",
+   "note": "Krikor Chetinyan"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Διάνα Κάνεβα",
+   "replace": "Diana Kaneva",
+   "count": 1,
+   "kind": "person",
+   "note": "Diana Kaneva (pianist)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Δνίπρο",
+   "replace": "Dnipro",
+   "count": 4,
+   "kind": "ensemble",
+   "note": "Choir \"Dnipro\" of Kyiv University"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ταράς Σεβτσένκο",
+   "replace": "Taras Shevchenko",
+   "count": 2,
+   "kind": "person",
+   "note": "Taras Shevchenko National University (named after person)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ταράς\r\n                                Σεβτσένκο",
+   "replace": "Taras Shevchenko",
+   "count": 1,
+   "kind": "person",
+   "note": "Taras Shevchenko National University (named after person)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ιρίνα Ντουσέικο",
+   "replace": "Iryna Dusheiko",
+   "count": 2,
+   "kind": "person",
+   "note": "Iryna Dusheiko"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ιρίνα ολοκλήρωσε",
+   "replace": "Iryna ολοκλήρωσε",
+   "count": 1,
+   "kind": "person",
+   "note": "Iryna Dusheiko (first name only)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ιγκόρ Τιλικ",
+   "replace": "Ihor Tylyk",
+   "count": 1,
+   "kind": "person",
+   "note": "Ihor Tylyk"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Ρ. Γκλίερ",
+   "replace": "R. Glier",
+   "count": 1,
+   "kind": "person",
+   "note": "R. Glière (institute named after him; EN \"R. Glier\")"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "find": "Λιστ Φέρεντς",
+   "replace": "Liszt Ferenc",
+   "count": 1,
+   "kind": "person",
+   "note": "\"Liszt Ferenc\" Music Academy (named after person)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Άγγελος Τσένοφ",
+   "replace": "Angel Tsenov",
+   "count": 1,
+   "kind": "person",
+   "note": "Angel Tsenov (Trakiiska Lira)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Έντιτα\r\n                                Γκάρτσεβιτς Κόζελ",
+   "replace": "Edita Garčević Koželj",
+   "count": 1,
+   "kind": "person",
+   "note": "Edita Garčević Koželj"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Εδίτα Γκαρτσέβιτς Κόζελι",
+   "replace": "Edita Garčević Koželj",
+   "count": 1,
+   "kind": "person",
+   "note": "Edita Garčević Koželj"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Τατιάνα Βασλέ",
+   "replace": "Tatjana Vasle",
+   "count": 1,
+   "kind": "person",
+   "note": "Tatjana Vasle"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Τατιάνα\r\n                Βάσλε",
+   "replace": "Tatjana Vasle",
+   "count": 1,
+   "kind": "person",
+   "note": "Tatjana Vasle"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Πέτρα Γερίτς",
+   "replace": "Petra Jerič",
+   "count": 1,
+   "kind": "person",
+   "note": "Petra Jerič"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Πέτρα Γιέριτς",
+   "replace": "Petra Jerič",
+   "count": 1,
+   "kind": "person",
+   "note": "Petra Jerič"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Εβγκεν Μπίμπιανκο",
+   "replace": "Evgen Bibianko",
+   "count": 1,
+   "kind": "person",
+   "note": "Evgen Bibianko"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Εβγκέν Μπιμπιάνκο",
+   "replace": "Evgen Bibianko",
+   "count": 1,
+   "kind": "person",
+   "note": "Evgen Bibianko"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Ευγενίου Βιμπιάνκο",
+   "replace": "Evgen Bibianko",
+   "count": 1,
+   "kind": "person",
+   "note": "Evgen Bibianko"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Λόιτζε Λέμπιτς",
+   "replace": "Lojze Lebič",
+   "count": 1,
+   "kind": "person",
+   "note": "Lojze Lebič"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Λοΐζε\r\n                Λεμπίτς",
+   "replace": "Lojze Lebič",
+   "count": 1,
+   "kind": "person",
+   "note": "Lojze Lebič"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ταντέγια Βούλτς",
+   "replace": "Tadeja Vulc",
+   "count": 1,
+   "kind": "person",
+   "note": "Tadeja Vulc"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ταντέγια Βούλκ",
+   "replace": "Tadeja Vulc",
+   "count": 1,
+   "kind": "person",
+   "note": "Tadeja Vulc"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Νταμιάν Μόσνικ",
+   "replace": "Damijan Močnik",
+   "count": 1,
+   "kind": "person",
+   "note": "Damijan Močnik"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ντάμιαν Μοτσνίκ",
+   "replace": "Damijan Močnik",
+   "count": 1,
+   "kind": "person",
+   "note": "Damijan Močnik"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Τσρτ Σόιαρ-Βόγκλαρ",
+   "replace": "Črt Sojar-Voglar",
+   "count": 1,
+   "kind": "person",
+   "note": "Črt Sojar-Voglar"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Τσρτ Σόιαρ-Βόγκλαρ",
+   "replace": "Črt Sojar-Voglar",
+   "count": 1,
+   "kind": "person",
+   "note": "Črt Sojar-Voglar"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Πέτερ Σάβλι",
+   "replace": "Peter Šavli",
+   "count": 1,
+   "kind": "person",
+   "note": "Peter Šavli"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Πέτερ Σάβλι",
+   "replace": "Peter Šavli",
+   "count": 1,
+   "kind": "person",
+   "note": "Peter Šavli"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Αντρέι Μάκορ",
+   "replace": "Andrej Makor",
+   "count": 1,
+   "kind": "person",
+   "note": "Andrej Makor"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Αντρέι Μάκορ",
+   "replace": "Andrej Makor",
+   "count": 1,
+   "kind": "person",
+   "note": "Andrej Makor"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ματέι Καστέλιτς",
+   "replace": "Matej Kastelic",
+   "count": 1,
+   "kind": "person",
+   "note": "Matej Kastelic"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ματέι Καστέλιτς",
+   "replace": "Matej Kastelic",
+   "count": 1,
+   "kind": "person",
+   "note": "Matej Kastelic"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Φλέισμαν",
+   "replace": "Fleischmann",
+   "count": 1,
+   "kind": "person",
+   "note": "Fleischmann International Trophy (named after Aloys Fleischmann)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Μπεάτα Σιμάνσκα",
+   "replace": "Beata Szymańska",
+   "count": 2,
+   "kind": "person",
+   "note": "Beata Szymańska"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Μπεάτα Σζυμάνσκα",
+   "replace": "Beata Szymańska",
+   "count": 1,
+   "kind": "person",
+   "note": "Beata Szymańska"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Αδάμ Μιτσκιεβιτς",
+   "replace": "Adam Mickiewicz",
+   "count": 1,
+   "kind": "person",
+   "note": "Adam Mickiewicz University (named after person; other Greek lines already write \"Adam Mickiewicz\")"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Αδάμ Μιτσκιέβιτς",
+   "replace": "Adam Mickiewicz",
+   "count": 3,
+   "kind": "person",
+   "note": "Adam Mickiewicz University (named after person)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Νικολάι Αντοσίκιεμ",
+   "replace": "Nikodem Antosikiem",
+   "count": 1,
+   "kind": "person",
+   "note": "Nikodem Antosikiem (Greek wrongly has \"Νικολάι\")"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Νικόδημο Αντοσικέμ",
+   "replace": "Nikodem Antosikiem",
+   "count": 1,
+   "kind": "person",
+   "note": "Nikodem Antosikiem"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Έγκιλ\r\n                                Χόβλαντ",
+   "replace": "Egil Hovland",
+   "count": 1,
+   "kind": "person",
+   "note": "Egil Hovland"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Έγκιλ Χόβλαντ",
+   "replace": "Egil Hovland",
+   "count": 1,
+   "kind": "person",
+   "note": "Egil Hovland"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Βάντιμ Σερεμπρόφσκι",
+   "replace": "Vadim Serebrovsky",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "Choir \"Vadim Serebrovsky\" (Ural University)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Βάντιμ Σερεμπρόφσκι",
+   "replace": "Vadim Serebrovsky",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "Choir \"Vadim Serebrovsky\" (Ural University)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Βαδίμ Σερεμπρόφσκι",
+   "replace": "Vadim Serebrovsky",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "Choir \"Vadim Serebrovsky\""
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Βαδίμ Σερεμπρόβσκι",
+   "replace": "Vadim Serebrovsky",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "Choir \"Vadim Serebrovsky\""
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Γιούλια\r\n                                    Πολιανόφσκαγια",
+   "replace": "Julia Polyanovskaya",
+   "count": 1,
+   "kind": "person",
+   "note": "Julia Polyanovskaya"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Γιούλια Πολιανόφσκαγια",
+   "replace": "Julia Polyanovskaya",
+   "count": 2,
+   "kind": "person",
+   "note": "Julia Polyanovskaya"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Γιούλια Πολιάνοφσκαγια",
+   "replace": "Julia Polyanovskaya",
+   "count": 2,
+   "kind": "person",
+   "note": "Julia Polyanovskaya"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Τζούλια Πολυανόφσκαια",
+   "replace": "Julia Polyanovskaya",
+   "count": 1,
+   "kind": "person",
+   "note": "Julia Polyanovskaya"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Άννα και Βίκτορ Μπράμσκι",
+   "replace": "Anna και Wiktor Bramscy",
+   "count": 1,
+   "kind": "person",
+   "note": "Anna and Wiktor Bramscy"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Άννα και Βίκτορ Μπράμσκι",
+   "replace": "Anna και Wiktor Bramscy",
+   "count": 1,
+   "kind": "person",
+   "note": "Anna and Wiktor Bramscy"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Άννα Μπράμσκα",
+   "replace": "Anna Bramska",
+   "count": 1,
+   "kind": "person",
+   "note": "Anna Bramska"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Άννα Μπράμσκα",
+   "replace": "Anna Bramska",
+   "count": 3,
+   "kind": "person",
+   "note": "Anna Bramska"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Μάρτα Νόβακοβα",
+   "replace": "Marta Nováková",
+   "count": 1,
+   "kind": "person",
+   "note": "Marta Nováková"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Μάρτα Νοβάκοβα",
+   "replace": "Marta Nováková",
+   "count": 1,
+   "kind": "person",
+   "note": "Marta Nováková"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Μάρτα Νοβάκοβα",
+   "replace": "Marta Nováková",
+   "count": 2,
+   "kind": "person",
+   "note": "Marta Nováková"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Βοξ Άνγκελικα",
+   "replace": "Vox Angelica",
+   "count": 2,
+   "kind": "ensemble",
+   "note": "Female vocal ensemble \"Vox Angelica\", Sveta Trojica"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Φωνή Αγγέλων",
+   "replace": "Vox Angelica",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Vox Angelica\" (translated name in results)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ανίτα Παύκοβιτς",
+   "replace": "Anita Pavkovič",
+   "count": 1,
+   "kind": "person",
+   "note": "Anita Pavkovič (EN also has \"Pavkovic\")"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ανίτα Πάυκοβιτς",
+   "replace": "Anita Pavkovič",
+   "count": 1,
+   "kind": "person",
+   "note": "Anita Pavkovič"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ανίτα Παβκοβίτς",
+   "replace": "Anita Pavkovič",
+   "count": 1,
+   "kind": "person",
+   "note": "Anita Pavkovič"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Άνιτα Παύκοβιτς",
+   "replace": "Anita Pavkovič",
+   "count": 1,
+   "kind": "person",
+   "note": "Anita Pavkovič"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Π. Π. Γκοϊντίτς",
+   "replace": "P. P. Gojdič",
+   "count": 2,
+   "kind": "person",
+   "note": "Choir of Greek-Catholic church bl. P. P. Gojdič (named after person)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Π. Π. Γκόιτσ",
+   "replace": "P. P. Gojdič",
+   "count": 2,
+   "kind": "person",
+   "note": "Choir of church bl. P. P. Gojdič (named after person)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Μαρία Σάντοροβα",
+   "replace": "Mária Šandorová",
+   "count": 1,
+   "kind": "person",
+   "note": "Mária Šandorová"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Μαρία Σάντοροβα",
+   "replace": "Mária Šandorová",
+   "count": 1,
+   "kind": "person",
+   "note": "Mária Šandorová"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Οι Τραγουδιστές του Χαντάρ",
+   "replace": "Hadar Singers",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "\"Hadar Singers\" of Rehovot (translated name)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Χαντάρ Ζλάτιν",
+   "replace": "Hadar Zlatin",
+   "count": 2,
+   "kind": "person",
+   "note": "Hadar Zlatin"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Χαντάρ Ζλατίν",
+   "replace": "Hadar Zlatin",
+   "count": 2,
+   "kind": "person",
+   "note": "Hadar Zlatin"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ινστιτούτου Βάιτσμαν",
+   "replace": "Ινστιτούτου Weizmann",
+   "count": 1,
+   "kind": "person",
+   "note": "Weizmann Institute (named after person)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ινστιτούτου Βάιτσμαν",
+   "replace": "Ινστιτούτου Weizmann",
+   "count": 1,
+   "kind": "person",
+   "note": "Weizmann Institute (named after person)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Λούκα Βέτριχ",
+   "replace": "Luka Vetrih",
+   "count": 2,
+   "kind": "person",
+   "note": "Luka Vetrih"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Λούκα Βέτριχ",
+   "replace": "Luka Vetrih",
+   "count": 2,
+   "kind": "person",
+   "note": "Luka Vetrih"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Κρεσέντο",
+   "replace": "Crescendo",
+   "count": 6,
+   "kind": "ensemble",
+   "note": "Mixed Choir \"Crescendo\", Škofja Loka"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ζίγκα Κέρτ",
+   "replace": "Žiga Kert",
+   "count": 3,
+   "kind": "person",
+   "note": "Žiga Kert"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ζίγκα Κέρτ",
+   "replace": "Žiga Kert",
+   "count": 2,
+   "kind": "person",
+   "note": "Žiga Kert"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ζίγκα Κερτ",
+   "replace": "Žiga Kert",
+   "count": 1,
+   "kind": "person",
+   "note": "Žiga Kert"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ζίγκα Κερτ",
+   "replace": "Žiga Kert",
+   "count": 2,
+   "kind": "person",
+   "note": "Žiga Kert"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "SPD \"Ενότητα\"",
+   "replace": "SPD \"Jedinstvo\"",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed choir SPD \"Jedinstvo\", Banja Luka (translated name)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "SPD “ΕΝΟΤΗΤΑ”",
+   "replace": "SPD “Jedinstvo”",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Mixed choir SPD \"Jedinstvo\", Banja Luka (translated name)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Νέμανια Σάβιτς",
+   "replace": "Nemanja Savić",
+   "count": 1,
+   "kind": "person",
+   "note": "Nemanja Savić (EN also \"Savic\")"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Νέμανια Σάβιτς",
+   "replace": "Nemanja Savić",
+   "count": 4,
+   "kind": "person",
+   "note": "Nemanja Savić (EN also \"Savic\")"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Νεμάνια Σάβιτς",
+   "replace": "Nemanja Savić",
+   "count": 3,
+   "kind": "person",
+   "note": "Nemanja Savić"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Άντριαν Έμανς",
+   "replace": "Adrian Emans",
+   "count": 1,
+   "kind": "person",
+   "note": "Adrian Emans"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Άντριαν Έμανς",
+   "replace": "Adrian Emans",
+   "count": 2,
+   "kind": "person",
+   "note": "Adrian Emans"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Αντριάν Έμανς",
+   "replace": "Adrian Emans",
+   "count": 2,
+   "kind": "person",
+   "note": "Adrian Emans"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Χορωδία του Χαριτέ",
+   "replace": "Χορωδία του Charité",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Charité Chor, Berlin"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ντελίμα Σιμαμόρα",
+   "replace": "Delima Simamora",
+   "count": 1,
+   "kind": "person",
+   "note": "Delima Simamora"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ντελίμα\r\n                                Σιμαμόρα",
+   "replace": "Delima Simamora",
+   "count": 1,
+   "kind": "person",
+   "note": "Delima Simamora"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Δέλιμα Σιμαμόρα",
+   "replace": "Delima Simamora",
+   "count": 4,
+   "kind": "person",
+   "note": "Delima Simamora"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Ράντε Ράντοβιτς",
+   "replace": "Rade Radović",
+   "count": 3,
+   "kind": "person",
+   "note": "Rade Radović"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ράντε Ράντοβιτς",
+   "replace": "Rade Radović",
+   "count": 3,
+   "kind": "person",
+   "note": "Rade Radović"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Μάρκο Τάιτσεβιτς",
+   "replace": "Marko Tajčević",
+   "count": 1,
+   "kind": "person",
+   "note": "Marko Tajčević (composer)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Μάρκο Τάιτσεβιτς",
+   "replace": "Marko Tajčević",
+   "count": 1,
+   "kind": "person",
+   "note": "Marko Tajčević (composer)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Μαρία Γιούρις",
+   "replace": "Maria Gyuris",
+   "count": 1,
+   "kind": "person",
+   "note": "Maria Gyuris"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Μαρία Γιούρις",
+   "replace": "Maria Gyuris",
+   "count": 1,
+   "kind": "person",
+   "note": "Maria Gyuris"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Λίντια Χαλίνσκα",
+   "replace": "Lidia Chalińska",
+   "count": 1,
+   "kind": "person",
+   "note": "Lidia Chalińska"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Λίντια Χαλίνσκα",
+   "replace": "Lidia Chalińska",
+   "count": 1,
+   "kind": "person",
+   "note": "Lidia Chalińska"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Λούσι Λιν",
+   "replace": "Lucy Lin",
+   "count": 1,
+   "kind": "person",
+   "note": "Lucy Lin"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Λιν Τανγκ",
+   "replace": "Ling Tang",
+   "count": 1,
+   "kind": "person",
+   "note": "Ling Tang"
+  },
+  {
+   "file": "single-2024Greek.html",
+   "find": "Γκάρο Αβεσιάν",
+   "replace": "Garo Avessian",
+   "count": 1,
+   "kind": "person",
+   "note": "Garo Avessian"
+  },
+  {
+   "file": "single-2024Greek.html",
+   "find": "Εδουάρδος Γκαρσία-Νοβέλι",
+   "replace": "Eduardo García-Novelli",
+   "count": 1,
+   "kind": "person",
+   "note": "Eduardo García-Novelli"
+  },
+  {
+   "file": "single-2024Greek.html",
+   "find": "Μάσις Αράμ Γκοζμπέκ",
+   "replace": "Masis Aram Gozbek",
+   "count": 1,
+   "kind": "person",
+   "note": "Masis Aram Gozbek"
+  },
+  {
+   "file": "single-2024Greek.html",
+   "find": "Ακαδημία Μπαχ",
+   "replace": "Ακαδημία Bach",
+   "count": 1,
+   "kind": "person",
+   "note": "Bach Akademie Charlotte (J. S. Bach)"
+  },
+  {
+   "file": "single-2024Greek.html",
+   "find": "Φεστιβάλ Μπαχ",
+   "replace": "Φεστιβάλ Bach",
+   "count": 1,
+   "kind": "person",
+   "note": "Bach Festival (J. S. Bach)"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "find": "Έτους Μπαχ",
+   "replace": "Έτους Bach",
+   "count": 2,
+   "kind": "person",
+   "note": "Bach Year (J. S. Bach)"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "find": "Χορωδία του Τιμπάε",
+   "replace": "Χορωδία του Tibães",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Coro de Tibães, Braga"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Εσκολάνια ντε Κοβαντόνια",
+   "replace": "Escolanía de Covadonga",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Escolanía de Covadonga"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "Σκόλα Καντόρουμ",
+   "replace": "Schola Cantorum",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Schola Cantorum of León Cathedral"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "find": "ΚΓΒΛ",
+   "replace": "KGBL",
+   "count": 3,
+   "kind": "ensemble",
+   "note": "Chamber choir KGBL (Ljubljana)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "ΚΓΒΛ",
+   "replace": "KGBL",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Chamber choir KGBL (Ljubljana)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Ουίλλεμ-Αλέξανδρου",
+   "replace": "Willem-Alexander",
+   "count": 1,
+   "kind": "person",
+   "note": "King Willem-Alexander"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "find": "Добри Христов",
+   "replace": "Dobri Hristov",
+   "count": 1,
+   "kind": "person",
+   "note": "Dobri Hristov - written in Cyrillic (not Latin) in the Greek page"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "find": "Κρικόρ Τσετινιάν",
+   "replace": "Krickor Tsetinian",
+   "count": 1,
+   "kind": "person",
+   "note": "Krickor Tsetinian"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "find": "Ιβάν Σπάσοβ",
+   "replace": "Ivan Spassov",
+   "count": 1,
+   "kind": "person",
+   "note": "Ivan Spassov"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "find": "Αντίμ Α'",
+   "replace": "Antim I",
+   "count": 1,
+   "kind": "person",
+   "note": "\"Antim I\" school (named after Exarch Antim I)"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "find": "Ισκρά",
+   "replace": "Iskra",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Children choir \"Iskra\", Kazanlak"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Δρ. Σμιθ",
+   "replace": "Δρ. Smith",
+   "count": 2,
+   "kind": "person",
+   "note": "Justin Smith (surname only)"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "find": "Δρ. Σανγκκουάν",
+   "replace": "Δρ. Shangkuan",
+   "count": 1,
+   "kind": "person",
+   "note": "Pearl Shangkuan (surname only)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Ζ. Κοδάλυ",
+   "replace": "Z. Kodály",
+   "count": 2,
+   "kind": "person",
+   "note": "Zoltán Kodály"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Μπέατα Σιμάνσκα",
+   "replace": "Beata Szymańska",
+   "count": 2,
+   "kind": "person",
+   "note": "Beata Szymańska"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Νουσαντάρα",
+   "replace": "Nusantara",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Nusantara Symphony Orchestra"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "find": "Νουσάνταρα",
+   "replace": "Nusantara",
+   "count": 1,
+   "kind": "ensemble",
+   "note": "Nusantara Symphony Orchestra"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "find": "Τζόνς Χόπκινς",
+   "replace": "Johns Hopkins",
+   "count": 1,
+   "kind": "person",
+   "note": "Johns Hopkins University Hospital (named after person)"
+  }
+ ]
+}

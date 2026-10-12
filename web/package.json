@@ -1,0 +1,38 @@
+{
+  "name": "web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "images:variants": "node scripts/images/variants.mjs",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc",
+    "legacy:import": "node scripts/legacy/import-all.mjs",
+    "legacy:check": "node scripts/build.mjs && node scripts/legacy/diff-content.mjs && node scripts/legacy/diff-content.mjs --strict && node scripts/legacy/check-assets.mjs build/client",
+    "legacy:redirects": "node scripts/legacy/redirects.mjs",
+    "a11y": "node scripts/a11y-audit.mjs http://127.0.0.1:8090 1440 && node scripts/a11y-audit.mjs http://127.0.0.1:8090 390"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@react-router/node": "^8",
+    "@react-router/serve": "^8",
+    "isbot": "^5.1.36",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router": "^8",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^8",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/node": "^22",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "axe-core": "^4.14.0",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.3"
+  }
+}

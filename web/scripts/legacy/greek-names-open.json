@@ -1,0 +1,1262 @@
+{
+ "note": "Decided 2026-10-11: the unsure items were applied (greek-names-2.mjs: non-Greek choir names, venues, works, festivals and organisations in the original language); the places stay in Greek (client: towns in Greek). Kept for reference.",
+ "unsure": [
+  {
+   "file": "masterclass2022Greek.html, single-2016Greek.html, single-2018Greek.html, single-2019Greek.html, single-2021Greek.html",
+   "text": "Αμπίτους",
+   "why": "Greek choir (Athens, Katerina Vassilikou) with a Latin name; EN \"Ambitus\" and iccc2022Greek.html already writes \"Χορωδία Ambitus\". Suggested: Ambitus"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "text": "Ροζάρτε",
+   "why": "Greek choir with a Latin name (Rosi Mastrosava, \"Χορωδία Παιδιών και Νέων Ροζάρτε\"); EN and ourchoirGreek.html write \"Rosarte\". Suggested: Rosarte"
+  },
+  {
+   "file": "iccc2025Greek.html",
+   "text": "Μητέρας Τερέζας",
+   "why": "Mother Teresa (Saint Teresa of Calcutta) - non-Greek person, but the Greek form is conventional. EN: \"Mother Teresa\""
+  },
+  {
+   "file": "single-2024Greek.html",
+   "text": "Πάπα Ιωάννη Παύλο",
+   "why": "Pope John Paul II - non-Greek person, conventional Greek form (\"Πάπα\\r\\n Ιωάννη Παύλο\", split over a line break). EN: \"Pope John Paul II\""
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "text": "Αγίου Κούθμπερτ",
+   "why": "church of St Cuthbert, Earl's Court (saint name in a church name). EN: \"Saint Cuthbert\""
+  },
+  {
+   "file": "single-2018Greek.html",
+   "text": "Αγίου Βίτου",
+   "why": "church of St. Vitus, Český Krumlov (saint name in a church name). EN: \"St. Vitus\""
+  },
+  {
+   "file": "single-2025Greek.html",
+   "text": "Αγίου Μαρτίνου",
+   "why": "monastery of São Martinho de Tibães (saint name). EN: \"Tibães Monastery\""
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Κέντρο Κένεντι",
+   "why": "Kennedy Center (venue named after a person). EN: \"Kennedy Center\""
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Λινκολν Κέντρο",
+   "why": "Lincoln Center (venue named after a person). EN: \"Lincoln Center\""
+  },
+  {
+   "file": "single-2022Greek.html",
+   "text": "Λίνκολν Κέντρο",
+   "why": "Lincoln Center (venue named after a person). EN: \"Lincoln Center\""
+  },
+  {
+   "file": "masterclass2023Greek.html",
+   "text": "Μαριίνσκι",
+   "why": "Mariinsky Theatre, St Petersburg (venue)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "text": "Βραβείο ΚΟΤΑ",
+   "why": "Hungarian \"KÓTA\" prize (organisation acronym). EN: \"KÓTA-Prize\""
+  },
+  {
+   "file": "single-2018Greek.html",
+   "text": "Συλλόγου Κοντάλυψης του",
+   "why": "\"Ουγγρικού Συλλόγου Κοντάλυψης του Κόδαϊ\" = Hungarian Kodály Association; \"Κοντάλυψης\" is a garbled word in the legacy Greek (Κόδαϊ itself is in the replacement list)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "text": "ΚΑΒΑΪ",
+   "why": "music publisher KAWAI (\"Έκδοση ΚΑΒΑΪ\"); icc2022Greek.html already writes \"KAWAI\""
+  },
+  {
+   "file": "icc2022Greek.html",
+   "text": "Γουόλτον",
+   "why": "music publisher Walton (Music) in the Busto bio; the other publishers in the same list are already in Latin"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "text": "Σταατλίτε Χοχσχουλέ φυρ Μούσικ και Νταρστέλεντε Κουνστ Στουτγάρδης",
+   "why": "transliterated institution: Staatliche Hochschule für Musik und Darstellende Kunst Stuttgart"
+  },
+  {
+   "file": "masterclass2023Greek.html, single-2016Greek.html, single-2017Greek.html",
+   "text": "ΝΤΝΟΥ",
+   "why": "NTNU (Norwegian university acronym transliterated)"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, single-2016Greek.html",
+   "text": "Τε Ντέουμ",
+   "why": "title of a work by Ko Matsushita (\"Te Deum\"); single-2022Greek.html already writes \"Te Deum\""
+  },
+  {
+   "file": "single-2022Greek.html",
+   "text": "Μαγνιφικάτ",
+   "why": "work title \"Magnificat\" (Miškinis bio)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "text": "Έργκεν Ντέντα",
+   "why": "Bulgarian song title \"Ergen Deda\" (repertoire list)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "text": "Δηλμανό, Δηλμπέρο",
+   "why": "Bulgarian song title \"Dilmano, Dilbero\" (repertoire list)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "text": "Σοι προσφέρομεν",
+   "why": "Greek translation of the title \"Tebe Poem\" by Dobri Hristov (repertoire list)"
+  },
+  {
+   "file": "masterclass2022Greek.html",
+   "text": "Виван Кавалджиев",
+   "why": "composer name in Cyrillic (not Greek, not Latin). EN has the typo \"VIvan Kavaldijev\"; correct romanisation would be Ivan Kavaldzhiev"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Πρίτσαστνο",
+   "why": "work title \"Pričastno\" by Marko Tajčević"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "text": "Δοαμνέ, μπουζέλε, μέλε",
+   "why": "Romanian song title \"Doamne, buzele mele\" (EN only gives \"Doamne\")"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Πρεόμπραγιενιε",
+   "why": "festival name \"Preobrajenie\" (St Petersburg)"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "text": "Πρεομπράγκενιε",
+   "why": "festival name \"Preobrajenie\" (St Petersburg)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Ζίβα ιλ Τσάντο",
+   "why": "competition name \"Viva il Canto\" (Greek legacy has Ζ- instead of Β-)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Ψαλίτε Ντέο",
+   "why": "festival name \"Psallite Deo\""
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Ζλάτνα βίλα",
+   "why": "competition name \"Zlatna vila\""
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "text": "Νέοι Σολίστες των Αστούριων",
+   "why": "competition name translated (\"Young Soloists of the Principality of Asturias\")"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Β νατσάλε βιέ Σλοβο",
+   "why": "CD title (Old Slavonic \"V načale bě Slovo\")"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "text": "Εσθονική Τηλεοπτική Χορωδία Συναυλίας",
+   "why": "translated name of \"Estonian Television Concert Choir\" (only descriptors, no proper name)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "text": "Αυτόνομη Χορωδία Πανεπιστημιού Μπουκαραμάνγκα",
+   "why": "translated name of \"Coro Universidad Autónoma de Bucaramanga\" (UNAB)"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "text": "Ανατολικό Σχολείο Μουσικής",
+   "why": "mistranslation of \"Eastman School of Music\" (named after George Eastman)"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Μονουμεντάλ Θέατρο",
+   "why": "Monumental Theater of Madrid (venue)"
+  },
+  {
+   "file": "ourchoirGreek.html, single-2016Greek.html, single-2017Greek.html, single-2018Greek.html, ICFP2026-el.html",
+   "text": "Ελευθερία",
+   "why": "(already in replacements for single-2016/2017) Moldovan choir \"Elefteria\": its name is a Greek word; the client may prefer to keep «Ελευθερία»"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "text": "Λαβιρίνθος",
+   "why": "(already in replacements) legacy error: Greek page places choir \"Lavirint\" in Ζάγκρεμπ (Zagreb), EN says Zaječar, Serbia"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "text": "Νικολάι Αντοσίκιεμ",
+   "why": "(already in replacements) legacy error: Greek has \"Νικολάι\" but EN (and single-2022Greek) has Nikodem Antosikiem"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "text": "Νόβι Σάντς Πολωνία",
+   "why": "legacy error: Greek transliterates Nowy Sącz (Poland) as \"Νόβι Σάντς\" (looks like Novi Sad)"
+  },
+  {
+   "file": "cfnGreek.html, france2024Greek.html, report091225Greek.html, berlin2024.html",
+   "text": "Άγιος Πέτρος",
+   "why": "news sidebar link \"2ο Βραβείο, Άγιος Πέτρος\" - means Saint Petersburg (Αγία Πετρούπολη); not a person"
+  }
+ ],
+ "places": [
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, iccc2025Greek.html, masterclass2017Greek.html, masterclass2018Greek.html, masterclass2019Greek.html, masterclass2023Greek.html, masterclass2026Greek.html, single-2015Greek.html, single-2016Greek.html, single-2017Greek.html, single-2018Greek.html, single-2019Greek.html, single-2021Greek.html, single-2022Greek.html, single-2025Greek.html, ICFP2026-el.html",
+   "greek": "Λιουμπλιάνα",
+   "latin": "Ljubljana"
+  },
+  {
+   "file": "masterclass2026Greek.html, single-2022Greek.html, ICFP2026-el.html",
+   "greek": "Λιουμπλιάνας",
+   "latin": "Ljubljana"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, masterclass2017Greek.html, masterclass2018Greek.html, masterclass2019Greek.html, single-2015Greek.html, single-2016Greek.html, single-2017Greek.html, single-2018Greek.html, single-2019Greek.html, single-2021Greek.html, single-2022Greek.html",
+   "greek": "Μπόβετς",
+   "latin": "Bovec"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, masterclass2017Greek.html, masterclass2018Greek.html, masterclass2019Greek.html, single-2015Greek.html, single-2016Greek.html, single-2017Greek.html, single-2018Greek.html, single-2019Greek.html, single-2021Greek.html",
+   "greek": "Κοπερ",
+   "latin": "Koper"
+  },
+  {
+   "file": "single-2022Greek.html, single-2025Greek.html, ICFP2026-el.html",
+   "greek": "Κόπερ",
+   "latin": "Koper"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, masterclass2017Greek.html, masterclass2018Greek.html, masterclass2019Greek.html, single-2015Greek.html, single-2016Greek.html, single-2017Greek.html, single-2018Greek.html, single-2019Greek.html, single-2021Greek.html",
+   "greek": "Νόβα Γκόριτσα",
+   "latin": "Nova Gorica"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Νόβα Γκορίτσα",
+   "latin": "Nova Gorica"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, masterclass2017Greek.html, masterclass2018Greek.html, masterclass2019Greek.html, single-2015Greek.html, single-2016Greek.html, single-2017Greek.html, single-2018Greek.html, single-2019Greek.html, single-2021Greek.html, single-2022Greek.html, single-2025Greek.html, ICFP2026-el.html",
+   "greek": "Πριμόρσκα",
+   "latin": "Primorska"
+  },
+  {
+   "file": "masterclass2018Greek.html",
+   "greek": "Πριμόριε",
+   "latin": "Primorska"
+  },
+  {
+   "file": "erasmusGreek.html",
+   "greek": "Πριμοριέ",
+   "latin": "Primorska"
+  },
+  {
+   "file": "cfnGreek.html, single-2015Greek.html, single-2017Greek.html, single-2018Greek.html, single-2019Greek.html, single-2021Greek.html, single-2022Greek.html, ICFP2026-el.html",
+   "greek": "Κορκ",
+   "latin": "Cork"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Σάλτσμπουργκ",
+   "latin": "Salzburg"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Φιεζόλε",
+   "latin": "Fiesole"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Άρετζο",
+   "latin": "Arezzo"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "greek": "Αρέρτσο",
+   "latin": "Arezzo"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Καντονίγκρο",
+   "latin": "Cantonigròs"
+  },
+  {
+   "file": "icc2022Greek.html, single-2015Greek.html",
+   "greek": "Γκορίτζια",
+   "latin": "Gorizia"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Γκορίζια",
+   "latin": "Gorizia"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Σανλί",
+   "latin": "Senlis"
+  },
+  {
+   "file": "icc2022Greek.html, single-2015Greek.html, single-2022Greek.html",
+   "greek": "Τουρ",
+   "latin": "Tours"
+  },
+  {
+   "file": "single-2015Greek.html, single-2018Greek.html, single-2025Greek.html, ICFP2026-el.html",
+   "greek": "Βάρνα",
+   "latin": "Varna"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Βιτόριο Βενέτο",
+   "latin": "Vittorio Veneto"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Βίττοριο Βενέτο",
+   "latin": "Vittorio Veneto"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Μπολόνια",
+   "latin": "Bologna"
+  },
+  {
+   "file": "single-2015Greek.html",
+   "greek": "Αβελίνο",
+   "latin": "Avellino"
+  },
+  {
+   "file": "masterclass2023Greek.html, single-2016Greek.html, single-2017Greek.html",
+   "greek": "Τρονχάιμ",
+   "latin": "Trondheim"
+  },
+  {
+   "file": "masterclass2023Greek.html, single-2017Greek.html",
+   "greek": "Τρόντχαϊμ",
+   "latin": "Trondheim"
+  },
+  {
+   "file": "masterclass2023Greek.html, single-2017Greek.html",
+   "greek": "Τρομσό",
+   "latin": "Tromsø"
+  },
+  {
+   "file": "masterclass2023Greek.html, single-2017Greek.html",
+   "greek": "Φινμάρκ",
+   "latin": "Finnmark"
+  },
+  {
+   "file": "masterclass2023Greek.html, single-2017Greek.html",
+   "greek": "Κριστιάνσαντ",
+   "latin": "Kristiansand"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "greek": "Ρίο Γκράντε",
+   "latin": "Rio Grande"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "greek": "Λε Λαντερόν",
+   "latin": "Le Landeron"
+  },
+  {
+   "file": "single-2016Greek.html, single-2017Greek.html, ICFP2026-el.html",
+   "greek": "Κισινάου",
+   "latin": "Chisinau / Chișinău"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "greek": "Μπράιλα",
+   "latin": "Braila"
+  },
+  {
+   "file": "single-2016Greek.html",
+   "greek": "Σούμπερκ",
+   "latin": "Šumperk"
+  },
+  {
+   "file": "single-2016Greek.html, single-2018Greek.html, single-2019Greek.html, single-2021Greek.html",
+   "greek": "Ζάγκρεμπ",
+   "latin": "Zagreb"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Σάρλοτ",
+   "latin": "Charlotte"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Πόρτλαντ",
+   "latin": "Portland"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Σπόκαν",
+   "latin": "Spokane"
+  },
+  {
+   "file": "single-2017Greek.html, single-2024Greek.html, single-2025Greek.html",
+   "greek": "Χιούστον",
+   "latin": "Houston"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Γκραντ Ράπιντς",
+   "latin": "Grand Rapids"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Μίσιγκαν",
+   "latin": "Michigan"
+  },
+  {
+   "file": "single-2017Greek.html, single-2025Greek.html",
+   "greek": "Νιου Τζέρσεϊ",
+   "latin": "New Jersey"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Βόρειας Καρολίνα",
+   "latin": "North Carolina"
+  },
+  {
+   "file": "single-2024Greek.html",
+   "greek": "Βόρεια Καρολίνα",
+   "latin": "North Carolina"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Γκαρβολίν",
+   "latin": "Garwolin"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Βάλιεβο",
+   "latin": "Valjevo"
+  },
+  {
+   "file": "single-2017Greek.html, single-2018Greek.html, single-2019Greek.html, single-2022Greek.html",
+   "greek": "Ταλίν",
+   "latin": "Tallinn"
+  },
+  {
+   "file": "single-2017Greek.html, ICFP2026-el.html",
+   "greek": "Ντέμπρετσεν",
+   "latin": "Debrecen"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Τσέρβενι Κοστελέκ",
+   "latin": "Červený Kostelec"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Ράντερς",
+   "latin": "Randers"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Νόβι Σάντς",
+   "latin": "Nowy Sącz (legacy Greek wrongly suggests Novi Sad)"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Άς",
+   "latin": "Aš"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Πάντσιου",
+   "latin": "Panciu"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Βραντσέα",
+   "latin": "Vrancea"
+  },
+  {
+   "file": "single-2017Greek.html",
+   "greek": "Νιζίν",
+   "latin": "Nizhyn"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "greek": "Αλαμπάμα",
+   "latin": "Alabama"
+  },
+  {
+   "file": "single-2018Greek.html, ICFP2026-el.html",
+   "greek": "Μπρατισλάβα",
+   "latin": "Bratislava"
+  },
+  {
+   "file": "iccc2025Greek.html, single-2018Greek.html",
+   "greek": "Σεντ Πολ",
+   "latin": "Saint Paul"
+  },
+  {
+   "file": "iccc2025Greek.html",
+   "greek": "Σαιντ Πολ",
+   "latin": "Saint Paul"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "greek": "Χαρκοβο",
+   "latin": "Kharkiv"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "greek": "Μπουκαραμάνγκα",
+   "latin": "Bucaramanga"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "greek": "Σαντάντερ",
+   "latin": "Santander"
+  },
+  {
+   "file": "single-2018Greek.html, ICFP2026-el.html",
+   "greek": "Νόβι Σαντ",
+   "latin": "Novi Sad"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "greek": "Τούζλα",
+   "latin": "Tuzla"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "greek": "Ταρτού",
+   "latin": "Tartu"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "greek": "Βίλνιους",
+   "latin": "Vilnius"
+  },
+  {
+   "file": "single-2018Greek.html, single-2019Greek.html, single-2022Greek.html",
+   "greek": "Πόζναν",
+   "latin": "Poznań"
+  },
+  {
+   "file": "single-2018Greek.html",
+   "greek": "Μιλάτζο",
+   "latin": "Milazzo"
+  },
+  {
+   "file": "ourconductorGreek.html, single-2018Greek.html, single-2025Greek.html",
+   "greek": "Πλόβντιβ",
+   "latin": "Plovdiv"
+  },
+  {
+   "file": "single-2018Greek.html, single-2022Greek.html",
+   "greek": "Κόστα Ρίκα",
+   "latin": "Costa Rica"
+  },
+  {
+   "file": "single-2019Greek.html, single-2021Greek.html",
+   "greek": "Μοντρέ",
+   "latin": "Montreux"
+  },
+  {
+   "file": "iccc2025Greek.html, single-2019Greek.html, single-2021Greek.html",
+   "greek": "Σινσινάτι",
+   "latin": "Cincinnati"
+  },
+  {
+   "file": "single-2019Greek.html, single-2021Greek.html",
+   "greek": "Λονγκ Μπιτς",
+   "latin": "Long Beach"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Παζάρτζικ",
+   "latin": "Pazardjik"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Παζάρντζικ",
+   "latin": "Pazardjik"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Ρζεσόβ",
+   "latin": "Rzeszów"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Ρζεσούβ",
+   "latin": "Rzeszów"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Κιέλτσε",
+   "latin": "Kielce"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Νίς",
+   "latin": "Niš"
+  },
+  {
+   "file": "masterclass2019Greek.html, single-2019Greek.html, single-2022Greek.html",
+   "greek": "Μαρίμπορ",
+   "latin": "Maribor"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Μάριμπορ",
+   "latin": "Maribor"
+  },
+  {
+   "file": "icc2022Greek.html, masterclass2019Greek.html, single-2019Greek.html, single-2022Greek.html",
+   "greek": "Τολόζα",
+   "latin": "Tolosa"
+  },
+  {
+   "file": "icc2025Greek.html, single-2022Greek.html, single-2025Greek.html",
+   "greek": "Τολόσα",
+   "latin": "Tolosa"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Κάλις",
+   "latin": "Kalisz"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Καλίστη",
+   "latin": "Kalisz"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Καλίσι",
+   "latin": "Kalisz"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Εκατερίνμπουργκ",
+   "latin": "Yekaterinburg"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Αικατερίνμπουργκ",
+   "latin": "Yekaterinburg"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Παρντούμπιτσε",
+   "latin": "Pardubice"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Πλόκ",
+   "latin": "Płock"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Πλότσκ",
+   "latin": "Płock"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Πουλόκ",
+   "latin": "Płock"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Βαλί",
+   "latin": "Bali"
+  },
+  {
+   "file": "iccc2025Greek.html, single-2022Greek.html",
+   "greek": "Μπαλί",
+   "latin": "Bali"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Σπίσκα Νόβα Βες",
+   "latin": "Spišská Nová Ves"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Σπισκά Νόβα Βες",
+   "latin": "Spišská Nová Ves"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Σπίσκα Νέα Βέσ",
+   "latin": "Spišská Nová Ves"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Σβέτα Τρόιτσα",
+   "latin": "Sveta Trojica"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Σβέτα Τρογιτσά",
+   "latin": "Sveta Trojica"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Σβέτα Τρογκίκα",
+   "latin": "Sveta Trojica"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Σλοβένσκε Γκόριτσε",
+   "latin": "Slovenske Gorice"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Πτούι",
+   "latin": "Ptuj"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Πτούγι",
+   "latin": "Ptuj"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Βράνοβ ναντ Τοπλέου",
+   "latin": "Vranov nad Topľou"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Βρανοβ ναντ Τοπλού",
+   "latin": "Vranov nad Topľou"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Τσέμερνε",
+   "latin": "Čemerné"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Τσεμέρνε",
+   "latin": "Čemerné"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Μπάνσκα Μπιστρίτσα",
+   "latin": "Banská Bystrica"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Μπάνσκα Μπυστρίτσα",
+   "latin": "Banská Bystrica"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Ρεχοβότ",
+   "latin": "Rehovot"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Γιάφα",
+   "latin": "Jaffa"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Τζάφα",
+   "latin": "Jaffa"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Μπατούγιε",
+   "latin": "Batuje"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Μπατούιε",
+   "latin": "Batuje"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Ντουμπρόβνικ",
+   "latin": "Dubrovnik"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Δουβροβνίκ",
+   "latin": "Dubrovnik"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Σκόφια Λόκα",
+   "latin": "Škofja Loka"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Μπάνια Λούκα",
+   "latin": "Banja Luka"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Ξιαμέν",
+   "latin": "Xiamen"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Σιαμέν",
+   "latin": "Xiamen"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Πριγιεντόρ",
+   "latin": "Prijedor"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Πρίγιεντορ",
+   "latin": "Prijedor"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Μποστον",
+   "latin": "Boston"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Σιάτλ",
+   "latin": "Seattle"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Λος Άντζελες",
+   "latin": "Los Angeles"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Οτάβα",
+   "latin": "Ottawa"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Κινμού",
+   "latin": "Quemoy"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Κεμώ",
+   "latin": "Quemoy"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Τζακάρτα",
+   "latin": "Jakarta"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Ραβαμάνγκουν",
+   "latin": "Rawamangun"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Τσέρνιτσε",
+   "latin": "Črniče"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Τσρνίτσε",
+   "latin": "Črniče"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Ουράλ",
+   "latin": "Ural"
+  },
+  {
+   "file": "single-2019Greek.html, single-2022Greek.html",
+   "greek": "Ουράλιο",
+   "latin": "Ural"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Γκντανσκ",
+   "latin": "Gdańsk"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Μπόρχα",
+   "latin": "Borja"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Ορντίθια",
+   "latin": "Ordizia"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Γκέτξο",
+   "latin": "Getxo"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Ντονεζτέμπε",
+   "latin": "Doneztebe"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Οβιέδο",
+   "latin": "Oviedo"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Λεόν",
+   "latin": "León"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Αστούριες",
+   "latin": "Asturias"
+  },
+  {
+   "file": "masterclass2019Greek.html",
+   "greek": "Αστούριων",
+   "latin": "Asturias"
+  },
+  {
+   "file": "icc2022Greek.html, single-2022Greek.html",
+   "greek": "Κάουνας",
+   "latin": "Kaunas"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Τζακούτσκ",
+   "latin": "Jakutsk"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Ονδαρρίμπια",
+   "latin": "Hondarribia"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "greek": "Ονταρρίμπια",
+   "latin": "Hondarribia"
+  },
+  {
+   "file": "icc2022Greek.html, single-2022Greek.html",
+   "greek": "Γκιπούθκοα",
+   "latin": "Gipuzkoa"
+  },
+  {
+   "file": "icc2022Greek.html, single-2022Greek.html",
+   "greek": "Βαγιαδολίδ",
+   "latin": "Valladolid"
+  },
+  {
+   "file": "icc2022Greek.html, single-2022Greek.html",
+   "greek": "Λέθο",
+   "latin": "Lezo"
+  },
+  {
+   "file": "single-2022Greek.html",
+   "greek": "Αβιλές",
+   "latin": "Avilés"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "greek": "Αβίλα",
+   "latin": "Avilés (Greek has Αβίλα)"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "greek": "Σπιτάλ αν ντερ Ντράου",
+   "latin": "Spittal an der Drau"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "greek": "Μάινχαουζεν",
+   "latin": "Mainhausen"
+  },
+  {
+   "file": "icc2022Greek.html",
+   "greek": "Μαρκτομπερντόρφ",
+   "latin": "Marktoberdorf"
+  },
+  {
+   "file": "icc2022Greek.html, single-2022Greek.html",
+   "greek": "Μπιλμπάο",
+   "latin": "Bilbao"
+  },
+  {
+   "file": "icc2022Greek.html, single-2022Greek.html",
+   "greek": "Ιγκουαλάδα",
+   "latin": "Igualada"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, single-2022Greek.html",
+   "greek": "Σολτ Λέικ Σίτι",
+   "latin": "Salt Lake City"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, single-2022Greek.html",
+   "greek": "Γιούτα",
+   "latin": "Utah"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html",
+   "greek": "Καρουιζάουα",
+   "latin": "Karuizawa"
+  },
+  {
+   "file": "icc2022Greek.html, icc2025Greek.html, single-2022Greek.html",
+   "greek": "Κόμπε",
+   "latin": "Kobe"
+  },
+  {
+   "file": "iccc2022Greek.html, single-2022Greek.html",
+   "greek": "Γκρατς",
+   "latin": "Graz"
+  },
+  {
+   "file": "iccc2022Greek.html, masterclass2022Greek.html",
+   "greek": "Τορρεβιέχα",
+   "latin": "Torrevieja"
+  },
+  {
+   "file": "iccc2022Greek.html, single-2024Greek.html, single-2025Greek.html, ICFP2026-el.html",
+   "greek": "Ρίγα",
+   "latin": "Riga"
+  },
+  {
+   "file": "iccc2022Greek.html",
+   "greek": "Ουψάλα",
+   "latin": "Uppsala"
+  },
+  {
+   "file": "iccc2025Greek.html, ICFP2026-el.html",
+   "greek": "Σίδνεϊ",
+   "latin": "Sydney"
+  },
+  {
+   "file": "iccc2025Greek.html",
+   "greek": "Όρεγκον",
+   "latin": "Oregon"
+  },
+  {
+   "file": "iccc2025Greek.html",
+   "greek": "Γιουτζίν",
+   "latin": "Eugene"
+  },
+  {
+   "file": "iccc2025Greek.html, single-2025Greek.html",
+   "greek": "Καοσιούνγκ",
+   "latin": "Kaohsiung"
+  },
+  {
+   "file": "iccc2025Greek.html",
+   "greek": "Μπουσάν",
+   "latin": "Busan"
+  },
+  {
+   "file": "iccc2025Greek.html",
+   "greek": "Σεν Λο",
+   "latin": "Saint-Lô"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "greek": "Καζανλάκ",
+   "latin": "Kazanlak"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "greek": "Ντόμπριτς",
+   "latin": "Dobrich"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "greek": "Νιουσατέλ",
+   "latin": "Neuchâtel"
+  },
+  {
+   "file": "ourconductorGreek.html",
+   "greek": "Νιυρεγκιχάζα",
+   "latin": "Nyíregyháza"
+  },
+  {
+   "file": "single-2023Greek.html, single-2024Greek.html, single-2025Greek.html",
+   "greek": "Μπρίντιζι",
+   "latin": "Brindisi"
+  },
+  {
+   "file": "single-2023Greek.html, single-2024Greek.html, single-2025Greek.html, ICFP2026-el.html",
+   "greek": "Μπάρι",
+   "latin": "Bari"
+  },
+  {
+   "file": "single-2023Greek.html, single-2024Greek.html, single-2025Greek.html",
+   "greek": "Ανκόνα",
+   "latin": "Ancona"
+  },
+  {
+   "file": "single-2024Greek.html, single-2025Greek.html, ICFP2026-el.html",
+   "greek": "Κάνσας",
+   "latin": "Kansas"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Μπουένος Άιρες",
+   "latin": "Buenos Aires"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Κόρδοβα",
+   "latin": "Córdoba"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Ουισκόνσιν",
+   "latin": "Wisconsin"
+  },
+  {
+   "file": "icc2025Greek.html, single-2025Greek.html",
+   "greek": "Σαν Σεμπαστιάν",
+   "latin": "San Sebastián"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Χανγκτσόου",
+   "latin": "Hangzhou"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Ρίμινι",
+   "latin": "Rimini"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Μπαντούνγκ",
+   "latin": "Bandung"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Μπανγκόκ",
+   "latin": "Bangkok"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Γκουανγκζού",
+   "latin": "Guangzhou"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Πρίνστον",
+   "latin": "Princeton"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Πρέσερς",
+   "latin": "Preserje"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Στιπ",
+   "latin": "Štip"
+  },
+  {
+   "file": "single-2025Greek.html, ICFP2026-el.html",
+   "greek": "Μπίντγκοστς",
+   "latin": "Bydgoszcz"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Μπράγκα",
+   "latin": "Braga"
+  },
+  {
+   "file": "single-2025Greek.html",
+   "greek": "Σαοσίνγκ",
+   "latin": "Shaoxing"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Πρίστινα",
+   "latin": "Prishtina"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Μολ",
+   "latin": "Mol"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Ζέλε",
+   "latin": "Zele"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Γκότα",
+   "latin": "Gøta"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Τσεστοχόβα",
+   "latin": "Częstochowa"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Ζάμπρζε",
+   "latin": "Zabrze"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Μπρασόβ",
+   "latin": "Brașov"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Κιμπουλούνγκ Μολντοβενέσκ",
+   "latin": "Câmpulung Moldovenesc"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Βοϊβοντίνα",
+   "latin": "Vojvodina"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Βισκαΐας",
+   "latin": "Bizkaia"
+  },
+  {
+   "file": "ICFP2026-el.html",
+   "greek": "Άναχαϊμ",
+   "latin": "Anaheim"
+  },
+  {
+   "file": "cfnGreek.html",
+   "greek": "Μισούλα",
+   "latin": "Missoula"
+  },
+  {
+   "file": "cfnGreek.html, masterclass2023Greek.html, single-2017Greek.html, single-2019Greek.html, single-2022Greek.html, single-2025Greek.html",
+   "greek": "Χονγκ Κονγκ",
+   "latin": "Hong Kong"
+  },
+  {
+   "file": "masterclass2023Greek.html",
+   "greek": "Ντέρι",
+   "latin": "Derry"
+  },
+  {
+   "file": "single-2019Greek.html",
+   "greek": "Ουάσινγκτον, Ντ.Κ.",
+   "latin": "Washington, D.C."
+  }
+ ]
+}

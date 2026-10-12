@@ -1,0 +1,8 @@
+{
+ "_note": "Which version of a person/choir to keep (registry.mjs). Default: the most recent page. \"fullest\" = the longest biography (most recent of equally long ones); or name a page, e.g. \"festivals/2025\" (pages: festivals/<year>, masterclasses/<year>, competitions/<slug>; ids: app/content/people.ts and choirs.ts). Then run npm run legacy:import. 2026-10-11: the client chose the fuller versions where the 2026 page had shortened them.",
+ "ambroz-copi": "fullest",
+ "pearl-shangkuan": "fullest",
+ "katerina-vassilikou": "fullest",
+ "eduardo-garcia-novelli": "fullest",
+ "marco-antonio-garcia-de-paz": "festivals/2019"
+}

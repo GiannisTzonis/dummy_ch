@@ -1,0 +1,929 @@
+Notes written during the first migration pass (Aug 2026), saved from the headers of the
+content data files before they were regenerated verbatim on 2026-10-10. Many describe
+how content was squeezed into the old structured schema (no longer true); the notes on
+legacy-page quirks (wrong years, copy-pasted results, EN/EL mismatches) are still accurate
+and are the source for MIGRATION.md's "Old-site errors" list.
+
+===== festivals/2015.ts
+
+// Source: single-2015.html (English) / single-2015Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - This year's page has no participating-choirs list, no sponsors section,
+//   no document downloads, and no photo gallery -- just the poster, the
+//   organising committee, and four International Jury Committee bios. Those
+//   arrays are intentionally left empty rather than invented.
+// - No page intro/pull-quote copy exists either (the "single-post" block is
+//   just the title, dates and poster image) -- `intro` is left as an empty
+//   paragraph array per the schema's requirement of at least the field
+//   existing, and `pullQuote` is omitted.
+// - Antonis Kontogeorgiou's photo filename on disk is "antonis
+//   karageorgiou.png" (a misspelling of his surname baked into the legacy
+//   filename itself) -- kept as-is since that's the real path already
+//   copied into web/public/img/.
+===== festivals/2016.ts
+
+// Source: single-2016.html (English) / single-2016Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - No page intro/pull-quote copy exists (same as 2015) -- `intro` is left
+//   as an empty paragraph array.
+// - The "Medals" competition-results block (22nd International Choral
+//   Competition) has no dedicated structured field on the Festival schema
+//   (`awardSchema` is only wired up for the Competition template) -- it's
+//   captured as a `sections` entry instead, one paragraph per category
+//   heading and one paragraph per placed choir, preserving every choir
+//   name, conductor, score and medal/prize verbatim. This mirrors how
+//   2025.ts already uses `sections` for freeform policy copy that doesn't
+//   have its own schema shape.
+// - Two OCR/typo artifacts in the Greek source are preserved verbatim
+//   rather than silently corrected: "Λαβιρίνθος, Ζάγκρεμπ, Σερβία" in the
+//   Category D results is a mistranslation of the English "Lavirint,
+//   Zaječar, Serbia" (Zaječar rendered as Ζάγκρεμπ, which is actually
+//   Zagreb) -- kept as printed on the legacy page for both languages'
+//   independent transcriptions rather than reconciled.
+// - Photo filenames on disk keep their legacy capitalization/spacing
+//   ("Ragnar Rasmussen.jpeg", "Felipe-Miguel.jpeg", "david means.jpeg") --
+//   preserved as-is since those are the real paths already copied into
+//   web/public/img/.
+
+===== festivals/2017.ts
+
+// Source: single-2017.html (English) / single-2017Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - Unlike other years, the English and Greek "Medals" (23rd International
+//   Choral Competition) blocks are NOT translations of the same data --
+//   the Greek page is missing the English page's Category A gold-medal
+//   entry (Junges Vokalensemble, Hannover) entirely, splits/labels
+//   Category D and E differently ("Professional Choirs" vs "Chamber
+//   Choirs" for D; the Greek page has only one "Category E" list where
+//   English has two, "Youth Choirs" and "All kind of choirs - Free
+//   Programme"), and the Special Prizes differ in count, wording, and even
+//   in which choir won the Orthodox-music prize (English: Youth choir
+//   "Svitych"; Greek: Estonian Television Concert Choir). Since these are
+//   independently-diverging source pages rather than one page mistranslated
+//   from the other, each language's `sections.medals17.body` is transcribed
+//   verbatim from its own page rather than reconciled or merged.
+// - The Greek page's Urša Lah bio has two extra paragraphs (about the 2021
+//   Preveza competition and Ola Gjeilo) not present on the English page,
+//   and contains stray anchor ids ("demonstrative_choirs23",
+//   "schedule23") that belong to the 2023 page -- this looks like Greek
+//   bio copy bled in from a later year's page during editing. Preserved
+//   verbatim as printed on the live 2017 Greek page rather than trimmed to
+//   match English, per migration policy of not inventing/removing content.
+// - No page intro/pull-quote copy exists (same pattern as 2015/2016).
+// - Gallery image order on the source page has photos 14 and 13 swapped
+//   (...12, 14, 13) -- preserved in that exact order since it's the real
+//   display order on the legacy page, not assumed to be a numbering error.
+
+===== festivals/2018.ts
+
+// Source: single-2018.html (English) / single-2018Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - This year's page has no separate "Medals" competition-results block
+//   (unlike 2016/2017) -- it's Jury bios + a large "Choir's Participations"
+//   section (23 choirs with conductor bios) + gallery. `sections` is left
+//   empty accordingly.
+// - `participatingChoirSchema.description` was widened from a single
+//   localized string to localized rich text (see types.ts) specifically
+//   because of this page: many of these choir write-ups run 2-3 paragraphs
+//   (history + conductor bio), which a single string can't represent
+//   without losing paragraph breaks.
+// - Katerina Vassilikou's jury photo is referenced as "img/vasilikou.jpeg"
+//   on both legacy pages, but the only matching file that actually exists
+//   (both in the legacy img/ folder and web/public/img/) is
+//   "vasilikou.webp" -- used here since that's the real asset.
+// - Theodora Pavlovitch's jury photo differs by language on the legacy
+//   pages: English uses "pavlivich.jpeg", Greek uses
+//   "Theodora-Pavlovitch.jpg". Both files exist; since Festival.jury photo
+//   is a single (non-localized) field, the English page's filename is used
+//   as canonical, consistent with how 2025.ts resolves other single-field
+//   non-localized asset conflicts.
+// - No page intro/pull-quote copy exists (same pattern as prior years).
+// - The "Lyra" (Buzău) choir bio on the English page repeats its own first
+//   paragraph almost verbatim near the end (a copy-paste artifact); the
+//   duplicated text is not re-duplicated here since it adds no new fact.
+//   The Greek version does not have this duplication.
+
+===== festivals/2019.ts
+
+// Source: single-2019.html (English) / single-2019Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - Like 2017, the "Medals" block's category labels and ordering are NOT a
+//   clean translation between languages: the English page has categories
+//   A, B, D, E (Youth choirs), F (Spiritual/Gospel/Jazz/Pop/Folklore/
+//   Byzantine), G (Free programme) -- there is no "Category C" on the
+//   English page at all. The Greek page mirrors A, B, Δ, Ε, ΣΤ but then
+//   labels its last category (the "free programme" one, equivalent to
+//   English G) as "Κατηγορία Γ", printed out of alphabetical order after
+//   ΣΤ. Each language's `sections.medals19.body` is transcribed verbatim
+//   from its own page, category labels and ordering included, rather than
+//   renumbered/reconciled.
+// - The intro paragraph is present this year (unlike 2015-2018).
+// - Gallery: images 1 and 2 share the same (wrong) lightbox href on the
+//   legacy page ("...1.JPG" for both); irrelevant here since the schema
+//   only stores `src`, taken from each thumbnail's own `src` attribute.
+// - Marco Antonio García de Paz's jury photo is referenced as "img/Marco
+//   Antonio García de Paz.jpeg" (with spaces) on the legacy page, but no
+//   such file exists on disk -- the real asset is the space-free
+//   "MarcoAntonioGarcíadePaz.jpeg", used here instead.
+// - Katerina Vassilikou's photo again uses the real "vasilikou.webp" file
+//   rather than the broken "vasilikou.jpeg" reference on the legacy page
+//   (same issue documented in 2018.ts).
+
+===== festivals/2021.ts
+
+// Source: single-2021.html (English) / single-2021Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - Unlike other extracted years, this page is NOT a post-festival report
+//   -- it's the pre-festival call for participation (competition
+//   categories/rules, application procedure, non-competitive participation
+//   info, and the "4th Choral Conducting Workshop & Seminar" announcement).
+//   There is no participating-choirs list and no medal results to extract,
+//   so `participatingChoirs` is empty and the policy copy lives in
+//   `sections` instead -- the same pattern 2025.ts already established for
+//   this kind of freeform rules content.
+// - The legacy page's anchor ids don't line up with the sidebar nav links
+//   that point to them: `id="non-comp21"` is actually placed on John
+//   Fitzpatrick's jury photo (not on the "Non-Competitive Participation"
+//   heading), and `id="seminar21"` is on the "Broadcasting, Recording &
+//   Photographic Rights" heading (not on the workshop/seminar heading).
+//   These look like copy-paste id placement bugs on the legacy page, not
+//   meaningful structure -- the section ids below are new, sensible ones
+//   rather than a reproduction of the buggy anchors.
+// - On the Greek page, the jury photo shown for Klaus-Jürgen Etzold is
+//   "Marco Antonio García de Paz.jpeg" (the wrong photo, copy-pasted from
+//   the entry below it) -- the correct "klaus.jpeg" from the English page
+//   is used here instead, consistent with using the English page to
+//   resolve single (non-localized) asset fields when the two language
+//   pages disagree.
+// - The Greek page's money-prize list for "Marking - Prize Money" lists
+//   "Κατηγορία Γ" twice (once for 400€ children's choirs, once again at
+//   the end for what should be Category G/Ζ) -- a mislabeling bug already
+//   seen in the 2019 medals categories. Preserved verbatim as printed.
+// - Category rules are condensed into one paragraph per category (heading
+//   + all its bullet requirements joined with " — ") rather than losing
+//   the list structure some other way, consistent with how medal-table
+//   bullet lists were handled in 2016/2017/2019.
+
+===== festivals/2022.ts
+
+// Source: single-2022.html (English) / single-2022Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - MAJOR SOURCE QUIRK: the entire "Choir's Participations" list (22
+//   choirs) and the "Medals" results section on this page are, in
+//   substance, the same content as single-2019.html/single-2019Greek.html
+//   -- same choirs, same conductors, same scores, same medal placements,
+//   even the same missing "Category B" gap pattern. This looks like the
+//   2019 page was used as a copy/paste template for 2022 and the
+//   choir/medal data was never actually updated for the 40th festival.
+//   The English wording is byte-for-byte identical to 2019's; the Greek
+//   wording is a DIFFERENT (independently redone) translation of the same
+//   English facts, not a copy of 2019's Greek text -- so both languages
+//   were transcribed fresh from this page rather than reused from
+//   2019.ts, despite the underlying facts being duplicates. Preserved
+//   verbatim per migration policy (nothing invented, nothing "fixed"),
+//   flagging here for whoever eventually verifies/corrects the real 2022
+//   results with the festival organizers.
+// - This year's "Medals" section has no "Category B" at all (jumps
+//   straight from A to C), matching the 2019 page's own inconsistency.
+// - No photo gallery grid exists on this page (unlike 2016-2019) --
+//   `gallery` is empty.
+// - The pre-festival blockquote (COVID-era context, 40th-anniversary
+//   framing, and the announcement of the accompanying 26th Choir
+//   Competition / 5th Conductors' Seminar / 1st Composition Competition /
+//   1st Conductors' Competition) is unique to this page and captured in
+//   `intro`.
+// - Jury: Ambrož Čopi and Theodora Pavlovitch return from prior years
+//   (bios transcribed fresh from this page, which are the same text as
+//   other years); the other six jurors (Miškinis, Busto, Matsushita,
+//   Ploka, Graden, Meligopoulou, Mastrosavva) are new for 2022.
+
+===== festivals/2023.ts
+
+// Source: single-2023.html (English) / single-2023Greek.html (Greek), plus
+// schedule2023.html / schedule2023Greek.html (day-by-day programme,
+// folded into `schedule` per MIGRATION.md), all at the repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - Like 2021, this page is the pre-festival call for participation
+//   (competition categories/rules, fees, application procedure, travel
+//   info), not a post-festival report -- no participating-choirs list, no
+//   jury bios, no medal results exist on this page. `jury` and
+//   `participatingChoirs` are empty; the policy/rules copy lives in
+//   `sections`, matching the pattern used for 2021.
+// - The header banner states the festival dates as "6 - 9 July 2023" (used
+//   for `dates`), but the schedule page's own day-by-day programme starts
+//   a day earlier with a Wednesday July 5th pre-festival concert. Both are
+//   preserved as printed on their respective source pages rather than
+//   reconciled into one date range.
+// - The English page's "Conditions of Participation" list (in the
+//   Application Procedure section near the bottom) still says "Closing
+//   date ... is 1 June 2021" -- an obvious leftover from the 2021 page
+//   this one was evidently built from, contradicting the "1 May 2023"
+//   deadline stated everywhere else on the same page. Preserved verbatim
+//   (not silently corrected) since it's what the legacy page actually
+//   says; flagging here for whoever verifies this against the real 2023
+//   rules.
+// - The English page has two near-duplicate "Registration - Participation
+//   Fees" headings/paragraphs back to back (a copy-paste artifact); only
+//   captured once here since the second is a verbatim repeat of the first
+//   with no new fact.
+// - Committee is a new lineup for 2023 (Kosmas Koronaios now President,
+//   etc.) -- different from every prior year captured so far.
+// - Category rules are condensed into one paragraph per category (heading
+//   + all its bullet requirements joined with " — "), consistent with how
+//   2021's identical rules boilerplate was handled.
+
+===== festivals/2024.ts
+
+// Source: single-2024.html (English) / single-2024Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - Unlike 2021/2023, this page combines BOTH jury bios + participating
+//   choirs (usually only present on post-festival report pages) AND the
+//   full pre-festival rules/application-procedure copy (usually only on
+//   call-for-participation pages, as seen in 2021/2023). Both are captured
+//   here: `jury` and `participatingChoirs` are populated, and the
+//   categories/judging/application-procedure boilerplate lives in
+//   `sections`, same pattern as 2021/2023.
+// - The English page's h1 says "42st International Choral Festival" (typo
+//   for "42nd") -- corrected here since `editionNumber` is a plain number,
+//   not reproduced text, so the typo doesn't carry over regardless.
+// - The rules/fees/application-procedure boilerplate is otherwise nearly
+//   identical to 2023's, with year references bumped to 2024 and the
+//   per-person participation fee raised from €30 to €35 (deposit stays
+//   €150). The English page also has the same duplicated "Registration -
+//   Participation Fees" heading/paragraph pair as 2023 (only captured
+//   once here) and no longer mentions mailing the fee as an alternative to
+//   bank transfer (2023 did) -- preserved as printed.
+// - No day-by-day schedule page exists for 2024 (unlike 2023's
+//   schedule2023.html) -- `schedule` is left empty.
+// - "Ad Una Corda" choir bio's paragraph is unclosed in the legacy HTML
+//   (missing a closing </p>) but the text itself reads as complete;
+//   transcribed as a single paragraph ending at "for the Slovak Radio."
+
+===== festivals/2025.ts
+
+// Source: single-2025.html (English) / single-2025Greek.html (Greek) at the
+// repo root.
+//
+// Schema-fidelity / source-quirk notes:
+// - `highlights` bundles en+el into one localizedString per bullet, but the
+//   two legacy pages picked different bullet sets (different counts, often
+//   different facts) for the same choir. The English bullet list is used as
+//   the canonical set of bullets (verbatim from the page); the Greek side of
+//   each bullet is a direct translation of that same bullet, not a separate
+//   transcription of the Greek page's own (mismatched) bullet list. No fact
+//   from either language's bullet list was lost -- anything only mentioned
+//   in the Greek bullets is already present in the Greek `description` prose.
+// - `sponsorSchema.name` and `documentLinkSchema.href`/`label` are not
+//   localized per-item the way choir/jury fields are. Sponsor captions were
+//   given in both languages on the page (e.g. "Municipality of Preveza" /
+//   "Δήμος Πρέβεζας"); the English caption is used as the canonical `name`.
+//   Likewise the three competition-rules .docx files exist under both an
+//   English and a Greek filename in web/public/img/ (both copied over from
+//   the legacy img/ folder); the English filename is used as the canonical
+//   `href`, with a bilingual `label`.
+// - Choir `country`/`flagEmoji` are single (non-localized) fields, but for
+//   choirs 14-19 (Fermata onward, i.e. every choir after Coro de Tibães) the
+//   English page's choir-footer is bugged: it shows "🇵🇹 Portugal" for every
+//   one of them (apparently a copy-paste that never got updated past the
+//   Tibães/Portugal entry). The Greek page's footers for the same choirs are
+//   correct and consistent with each choir's own bio/location text, so the
+//   Greek footer values are used as the canonical country/flagEmoji for
+//   those choirs. Choir 20 (Shiran Choir, Ramat Hasharon) has no
+//   choir-footer at all on the Greek page and the same "🇵🇹 Portugal" bug on
+//   the English page, so country/flagEmoji are left unset for it rather than
+//   guessing (its bio strongly implies Israel, but that's never stated).
+// - The English page has a duplicated "Organisation" <h3> immediately after
+//   "Participation": the first copy repeats the Participation paragraph
+//   verbatim (a copy-paste artifact), and the second copy has the real,
+//   distinct Organisation content. Only the real content is captured in the
+//   `organisation` section below; the duplicated paragraph is not
+//   re-duplicated since it adds no fact beyond what's already in
+//   `participation`. The Greek page only ever had the one (real) paragraph.
+// - The sidebar has links to #comp-cat ("Competition's Categories"),
+//   #ijc-info ("International Jury Committee I.J.C.") and #medals-info
+//   ("Medals"), but none of these ever resolve to actual on-page content --
+//   there is no id="comp-cat"/"ijc-info"/"medals-info" anywhere, and no
+//   "Medals" or "Competition's Categories" copy exists on either page (IJC
+//   itself is fully captured as the `jury` array, just not under that id).
+//   These three sections could not be extracted because they don't exist on
+//   the page; only #app-proc and #conditions correspond to real content and
+//   are used as section ids below.
+// - No photo gallery of festival images exists on this page -- the
+//   <section id="gallery"> wrapper actually contains the Introduction/
+//   Participation/.../Broadcasting Rights policy copy, not photos. `gallery`
+//   is intentionally left empty.
+// - 2026-08-13: this file's `participatingChoirs`, `sponsors`, `documents`,
+//   and `sections` arrays were all found EMPTY despite this header comment
+//   already describing detailed extraction decisions for them -- the
+//   described work had apparently never actually been written into the
+//   data, or was lost. Filled in from a fresh full read of both legacy
+//   pages:
+//   - `participatingChoirs`: all 19 choirs (numbered 1-2, 4-20 on the page
+//     -- there is no "Choir 3", not a gap in extraction). Confirmed the
+//     country/flagEmoji bug described above still holds exactly as
+//     documented: choirs 14-19 (Fermata onward) show "🇵🇹 Portugal" on the
+//     English page regardless of real country; the Greek footers for the
+//     same choirs are correct and were used instead. Choir 20 (Shiran)
+//     has no footer at all on either page, confirmed again here --
+//     country/flagEmoji left unset for it, `location` uses "Ramat
+//     Hasharon" (the only place-name given, in the choir's own title).
+//     Each choir's `highlights` uses the English bullets as canonical with
+//     direct Greek translations of those same bullets, per this file's own
+//     already-established convention above (the Greek page's own bullet
+//     lists differ in count/content per choir from the English ones).
+//   - `sponsors`: 4 tiers (Co-organisers, Supported By, With the
+//     Assistance, With the Aid), 8 sponsor entries total; all logo files
+//     confirmed to exist on disk.
+//   - `documents`: 3 .docx rule documents (composition, conducting, and
+//     choral-competition rules for 2025); English filenames used as
+//     canonical `href` (one has a source typo, "Inernational", kept
+//     verbatim in the filename since that's the real file on disk).
+//   - `sections`: 11 sections capturing Introduction, Participation,
+//     Organisation, Timetable, Application Procedure (#app-proc),
+//     Conditions of Participation (#conditions), Festival Registration
+//     Fee (incl. bank transfer details and mailing address), Accommodation/
+//     Meals/Transport, How You Can Get Here, Selection, and Broadcasting/
+//     Recording/Photographic Rights. The English and Greek pages structure
+//     some of this content in a different order (e.g. the mailing address
+//     appears right after the registration-fee paragraph on the Greek
+//     page but only near "How to get here" on the English page) --
+//     each language's section body follows that language's own page
+//     order/paragraphing rather than being forced to match 1:1.
+//   `npm run typecheck` and `npm run build` pass clean; both locale pages
+//   grep-verified against the rendered HTML.
+
+===== festivals/2026.ts
+
+// Source: ICFP2026.html (English) / ICFP2026-el.html (Greek) at the repo
+// root. This is the current/flagship festival page -- by far the largest
+// single page in the migration (26 participating-choir bios, 7 jury bios, a
+// 7-day/dozens-of-events schedule with 100+ individual repertoire pieces, 6
+// programme-explanation subsections, 4 conceptual document downloads).
+//
+// Schema-fidelity / source-quirk notes:
+// - `schedule[].events[].description` is a flat localizedString (no nested
+//   fields for venue/choir roster/repertoire). Per explicit instruction,
+//   every event's category, venue, participating/competing choirs and full
+//   repertoire (piece + composer) is flattened into this one string rather
+//   than summarized or dropped. Choirs within an event are separated by
+//   " | ", pieces within a choir by "; ".
+// - Repertoire piece titles are verbatim from each language's own page. For
+//   choirs performing non-Greek-language repertoire, the two pages print
+//   the identical (non-translated) piece/composer text -- confirmed by
+//   direct comparison of several competition blocks. For choirs performing
+//   Greek-language folk/art-song repertoire (Argostoli, Anatoli, BELCANTES,
+//   Nafplio, Mixed Choir of Livadia "Erkyna", Pieria Teachers' Choir SEPE,
+//   Youth Choir Elefteria's Greek-language pieces), the Greek page prints
+//   the piece titles in Greek script (with « » quotation marks) while the
+//   English page prints a transliteration in Latin script -- both are
+//   transcribed as printed on their respective page, not translated by us.
+// - `documentLinkSchema.href` is not localized, but this page (unlike
+//   2025's, where one shared .docx served both locales) links to eight
+//   distinct files -- four English, four Greek -- confirmed on disk. All
+//   eight are kept as separate `documents` entries, each label naming its
+//   own language explicitly, rather than dropping half of them or forcing
+//   one locale's file onto the other.
+// - `participatingChoirSchema.country`/`flagEmoji` are not stated anywhere
+//   on the page (unlike 2025's per-choir footers); both are derived
+//   directly from each choir's own stated location line (e.g. "Mol,
+//   Belgium" -> Belgium/🇧🇪), not fabricated.
+// - The English "Essence of Elements" bio block contains two versions of
+//   the same three paragraphs back-to-back (a copy-paste artifact): a
+//   shorter first version, then a longer second version that adds that the
+//   six performers are Saint Louis College of Music students and appends a
+//   fourth paragraph about Erasmus+ participation. The Greek page has the
+//   identical duplication. Per the pattern established elsewhere in this
+//   migration (e.g. festivals/2018.ts's "Lyra" choir), only the longer,
+//   more complete version is kept; the shorter first version is not
+//   re-duplicated since every fact in it also appears in the version kept.
+// - Dr. Leo Li's English bio ends "...Carnegie Hall.GR" -- a stray "GR"
+//   glued onto the final sentence with no connection to the surrounding
+//   text (unlike the rest of the sentence, which reads cleanly without
+//   it). The Greek bio's equivalent sentence has no such artifact. Treated
+//   as a leftover paste fragment and not reproduced in the extracted text,
+//   consistent with this migration's practice of not reproducing
+//   self-evident fragments that don't correspond to anything in the other
+//   language's page (e.g. masterclasses/2023.ts's stray blockquote).
+// - Organising Committee: the English page spells the "Commissioner" role
+//   inconsistently across its own list -- "Commisioner" (one S) for
+//   Ioannis Ntitsos and Ioanna Kotsi, "Commissioner" (two S's) for Maria
+//   Antoniou. Both spellings are kept verbatim per member. The Greek page
+//   uses the plain word "Μέλος" ("Member") for all three rather than a
+//   direct translation of "Commissioner" ("Επίτροπος", the word 2025.ts's
+//   committee uses) -- kept verbatim as printed rather than harmonized.
+// - The English page's secondary blog-list snippet reads "44rth
+//   International Choral Festival of Preveza" (typo); the page's own H1
+//   correctly reads "44th ...". The correct "44th" form (matching the H1
+//   and every other reference on the page, including the Greek "44ο") is
+//   used as canonical `title`; the "44rth" duplicate snippet is a
+//   self-evident typo of information already captured correctly elsewhere
+//   on the same page.
+// - Wednesday's "Choir & repertoire (1)" detail box lists two choirs (Ave
+//   Chamber Choir and Preveza Children's Choir "Armonia") with conductors
+//   but no repertoire pieces for either -- the "(1)" count doesn't match
+//   the two choirs shown. Transcribed exactly as printed (two choirs
+//   named, no piece list, mismatched count kept verbatim as a source quirk)
+//   on both language pages, which agree with each other here.
+// - `competitionEditionNumber: 30` captures the 30th International Choral
+//   Competition running alongside the 44th festival (`editionNumber: 44`);
+//   the page's own president's letter and section titles distinguish the
+//   two edition numbers throughout, so both are preserved rather than
+//   collapsing to one.
+// - No dedicated photo gallery exists on this page (choir/jury photos are
+//   inline portraits, not a gallery section) -- `gallery` is intentionally
+//   left empty, matching festivals/2025.ts's precedent.
+
+===== masterclasses/2017.ts
+
+// Source: masterclass2017.html / masterclass2017Greek.html at the repo root.
+//
+// Schema-fidelity notes:
+//   - Theodora Pavlovitch's bio is split into 3 paragraphs on both language
+//     pages, but at different sentence boundaries -- the English page moves
+//     the "In 2005 she led a Master class... Kyoto, Japan" sentence into
+//     paragraph 2 and merges the council-membership sentence into paragraph
+//     3, while the Greek page keeps the more usual split (matching the
+//     2016/2018/etc. festival pages' jury bio for the same person). Both are
+//     transcribed verbatim as they appear on their respective source pages
+//     rather than reconciled.
+//   - The demonstrative ensemble ("Academic Choir of the University of
+//     Primorska") is only ever named in passing inside the blockquote
+//     paragraph (folded into `sections` below); the page gives it no photo
+//     or bio, so `demonstrativeChoirs` is left empty rather than fabricated.
+//   - The blockquote (audience / seminar leaders / active-passive
+//     participation info) has no dedicated schema field, so it's captured
+//     as a `sections` entry, following the pattern established for
+//     `festivals/2021.ts` and `festivals/2023.ts`.
+//   - The gallery (14 images at `img/gallery/masterclasses/masterclass
+//     2017/`) isn't captured -- `masterclassSchema` has no gallery field.
+//   - Editio number 1 comes from the page's own title, "1st Choral
+//     Conducting Workshop & Seminar" / "1ο Εργαστήρι & Σεμινάριο Χορωδιακής
+//     Διεύθυνσης".
+
+===== masterclasses/2018.ts
+
+// Source: masterclass2018.html / masterclass2018Greek.html at the repo root.
+//
+// Schema-fidelity notes:
+//   - Both mentor bios (Ambrož Čopi, Theodora Pavlovitch) are word-for-word
+//     identical to `masterclasses/2017.ts` on both language pages, so the
+//     same paragraph splits/wording are reused here.
+//   - **Schedule day-header year bug, present on both language pages**: the
+//     three schedule day headers read "Tuesday, July 2nd, 2019" /
+//     "Wednesday, July 3rd, 2019" / "Thursday, July 4th, 2019" (Greek: "2
+//     Ιουλίου 2019" etc.) even though this is the 2018 seminar -- the page's
+//     own title, poster, and intro all say 3-5 July 2018, and the blockquote
+//     separately references the 36th ICF taking place 6-8 July 2018. Almost
+//     certainly a copy-paste-forward artifact (this file may have been used
+//     as the template for a never-published 2019 draft, or vice versa).
+//     Transcribed verbatim rather than silently corrected to 2018.
+//   - The Greek blockquote's third paragraph contains a literal "?"
+//     mid-sentence ("...με ένα επίδειγμα χορωδίας? το υποδειγματικό...")
+//     where a semicolon is clearly intended (compare the English
+//     paragraph's "; "). Kept verbatim rather than corrected.
+//   - As with 2017, the demonstrative ensemble ("Academic Choir of the
+//     University of Primorska") is only named in the blockquote (folded
+//     into `sections` below) with no photo/bio on this page, so
+//     `demonstrativeChoirs` is left empty rather than fabricated.
+//   - The gallery (14 images at `img/gallery/masterclasses/masterclass
+//     2018/`) isn't captured -- `masterclassSchema` has no gallery field.
+
+===== masterclasses/2019.ts
+
+// Source: masterclass2019.html / masterclass2019Greek.html at the repo root.
+//
+// Schema-fidelity notes:
+//   - Ambrož Čopi and Theodora Pavlovitch's bios are word-for-word identical
+//     to `masterclasses/2017.ts`/`2018.ts` on both language pages, reused
+//     verbatim. Marco A. García de Paz's bio here (about his background as
+//     a violinist/teacher at the Conservatory of Asturias) is a completely
+//     different write-up from the one used for him on `masterclasses/
+//     2026.ts` (about founding El León de Oro) -- both are transcribed as
+//     printed on their respective pages, not reconciled.
+//   - García de Paz's photo is referenced as "img/Marco Antonio García de
+//     Paz.jpeg" (with literal spaces) on both legacy pages; no such file
+//     exists on disk -- the real asset is "MarcoAntonioGarcíadePaz.jpeg",
+//     used here instead (same fix applied in `festivals/2019.ts` and
+//     `festivals/2021.ts`).
+//   - **Two genuine date bugs in the blockquote, present on both language
+//     pages, transcribed verbatim rather than corrected**: (1) the date
+//     range reads "From Friday, 5th July 2018 to Sunday, 7th July 2019"
+//     -- mixing two different years in a single range; (2) the blockquote
+//     says the demonstrative ensemble is the "Chamber Choir of the Music
+//     and Ballet Conservatory Ljubljana" but then links
+//     "https://www.choirkgbl.eu" (the *other* demonstrative choir's site)
+//     right after it.
+//   - Both demonstrative choirs get real bios on this page (unlike 2017/
+//     2018, where the ensemble was named but given no bio) -- both
+//     captured in `demonstrativeChoirs`. `name` is a plain (non-localized)
+//     string per the schema, so the English choir names are used as
+//     canonical, matching the convention already established in
+//     `masterclasses/2026.ts`.
+//   - The gallery (11 images at `img/gallery/masterclasses/masterclass
+//     2019/`) isn't captured -- `masterclassSchema` has no gallery field.
+
+===== masterclasses/2021.ts
+
+// Source: masterclass2021.html / masterclass2021Greek.html at the repo root.
+//
+// Schema-fidelity notes:
+//   - This is a pre-event "call for participation" page, not a post-event
+//     report: no topics list, no schedule, no mentor bios, no
+//     demonstrative-choir bios exist on this page at all -- just the
+//     poster, an 8-name jury-committee sidebar list with no bios attached
+//     to any of them, and a single blockquote. This mirrors the pattern
+//     already established for `festivals/2021.ts` and `festivals/2023.ts`.
+//   - Since `mentors[].bio` is required (not optional) and no bio text
+//     exists for any of the 8 jury names, they are NOT put into `mentors`
+//     (which would require fabricating bios) -- instead they're captured
+//     verbatim as a `sections` entry ("Jury Committee") listing the names,
+//     same as the freeform-copy pattern used for 2021/2023 festival pages.
+//   - The blockquote's first paragraph is used as `intro`; the remaining
+//     three paragraphs (39th ICF novelties, Seminar-track vs
+//     Masterclass-track suitability) are captured as an "about" section.
+
+===== masterclasses/2022.ts
+
+// Source: masterclass2022.html / masterclass2022Greek.html at the repo root.
+//
+// Schema-fidelity notes:
+//   - Poster image is "img/iccc2022.jpeg" -- the same poster used by the
+//     2022 International Choral Conductors' Competition page, not a
+//     dedicated masterclass poster. Transcribed as printed.
+//   - The 8-name "Jury Committee" sidebar list has no bios attached to any
+//     of them on this page (unlike 2019, where three of the mentors got
+//     full bios) -- captured as a `sections` entry rather than forcing
+//     them into `mentors` with fabricated bios, following the pattern
+//     established in `masterclasses/2021.ts`.
+//   - Two demonstrative choirs get real bios: Voci Contra Tempo (with
+//     conductor Sofia Gioldasi) and Ambitus Choir (with conductor Katerina
+//     Vassilikou). **The Ambitus Choir bio is asymmetric between
+//     languages**: the English page gives Katerina Vassilikou one short
+//     paragraph, while the Greek page gives her four much more detailed
+//     paragraphs (her studies, the choirs she's directed since 1992, her
+//     other collaborations). Both are transcribed in full as printed
+//     rather than trimmed/padded to match.
+//   - **Two more schedule bugs, present on both language pages, kept
+//     verbatim**: (1) day headers for Tuesday and Wednesday say "2021"
+//     instead of "2022" (Monday correctly says 2022); (2) Wednesday's
+//     first schedule slot ("Discussion with Gary Graden...") is printed
+//     three times in a row, identically -- almost certainly a copy-paste
+//     accident in the source, but transcribed as three separate events
+//     rather than de-duplicated. Also kept verbatim: "04-30 p.m." (a typo
+//     for "04:30") and "Award Giving Ceremoney" (typo for "Ceremony").
+//   - `repertoire[]` is a single flat list with no field for which
+//     ensemble/track (Masterclass vs. Seminar) each piece belongs to, so a
+//     "[Ensemble – Track]" tag is appended to each `piece` string to avoid
+//     losing that grouping (this page has two demonstrative choirs, each
+//     with its own Masterclass and Seminar sub-repertoire, so simply
+//     flattening without any tag -- as `masterclasses/2026.ts` did for its
+//     single choir -- would blur which choir performs what). Composer
+//     dates are folded into `composer`; Greek piece-title translations
+//     aren't captured (`piece` is a plain, non-localized string) -- the
+//     English titles are canonical, matching prior years' convention.
+
+===== masterclasses/2023.ts
+
+// Source: masterclass2023.html / masterclass2023Greek.html at the repo root.
+//
+// Schema-fidelity notes:
+//   - Urša Lah's bio is heavily asymmetric between languages: English has 3
+//     paragraphs, Greek has 6 -- the extra 3 Greek-only paragraphs cover
+//     her choir's results at the July 2021 Preveza competition, her focus
+//     on composer Ola Gjeilo's music, and seminar programmes she has
+//     curated elsewhere in Europe. Transcribed in full as printed on each
+//     page rather than trimmed or padded to match.
+//   - The "who can apply" content near the bottom of the page is
+//     *completely different* between languages, not just differently
+//     worded: English lists three eligibility bullets plus a full Fees
+//     section (200€ active / 120€ passive, CV/video submission, Final
+//     Concert selection process); Greek instead has three unrelated
+//     sentences about registration-only participation and the absence of
+//     hotel accommodation during the seminar. Both are captured verbatim
+//     in the "eligibility" section below even though they don't correspond
+//     paragraph-for-paragraph -- because the source itself doesn't.
+//   - **Deliberately dropped**: a stray blockquote at the very bottom of
+//     the English page only ("From 8th of July 2021 to 11th of July 2021,
+//     the participants will have the opportunity to attend the 38th ICF of
+//     Preveza...") is self-evidently a leftover fragment copied from a
+//     2021 masterclass page -- wrong year, wrong festival edition number
+//     for a 2023 page -- and has no Greek counterpart at all. Since it
+//     doesn't fit any schema field and isn't real 2023 content, it was not
+//     carried into the structured data (flagging here rather than
+//     silently normalizing it into something that looks intentional).
+//   - `fees` amounts (200€ / 120€) come from the English page only -- the
+//     Greek page never states fee amounts anywhere; the Greek labels here
+//     are translations of the category name, not independently sourced.
+//   - The 9-item topics list repeats "Interpretation of various musical
+//     style(s)" as two separate, near-identical consecutive entries
+//     (singular then plural) on both language pages -- kept as two
+//     separate list items rather than de-duplicated.
+//   - `demonstrativeChoirs[].name` is a plain (non-localized) string; the
+//     English form "Utopia & Reality Chamber Choir" is used as canonical.
+//   - `repertoire[]` has no composer dates on this page (unlike 2022's
+//     list) -- composer names transcribed exactly as printed, including
+//     "Clauteverdi" (apparently a typo for Claudio Monteverdi, kept
+//     verbatim rather than corrected).
+
+===== masterclasses/2026.ts
+
+// Source: masterclass2026.html / masterclass2026Greek.html at the repo root.
+//
+// Schema-fidelity notes:
+//   - `intro`, `pullQuotes`, and the application-logistics `sections` entry
+//     were added after the initial extraction pass (masterclassSchema
+//     originally had no home for them) and backfilled directly from the
+//     legacy pages.
+//   - `repertoire[].piece` and `demonstrativeChoirs[].name` are plain
+//     strings (not localizedString), so the Greek-language piece title
+//     translations (e.g. "Λειτουργία του Αγίου Ιωάννου Χρυσοστόμου" for
+//     Rachmaninov, "Λειτουργία σε Mi♭" for Rheinberger, "Τρεις Ιεροί Ύμνοι",
+//     "Τρεις Ορθόδοξοι Ύμνοι", "Δύο Άσματα Αγάπης του Σολομώντα") and the
+//     Greek choir name "Χορωδία Δωματίου Ave" could not be captured
+//     separately; the English forms were used as canonical.
+//   - The repertoire's grouping into Renaissance / Romantic / Contemporary
+//     Sacred / Contemporary Profane sub-headings has no field either;
+//     flattened to a single list, composer dates folded into `composer`.
+
+===== competitions/composition-2022.ts
+
+// Source: icc2022.html (English) / icc2022Greek.html (Greek).
+//
+// Notes on fidelity:
+// - No explicit competition dates are printed anywhere on the page, so
+//   `dates` is omitted, matching `composition-2025.ts`.
+// - The "Categories" blurb (A - Mixed Choirs / B - Children's Choir) has no
+//   dedicated schema field, so it's captured as a `sections` entry. The
+//   Greek category descriptions are noticeably shorter than English (both
+//   drop the "different body percussion can be used also" clause) --
+//   transcribed as printed, not padded to match.
+// - **Name-spelling inconsistency within the English page itself**: the
+//   Medals list spells the 2nd/3rd-place composer "Luce Mayernik" (both
+//   entries), but the prose recap two paragraphs later calls the same
+//   person "Luke Mayernik", including for his Special Award. Both spellings
+//   are transcribed exactly where they appear (list vs. prose) rather than
+//   normalized to one. Likewise "Giorgos Koumaradios" (medals list) vs.
+//   "Yiorgos Koumaradios" (prose) for the same person.
+// - All six Category A medal-list entries print the identical score
+//   "90.63 Points", including the three entries that only received a
+//   Certificate of Attendance rather than a cash prize -- almost certainly
+//   a copy-paste artifact, but transcribed verbatim since it's what the
+//   page actually prints.
+// - Vytautas Miškinis's bio is asymmetric: English has 4 paragraphs, Greek
+//   only 2 -- the Greek page omits his adjudicating-panel history (200+
+//   international events) and his catalogue of ~400 motets/18 Masses/etc.
+//   entirely. Transcribed as printed on each page.
+// - `recommendedWorks[].composer` folds in country as "Name (Country)"
+//   per the schema (no separate country field there), matching
+//   `composition-2025.ts`'s convention.
+// - `awardSchema` has no separate "points" field, so each award's numeric
+//   score is folded into `prize` alongside the money amount, since this
+//   page (unlike icc2025) never actually uses the words "Gold/Silver/
+//   Bronze Medal" -- only "money prize ... and a diploma" -- so that
+//   wording isn't invented here.
+
+===== competitions/composition-2025.ts
+
+// Source: icc2025.html (English) / icc2025Greek.html (Greek).
+//
+// Notes on fields the legacy page had that the shared schema can't hold:
+// - This page has no separate "Organising Committee" list (only the
+//   International Jury Committee), so `committee` is left empty.
+// - No explicit competition dates are printed on the page (only the jury's
+//   closing remarks are signed "Preveza, 18 February 2026", captured
+//   verbatim in the closing-remarks section below), so `dates` is omitted.
+// - `recommendedWorks[].composer` is a single non-localized string per the
+//   schema (no separate country field there), so the composer's country --
+//   present on the legacy page for every recommended work -- is folded into
+//   that string as "Name (Country)" to avoid losing the fact.
+// - Award titles for the two prize categories ("Category A - Mixed Choirs",
+//   "Category B - Children's Choirs") are folded into each award's title
+//   since awardSchema has no separate category field.
+
+===== competitions/conducting-2022.ts
+
+// Source: iccc2022.html (English) / iccc2022Greek.html (Greek).
+//
+// Notes on fidelity:
+// - This page never announces results/winners (unlike icc2022, its sibling
+//   composition-competition page) -- it's a pre-event program/roster page,
+//   so `awards` (which models actual awarded pieces) is left empty; the
+//   award *tiers and rules* are captured as a `sections` entry instead,
+//   matching the pattern already used in `conducting-2025.ts`.
+// - `competitionSchema` has no `schedule` field (only Festival/Masterclass
+//   do), so the day-by-day program is flattened into bullet-point strings
+//   inside a `sections` entry, again matching `conducting-2025.ts`.
+// - **Schedule entries are printed out of chronological order in the
+//   source, identically on both language pages**: Tuesday's four events
+//   read 3:00 p.m., 8:30 p.m., 6:00 p.m., then 8:30 p.m. again (two
+//   separate entries both describing the finals public concert, with the
+//   6:00 p.m. rehearsal entry appearing after the first 8:30 p.m. slot
+//   despite being earlier in the day). Transcribed in the exact printed
+//   order rather than silently re-sorted into chronological sense.
+// - **Recurring 2022-template year bug** (same as `masterclasses/2022.ts`):
+//   the Tuesday/Wednesday schedule headers read "...2021" instead of
+//   "...2022" on both language pages (Monday correctly says 2022) --
+//   transcribed verbatim.
+// - No dedicated schema field exists for a roster of named competing
+//   conductors with photos, so the 10 competitors are captured as: their
+//   photos in `gallery` (with `alt` set to their name), and their bios as
+//   "Name: bio" paragraphs inside a "Competing Conductors" `sections`
+//   entry. `demonstrativeChoirs` is reserved for the ensembles they
+//   conduct, not for the competitors themselves.
+// - The 7-person "Jury Committee" sidebar has no bios or profile links
+//   anywhere on this page (unlike icc2022's jury, or iccc2025's), so `jury`
+//   entries here are name-only (`bio` and `profileLink` are both optional
+//   per the schema for exactly this reason).
+// - Two same-page name-spelling inconsistencies kept verbatim rather than
+//   normalized: the competitor is introduced as "Tommas Szarka" in the
+//   English section heading but "Tamas Szarka" in the English bio text
+//   immediately below it (Greek is consistent throughout, "Τόμας Σζάρκα").
+//   Also, Alexandros Komnas's English bio switches from "he" to "she"
+//   mid-paragraph -- a typo in the source, not a translation choice, so
+//   left as printed.
+// - The demonstrative-choir bios for Voci Contra Tempo and Ambitus Choir
+//   are the same passages used (with an extra paragraph each) in
+//   `masterclasses/2022.ts`; only the single shared paragraph is repeated
+//   here since this page doesn't include the conductors' own bios that the
+//   masterclass page adds. The Greek Voci Contra Tempo paragraph has an
+//   apparent copy-paste slip: it starts describing the choir as "Οι Voci
+//   Contra Tempo" everywhere else on the site, but here the sentence
+//   "Έχουν συνεργαστεί με τη Συμφωνική Ορχήστρα..." is instead introduced
+//   with "Υποδειγματικές Χορωδίες" (= "Demonstrative Choirs", the
+//   section's own heading) as its subject -- kept verbatim.
+
+===== competitions/conducting-2025.ts
+
+// Source: iccc2025.html / iccc2025Greek.html
+//
+// Notes on fidelity:
+// - The legacy English page repeats the full Taipei Philharmonic Chamber
+//   Choir (TPCC) / Dr. Yu-Chung Johnny Ku profile three times verbatim
+//   (copy-paste artifact across three <section id="jury-evaluation"> blocks).
+//   It is captured once here (`taipei-philharmonic-profile`) since the
+//   repeats add no new facts.
+// - The Greek page is consistently less complete than the English one in
+//   several spots (fewer special awards, no scoring-system paragraph, no
+//   "Choir's Special Award" paragraph, shorter KGBL/Armonia blurbs in the
+//   Application section, no 2024 Eurochestries paragraph for Armonia). Per
+//   the migration rule against inventing content, the `el` arrays below are
+//   left shorter than `en` wherever the Greek source genuinely lacks a
+//   paragraph the English source has -- nothing was translated/invented to
+//   pad them out.
+// - All 8 jurors are presented on this page as a name linking to a Facebook
+//   profile only, with no written bio -- so all 8 use `profileLink` with no
+//   `bio`, per the JuryMember schema.
+// - The legacy HTML referenced `img/KGBL.jpg`, which doesn't exist among the
+//   copied assets (`KGBL.jpeg` and `kgbl.jpg` do) -- corrected to
+//   `/img/KGBL.jpeg` after the initial extraction pass.
+// - `poster` was added to `competitionSchema` after this file's first draft;
+//   the page's banner image (`img/iccc2025.jpg`), originally parked in
+//   `gallery` for lack of a home, now lives in `poster` instead.
+
+===== news/berlin-2024.ts
+
+/**
+ * Migrated from berlin2024.html / berlin2024Greek.html.
+ *
+ * NOTE ON SOURCE DATA: despite the "berlin2024" filename and its gallery
+ * folder (img/berlin2024/1.jpg-4.jpg), the actual headline/body copy on
+ * both legacy pages is verbatim identical to france2024.html/
+ * france2024Greek.html (the children's choir's France tour report) --
+ * this looks like a copy/paste duplicate of the France 2024 post that had
+ * its photo grid swapped to a different image set but was never rewritten
+ * with real Berlin content. Also note the legacy language files are
+ * swapped: berlin2024.html (the "English" filename) actually contains the
+ * Greek-language body, and berlin2024Greek.html actually contains the
+ * English-language body -- content below is assigned to en/el by actual
+ * language, not by filename. Preserved verbatim per migration policy
+ * (nothing invented); the hero image is also preserved as coded in the
+ * source, which points at img/france2024/2.jpg rather than the
+ * berlin2024 folder.
+ */
+===== news/cfn.ts
+
+// Source: cfn.html / cfnGreek.html at the repo root.
+//
+// Notes on fidelity:
+// - No publish date appears anywhere on this page itself; the date
+//   "29th March, 2019" comes from this post's entry in the home page's
+//   news carousel (`web/app/content/pages/home.ts`), which is the only
+//   place a date is recorded for it.
+// - No itinerary, acknowledgments, participant count, or gallery exist on
+//   this page -- so those fields are left at their schema defaults.
+
+===== news/december-2025.ts
+
+// Source: report091225.html / report091225Greek.html at the repo root -- one
+// article covering the Dec 7, 2025 General Hospital of Preveza event and the
+// Dec 13/14, 2025 Tyrnavos and Larissa festival appearances. Generated
+// verbatim from the legacy pages, in their original order. (An earlier pass
+// split this into two posts; restored to one so nothing is reordered.)
+===== news/erasmus.ts
+
+// Source: erasmus.html / erasmusGreek.html at the repo root.
+//
+// Notes on fidelity:
+// - The Greek title drops the "WestEastChord" project name that the
+//   English title leads with -- transcribed as printed on each page
+//   rather than reconciled.
+// - No itinerary, acknowledgments, participant count, or gallery exist on
+//   this page -- it's a short kick-off-meeting announcement with a single
+//   hero image, so those fields are left at their schema defaults.
+// - `date` (ordering only, not displayed) is the first meeting day,
+//   10 November 2017, as stated in the body.
+// - "Other News" links: the English page offers "Masterclass 2026" while the
+//   Greek page offers "Μαθήματα Μεταπτυχιακού 2023" (masterclass 2023), so
+//   that link differs per language. The English thumbnail is the 2023
+//   masterclass poster (and linked to masterclass2023.html) under the 2026
+//   title -- kept as printed.
+
+===== news/france-2024.ts
+
+// Source: france2024.html / france2024Greek.html at the repo root -- the
+// children's choir's 18-day, 10-concert tour of France in summer 2024.
+// Body, gallery and "Other News" links are generated verbatim from the
+// legacy pages, in their original order.
+//
+// Legacy quirk kept as printed: the English page's "Other News" block is
+// in Greek (Greek labels, linking to the Greek pages).
+===== news/saint-peter.ts
+
+// Source: saintpeter.html / saintpeterGreek.html at the repo root.
+//
+// Notes on fidelity:
+// - No publish date is printed on the page. `date` (ordering only, never
+//   displayed) is inferred as the day after the festival ended, since the
+//   body says the choir "returned yesterday" from a festival that ran
+//   "August 4th to August 9th, 2017".
+// - The Greek body mistranslates "Saint Petersburg" as "τον Άγιο Πέτρο"
+//   (literally "Saint Peter", as if it were a person's name) the first
+//   time the city is named, then correctly uses "Αγία Πετρούπολη" (the
+//   real Greek name for Saint Petersburg) later in the same paragraph and
+//   in the headline. Transcribed verbatim rather than corrected.
+// - No itinerary, acknowledgments, participant count, or gallery exist on
+//   this page -- a short two-paragraph result announcement with one
+//   photo -- so those fields are left at their schema defaults.
+
+===== pages/home.ts
+
+// Source: index.html / indexGreek.html at the repo root. Every string below
+// is copied verbatim from the legacy page of the same language.
+//
+// Notes:
+//   - News cards now link to the migrated routes instead of legacy .html
+//     filenames. The Greek legacy page linked some cards to the *English*
+//     twin (france2024.html, cfn.html, saintpeter.html, erasmus.html,
+//     single-2024.html, masterclass2023.html); in the new site every link
+//     stays inside the current language, which is what those links meant.
+//   - "42nd International Chord Festival of Preveza" card: on both legacy
+//     pages the image links to single-2024.html but the title links to
+//     masterclass2023.html. Linked to the 2024 festival here (the card's
+//     title, poster and dates are all the 2024 festival's) -- open question
+//     #7 in MIGRATION.md.
+//   - The commented-out "44th ICFP 2026 poster / Learn More" column in the
+//     legacy source is not shown on the live page, so it is not shown here.
+===== pages/our-choir.ts
+
+// Source: ourchoir.html / ourchoirGreek.html at the repo root. Generated
+// verbatim from the legacy pages: the two headed halves ("History of
+// Armonia Choir" and "Children's Choir Armonia") with their paragraphs and
+// milestone lists in original order, and every photo. The page title is the
+// nav label -- the legacy page prints no heading above the photos.
+//
+// Legacy quirks kept as printed:
+//   - The Greek page shows only 4 of the 6 children's-choir photos (the last
+//     two are commented out in ourchoirGreek.html), so `images` differs per
+//     language.
+//   - The English 1999 and 2000/2004 milestones are combined into one list
+//     item each; the Greek page splits them into four.
+===== pages/our-conductor.ts
+
+// Source: ourconductor.html / ourconductorGreek.html at the repo root.
+// Generated verbatim from the legacy pages: the page heading and sub-heading
+// are the two headings printed on the page, followed by the bio paragraphs.
+//
+// Legacy quirks kept as printed:
+//   - English heading spells her name "Anelija Stefanova"; the bio itself
+//     says "Anelia Stefanova".
+//   - English says she "taught for three years" at the Antim I school; the
+//     Greek says "επί 7 χρόνια" (7 years).
+//   - English bio: "Since 1994 he has been living and working in Greece"
+//     (should read "she").
