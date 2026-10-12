@@ -16,14 +16,19 @@ embellish: same meaning, same facts, natural wording in the target language.
   (schedules, headings, biographies): "Female Chamber Choir Caloroso", "Children's Choir
   "Okarina"", "Choir PRIMO Secondary School nr1". They are the choirs' registered names; a
   translated form in one place and the listed form in another would read as two choirs. Only the
-  festival's own choirs use the forms in the table below.
+  festival's own choirs use the forms in the table below. This covers every choir named as taking
+  part in an event the site reports (festival, competitions, concerts in the news); a choir only
+  mentioned in passing in someone's biography may be described in the target language.
 - Towns and countries, Greek or foreign: the usual name in the target language where one exists
   (Athènes / Atene / Athen / Atenas; Thessalonique / Salonicco / Thessaloniki / Tesalónica;
   Cracovie / Cracovia / Krakau / Cracovia; Lubiana for Ljubljana in Italian), otherwise the English
   spelling (Preveza, Parga, Iasi). Nikopolis: Nicopolis / Nicopoli / Nikopolis / Nicópolis.
 - Organisations: an official name stays as it is (Westminster Choir College, ACDA, Choral Festival
   Network); where the English page itself only describes a foreign institution in English
-  ("Academy of Music in Ljubljana"), it may be described in the target language.
+  ("Academy of Music in Ljubljana"), it may be described in the target language. The same for
+  Greek events the English only describes ("Tyrnavos Music Festival", "Thessaly Choir Festival"):
+  described in the target language. Official names of networks, festivals and competitions abroad
+  stay as they are (Choral Festival Network, Tolosa International Choral Competition).
 
 ## The organisation and its events
 
@@ -77,7 +82,11 @@ embellish: same meaning, same facts, natural wording in the target language.
 | Opening / Closing Ceremony | cérémonie d'ouverture / de clôture | cerimonia di apertura / di chiusura | Eröffnungs- / Abschlusszeremonie | ceremonia de apertura / de clausura |
 | prize-giving ceremony | cérémonie de remise des prix | cerimonia di premiazione | Preisverleihung | ceremonia de entrega de premios |
 | street performances | concerts dans la ville | esibizioni in città | Auftritte in der Stadt | actuaciones en la ciudad |
-| obligatory / compulsory piece | œuvre imposée | brano d'obbligo | Pflichtstück | obra obligatoria |
+| obligatory / compulsory piece (one word for both, unless the text uses both) | œuvre imposée | brano d'obbligo | Pflichtstück | obra obligatoria |
+| when a text uses both: obligatory (no rehearsal) / compulsory (rehearsed) | œuvre obligatoire / œuvre imposée | brano obbligatorio / brano d'obbligo | Pflichtwerk / Pflichtstück | obra obligatoria / obra impuesta |
+| round (1st round) / finals / drawn by lot | tour (1er tour) / finale / tiré au sort | turno (1° turno) / finale / estratto a sorte | Runde (1. Runde) / Finale / ausgelost | ronda (1.ª ronda) / final / por sorteo |
+| Not Awarded (prize) | non attribué | non assegnato | nicht vergeben | desierto |
+| Special Award / Festival Medal | prix spécial / médaille du festival | premio speciale / medaglia del festival | Sonderpreis / Festivalmedaille | premio especial / medalla del festival |
 | free programme | programme libre | programma libero | freies Programm | programa libre |
 | active / passive participant | participant actif / auditeur | partecipante effettivo / uditore | aktiver / passiver Teilnehmer | participante activo / oyente |
 
