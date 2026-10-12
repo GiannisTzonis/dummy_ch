@@ -8,11 +8,19 @@
 function numbers(s) {
   // a date written with dots or slashes ("31.12.1999", "31/12/1999") is three numbers, not a decimal
   s = s.replace(/\b(\d{1,2})[./](\d{1,2})[./](\d{2,4})\b/g, "$1 $2 $3");
+  // a time written with a dot ("8.30 p.m.") is hours and minutes, not a decimal
+  s = s.replace(/\b(\d{1,2})\.([0-5]\d)(?=\s*(?:[ap]\.?\s?m\b|Uhr\b|h\b))/gi, "$1:$2");
   return [...s.matchAll(/\d+(?:[.,\s]\d{3})*(?:[.,]\d+)?/g)].map((m) => m[0].replace(/[.,\s](?=\d{3}\b)/g, "").replace(",", "."));
 }
 function eveningHours(s) {
   // hours given with p.m.: their 24-hour form is also accepted
-  return [...s.matchAll(/\b(\d{1,2})(?:[:.](\d{2}))?\s*(?:p\.?\s?m\.?|pm)\b/gi)].map((m) => +m[1]).filter((h) => h >= 1 && h <= 11);
+  // (a range "04:00 - 08:00 p.m." counts both hours)
+  const hours = [];
+  for (const m of s.matchAll(/\b(?:(\d{1,2})(?:[:.]\d{2})?\s*[-–]\s*)?(\d{1,2})(?:[:.](\d{2}))?\s*(?:p\.?\s?m\.?|pm)\b/gi)) {
+    if (m[1]) hours.push(+m[1]);
+    hours.push(+m[2]);
+  }
+  return hours.filter((h) => h >= 1 && h <= 11);
 }
 const roman = (n) => [[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]].reduce((s, [v, r]) => { while (n >= v) { s += r; n -= v; } return s; }, "");
 const links = (s) => [...s.matchAll(/\]\(([^)\s]+)\)/g)].map((m) => m[1]).sort();
@@ -50,9 +58,16 @@ function checkText(en, tr, names, where, errors, warnings) {
   if (isCaps(en) && !isCaps(tr)) errors.push(`${where}: the English is in capitals, the translation is not`);
   // registered person and choir names must appear as written; another accented word may be a
   // town with a name of its own in the target language (Kraków -> Cracovie): for the reviewer
+  // (a registered heading "Choir X, Bucharest, Romania": only the name before the first comma is
+  // protected; the town and country after it are written the target language's way)
+  names = names.map((n) => n.split(/,\s/)[0]);
   const registered = new Set(names.filter((n) => n.length > 3 && en.includes(n)));
+  // quotation marks inside a name follow the target language (“Cantanti” -> « Cantanti », „Cantanti“)
+  // (spaces around the marks dropped too: French writes « Cantanti »)
+  const q = (s) => s.replace(/\s*[“”„‟«»"‹›]\s*/g, '"').replace(/[’‘]/g, "'");
+  const trQ = q(tr);
   for (const n of protectedNames(en, names))
-    if (!tr.includes(n)) (registered.has(n) ? errors : warnings).push(`${where}: name "${n}" missing`);
+    if (!trQ.includes(q(n))) (registered.has(n) ? errors : warnings).push(`${where}: name "${n}" missing`);
   // length: no dropped or invented sentences
   if (en.length >= 60) {
     const r = tr.length / en.length;

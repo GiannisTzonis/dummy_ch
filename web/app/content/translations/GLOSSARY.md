@@ -16,7 +16,11 @@ embellish: same meaning, same facts, natural wording in the target language.
   (schedules, headings, biographies): "Female Chamber Choir Caloroso", "Children's Choir
   "Okarina"", "Choir PRIMO Secondary School nr1". They are the choirs' registered names; a
   translated form in one place and the listed form in another would read as two choirs. Only the
-  festival's own choirs use the forms in the table below. This covers every choir named as taking
+  festival's own choirs use the forms in the table below. In a heading or list line "Choir X,
+  Bucharest, Romania", the name stays as listed and the town and country after it are written the
+  target language's way ("Choir X, Bucarest, Roumanie"). Quotation marks inside a name take the
+  target language's form (“Cantanti” Children’s Choir -> « Cantanti » Children’s Choir /
+  „Cantanti“ Children’s Choir). This covers every choir named as taking
   part in an event the site reports (festival, competitions, concerts in the news); a choir only
   mentioned in passing in someone's biography may be described in the target language.
 - Towns and countries, Greek or foreign: the usual name in the target language where one exists
@@ -71,7 +75,7 @@ embellish: same meaning, same facts, natural wording in the target language.
 | conductor (of a choir) | chef de chœur | direttore (del coro) | Chorleiter / Dirigent | director (del coro) |
 | conductor (person on a jury list) | chef de chœur | direttore | Dirigent | director |
 | a woman conductor (and other roles: feminine forms for women) | cheffe de chœur | direttrice | Chorleiterin / Dirigentin | directora |
-| "Dr." before a name | Dr. (as written in the name) | Dr. | Dr. | Dr. |
+| "Dr." before a name | Dr. (as written in the name) | Dr. | Dr. | Dr. (a man) / Dra. (a woman: "la Dra. Hannah Carr") |
 | composer | compositeur | compositore | Komponist | compositor |
 | a cappella | a cappella | a cappella | a cappella | a cappella |
 | category (Category A…) | catégorie (Catégorie A…) | categoria (Categoria A…) | Kategorie (Kategorie A…) | categoría (Categoría A…) |
@@ -90,6 +94,21 @@ embellish: same meaning, same facts, natural wording in the target language.
 | free programme | programme libre | programma libero | freies Programm | programa libre |
 | active / passive participant | participant actif / auditeur | partecipante effettivo / uditore | aktiver / passiver Teilnehmer | participante activo / oyente |
 
+## Archive pages (festival programmes and rules)
+
+| English | French | Italian | German | Spanish |
+|---|---|---|---|---|
+| Acoustic rehearsals | répétitions acoustiques | prove acustiche | Akustikproben | ensayos acústicos |
+| Open-air concert / Pre-festival concert | concert en plein air / concert d'avant-festival | concerto all'aperto / concerto pre-festival | Open-Air-Konzert / Vorfestivalkonzert | concierto al aire libre / concierto previo al festival |
+| Results announcement | proclamation des résultats | proclamazione dei risultati | Bekanntgabe der Ergebnisse | anuncio de los resultados |
+| Marking – Medals / Prize Money / Special Prizes | Notation – Médailles / Prix en espèces / Prix spéciaux | Valutazione – Medaglie / Premi in denaro / Premi speciali | Bewertung – Medaillen / Preisgelder / Sonderpreise | Calificación – Medallas / Premios en metálico / Premios especiales |
+| Technique / Difficulty / Intonation / Interpretation / Stylistic Fidelity | Technique / Difficulté / Justesse / Interprétation / Fidélité stylistique | Tecnica / Difficoltà / Intonazione / Interpretazione / Fedeltà stilistica | Technik / Schwierigkeitsgrad / Intonation / Interpretation / Stiltreue | Técnica / Dificultad / Afinación / Interpretación / Fidelidad estilística |
+| non-competitive (choir, concert) | hors concours | fuori concorso | außer Konkurrenz | fuera de concurso |
+| Repertory requirements | Exigences de répertoire | Requisiti di repertorio | Repertoireanforderungen | Requisitos de repertorio |
+| free choice of intonation (key) | tonalité au choix | tonalità a scelta | Tonart nach Wahl | tonalidad a elección |
+| sponsor labels: Co-organisers / Supported by / With the assistance of / With the aid of | CO-ORGANISATEURS / AVEC LE SOUTIEN DE / AVEC LE CONCOURS DE / AVEC L'AIDE DE | CO-ORGANIZZATORI / CON IL SOSTEGNO DI / CON LA COLLABORAZIONE DI / CON L'AIUTO DI | MITVERANSTALTER / MIT UNTERSTÜTZUNG VON / UNTER MITWIRKUNG VON / MIT HILFE VON | COORGANIZADORES / CON EL APOYO DE / CON LA COLABORACIÓN DE / CON LA AYUDA DE |
+| (the Greek of a bilingual sponsor label stays Greek) | | | | |
+
 ## Places in Preveza and programme labels
 
 | English | French | Italian | German | Spanish |
@@ -103,6 +122,9 @@ embellish: same meaning, same facts, natural wording in the target language.
 
 ## Form
 
+- Times: always the 24-hour clock, written as in the published pages — French and Italian "20:30",
+  German "20:30 Uhr" (or "20:30" in timetables), Spanish "20:30"; a range "04:00 - 08:00 p.m."
+  becomes "16:00 - 20:00".
 - Quotation marks: French « » (with a space inside: « Armonia »), Italian «», German „ “, Spanish
   «». Titles of works in a list keep the marks the English gives them.
 - Centuries: the target language's usual form — Roman numerals in French, Italian and Spanish
