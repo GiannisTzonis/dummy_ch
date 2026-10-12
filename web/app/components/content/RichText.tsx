@@ -287,7 +287,7 @@ function group(blocks: RichBlock[]): Group[] {
   return out2;
 }
 
-const viewLabel = { en: "View edition", el: "Δείτε τη διοργάνωση" } as const;
+const viewLabel = { en: "View page", el: "Δείτε τη σελίδα" } as const;
 
 // One edition as a card: the poster on a fixed 4:5 stage over a blurred copy of itself (every
 // poster whole, every card the same size), the dates as a chip, the title, the edition's events,
@@ -296,7 +296,7 @@ function EditionCard({ card, locale }: { card: EditionCardData; locale: Locale }
   return (
     <a
       href={resolve(card.href, locale)}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgb(15_23_42/0.06),0_4px_16px_rgb(15_23_42/0.06)] ring-1 ring-rule transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgb(15_23_42/0.06),0_18px_40px_rgb(15_23_42/0.14)] hover:ring-brand-navy/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-navy"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgb(15_23_42/0.06),0_4px_16px_rgb(15_23_42/0.06)] ring-1 ring-rule transition-all duration-300 hover:shadow-[0_2px_4px_rgb(15_23_42/0.06),0_18px_40px_rgb(15_23_42/0.14)] hover:ring-brand-navy/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-navy"
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-brand-navy-dark">
         <img src={sized(card.img, 400)} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-60 blur-2xl" />

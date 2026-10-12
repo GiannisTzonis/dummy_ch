@@ -842,7 +842,7 @@ export function FestivalContent({
                 <li key={o.href}>
                   <Link
                     to={localizedHref(locale, o.href)}
-                    className="group flex h-full items-center gap-4 rounded-xl bg-surface p-3 ring-1 ring-black/[0.06] transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_32px_-14px_rgb(43_40_122/0.3)] hover:ring-brand-maroon/30"
+                    className="group flex h-full items-center gap-4 rounded-xl bg-surface p-3 ring-1 ring-black/[0.06] transition duration-300 hover:bg-white hover:shadow-[0_14px_32px_-14px_rgb(43_40_122/0.3)] hover:ring-brand-maroon/30"
                   >
                     <span className="block h-24 w-[4.5rem] shrink-0 overflow-hidden rounded-lg bg-surface-muted ring-1 ring-black/5">
                       {o.image && <img src={sized(o.image, 400)} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]" />}

@@ -182,7 +182,7 @@ function OtherNews({ post, locale }: { post: NewsPost; locale: Locale }) {
             <li key={c.href} data-legacy-ignore="">
               <Link
                 to={localizedHref(locale, c.href)}
-                className="group flex h-full flex-col overflow-hidden rounded-xl bg-white ring-1 ring-black/[0.06] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-14px_rgb(43_40_122/0.3)] hover:ring-brand-maroon/30"
+                className="group flex h-full flex-col overflow-hidden rounded-xl bg-white ring-1 ring-black/[0.06] transition duration-300 hover:shadow-[0_18px_40px_-14px_rgb(43_40_122/0.3)] hover:ring-brand-maroon/30"
               >
                 <span className="block aspect-[16/10] overflow-hidden bg-surface-muted">
                   {c.image && <img {...responsive(c.image, "(min-width: 768px) 33vw, 100vw")} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />}

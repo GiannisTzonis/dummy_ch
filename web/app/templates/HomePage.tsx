@@ -49,7 +49,7 @@ function Collaborations({ items, locale }: { items: HomePageContent["collaborati
                   href={c.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgb(15_23_42/0.06)] ring-1 ring-slate-900/[0.08] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-12px_rgb(43_40_122/0.28)] hover:ring-brand-maroon/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy"
+                  className="group flex h-full flex-col rounded-2xl bg-white p-3 shadow-[0_1px_2px_rgb(15_23_42/0.06)] ring-1 ring-slate-900/[0.08] transition duration-300 hover:shadow-[0_18px_40px_-12px_rgb(43_40_122/0.28)] hover:ring-brand-maroon/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy"
                 >
                   <div className="relative aspect-square overflow-hidden rounded-xl bg-gradient-to-b from-surface to-[#eef0f8]">
                     <img
@@ -131,7 +131,7 @@ function NewsCard({ item, href, locale }: { item: HomePageContent["newsItems"][n
   return (
     <Link
       to={href}
-      className="group flex w-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgb(15_23_42/0.06),0_4px_16px_rgb(15_23_42/0.06)] ring-1 ring-rule transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgb(15_23_42/0.06),0_18px_40px_rgb(15_23_42/0.14)] hover:ring-brand-navy/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-navy"
+      className="group flex w-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgb(15_23_42/0.06),0_4px_16px_rgb(15_23_42/0.06)] ring-1 ring-rule transition-all duration-300 hover:shadow-[0_2px_4px_rgb(15_23_42/0.06),0_18px_40px_rgb(15_23_42/0.14)] hover:ring-brand-navy/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-navy"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-brand-navy-dark">
         <img src={sized(item.thumbnail, 400)} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-60 blur-2xl" />
