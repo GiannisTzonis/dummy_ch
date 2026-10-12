@@ -580,7 +580,6 @@ function Results({ results, locale }: { results: FestivalResults; locale: Locale
     </section>
   );
 }
-const contentsLabel = { en: "Contents", el: "Περιεχόμενα", fr: "Sommaire", it: "Indice", de: "Inhalt", es: "Índice" } as const;
 
 export function FestivalContent({
   title,
@@ -755,6 +754,8 @@ export function FestivalContent({
   };
 
 
+  const beside = top.length > 0 || asideBlocks.length > 0;
+
   return (
     <LightboxProvider locale={locale}>
       {/* Hero: the site cover image with the festival's title, dates and hero line */}
@@ -781,10 +782,11 @@ export function FestivalContent({
         </div>
       </section>
 
-      {/* Overview: the poster, large, beside the introduction and the organising committee */}
-      {(poster || top.length > 0 || asideBlocks.length > 0) && (
+      {/* Overview: the poster, large, beside the introduction and the organising committee; a page
+          with neither shows its poster on its own, centred (the section bar below leads to its parts) */}
+      {(poster || beside) && (
         <div
-          className={`${container} grid grid-cols-1 items-start gap-10 py-12 lg:gap-14 lg:py-16 ${poster ? "md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:grid-cols-[560px_minmax(0,1fr)]" : ""}`}
+          className={`${container} grid grid-cols-1 items-start gap-10 py-12 lg:gap-14 lg:py-16 ${poster && beside ? "md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:grid-cols-[560px_minmax(0,1fr)]" : ""}`}
         >
           {poster && (
             <Zoomable
@@ -792,11 +794,12 @@ export function FestivalContent({
               index={0}
               label={title}
               locale={locale}
-              className="rounded-xl shadow-[0_30px_70px_-30px_rgb(15_23_42/0.55)] ring-1 ring-black/5 md:sticky md:top-[170px]"
+              className={`rounded-xl shadow-[0_30px_70px_-30px_rgb(15_23_42/0.55)] ring-1 ring-black/5 ${beside ? "md:sticky md:top-[170px]" : "mx-auto w-full max-w-[560px]"}`}
             >
               <img {...responsive(poster.img, "(min-width: 1280px) 560px, (min-width: 768px) 42vw, 100vw")} alt={title} className="w-full" />
             </Zoomable>
           )}
+          {beside && (
           <div className="min-w-0 space-y-8">
             {top.length > 0 && (
               <div className="type-lead text-body">
@@ -808,27 +811,8 @@ export function FestivalContent({
                 <RichText paragraphs={asideBlocks} />
               </aside>
             )}
-            {top.length === 0 && nav.length > 0 && (
-              // pages without an introduction: the page's sections as tiles beside the poster
-              <nav aria-label={tr(contentsLabel, locale)} data-legacy-ignore="" className="grid gap-4 sm:grid-cols-2">
-                {nav.map((n, i) => (
-                  <a
-                    key={n.id}
-                    href={`#${n.id}`}
-                    className="group flex items-center justify-between gap-4 rounded-xl border border-rule bg-white p-5 transition-colors hover:border-brand-navy hover:bg-brand-navy"
-                  >
-                    <span>
-                      <span className="type-label block text-muted tabular-nums group-hover:text-white/70">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="type-h5 mt-1 block text-ink group-hover:text-white">{n.label}</span>
-                    </span>
-                    <svg viewBox="0 0 20 20" className="h-5 w-5 shrink-0 text-brand-maroon group-hover:text-white" fill="currentColor" aria-hidden="true">
-                      <path d="M10.3 4.3a1 1 0 011.4 0l5 5a1 1 0 010 1.4l-5 5a1 1 0 01-1.4-1.4l3.29-3.3H4a1 1 0 110-2h9.59l-3.3-3.3a1 1 0 010-1.4z" />
-                    </svg>
-                  </a>
-                ))}
-              </nav>
-            )}
           </div>
+          )}
         </div>
       )}
 
