@@ -525,8 +525,8 @@ function SectionBody({ blocks, locale }: { blocks: RichBlock[]; locale: Locale }
         ) : p.kind === "gallery" ? (
           <Gallery key={i} blocks={p.blocks} locale={locale} />
         ) : (
-          // flush with the section title (a centred column left it misaligned on wide screens)
-          <div key={i} className="max-w-[80ch]">
+          // the page's full width, like the hero and the section title: text starts and ends with them
+          <div key={i} className="[&_ol]:max-w-none [&_p]:max-w-none [&_ul]:max-w-none">
             <RichText paragraphs={p.blocks} />
           </div>
         ),
@@ -739,12 +739,9 @@ export function FestivalContent({
         </div>
       );
     const s = band[0];
-    // a section of text only (no people, cards or photos): title and text share one reading column
-    // (a fixed width: "ch" would follow the larger title font), so the title rule and text end together
-    const column = s.blocks.length > 0 && parts(s.blocks).every((p) => p.kind === "flow");
     return (
       <section key={s.id ?? `intro-${i}`} id={s.id} className={`py-14 lg:py-16 ${bg}`}>
-        <div className={column ? `${container} [&>*]:max-w-[42rem]` : container}>
+        <div className={container}>
           {s.heading && (
             <h2 data-legacy-ignore={s.added ? "" : undefined} className="type-h2 mb-8 border-b border-rule pb-4 text-ink lg:mb-10">
               <span className="mr-3 inline-block h-6 w-1 translate-y-0.5 rounded-full bg-brand-maroon align-baseline" aria-hidden="true" />
