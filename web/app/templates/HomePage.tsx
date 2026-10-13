@@ -9,6 +9,7 @@ import { responsive, sized } from "~/lib/img";
 
 const labels = {
   download: { en: "Download", el: "Λήψη", fr: "Télécharger", it: "Scarica", de: "Herunterladen", es: "Descargar" },
+  festivalPage: { en: "Festival page", el: "Σελίδα του φεστιβάλ", fr: "Page du festival", it: "Pagina del festival", de: "Zur Festivalseite", es: "Página del festival" },
   news: {
     en: "News - Announcements",
     el: "Νέα - Ανακοινώσεις",
@@ -315,8 +316,21 @@ export function HomePage({ page }: { page: HomePageContent }) {
                 <h2 className="type-h1 text-center text-ink lg:text-left">
                   {tr(page.upcomingEdition.title, locale)}
                 </h2>
-                <div className="type-h5 mt-4 inline-block shrink-0 rounded-full bg-brand-maroon px-6 py-3 text-white shadow-md lg:mt-0">
-                  {tr(page.upcomingEdition.dates, locale)}
+                <div className="mt-4 flex shrink-0 flex-wrap items-center justify-center gap-3 lg:mt-0">
+                  <div className="type-h5 inline-block rounded-full bg-brand-maroon px-6 py-3 text-white shadow-md">
+                    {tr(page.upcomingEdition.dates, locale)}
+                  </div>
+                  {page.upcomingEdition.href && (
+                    // new site navigation (not on the legacy page): the content check skips it
+                    <Link
+                      data-legacy-ignore=""
+                      to={localizedHref(locale, page.upcomingEdition.href)}
+                      className="type-small inline-flex items-center gap-2 rounded-full border-2 border-brand-navy px-5 py-2.5 font-semibold text-brand-navy transition-colors duration-300 hover:bg-brand-navy hover:text-white"
+                    >
+                      {tr(labels.festivalPage, locale)}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  )}
                 </div>
               </div>
             )}

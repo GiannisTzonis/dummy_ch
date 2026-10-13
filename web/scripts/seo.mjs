@@ -113,7 +113,7 @@ const today = new Date().toISOString().slice(0, 10);
 entries.sort((a, b) => LOCALES.indexOf(langOf(a.route)) - LOCALES.indexOf(langOf(b.route)) || a.route.localeCompare(b.route));
 const urls = entries.map(({ route, alt }) => {
   const links = Object.entries(alt).map(([l, r]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE}${r}"/>`);
-  const prio = /^\/[a-z]{2}\/$/.test(route) ? "1.0" : /\/(festival\/2026|masterclass\/2026)\/$/.test(route) ? "0.9" : "0.7";
+  const prio = /^\/[a-z]{2}\/$/.test(route) ? "1.0" : /\/(festival\/2027|festival\/2026|masterclass\/2026)\/$/.test(route) ? "0.9" : "0.7";
   return `  <url>\n    <loc>${SITE}${route}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${prio}</priority>\n${links.join("\n")}\n  </url>`;
 });
 fs.writeFileSync(path.join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join("\n")}\n</urlset>\n`);

@@ -25,6 +25,7 @@ export async function loadContent() {
     const pages = [
       // batch 1: the pages most visitors see
       { id: "page-home", batch: 1, obj: await page("home") },
+      { id: "festival-2027", batch: 1, obj: festivals.festivals.find((f) => f.year === 2027) },
       { id: "festival-2026", batch: 1, obj: festivals.festivals.find((f) => f.year === 2026) },
       { id: "festival-hero", batch: 1, obj: hero.festivalHero },
       { id: "festival-results", batch: 1, obj: results.festivalResults },
@@ -37,7 +38,7 @@ export async function loadContent() {
       ...competitions.competitions.filter((c) => c.year >= 2025).map((c) => ({ id: `competition-${c.slug}`, batch: 2, obj: c })),
       ...news.newsPosts.map((n) => ({ id: `news-${n.slug}`, batch: 2, obj: n })),
       // batch 3: the archive
-      ...festivals.festivals.filter((f) => f.year !== 2026).sort((a, b) => b.year - a.year).map((f) => ({ id: `festival-${f.year}`, batch: 3, obj: f })),
+      ...festivals.festivals.filter((f) => f.year < 2026).sort((a, b) => b.year - a.year).map((f) => ({ id: `festival-${f.year}`, batch: 3, obj: f })),
       ...masterclasses.masterclasses.filter((m) => m.year !== 2026).sort((a, b) => b.year - a.year).map((m) => ({ id: `masterclass-${m.year}`, batch: 3, obj: m })),
       ...competitions.competitions.filter((c) => c.year < 2025).map((c) => ({ id: `competition-${c.slug}`, batch: 3, obj: c })),
     ];

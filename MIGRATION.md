@@ -656,6 +656,24 @@ Decided from the pages themselves and public sources; each correction's `why` gi
     - "τα σύνορα της ." (space before the full stop);
     - "το Γενκ" where the lead says "τη Γενκ".
 
+- 2026-10-13: **Festival 2027 page** (`/festival/2027`), maintained by hand in `web/app/content/festivals/2027.ts`.
+  - English: taken (shortened) from the 2027 documents on the site, `Rules45thICFP-EN.docx` and `RulesICCP2027.docx`.
+    Greek: my translation, to be reviewed. French, Italian, German, Spanish: translated and checked as usual.
+  - Poster: the festival logo until a 2027 poster exists. Menu: "Festival 2027" added above "Festival 2026".
+    The home page's 45th-festival banner links to it.
+  - Update it as news comes (programme, jury, choirs, poster); new English text then needs translating
+    (`node scripts/i18n/status.mjs`).
+  - The 2027 documents disagree with each other or with the site (kept out of the page; for the choir):
+    - `ApplicationForm45thICFP-EN.docx` gives the dates as "6 – 11 July 2027"; everything else says 8–11 July.
+    - `ApplicationFormICCP2027.docx` says "44th International Choral Festival of Preveza (31st International
+      Choral Competition)"; it should be the 45th.
+    - The festival rules list the committee as "Sylvia Soldatou" and "Ioannis Ditsos, Member" (also "Member" for
+      Kotsi and Antoniou); the site writes "Silvia Soldatou", "Ioannis Ntitsos" and "Commissioner". The page
+      follows the site.
+    - The competition rules name the composer "Daniela Nasti"; the composition competition pages also have
+      "Daniele" (already on the open list).
+    - There are no Greek versions of the 2027 documents; the Greek page links to the English ones.
+
 ## Remaining before cutover
 
 Ready since 2026-10-12 (branch `new-site`):

@@ -48,6 +48,10 @@ export const primaryNav: NavItem[] = [
     },
     children: [
       {
+        label: { en: "Festival 2027", el: "Φεστιβάλ 2027", fr: "Festival 2027", it: "Festival 2027", de: "Festival 2027", es: "Festival 2027" },
+        href: "/festival/2027",
+      },
+      {
         label: { en: "Festival 2026", el: "Φεστιβάλ 2026", fr: "Festival 2026", it: "Festival 2026", de: "Festival 2026", es: "Festival 2026" },
         href: "/festival/2026",
       },

@@ -47,4 +47,9 @@ export const festivalHero: Record<number, { en: string; el: string }> = {
     en: "A week of competition, concerts and street performances across the city — with the 30th International Choral Competition at its heart.",
     el: "Μια εβδομάδα διαγωνισμού, συναυλιών και υπαίθριων εμφανίσεων σε όλη την πόλη — με επίκεντρο τον 30ό Διεθνή Χορωδιακό Διαγωνισμό.",
   },
+  // the upcoming festival (festivals/2027.ts, from the 2027 rules)
+  2027: {
+    en: "Four days of choral music by the sea — the festival's 45th edition, with the 31st International Choral Competition.",
+    el: "Τέσσερις ημέρες χορωδιακής μουσικής δίπλα στη θάλασσα — η 45η διοργάνωση του φεστιβάλ, με τον 31ο Διεθνή Χορωδιακό Διαγωνισμό.",
+  },
 };

@@ -9,6 +9,7 @@ import y2023 from "./2023";
 import y2024 from "./2024";
 import y2025 from "./2025";
 import y2026 from "./2026";
+import y2027 from "./2027"; // hand-maintained: the upcoming festival
 
 // Add each new year's import here as it's extracted -- see MIGRATION.md
 // for which years are still pending.
@@ -24,4 +25,5 @@ export const festivals = [
   y2024,
   y2025,
   y2026,
+  y2027,
 ];
