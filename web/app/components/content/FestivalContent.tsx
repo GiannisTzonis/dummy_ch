@@ -525,7 +525,8 @@ function SectionBody({ blocks, locale }: { blocks: RichBlock[]; locale: Locale }
         ) : p.kind === "gallery" ? (
           <Gallery key={i} blocks={p.blocks} locale={locale} />
         ) : (
-          <div key={i} className="mx-auto max-w-[80ch]">
+          // flush with the section title (a centred column left it misaligned on wide screens)
+          <div key={i} className="max-w-[80ch]">
             <RichText paragraphs={p.blocks} />
           </div>
         ),
