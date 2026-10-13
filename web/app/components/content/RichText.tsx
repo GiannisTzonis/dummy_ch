@@ -7,6 +7,9 @@ import { responsive, sized } from "~/lib/img";
 // language; anything else is used as written.
 const resolve = (href: string, locale: Locale) => (href.startsWith("@") ? `/${locale}${href.slice(1)}` : href);
 
+// A link to a document file (Word, PDF): shown as a download button.
+const isDocument = (href: string) => /\.(docx?|pdf)$/i.test(href.split(/[?#]/)[0]);
+
 // Inline markup inside a block: [text](url) for links, **text** for bold.
 function inline(text: string, locale: Locale): ReactNode[] {
   const out: ReactNode[] = [];
@@ -15,7 +18,23 @@ function inline(text: string, locale: Locale): ReactNode[] {
   for (const m of text.matchAll(re)) {
     if (m.index > last) out.push(text.slice(last, m.index));
     out.push(
-      m[1] !== undefined ? (
+      m[1] !== undefined && isDocument(m[2]) ? (
+        // a document to download (application forms, rules): a button, as on the home page; a
+        // label with its own arrow ("Download ↓", legacy text) keeps it instead of the icon
+        <a
+          key={m.index}
+          href={resolve(m[2], locale)}
+          download
+          className="type-small mt-1 inline-flex items-center gap-2 rounded-lg bg-brand-navy px-5 py-2.5 font-semibold text-white no-underline shadow-[0_10px_24px_-12px_rgb(43_40_122/0.7)] transition-colors duration-300 hover:bg-brand-navy-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy"
+        >
+          {!m[1].includes("↓") && (
+            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14" />
+            </svg>
+          )}
+          {inline(m[1], locale)}
+        </a>
+      ) : m[1] !== undefined ? (
         <a
           key={m.index}
           href={resolve(m[2], locale)}

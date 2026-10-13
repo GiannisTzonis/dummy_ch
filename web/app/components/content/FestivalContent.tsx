@@ -440,6 +440,26 @@ function Cards({ entries }: { entries: Entry[] }) {
       </div>
     );
   }
+  // documents to download (application forms, rules): an even grid of equal cards, the download
+  // buttons on one line at the bottom
+  if (entries.length > 1 && entries.every((e) => /\]\([^)\s]+\.(docx?|pdf)\)/i.test(JSON.stringify(e.body)))) {
+    const n = entries.length;
+    const cols = n % 4 === 0 ? "md:grid-cols-2 xl:grid-cols-4" : n % 3 === 0 ? "md:grid-cols-3" : "md:grid-cols-2";
+    return (
+      <div className={`grid gap-5 ${cols}`}>
+        {entries.map((e, i) => (
+          <article key={i} id={e.ids[0]} className="flex flex-col rounded-xl border border-rule bg-white p-5 sm:p-6">
+            {e.ids.slice(1).map((id) => <span key={id} id={id} />)}
+            <h3 className="type-h5 text-ink">{plain(e.heading.heading)}</h3>
+            <div className="mt-2 mb-4 h-0.5 w-8 bg-brand-maroon" aria-hidden="true" />
+            <div className="type-small flex flex-1 flex-col text-body [&>div]:flex [&>div]:flex-1 [&>div]:flex-col [&>div>*:last-child]:mt-auto [&>div>*:last-child]:pt-2">
+              <RichText paragraphs={unalign(e.body)} />
+            </div>
+          </article>
+        ))}
+      </div>
+    );
+  }
   const short = entries.reduce((n, e) => n + textLength(e.body), 0) / entries.length < 500;
   return (
     <div className={`gap-5 md:columns-2 ${short ? "xl:columns-3" : ""}`}>
