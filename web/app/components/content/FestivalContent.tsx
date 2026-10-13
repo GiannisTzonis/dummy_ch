@@ -739,9 +739,12 @@ export function FestivalContent({
         </div>
       );
     const s = band[0];
+    // a section of text only (no people, cards or photos): title and text share one reading column
+    // (a fixed width: "ch" would follow the larger title font), so the title rule and text end together
+    const column = s.blocks.length > 0 && parts(s.blocks).every((p) => p.kind === "flow");
     return (
       <section key={s.id ?? `intro-${i}`} id={s.id} className={`py-14 lg:py-16 ${bg}`}>
-        <div className={container}>
+        <div className={column ? `${container} [&>*]:max-w-[42rem]` : container}>
           {s.heading && (
             <h2 data-legacy-ignore={s.added ? "" : undefined} className="type-h2 mb-8 border-b border-rule pb-4 text-ink lg:mb-10">
               <span className="mr-3 inline-block h-6 w-1 translate-y-0.5 rounded-full bg-brand-maroon align-baseline" aria-hidden="true" />
@@ -803,7 +806,10 @@ export function FestivalContent({
           {beside && (
           <div className="min-w-0 space-y-8">
             {top.length > 0 && (
-              <div className="type-lead text-body">
+              // the introduction: an accent rule, the first paragraph set larger as a lead, text ragged
+              // right (justified lines open gaps at this size), bold phrases in the ink colour
+              <div className="type-lead text-body sm:[&_p]:text-left [&_p]:hyphens-manual [&_strong]:font-semibold [&_strong]:text-ink [&>div>p:first-child]:text-[1.2rem] [&>div>p:first-child]:leading-[1.65] [&>div>p:first-child]:text-ink lg:[&>div>p:first-child]:text-[1.4rem]">
+                <div aria-hidden="true" className="mb-6 h-1 w-14 rounded-full bg-brand-maroon" />
                 <RichText paragraphs={top} />
               </div>
             )}

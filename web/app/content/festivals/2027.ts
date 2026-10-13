@@ -27,10 +27,10 @@ const data: FestivalInput = {
   },
   intro: {
     en: [
-      "It is with great pleasure that we announce the organization of the 45th International Choral Festival of Preveza, which is scheduled to take place from 8 to 11 July 2027.",
+      "It is with great pleasure that we announce the organization of the **45th International Choral Festival of Preveza**, which is scheduled to take place from **8 to 11 July 2027**.",
     ],
     el: [
-      "Με μεγάλη χαρά ανακοινώνουμε τη διοργάνωση του 45ου Διεθνούς Χορωδιακού Φεστιβάλ Πρέβεζας, που θα πραγματοποιηθεί από τις 8 έως τις 11 Ιουλίου 2027.",
+      "Με μεγάλη χαρά ανακοινώνουμε τη διοργάνωση του **45ου Διεθνούς Χορωδιακού Φεστιβάλ Πρέβεζας**, που θα πραγματοποιηθεί από τις **8 έως τις 11 Ιουλίου 2027**.",
     ],
   },
   content: {
@@ -39,10 +39,10 @@ const data: FestivalInput = {
       { list: ["8–11 July 2027"] },
       { img: "/img/fest-logo.webp" },
       { wide: true },
-      "It is with great pleasure that we announce the organization of the 45th International Choral Festival of Preveza, which is scheduled to take place from 8 to 11 July 2027.",
-      "The International Choral Competition of Preveza, now in its 31st edition, will take place from 8 to 11 July 2027 in the picturesque coastal city of Preveza, Greece. The competition is part of the broader International Choral Festival of Preveza, now celebrating its 45th anniversary.",
-      "Now entering its 45th year, our festival continues to grow as a meeting point for choirs from around the world, offering experiences of high artistic choral performance while constantly raising its standards. During the festival, numerous concerts are held in idyllic locations throughout our region, including the central beach of Preveza, historic churches of the city, and the Roman Odeon of Ancient Nicopolis.",
-      "The programme, the International Jury Committee and the participating choirs will be announced on this page.",
+      "It is with great pleasure that we announce the organization of the **45th International Choral Festival of Preveza**, which is scheduled to take place from **8 to 11 July 2027**.",
+      "The **International Choral Competition of Preveza**, now in its **31st edition**, will take place from 8 to 11 July 2027 in the picturesque coastal city of Preveza, Greece. The competition is part of the broader International Choral Festival of Preveza, now celebrating its 45th anniversary.",
+      "Now entering its 45th year, our festival continues to grow as a meeting point for choirs from around the world, offering experiences of high artistic choral performance while constantly raising its standards. During the festival, numerous concerts are held in idyllic locations throughout our region, including the **central beach of Preveza**, **historic churches of the city**, and the **Roman Odeon of Ancient Nicopolis**.",
+      "**The programme, the International Jury Committee and the participating choirs** will be announced on this page.",
       { heading: "Important Dates", level: 2, align: "center" },
       {
         list: [
@@ -118,10 +118,10 @@ const data: FestivalInput = {
       { list: ["8–11 Ιουλίου 2027"] },
       { img: "/img/fest-logo.webp" },
       { wide: true },
-      "Με μεγάλη χαρά ανακοινώνουμε τη διοργάνωση του 45ου Διεθνούς Χορωδιακού Φεστιβάλ Πρέβεζας, που θα πραγματοποιηθεί από τις 8 έως τις 11 Ιουλίου 2027.",
-      "Ο Διεθνής Χορωδιακός Διαγωνισμός Πρέβεζας, στην 31η διοργάνωσή του, θα πραγματοποιηθεί από τις 8 έως τις 11 Ιουλίου 2027 στη γραφική παραθαλάσσια πόλη της Πρέβεζας. Ο διαγωνισμός αποτελεί μέρος του Διεθνούς Χορωδιακού Φεστιβάλ Πρέβεζας, που γιορτάζει πλέον την 45η επέτειό του.",
-      "Διανύοντας πλέον την 45η χρονιά του, το φεστιβάλ μας συνεχίζει να εξελίσσεται ως τόπος συνάντησης χορωδιών από όλο τον κόσμο, προσφέροντας εμπειρίες υψηλού καλλιτεχνικού επιπέδου και ανεβάζοντας διαρκώς τον πήχη. Κατά τη διάρκεια του φεστιβάλ πραγματοποιούνται πολλές συναυλίες σε ειδυλλιακές τοποθεσίες της περιοχής μας, όπως η κεντρική παραλία της Πρέβεζας, ιστορικοί ναοί της πόλης και το Ρωμαϊκό Ωδείο της Αρχαίας Νικόπολης.",
-      "Το πρόγραμμα, η Διεθνής Κριτική Επιτροπή και οι συμμετέχουσες χορωδίες θα ανακοινωθούν σε αυτή τη σελίδα.",
+      "Με μεγάλη χαρά ανακοινώνουμε τη διοργάνωση του **45ου Διεθνούς Χορωδιακού Φεστιβάλ Πρέβεζας**, που θα πραγματοποιηθεί από τις **8 έως τις 11 Ιουλίου 2027**.",
+      "Ο **Διεθνής Χορωδιακός Διαγωνισμός Πρέβεζας**, στην **31η διοργάνωσή του**, θα πραγματοποιηθεί από τις 8 έως τις 11 Ιουλίου 2027 στη γραφική παραθαλάσσια πόλη της Πρέβεζας. Ο διαγωνισμός αποτελεί μέρος του Διεθνούς Χορωδιακού Φεστιβάλ Πρέβεζας, που γιορτάζει πλέον την 45η επέτειό του.",
+      "Διανύοντας πλέον την 45η χρονιά του, το φεστιβάλ μας συνεχίζει να εξελίσσεται ως τόπος συνάντησης χορωδιών από όλο τον κόσμο, προσφέροντας εμπειρίες υψηλού καλλιτεχνικού επιπέδου και ανεβάζοντας διαρκώς τον πήχη. Κατά τη διάρκεια του φεστιβάλ πραγματοποιούνται πολλές συναυλίες σε ειδυλλιακές τοποθεσίες της περιοχής μας, όπως η **κεντρική παραλία της Πρέβεζας**, **ιστορικοί ναοί της πόλης** και το **Ρωμαϊκό Ωδείο της Αρχαίας Νικόπολης**.",
+      "**Το πρόγραμμα, η Διεθνής Κριτική Επιτροπή και οι συμμετέχουσες χορωδίες** θα ανακοινωθούν σε αυτή τη σελίδα.",
       { heading: "Σημαντικές Ημερομηνίες", level: 2, align: "center" },
       {
         list: [
