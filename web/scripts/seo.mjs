@@ -28,6 +28,9 @@ const FALLBACK = {
   de: "Offizielle Website des Chors Armonia und des Internationalen Chorfestivals Preveza, Griechenland: Festivals, Chorwettbewerbe, Dirigier-Meisterkurse und Neuigkeiten.",
   es: "Sitio oficial del Coro Armonia y del Festival Coral Internacional de Preveza, Grecia: festivales, concursos corales, clases magistrales de dirección y noticias.",
 };
+// the picture for link previews of the home pages, the root and pages without one: the festival
+// logo on white, 1200×630 (public/share.png; outside img/, where PNGs are converted to WebP)
+const SHARE = "/share.png";
 const OG_LOCALE = { en: "en_US", el: "el_GR", fr: "fr_FR", it: "it_IT", de: "de_DE", es: "es_ES" };
 const SITE_NAME = { en: "Armonia Choir", el: "Χορωδία Αρμονία", fr: "Chœur Armonia", it: "Coro Armonia", de: "Chor Armonia", es: "Coro Armonia" };
 const MARK = /\n?<!--seo-->[\s\S]*?<!--\/seo-->/;
@@ -81,12 +84,15 @@ for (const file of pages) {
     description = clip(paras[0] ?? FALLBACK[lang]);
     html = html.replace(/<meta name="description" content=""\s*\/?>/, "");
   }
-  // the page's picture for link previews (full size): its poster (the image named after the page),
-  // else its first photo, else the logo; never the site logo or a flag icon
+  // the page's picture for link previews (full size): the home pages use the share picture (the
+  // festival logo, 1200×630); other pages their poster (the image named after the page; the festival
+  // logo standing in for a poster means the share picture), else their first photo, else the share
+  // picture; never the site logo or a flag icon
   const imgs = [...main.matchAll(/<img\b[^>]*>/g)]
     .map((m) => ({ src: decode(m[0].match(/\bsrc="(\/img\/[^"]+)"/)?.[1] ?? "").replace(/\.w\d+\.webp$/, ".webp"), alt: decode(m[0].match(/\balt="([^"]*)"/)?.[1] ?? "") }))
-    .filter((i) => i.src && !/\/(logo|fest-logo)\.|united-kingdom|\/greece\.webp/i.test(i.src));
-  const img = (imgs.find((i) => i.alt && title.startsWith(i.alt)) ?? imgs[0])?.src ?? "/img/logo.webp";
+    .filter((i) => i.src && !/\/logo\.|united-kingdom|\/greece\.webp/i.test(i.src));
+  const photo = imgs.find((i) => i.alt && title.startsWith(i.alt)) ?? imgs.find((i) => !/\/fest-logo\./.test(i.src));
+  const img = /^\/[a-z]{2}\/$/.test(route) || !photo || /\/fest-logo\./.test(photo.src) ? SHARE : photo.src;
 
   const tags = [
     `<link rel="canonical" href="${SITE}${canonical}">`,
@@ -101,6 +107,8 @@ for (const file of pages) {
     `<meta property="og:description" content="${esc(description)}">`,
     `<meta property="og:url" content="${SITE}${canonical}">`,
     `<meta property="og:image" content="${esc(abs(img))}">`,
+    img === SHARE && `<meta property="og:image:width" content="1200">`,
+    img === SHARE && `<meta property="og:image:height" content="630">`,
     `<meta name="twitter:card" content="summary_large_image">`,
   ].filter(Boolean);
   html = html.replace("</head>", `<!--seo-->\n${tags.join("\n")}\n<!--/seo--></head>`);
@@ -130,8 +138,20 @@ if (fs.existsSync(spa)) {
 // index.html (the site's root, and the legacy /index.html): a bare redirect to the English home, like
 // the legacy redirect pages. Prerendered, it was the whole app (scripts, styles, fonts) loaded only to
 // move on, which a first visit then paid for twice.
+// (with link-preview tags: the address shared most is armoniachoir.org itself)
+const rootPreview = [
+  `<meta name="description" content="${esc(FALLBACK.en)}">`,
+  `<meta property="og:type" content="website">`,
+  `<meta property="og:title" content="Armonia Choir | International Choral Festival of Preveza, Greece">`,
+  `<meta property="og:description" content="${esc(FALLBACK.en)}">`,
+  `<meta property="og:url" content="${SITE}/">`,
+  `<meta property="og:image" content="${SITE}${SHARE}">`,
+  `<meta property="og:image:width" content="1200">`,
+  `<meta property="og:image:height" content="630">`,
+  `<meta name="twitter:card" content="summary_large_image">`,
+].join("\n");
 fs.writeFileSync(
   path.join(out, "index.html"),
-  `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Armonia Choir | International Choral Festival of Preveza, Greece</title>\n<link rel="canonical" href="${SITE}/en/">\n<meta http-equiv="refresh" content="0; url=/en/">\n<script>location.replace("/en/" + location.search + location.hash);</script>\n</head>\n<body><a href="/en/">${SITE}/en/</a></body>\n</html>\n`
+  `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Armonia Choir | International Choral Festival of Preveza, Greece</title>\n<link rel="canonical" href="${SITE}/en/">\n${rootPreview}\n<meta http-equiv="refresh" content="0; url=/en/">\n<script>location.replace("/en/" + location.search + location.hash);</script>\n</head>\n<body><a href="/en/">${SITE}/en/</a></body>\n</html>\n`
 );
 console.log(`seo: ${pages.length} pages tagged (${fallbackRoutes.size} not yet translated, pointed at the English), sitemap.xml (${entries.length} URLs), robots.txt, 404.html, index.html (redirect)`);
