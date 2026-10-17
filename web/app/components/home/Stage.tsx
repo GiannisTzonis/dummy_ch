@@ -238,14 +238,14 @@ export function Stage({ locale, children }: { locale: Locale; children: ReactNod
       <canvas ref={canvas} aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10" />
       {children}
       {/* how to play, in two plain steps: a large sound button, then one sentence (new site
-          furniture: the content check skips it). Centred, on the keys on phones and above them on tablets; desktops: bottom right. */}
-      <div data-legacy-ignore="" className="absolute inset-x-4 bottom-4 flex justify-center sm:bottom-[calc(23%+1rem)] lg:inset-x-auto lg:right-8">
-        <div className="flex max-w-[22rem] flex-col items-center gap-2.5 rounded-2xl bg-black/55 p-3.5 sm:gap-3 sm:bg-black/45 sm:p-4 text-center ring-1 ring-white/25 backdrop-blur-md lg:items-end lg:text-right">
+          furniture: the content check skips it). Centred above the keys on phones and tablets (phones: the title moved up to make room; very short phones: on the keys); desktops: bottom right. */}
+      <div data-legacy-ignore="" className="absolute inset-x-4 bottom-[calc(23%+0.75rem)] flex justify-center max-sm:[@media(max-height:620px)]:bottom-3 sm:bottom-[calc(23%+1rem)] lg:inset-x-auto lg:right-8">
+        <div className="flex max-w-[22rem] flex-col items-center gap-2 rounded-2xl bg-black/55 p-3 sm:gap-3 sm:bg-black/45 sm:p-4 text-center ring-1 ring-white/25 backdrop-blur-md lg:items-end lg:text-right">
           <button
             type="button"
             aria-pressed={sound}
             onClick={() => setSound((s) => !s)}
-            className={`type-small inline-flex items-center gap-2.5 rounded-full px-5 py-3 font-semibold shadow-lg transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+            className={`type-small inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 font-semibold shadow-lg sm:px-5 sm:py-3 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
               sound ? "bg-white/15 text-white ring-1 ring-white/50 hover:bg-white/25" : "bg-white text-brand-navy hover:bg-[#ffe3e9]"
             }`}
           >

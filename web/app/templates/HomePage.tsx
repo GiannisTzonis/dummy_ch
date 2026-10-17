@@ -144,7 +144,7 @@ function welcomeLines(text: string): ReactNode[] {
 function Hero({ text, locale }: { text: string; locale: Locale }) {
   return (
     <Stage locale={locale}>
-      <h1 className="stage-title type-display absolute inset-x-4 top-[28%] max-lg:[&_br]:hidden text-center font-light text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.45),0_0_24px_rgb(0_0_0/0.25)] min-[1651px]:left-auto min-[1651px]:right-[93px] min-[1651px]:top-[160px] min-[1651px]:max-w-[40rem] min-[1651px]:text-right">
+      <h1 className="stage-title type-display absolute inset-x-4 top-[19%] sm:top-[28%] max-lg:[&_br]:hidden text-center font-light text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.45),0_0_24px_rgb(0_0_0/0.25)] min-[1651px]:left-auto min-[1651px]:right-[93px] min-[1651px]:top-[160px] min-[1651px]:max-w-[40rem] min-[1651px]:text-right">
         {welcomeLines(text)}
       </h1>
     </Stage>
