@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import type { Locale, RichBlock } from "~/content/types";
 import { useLocale, tr } from "~/lib/locale";
 import { responsive, sized } from "~/lib/img";
+import { CompulsoryWorks } from "./CompulsoryWorks";
 
 // "@/festival/2022" is a link to another page of this site, in the current
 // language; anything else is used as written.
@@ -176,6 +177,7 @@ function Block({ block, locale, dupes = new Set<string>() }: { block: RichBlock;
     );
   }
   if ("anchor" in block) return <span id={block.anchor} className="block" />;
+  if ("embed" in block) return <CompulsoryWorks />;
   if ("wide" in block || "narrow" in block) return null;
   return <StatsTable {...block.stats} locale={locale} />;
 }

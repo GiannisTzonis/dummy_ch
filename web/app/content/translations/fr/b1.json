@@ -545,6 +545,7 @@
   "heading": "Concerts dans la ville",
   "level": 3
  },
+ "25c4cb9b": "À l'aube de sa 45e année, notre festival continue de s'affirmer comme un lieu de rencontre pour des chœurs du monde entier, offrant des expériences d'interprétation chorale de haut niveau artistique tout en élevant sans cesse ses exigences. Pendant le festival, de nombreux concerts sont donnés dans des lieux idylliques de notre région, notamment la **plage centrale de Preveza**, les **églises historiques de la ville** et l'**Odéon romain de l'antique Nicopolis**.",
  "263a5124": "Asociația Corală Academica Bucovina, Câmpulung Moldovenesc RO — Emil Forfotă",
  "2649e804": "De 1990 à 2016, le chœur a été dirigé par M. Valentin Stefanov, et depuis 2016 il est placé sous la direction de la cheffe de chœur Mme Anelia Stefanova.",
  "26d747da": {
@@ -1155,6 +1156,7 @@
   "heading": "Réunion d'accueil avec les chefs de délégation et les invités officiels",
   "level": 3
  },
+ "8e365a59": "Le **Concours choral international de Preveza**, qui en est à sa **31e édition**, se tiendra du 8 au 11 juillet 2027 dans la pittoresque ville côtière de Preveza, en Grèce. Le concours s'inscrit dans le cadre plus large du Festival choral international de Preveza, qui célèbre cette année son 45e anniversaire.",
  "8e57bcae": "L'Odéon romain de l'antique Nicopolis",
  "8e61d6c7": {
   "list": [
@@ -1239,6 +1241,11 @@
  "95c2d7c3": {
   "heading": "Vendredi 10 juillet 2026",
   "level": 2
+ },
+ "964c7198": {
+  "heading": "Œuvres imposées – Catégories A et C",
+  "level": 2,
+  "align": "center"
  },
  "96eebbfb": "Les chœurs obtenant moins de 70 points recevront un certificat de participation. Tous les chœurs participants recevront des évaluations écrites détaillées et les commentaires du jury.",
  "97a93c35": "E-mail : [prevezachoralfestival@gmail.com](mailto:prevezachoralfestival@gmail.com) | [armonia4@otenet.gr](mailto:armonia4@otenet.gr)\nTél./WhatsApp : [+30 6977 132107](tel:+306977132107)\nAdresse : Chr. Kontou 1 & Ethnikis Antistaseos, 48100 Preveza, Grèce",
@@ -1462,6 +1469,7 @@
   "heading": "« Transilvania »",
   "level": 4
  },
+ "b956e5cd": "**Le programme, le Jury international et les chœurs participants** seront annoncés sur cette page.",
  "ba31668f": {
   "list": [
    "\"Ave Maria\", Tomás Luis de Victoria (1548–1611)",
@@ -1490,6 +1498,7 @@
   ]
  },
  "bb3d7ccd": "Zele, Belgique Chef de chœur : Filip Haentjens",
+ "bb3ef64f": "C'est avec grand plaisir que nous annonçons l'organisation du **45e Festival choral international de Preveza**, qui se tiendra du **8 au 11 juillet 2027**.",
  "bb5bd5c9": "10:00 Concours Catégorie F",
  "bcd25cf3": {
   "heading": "Mercredi 8 juillet 2026",
@@ -1989,9 +1998,5 @@
  "fe6d745d": {
   "p": "Preveza, Grèce",
   "align": "center"
- },
- "bb3ef64f": "C'est avec grand plaisir que nous annonçons l'organisation du **45e Festival choral international de Preveza**, qui se tiendra du **8 au 11 juillet 2027**.",
- "8e365a59": "Le **Concours choral international de Preveza**, qui en est à sa **31e édition**, se tiendra du 8 au 11 juillet 2027 dans la pittoresque ville côtière de Preveza, en Grèce. Le concours s'inscrit dans le cadre plus large du Festival choral international de Preveza, qui célèbre cette année son 45e anniversaire.",
- "25c4cb9b": "À l'aube de sa 45e année, notre festival continue de s'affirmer comme un lieu de rencontre pour des chœurs du monde entier, offrant des expériences d'interprétation chorale de haut niveau artistique tout en élevant sans cesse ses exigences. Pendant le festival, de nombreux concerts sont donnés dans des lieux idylliques de notre région, notamment la **plage centrale de Preveza**, les **églises historiques de la ville** et l'**Odéon romain de l'antique Nicopolis**.",
- "b956e5cd": "**Le programme, le Jury international et les chœurs participants** seront annoncés sur cette page."
+ }
 }

@@ -45,6 +45,9 @@ const richBlock = z.union([
   // thumbnail (consecutive ones render as a grid); default fills the column.
   z.object({ img: z.string(), href: z.string().optional(), layout: z.enum(["side", "gallery"]).optional() }),
   z.object({ anchor: z.string() }),
+  // A ready-made part of the page, written in all six languages in its own component (not
+  // translated block by block): the compulsory works with their scores and recordings.
+  z.object({ embed: z.enum(["compulsory-works-2027"]) }),
   // Marks where the legacy page's narrow main column (beside the sidebar) ends;
   // blocks after it span the full page width.
   z.object({ wide: z.literal(true) }),

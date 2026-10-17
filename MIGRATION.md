@@ -673,6 +673,13 @@ Decided from the pages themselves and public sources; each correction's `why` gi
     - The competition rules name the composer "Daniela Nasti"; the composition competition pages also have
       "Daniele" (already on the open list).
     - There are no Greek versions of the 2027 documents; the Greek page links to the English ones.
+  - Compulsory works 2027 (page `/festival/2027/compulsory-works`, files in `web/public/compulsory-works-2027/`,
+    from the committee's WeTransfer of 2026-10-15). The page follows the competition rules; the scores differ:
+    - The rules write "Gianpiero Castagna"; his scores (Jubilate Domino, Moonlight) write "Giampiero".
+    - The score of "Trees" says "2nd award … Competition of Preveza 2026"; the others and the rules say 2025.
+    - The composition competition 2025 page lists "I PAINTED A PEACE"; the score and the rules say "I painted peace".
+    - "Ode to the Universe" (a scanned score) prints only "Text Daniela Nasti", no composer line.
+    - Category A has no recordings; durations of Jubilate Domino and Moonlight are not printed on their scores.
 
 ## Remaining before cutover
 

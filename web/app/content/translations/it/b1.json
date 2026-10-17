@@ -545,6 +545,7 @@
   "heading": "Esibizioni in città",
   "level": 3
  },
+ "25c4cb9b": "Giunto ormai al suo 45° anno, il nostro festival continua a crescere come luogo d'incontro per cori di tutto il mondo, offrendo esperienze di alto livello artistico nell'esecuzione corale e innalzando costantemente i propri standard. Durante il festival si tengono numerosi concerti in luoghi idilliaci della nostra regione, tra cui la **spiaggia centrale di Preveza**, le **chiese storiche della città** e l'**Odeon romano dell'antica Nicopoli**.",
  "263a5124": "Asociația Corală Academica Bucovina, Câmpulung Moldovenesc RO — Emil Forfotă",
  "2649e804": "Dal 1990 al 2016 il coro è stato diretto dal signor Valentin Stefanov e dal 2016 a oggi il Coro è guidato dalla direttrice, signora Anelia Stefanova.",
  "26d747da": {
@@ -1155,6 +1156,7 @@
   "heading": "Incontro di benvenuto con i capi delegazione e gli ospiti ufficiali",
   "level": 3
  },
+ "8e365a59": "Il **Concorso corale internazionale di Preveza**, giunto alla sua **31ª edizione**, si svolgerà dall'8 all'11 luglio 2027 nella pittoresca città costiera di Preveza, in Grecia. Il concorso fa parte del più ampio Festival corale internazionale di Preveza, che celebra quest'anno il suo 45° anniversario.",
  "8e57bcae": "L'Odeon romano dell'antica Nicopoli",
  "8e61d6c7": {
   "list": [
@@ -1239,6 +1241,11 @@
  "95c2d7c3": {
   "heading": "Venerdì 10 luglio 2026",
   "level": 2
+ },
+ "964c7198": {
+  "heading": "Brani d'obbligo – Categorie A e C",
+  "level": 2,
+  "align": "center"
  },
  "96eebbfb": "I cori che otterranno meno di 70 punti riceveranno un attestato di partecipazione. Tutti i cori partecipanti riceveranno valutazioni scritte dettagliate e commenti della giuria.",
  "97a93c35": "E-mail: [prevezachoralfestival@gmail.com](mailto:prevezachoralfestival@gmail.com) | [armonia4@otenet.gr](mailto:armonia4@otenet.gr)\nTel./WhatsApp: [+30 6977 132107](tel:+306977132107)\nIndirizzo: Chr. Kontou 1 & Ethnikis Antistaseos, 48100 Preveza, Grecia",
@@ -1462,6 +1469,7 @@
   "heading": "\"Transilvania\"",
   "level": 4
  },
+ "b956e5cd": "**Il programma, la Giuria internazionale e i cori partecipanti** saranno annunciati su questa pagina.",
  "ba31668f": {
   "list": [
    "\"Ave Maria\", Tomás Luis de Victoria (1548–1611)",
@@ -1490,6 +1498,7 @@
   ]
  },
  "bb3d7ccd": "Zele, Belgio Direttore: Filip Haentjens",
+ "bb3ef64f": "Siamo lieti di annunciare l'organizzazione del **45° Festival corale internazionale di Preveza**, che si svolgerà **dall'8 all'11 luglio 2027**.",
  "bb5bd5c9": "10:00 Concorso Categoria F",
  "bcd25cf3": {
   "heading": "Mercoledì 8 luglio 2026",
@@ -1989,9 +1998,5 @@
  "fe6d745d": {
   "p": "Preveza, Grecia",
   "align": "center"
- },
- "bb3ef64f": "Siamo lieti di annunciare l'organizzazione del **45° Festival corale internazionale di Preveza**, che si svolgerà **dall'8 all'11 luglio 2027**.",
- "8e365a59": "Il **Concorso corale internazionale di Preveza**, giunto alla sua **31ª edizione**, si svolgerà dall'8 all'11 luglio 2027 nella pittoresca città costiera di Preveza, in Grecia. Il concorso fa parte del più ampio Festival corale internazionale di Preveza, che celebra quest'anno il suo 45° anniversario.",
- "25c4cb9b": "Giunto ormai al suo 45° anno, il nostro festival continua a crescere come luogo d'incontro per cori di tutto il mondo, offrendo esperienze di alto livello artistico nell'esecuzione corale e innalzando costantemente i propri standard. Durante il festival si tengono numerosi concerti in luoghi idilliaci della nostra regione, tra cui la **spiaggia centrale di Preveza**, le **chiese storiche della città** e l'**Odeon romano dell'antica Nicopoli**.",
- "b956e5cd": "**Il programma, la Giuria internazionale e i cori partecipanti** saranno annunciati su questa pagina."
+ }
 }

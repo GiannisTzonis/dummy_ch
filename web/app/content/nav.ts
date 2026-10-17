@@ -52,10 +52,6 @@ export const primaryNav: NavItem[] = [
         href: "/festival/2027",
       },
       {
-        label: { en: "Festival 2026", el: "Φεστιβάλ 2026", fr: "Festival 2026", it: "Festival 2026", de: "Festival 2026", es: "Festival 2026" },
-        href: "/festival/2026",
-      },
-      {
         label: {
           en: "Previous Festivals",
           el: "Προηγούμενα Φεστιβάλ",

@@ -67,7 +67,7 @@ const errorText = {
     errorText: "This page could not be shown. Please try again in a moment.",
     links: [
       ["/en/", "Home"],
-      ["/en/festival/2026", "Festival 2026"],
+      ["/en/festival/2027", "Festival 2027"],
       ["/en/festivals", "Previous festivals"],
     ],
   },
@@ -78,7 +78,7 @@ const errorText = {
     errorText: "Η σελίδα δεν μπόρεσε να εμφανιστεί. Δοκιμάστε ξανά σε λίγο.",
     links: [
       ["/el/", "Αρχική"],
-      ["/el/festival/2026", "Φεστιβάλ 2026"],
+      ["/el/festival/2027", "Φεστιβάλ 2027"],
       ["/el/festivals", "Προηγούμενα φεστιβάλ"],
     ],
   },
@@ -89,7 +89,7 @@ const errorText = {
     errorText: "Cette page n'a pas pu être affichée. Veuillez réessayer dans un instant.",
     links: [
       ["/fr/", "Accueil"],
-      ["/fr/festival/2026", "Festival 2026"],
+      ["/fr/festival/2027", "Festival 2027"],
       ["/fr/festivals", "Festivals précédents"],
     ],
   },
@@ -100,7 +100,7 @@ const errorText = {
     errorText: "Non è stato possibile visualizzare questa pagina. La preghiamo di riprovare tra qualche istante.",
     links: [
       ["/it/", "Home"],
-      ["/it/festival/2026", "Festival 2026"],
+      ["/it/festival/2027", "Festival 2027"],
       ["/it/festivals", "Festival precedenti"],
     ],
   },
@@ -111,7 +111,7 @@ const errorText = {
     errorText: "Diese Seite konnte nicht angezeigt werden. Bitte versuchen Sie es in Kürze erneut.",
     links: [
       ["/de/", "Startseite"],
-      ["/de/festival/2026", "Festival 2026"],
+      ["/de/festival/2027", "Festival 2027"],
       ["/de/festivals", "Frühere Festivals"],
     ],
   },
@@ -122,7 +122,7 @@ const errorText = {
     errorText: "No se ha podido mostrar esta página. Vuelva a intentarlo en unos instantes.",
     links: [
       ["/es/", "Inicio"],
-      ["/es/festival/2026", "Festival 2026"],
+      ["/es/festival/2027", "Festival 2027"],
       ["/es/festivals", "Festivales anteriores"],
     ],
   },

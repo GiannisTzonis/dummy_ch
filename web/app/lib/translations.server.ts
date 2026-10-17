@@ -46,7 +46,7 @@ export function localizedPaths(obj: unknown, base = ""): { path: string; value: 
 }
 
 // Blocks with no text of their own (photos, anchors, layout markers): the English ones serve.
-export const textless = (b: RichBlock) => typeof b === "object" && ("img" in b || "anchor" in b || "wide" in b || "narrow" in b);
+export const textless = (b: RichBlock) => typeof b === "object" && ("img" in b || "anchor" in b || "embed" in b || "wide" in b || "narrow" in b);
 
 // A localized value that is an address, not text (a link or picture that differs per language):
 // never translated, the English one serves.
