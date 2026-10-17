@@ -32,6 +32,23 @@ const labels = {
     de: "Tippen oder klicken Sie jetzt irgendwo auf das Bild, um den Chor zu hören.",
     es: "Ahora toque o haga clic en cualquier parte de la imagen para oír al coro.",
   },
+  // phones: the same, shorter
+  thenShort: {
+    en: "Then tap the picture to hear the choir.",
+    el: "Μετά πατήστε την εικόνα για να ακούσετε τη χορωδία.",
+    fr: "Puis touchez l'image pour entendre le chœur.",
+    it: "Poi tocca l'immagine per sentire il coro.",
+    de: "Dann tippen Sie auf das Bild, um den Chor zu hören.",
+    es: "Después toque la imagen para oír al coro.",
+  },
+  nowShort: {
+    en: "Now tap the picture to hear the choir.",
+    el: "Τώρα πατήστε την εικόνα για να ακούσετε τη χορωδία.",
+    fr: "Touchez maintenant l'image pour entendre le chœur.",
+    it: "Ora tocca l'immagine per sentire il coro.",
+    de: "Tippen Sie jetzt auf das Bild, um den Chor zu hören.",
+    es: "Ahora toque la imagen para oír al coro.",
+  },
 } as const;
 
 // a loudspeaker, with sound waves when on and a cross when off
@@ -238,14 +255,15 @@ export function Stage({ locale, children }: { locale: Locale; children: ReactNod
       <canvas ref={canvas} aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10" />
       {children}
       {/* how to play, in two plain steps: a large sound button, then one sentence (new site
-          furniture: the content check skips it). Centred above the keys on phones and tablets (phones: the title moved up to make room; very short phones: on the keys); desktops: bottom right. */}
-      <div data-legacy-ignore="" className="absolute inset-x-4 bottom-[calc(23%+0.75rem)] flex justify-center max-sm:[@media(max-height:620px)]:bottom-3 sm:bottom-[calc(23%+1rem)] lg:inset-x-auto lg:right-8">
-        <div className="flex max-w-[22rem] flex-col items-center gap-2 rounded-2xl bg-black/55 p-3 sm:gap-3 sm:bg-black/45 sm:p-4 text-center ring-1 ring-white/25 backdrop-blur-md lg:items-end lg:text-right">
+          furniture: the content check skips it). Phones: small, no box, just above the keys; tablets:
+          centred above the keys; desktops: bottom right. */}
+      <div data-legacy-ignore="" className="absolute inset-x-4 bottom-[calc(23%+0.5rem)] flex justify-center sm:bottom-[calc(23%+1rem)] lg:inset-x-auto lg:right-8">
+        <div className="flex max-w-[22rem] flex-col items-center gap-1.5 text-center sm:gap-3 sm:rounded-2xl sm:bg-black/45 sm:p-4 sm:ring-1 sm:ring-white/25 sm:backdrop-blur-md lg:items-end lg:text-right">
           <button
             type="button"
             aria-pressed={sound}
             onClick={() => setSound((s) => !s)}
-            className={`type-small inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 font-semibold shadow-lg sm:px-5 sm:py-3 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+            className={`type-caption sm:type-small inline-flex items-center gap-2 rounded-full px-3.5 py-2 font-semibold shadow-lg sm:gap-2.5 sm:px-5 sm:py-3 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
               sound ? "bg-white/15 text-white ring-1 ring-white/50 hover:bg-white/25" : "bg-white text-brand-navy hover:bg-[#ffe3e9]"
             }`}
           >
@@ -260,8 +278,9 @@ export function Stage({ locale, children }: { locale: Locale; children: ReactNod
               </span>
             )}
           </button>
-          <p aria-live="polite" className="type-small font-medium text-white [text-wrap:balance]">
-            {tr(sound ? labels.now : labels.then, locale)}
+          <p aria-live="polite" className="type-caption font-medium text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.6)] [text-wrap:balance] sm:type-small sm:[text-shadow:none]">
+            <span className="sm:hidden">{tr(sound ? labels.nowShort : labels.thenShort, locale)}</span>
+            <span className="hidden sm:inline">{tr(sound ? labels.now : labels.then, locale)}</span>
           </p>
         </div>
       </div>
