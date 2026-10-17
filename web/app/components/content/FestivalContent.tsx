@@ -5,6 +5,7 @@ import { localizedHref, useLocale, tr } from "~/lib/locale";
 import { RichText } from "./RichText";
 import { SectionNav, type NavSection } from "./SectionNav";
 import { LightboxProvider, Zoomable, type LightboxImage } from "./Lightbox";
+import { FestivalSeal, SEAL_LOGO } from "./FestivalSeal";
 import type { FestivalResults } from "~/content/festival-results";
 import { responsive, sized } from "~/lib/img";
 
@@ -809,7 +810,12 @@ export function FestivalContent({
         <div
           className={`${container} grid grid-cols-1 items-start gap-10 py-12 lg:gap-14 lg:py-16 ${poster && beside ? "md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] xl:grid-cols-[560px_minmax(0,1fr)]" : ""}`}
         >
-          {poster && (
+          {poster?.img === SEAL_LOGO ? (
+            // the festival logo, its text turning (FestivalSeal), on the poster's card
+            <div className={`rounded-xl bg-white p-[7%] shadow-[0_30px_70px_-30px_rgb(15_23_42/0.55)] ring-1 ring-black/5 ${beside ? "md:sticky md:top-[170px]" : "mx-auto w-full max-w-[560px]"}`}>
+              <FestivalSeal label={title} className="w-full" />
+            </div>
+          ) : poster && (
             <Zoomable
               images={[{ src: poster.img, caption: title }]}
               index={0}
