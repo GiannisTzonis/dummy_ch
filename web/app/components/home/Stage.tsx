@@ -11,17 +11,38 @@ import { CHORD_COUNT, singChord } from "./choir";
 // Performance: one canvas, drawn only while the hero is on screen and the tab is visible, at most
 // 2x pixel density. Visitors who ask for reduced motion get the staff drawn once, still.
 
+// plain words for every visitor: what to press first, then what to do (tap or click, phones and
+// computers alike)
 const labels = {
-  sound: { en: "Sound", el: "Ήχος", fr: "Son", it: "Suono", de: "Ton", es: "Sonido" },
-  hint: {
-    en: "Touch the stage to sing",
-    el: "Αγγίξτε τη σκηνή για να τραγουδήσει",
-    fr: "Touchez la scène pour chanter",
-    it: "Tocca la scena per cantare",
-    de: "Berühren Sie die Bühne zum Singen",
-    es: "Toca el escenario para cantar",
+  turnOn: { en: "Turn on sound", el: "Ενεργοποίηση ήχου", fr: "Activer le son", it: "Attiva l'audio", de: "Ton einschalten", es: "Activar el sonido" },
+  turnOff: { en: "Turn off sound", el: "Απενεργοποίηση ήχου", fr: "Couper le son", it: "Disattiva l'audio", de: "Ton ausschalten", es: "Desactivar el sonido" },
+  then: {
+    en: "Then tap or click anywhere on the picture to hear the choir sing.",
+    el: "Μετά πατήστε οπουδήποτε πάνω στην εικόνα για να ακούσετε τη χορωδία.",
+    fr: "Puis touchez ou cliquez n'importe où sur l'image pour entendre le chœur chanter.",
+    it: "Poi tocca o clicca in un punto qualsiasi dell'immagine per sentire cantare il coro.",
+    de: "Tippen oder klicken Sie dann irgendwo auf das Bild, um den Chor singen zu hören.",
+    es: "Después toque o haga clic en cualquier parte de la imagen para oír cantar al coro.",
+  },
+  now: {
+    en: "Now tap or click anywhere on the picture to hear the choir.",
+    el: "Τώρα πατήστε οπουδήποτε πάνω στην εικόνα για να ακούσετε τη χορωδία.",
+    fr: "Touchez ou cliquez maintenant n'importe où sur l'image pour entendre le chœur.",
+    it: "Ora tocca o clicca in un punto qualsiasi dell'immagine per sentire il coro.",
+    de: "Tippen oder klicken Sie jetzt irgendwo auf das Bild, um den Chor zu hören.",
+    es: "Ahora toque o haga clic en cualquier parte de la imagen para oír al coro.",
   },
 } as const;
+
+// a loudspeaker, with sound waves when on and a cross when off
+function Speaker({ on }: { on: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="size-5 shrink-0 fill-none stroke-current" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 9h4l5-4v14l-5-4H4z" className="fill-current" />
+      {on ? <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" /> : <path d="M17 9.5l5 5M22 9.5l-5 5" />}
+    </svg>
+  );
+}
 
 type Note = { x: number; y: number; vx: number; vy: number; life: number; max: number; glyph: string; size: number; spin: number };
 type Ripple = { x: number; y: number; t: number };
@@ -216,27 +237,36 @@ export function Stage({ locale, children }: { locale: Locale; children: ReactNod
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgb(20_12_40/0.35))]" />
       <canvas ref={canvas} aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10" />
       {children}
-      {/* sound switch and hint (new site furniture: the content check skips it) */}
-      <div data-legacy-ignore="" className="absolute right-4 bottom-[calc(23%+1rem)] flex items-center gap-3 sm:right-8">
-        <p data-legacy-ignore="" className={`type-caption hidden text-white/80 transition-opacity duration-500 sm:block ${sound ? "opacity-100" : "opacity-0"}`}>
-          {tr(labels.hint, locale)}
-        </p>
-        <button
-          type="button"
-          aria-pressed={sound}
-          onClick={() => setSound((s) => !s)}
-          className="type-caption inline-flex items-center gap-2 rounded-full bg-black/25 px-3.5 py-2 font-semibold tracking-wide text-white ring-1 ring-white/30 backdrop-blur-md transition hover:bg-black/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          <span aria-hidden="true" className="flex h-3.5 items-end gap-[2px]">
-            {[0, 1, 2, 3].map((i) => (
-              <span key={i} className={`eq-bar w-[3px] rounded-full bg-white ${sound ? "" : "eq-off"}`} style={{ animationDelay: `${i * -0.27}s` }} />
-            ))}
-          </span>
-          {tr(labels.sound, locale)}
-        </button>
+      {/* how to play, in two plain steps: a large sound button, then one sentence (new site
+          furniture: the content check skips it). Centred, on the keys on phones and above them on tablets; desktops: bottom right. */}
+      <div data-legacy-ignore="" className="absolute inset-x-4 bottom-4 flex justify-center sm:bottom-[calc(23%+1rem)] lg:inset-x-auto lg:right-8">
+        <div className="flex max-w-[22rem] flex-col items-center gap-2.5 rounded-2xl bg-black/55 p-3.5 sm:gap-3 sm:bg-black/45 sm:p-4 text-center ring-1 ring-white/25 backdrop-blur-md lg:items-end lg:text-right">
+          <button
+            type="button"
+            aria-pressed={sound}
+            onClick={() => setSound((s) => !s)}
+            className={`type-small inline-flex items-center gap-2.5 rounded-full px-5 py-3 font-semibold shadow-lg transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+              sound ? "bg-white/15 text-white ring-1 ring-white/50 hover:bg-white/25" : "bg-white text-brand-navy hover:bg-[#ffe3e9]"
+            }`}
+          >
+            <Speaker on={!sound} />
+            {tr(sound ? labels.turnOff : labels.turnOn, locale)}
+            {/* while on: the choir's level, moving */}
+            {sound && (
+              <span aria-hidden="true" className="flex h-3.5 items-end gap-[2px]">
+                {[0, 1, 2, 3].map((i) => (
+                  <span key={i} className="eq-bar w-[3px] rounded-full bg-white" style={{ animationDelay: `${i * -0.27}s` }} />
+                ))}
+              </span>
+            )}
+          </button>
+          <p aria-live="polite" className="type-small font-medium text-white [text-wrap:balance]">
+            {tr(sound ? labels.now : labels.then, locale)}
+          </p>
+        </div>
       </div>
       {/* scroll cue */}
-      <div aria-hidden="true" className="scroll-cue pointer-events-none absolute bottom-[calc(23%+1.25rem)] left-1/2 hidden h-10 w-6 -translate-x-1/2 rounded-full border-2 border-white/60 sm:block">
+      <div aria-hidden="true" className="scroll-cue pointer-events-none absolute bottom-[calc(23%+1.25rem)] left-1/2 hidden h-10 w-6 -translate-x-1/2 rounded-full border-2 border-white/60 lg:block">
         <span className="absolute top-2 left-1/2 h-2 w-1 -translate-x-1/2 rounded-full bg-white" />
       </div>
     </section>
