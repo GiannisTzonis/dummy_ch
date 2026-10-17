@@ -27,6 +27,25 @@ const labels = {
     de: "Bleiben Sie über alle Neuigkeiten unseres Festivals auf dem Laufenden.",
     es: "Manténgase al día de todas las novedades de nuestro festival.",
   },
+  // the "New" card under the countdown (WhatsNew)
+  newBadge: { en: "New", el: "Νέο", fr: "Nouveau", it: "Novità", de: "Neu", es: "Nuevo" },
+  newTitle: {
+    en: "Compulsory Works – Categories A and C",
+    el: "Υποχρεωτικά έργα – Κατηγορίες Α και Γ",
+    fr: "Œuvres imposées – Catégories A et C",
+    it: "Brani d'obbligo – Categorie A e C",
+    de: "Pflichtstücke – Kategorien A und C",
+    es: "Obras obligatorias – Categorías A y C",
+  },
+  newText: {
+    en: "The scores of the six works for the 2027 competition, and recordings of the Category C works, are ready to download.",
+    el: "Οι παρτιτούρες των έξι έργων του διαγωνισμού 2027 και οι ηχογραφήσεις των έργων της Κατηγορίας Γ είναι διαθέσιμες για λήψη.",
+    fr: "Les partitions des six œuvres du concours 2027 et les enregistrements des œuvres de la catégorie C sont disponibles au téléchargement.",
+    it: "Le partiture dei sei brani del concorso 2027 e le registrazioni dei brani della categoria C sono disponibili per il download.",
+    de: "Die Noten der sechs Werke des Wettbewerbs 2027 und die Aufnahmen der Werke der Kategorie C stehen zum Download bereit.",
+    es: "Las partituras de las seis obras del concurso 2027 y las grabaciones de las obras de la categoría C están disponibles para descargar.",
+  },
+  newLink: { en: "See the works", el: "Δείτε τα έργα", fr: "Voir les œuvres", it: "Vedi i brani", de: "Zu den Werken", es: "Ver las obras" },
   collaborations: { en: "Collaborations", el: "Συνεργασίες", fr: "Collaborations", it: "Collaborazioni", de: "Kooperationen", es: "Colaboraciones" },
   website: { en: "Website", el: "Ιστοσελίδα", fr: "Site web", it: "Sito web", de: "Website", es: "Sitio web" },
   readMore: { en: "Read more", el: "Διαβάστε περισσότερα", fr: "Lire la suite", it: "Leggi di più", de: "Weiterlesen", es: "Leer más" },
@@ -296,6 +315,39 @@ function NewsCarousel({ items }: { items: HomePageContent["newsItems"] }) {
   );
 }
 
+// News of the coming festival, under the countdown: one highlighted link (new site, not on the
+// legacy page). Change or remove it when the news is no longer new.
+function WhatsNew({ locale }: { locale: Locale }) {
+  return (
+    <Link
+      data-legacy-ignore=""
+      to={localizedHref(locale, "/festival/2027#compulsory-works")}
+      className="reveal group relative mt-12 flex flex-col gap-5 overflow-hidden rounded-2xl bg-gradient-to-r from-brand-maroon/30 via-white/[0.07] to-white/[0.04] p-6 ring-1 ring-white/20 backdrop-blur-md transition duration-300 hover:ring-white/45 sm:flex-row sm:items-center sm:gap-6 sm:p-7 lg:mt-14"
+    >
+      <div aria-hidden="true" className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+      <span aria-hidden="true" className="grid size-14 shrink-0 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/20">
+        {/* a pair of notes */}
+        <svg viewBox="0 0 24 24" className="size-7 fill-none stroke-white" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+      </span>
+      <div className="flex-1">
+        <span className="type-label mb-2 inline-block rounded-full bg-brand-maroon px-2.5 py-1 text-white uppercase shadow-[0_6px_16px_-6px_rgb(172_46_72/0.9)]">
+          {tr(labels.newBadge, locale)}
+        </span>
+        <h3 className="type-h4 text-white">{tr(labels.newTitle, locale)}</h3>
+        <p className="type-small mt-1 text-white/75">{tr(labels.newText, locale)}</p>
+      </div>
+      <span className="type-small inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-white px-5 py-2.5 font-semibold text-brand-navy shadow-lg transition-colors duration-300 group-hover:bg-[#ffe3e9] sm:self-center">
+        {tr(labels.newLink, locale)}
+        <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+      </span>
+    </Link>
+  );
+}
+
 // The upcoming festival as a concert band: deep blue with slowly drifting coloured light and a faint
 // staff, the title, dates and a live countdown, then the application forms and rules as glass cards
 // (in the legacy order: competition, then festival).
@@ -335,6 +387,7 @@ function Upcoming({ page, locale }: { page: HomePageContent; locale: Locale }) {
             {up.startsAt && <Countdown target={up.startsAt} locale={locale} />}
           </div>
         )}
+        {up?.href === "/festival/2027" && <WhatsNew locale={locale} />}
         {page.documents.length > 0 && (
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-16 xl:grid-cols-4">
             {page.documents.map((doc, i) => (

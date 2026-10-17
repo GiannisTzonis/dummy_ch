@@ -93,7 +93,9 @@ function WorkCard({ work, locale }: { work: CompulsoryWork; locale: Locale }) {
 export function CompulsoryWorks() {
   const locale = useLocale();
   return (
-    <div className="w-full">
+    // "compulsory-works": the home page links here (its "New" card under the countdown); the scroll
+    // margin is the section's own (the sticky bars) plus the ~160px of the section title above
+    <div id="compulsory-works" className="w-full scroll-mt-[330px]">
       <p className="type-lead text-body">{inline(tr(page.intro, locale), locale)}</p>
       {page.categories.map((c) => (
         <div key={c.id} id={c.id} className="scroll-mt-40">
