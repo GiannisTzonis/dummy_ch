@@ -255,10 +255,10 @@ export function Stage({ locale, children }: { locale: Locale; children: ReactNod
       <canvas ref={canvas} aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10" />
       {children}
       {/* how to play, in two plain steps: a large sound button, then one sentence (new site
-          furniture: the content check skips it). Phones: small, no box, just above the keys; tablets:
-          centred above the keys; desktops: bottom right. */}
-      <div data-legacy-ignore="" className="absolute inset-x-4 bottom-[calc(23%+0.5rem)] flex justify-center sm:bottom-[calc(23%+1rem)] lg:inset-x-auto lg:right-8">
-        <div className="flex max-w-[22rem] flex-col items-center gap-1.5 text-center sm:gap-3 sm:rounded-2xl sm:bg-black/45 sm:p-4 sm:ring-1 sm:ring-white/25 sm:backdrop-blur-md lg:items-end lg:text-right">
+          furniture: the content check skips it). The same small design everywhere (no box): phones centred
+          just above the keys; tablets and desktops in the bottom right corner, above the keys. */}
+      <div data-legacy-ignore="" className="absolute inset-x-4 bottom-[calc(23%-2px)] flex justify-center sm:inset-x-auto sm:right-6 sm:bottom-[calc(23%+1rem)] lg:right-8">
+        <div className="flex max-w-[22rem] flex-col items-center gap-1.5 text-center sm:items-end sm:gap-2 sm:text-right">
           <button
             type="button"
             aria-pressed={sound}
@@ -278,7 +278,7 @@ export function Stage({ locale, children }: { locale: Locale; children: ReactNod
               </span>
             )}
           </button>
-          <p aria-live="polite" className="type-caption font-medium text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.6)] [text-wrap:balance] sm:type-small sm:[text-shadow:none]">
+          <p aria-live="polite" className="type-caption font-medium text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.6)] [text-wrap:balance] sm:type-small">
             <span className="sm:hidden">{tr(sound ? labels.nowShort : labels.thenShort, locale)}</span>
             <span className="hidden sm:inline">{tr(sound ? labels.now : labels.then, locale)}</span>
           </p>
