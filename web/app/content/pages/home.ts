@@ -30,6 +30,7 @@ const data: HomePageContent = {
     },
     dates: { en: "July 8–11, 2027", el: "8–11 Ιουλίου 2027" },
     href: "/festival/2027", // added: the festival's page (festivals/2027.ts)
+    startsAt: "2027-07-08T00:00:00+03:00", // added: for the countdown
   },
   documents: [
     {

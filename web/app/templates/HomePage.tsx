@@ -2,7 +2,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router";
 import type { HomePageContent, Locale } from "~/content/types";
 import { localizedHref, pick, useLocale, tr } from "~/lib/locale";
-import { CoverBanner } from "~/components/content/PageHero";
+import { Stage } from "~/components/home/Stage";
+import { Countdown, Figures, Tilt } from "~/components/home/Effects";
 import { responsive, sized } from "~/lib/img";
 
 // Layout and styles follow index.html / indexGreek.html and css/main.css.
@@ -27,6 +28,7 @@ const labels = {
     es: "Manténgase al día de todas las novedades de nuestro festival.",
   },
   collaborations: { en: "Collaborations", el: "Συνεργασίες", fr: "Collaborations", it: "Collaborazioni", de: "Kooperationen", es: "Colaboraciones" },
+  website: { en: "Website", el: "Ιστοσελίδα", fr: "Site web", it: "Sito web", de: "Website", es: "Sitio web" },
   readMore: { en: "Read more", el: "Διαβάστε περισσότερα", fr: "Lire la suite", it: "Leggi di più", de: "Weiterlesen", es: "Leer más" },
   newTab: {
     en: "(opens in a new tab)",
@@ -82,7 +84,9 @@ function Collaborations({ items, locale }: { items: HomePageContent["collaborati
                   <div className="flex flex-1 flex-col items-center px-1 pt-4 pb-1 text-center">
                     <h3 className="type-h6 leading-snug text-ink transition-colors group-hover:text-brand-maroon">{name}</h3>
                     <p data-legacy-ignore className="mt-1 inline-flex items-center gap-1 text-[12px] text-muted">
-                      {host(c.link)}
+                      {/* phones: a short generic label (the addresses are wider than the cards) */}
+                      <span className="sm:hidden">{tr(labels.website, locale)}</span>
+                      <span className="hidden sm:inline">{host(c.link)}</span>
                       <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="h-3 w-3">
                         <path d="M6 4h10v10h-2V7.4l-8.3 8.3-1.4-1.4L12.6 6H6V4Z" />
                       </svg>
@@ -118,21 +122,13 @@ function welcomeLines(text: string): ReactNode[] {
 
 // Centred up to 1650px wide, top right above that (as on the legacy site). White text
 // with a soft shadow keeps it legible on both the red and the blue of the artwork.
-function Hero({ text }: { text: string }) {
+function Hero({ text, locale }: { text: string; locale: Locale }) {
   return (
-    <CoverBanner fullscreen>
-      <h1 className="type-display absolute inset-x-4 top-[28%] max-lg:[&_br]:hidden text-center font-light text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.45),0_0_24px_rgb(0_0_0/0.25)] min-[1651px]:left-auto min-[1651px]:right-[93px] min-[1651px]:top-[160px] min-[1651px]:max-w-[40rem] min-[1651px]:text-right">
+    <Stage locale={locale}>
+      <h1 className="stage-title type-display absolute inset-x-4 top-[28%] max-lg:[&_br]:hidden text-center font-light text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.45),0_0_24px_rgb(0_0_0/0.25)] min-[1651px]:left-auto min-[1651px]:right-[93px] min-[1651px]:top-[160px] min-[1651px]:max-w-[40rem] min-[1651px]:text-right">
         {welcomeLines(text)}
       </h1>
-    </CoverBanner>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <svg className="h-5 w-5 text-brand-maroon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-    </svg>
+    </Stage>
   );
 }
 
@@ -151,7 +147,7 @@ function NewsCard({ item, href, locale }: { item: HomePageContent["newsItems"][n
   return (
     <Link
       to={href}
-      className="group flex w-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgb(15_23_42/0.06),0_4px_16px_rgb(15_23_42/0.06)] ring-1 ring-rule transition-all duration-300 hover:shadow-[0_2px_4px_rgb(15_23_42/0.06),0_18px_40px_rgb(15_23_42/0.14)] hover:ring-brand-navy/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-navy"
+      className="group relative flex w-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_2px_rgb(15_23_42/0.06),0_4px_16px_rgb(15_23_42/0.06)] ring-1 ring-rule transition-all duration-300 hover:shadow-[0_2px_4px_rgb(15_23_42/0.06),0_18px_40px_rgb(15_23_42/0.14)] hover:ring-brand-navy/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-navy"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-brand-navy-dark">
         <img src={sized(item.thumbnail, 400)} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full scale-125 object-cover opacity-60 blur-2xl" />
@@ -276,7 +272,9 @@ function NewsCarousel({ items }: { items: HomePageContent["newsItems"] }) {
                 data-legacy-ignore={item.added ? "" : undefined}
                 className="mr-[30px] flex w-full shrink-0 md:w-[calc((100%-30px)/2)] min-[56.25rem]:w-[calc((100%-60px)/3)]"
               >
-                <NewsCard item={item} href={href} locale={locale} />
+                <Tilt className="flex w-full">
+                  <NewsCard item={item} href={href} locale={locale} />
+                </Tilt>
               </div>
             );
           })}
@@ -298,81 +296,97 @@ function NewsCarousel({ items }: { items: HomePageContent["newsItems"] }) {
   );
 }
 
+// The upcoming festival as a concert band: deep blue with slowly drifting coloured light and a faint
+// staff, the title, dates and a live countdown, then the application forms and rules as glass cards
+// (in the legacy order: competition, then festival).
+function Upcoming({ page, locale }: { page: HomePageContent; locale: Locale }) {
+  const up = page.upcomingEdition;
+  return (
+    <section className="relative isolate overflow-hidden bg-brand-navy-dark py-16 text-white lg:py-24">
+      <div aria-hidden="true" className="drift absolute -top-1/3 -left-1/4 -z-10 h-[80%] w-[60%] rounded-full bg-brand-maroon/45 blur-[120px]" />
+      <div aria-hidden="true" className="drift absolute -right-1/4 -bottom-1/3 -z-10 h-[80%] w-[60%] rounded-full bg-[#5b5bd6]/35 blur-[120px]" style={{ animationDelay: "-8s" }} />
+      <svg aria-hidden="true" viewBox="0 0 1200 120" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 top-10 -z-10 h-32 w-full text-white/[0.07]">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <path key={i} d={`M0 ${30 + i * 15} C 300 ${-10 + i * 15}, 600 ${90 + i * 15}, 1200 ${20 + i * 15}`} fill="none" stroke="currentColor" strokeWidth="1.5" />
+        ))}
+      </svg>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {up && (
+          <div className="reveal grid items-center gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+            <div className="text-center lg:text-left">
+              <h2 className="type-h1 text-white [text-wrap:balance]">{tr(up.title, locale)}</h2>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+                <div className="type-h5 inline-block rounded-full bg-brand-maroon px-6 py-3 text-white shadow-[0_12px_30px_-10px_rgb(172_46_72/0.8)]">
+                  {tr(up.dates, locale)}
+                </div>
+                {up.href && (
+                  // new site navigation (not on the legacy page): the content check skips it
+                  <Link
+                    data-legacy-ignore=""
+                    to={localizedHref(locale, up.href)}
+                    className="type-small group inline-flex items-center gap-2 rounded-full border-2 border-white/70 px-5 py-2.5 font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-brand-navy"
+                  >
+                    {tr(labels.festivalPage, locale)}
+                    <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </Link>
+                )}
+              </div>
+            </div>
+            {up.startsAt && <Countdown target={up.startsAt} locale={locale} />}
+          </div>
+        )}
+        {page.documents.length > 0 && (
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:mt-16 xl:grid-cols-4">
+            {page.documents.map((doc, i) => (
+              <div
+                key={doc.href}
+                className="reveal group relative flex flex-col rounded-2xl bg-white/[0.06] p-6 ring-1 ring-white/15 backdrop-blur-md transition duration-300 hover:bg-white/[0.1] hover:ring-white/35"
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                <div aria-hidden="true" className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+                <h4 className="type-h5 mb-3 text-white">{tr(doc.label, locale)}</h4>
+                {doc.date && (
+                  <div className="mb-5 flex items-center gap-2">
+                    <svg className="h-4 w-4 text-[#ff9db0]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span className="type-small font-semibold text-white/80">{tr(doc.date, locale)}</span>
+                  </div>
+                )}
+                <a
+                  href={doc.href}
+                  download
+                  className="type-small mt-auto inline-flex items-center justify-center gap-2 self-start rounded-lg bg-white px-5 py-2.5 font-semibold text-brand-navy shadow-lg transition-colors duration-300 hover:bg-[#ffe3e9]"
+                >
+                  <DownloadIcon />
+                  <span>{tr(labels.download, locale)}</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export function HomePage({ page }: { page: HomePageContent }) {
   const locale = useLocale();
-  // The legacy card lists the documents down two columns: competition, then festival.
-  const half = Math.ceil(page.documents.length / 2);
-  const columns = [page.documents.slice(0, half), page.documents.slice(half)];
 
   return (
     <div>
-      <Hero text={tr(page.welcome, locale)} />
+      <Hero text={tr(page.welcome, locale)} locale={locale} />
 
-      {(page.upcomingEdition || page.documents.length > 0) && (
-        <section className="py-8 md:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-2xl bg-white shadow-xl">
-            {page.upcomingEdition && (
-              <div className="flex w-full flex-col items-center justify-between px-4 pt-3 lg:flex-row">
-                <h2 className="type-h1 text-center text-ink lg:text-left">
-                  {tr(page.upcomingEdition.title, locale)}
-                </h2>
-                <div className="mt-4 flex shrink-0 flex-wrap items-center justify-center gap-3 lg:mt-0">
-                  <div className="type-h5 inline-block rounded-full bg-brand-maroon px-6 py-3 text-white shadow-md">
-                    {tr(page.upcomingEdition.dates, locale)}
-                  </div>
-                  {page.upcomingEdition.href && (
-                    // new site navigation (not on the legacy page): the content check skips it
-                    <Link
-                      data-legacy-ignore=""
-                      to={localizedHref(locale, page.upcomingEdition.href)}
-                      className="type-small inline-flex items-center gap-2 rounded-full border-2 border-brand-navy px-5 py-2.5 font-semibold text-brand-navy transition-colors duration-300 hover:bg-brand-navy hover:text-white"
-                    >
-                      {tr(labels.festivalPage, locale)}
-                      <span aria-hidden="true">→</span>
-                    </Link>
-                  )}
-                </div>
-              </div>
-            )}
-            <div className="grid grid-cols-1 gap-8 p-8 md:p-12 lg:grid-cols-2">
-              {columns.map((docs, c) => (
-                <div key={c} className="flex flex-col justify-center space-y-6">
-                  {docs.map((doc) => (
-                    <div
-                      key={doc.href}
-                      className="flex h-full flex-col items-center justify-center rounded-xl border-2 border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 p-6 shadow-md"
-                    >
-                      <h4 className="type-h4 mb-3 text-center text-ink">
-                        {tr(doc.label, locale)}
-                      </h4>
-                      {doc.date && (
-                        <div className="mb-3 flex items-center space-x-3">
-                          <CalendarIcon />
-                          <span className="type-small font-semibold text-brand-maroon">{tr(doc.date, locale)}</span>
-                        </div>
-                      )}
-                      <a
-                        href={doc.href}
-                        download
-                        className="type-small inline-flex items-center space-x-2 rounded-lg bg-brand-navy px-5 py-2.5 font-semibold text-white shadow-lg transition-all duration-300 hover:bg-brand-navy-dark lg:hover:scale-105"
-                      >
-                        <DownloadIcon />
-                        <span>{tr(labels.download, locale)}</span>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {(page.upcomingEdition || page.documents.length > 0) && <Upcoming page={page} locale={locale} />}
+
+      <Figures locale={locale} />
 
       {page.newsItems.length > 0 && (
-        <section className="bg-surface py-[30px]">
+        <section className="bg-surface py-16 lg:py-24">
           <div className="mx-auto max-w-[1140px] px-[15px]">
-            <div className="mx-auto pb-[30px] text-center lg:w-5/6">
-              <h2 className="type-h1 mt-5 mb-3 text-ink">{tr(labels.news, locale)}</h2>
+            <div className="reveal mx-auto pb-10 text-center lg:w-5/6">
+              <span aria-hidden="true" className="mx-auto mb-4 block h-1 w-12 rounded-full bg-brand-maroon" />
+              <h2 className="type-h1 mb-3 text-ink">{tr(labels.news, locale)}</h2>
               <p className="type-lead text-muted">{tr(labels.newsIntro, locale)}</p>
             </div>
             <NewsCarousel items={page.newsItems} />

@@ -181,3 +181,100 @@
     background: color-mix(in srgb, var(--color-brand-navy) 18%, transparent);
   }
 }
+
+/* ---------------------------------------------------------------------------------------------
+ * Home page effects (components/home). Motion only for visitors who have not asked for less;
+ * scroll-driven parts use CSS scroll timelines where the browser has them, and stay still where
+ * it does not.
+ * ------------------------------------------------------------------------------------------- */
+
+/* the welcome: a quiet fade in as the page opens */
+@keyframes title-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* a slow breathing light over the piano lid */
+.stage-glow {
+  background:
+    radial-gradient(40% 50% at 30% 40%, rgb(255 210 220 / 0.22), transparent 70%),
+    radial-gradient(35% 45% at 75% 30%, rgb(120 130 255 / 0.18), transparent 70%);
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+/* the sound switch: four bars dancing */
+@keyframes eq {
+  0%, 100% { height: 25%; }
+  50% { height: 100%; }
+}
+.eq-bar { height: 40%; }
+
+/* scroll cue: the dot drops and fades */
+@keyframes cue {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  80% { transform: translate(-50%, 14px); opacity: 0; }
+  100% { transform: translate(-50%, 0); opacity: 0; }
+}
+
+/* cards that lean towards the pointer, with a light following it */
+.tilt {
+  --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 50%;
+  perspective: 900px;
+}
+.tilt > * {
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+.tilt[data-tilt] > * { transition-duration: 0.12s; }
+.tilt > *::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgb(255 255 255 / 0.22), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tilt[data-tilt] > *::after { opacity: 1; }
+
+/* the concert band behind the countdown: drifting coloured light */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, -4%) scale(1.15); }
+}
+
+/* sections rising into view as the page scrolls */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(48px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+/* the cover artwork drifting slower than the page */
+@keyframes parallax {
+  to { transform: translateY(18%); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stage-title { animation: title-in 0.8s ease-out 0.15s both; }
+  .stage-glow { animation: breathe 9s ease-in-out infinite; }
+  .eq-bar { animation: eq 0.9s ease-in-out infinite; }
+  .eq-bar.eq-off { animation-play-state: paused; height: 30%; }
+  .scroll-cue span { animation: cue 2s ease-in-out infinite; }
+  .drift { animation: drift 16s ease-in-out infinite; }
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+    .stage-art {
+      animation: parallax linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}

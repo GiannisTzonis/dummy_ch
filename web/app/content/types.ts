@@ -354,7 +354,8 @@ export const homePageSchema = z.object({
   // The upcoming edition's headline card, e.g. "45th International Choral
   // Festival of Preveza" / "July 8–11, 2027".
   // href: the edition's page (new site navigation, not on the legacy page)
-  upcomingEdition: z.object({ title: localizedString, dates: localizedString, href: z.string().optional() }).optional(),
+  // startsAt: when it begins (ISO date and time, Greek time), for the home page countdown
+  upcomingEdition: z.object({ title: localizedString, dates: localizedString, href: z.string().optional(), startsAt: z.string().optional() }).optional(),
   documents: z.array(documentLinkSchema.extend({ date: localizedString.optional() })).default([]),
   newsItems: z.array(newsCarouselItemSchema).default([]),
   collaborations: z.array(collaboratorSchema).default([]),
