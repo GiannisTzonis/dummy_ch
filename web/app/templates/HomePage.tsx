@@ -6,6 +6,7 @@ import { Stage } from "~/components/home/Stage";
 import { Countdown, Figures, Tilt } from "~/components/home/Effects";
 import { responsive, sized } from "~/lib/img";
 import { ArtIcon } from "~/components/ArtIcons";
+import { FestivalSeal } from "~/components/content/FestivalSeal";
 
 // Layout and styles follow index.html / indexGreek.html and css/main.css.
 
@@ -306,8 +307,8 @@ function NewsCarousel({ items }: { items: HomePageContent["newsItems"] }) {
   );
 }
 
-// News of the coming festival, under the countdown: one highlighted link (new site, not on the
-// legacy page). Change or remove it when the news is no longer new.
+// News of the coming festival, under the countdown: one highlighted link, led by the festival's
+// logo with its turning text (new site, not on the legacy page). Change or remove it when the news is no longer new.
 function WhatsNew({ locale }: { locale: Locale }) {
   return (
     <Link
@@ -316,8 +317,9 @@ function WhatsNew({ locale }: { locale: Locale }) {
       className="reveal group relative mt-12 flex flex-col gap-5 overflow-hidden rounded-2xl bg-gradient-to-r from-brand-maroon/30 via-white/[0.07] to-white/[0.04] p-6 ring-1 ring-white/20 backdrop-blur-md transition duration-300 hover:ring-white/45 sm:flex-row sm:items-center sm:gap-6 sm:p-7 lg:mt-14"
     >
       <div aria-hidden="true" className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-      <span aria-hidden="true" className="grid size-14 shrink-0 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/20">
-        <ArtIcon name="notes" className="size-8 text-white" />
+      {/* the festival's logo with its turning text, as on the festival page */}
+      <span aria-hidden="true" className="size-24 shrink-0 rounded-full shadow-[0_12px_32px_-10px_rgb(0_0_0/0.6)] ring-2 ring-white/25 sm:size-28">
+        <FestivalSeal label="" className="size-full" />
       </span>
       <div className="flex-1">
         <span className="type-label mb-2 inline-block rounded-full bg-brand-maroon px-2.5 py-1 text-white uppercase shadow-[0_6px_16px_-6px_rgb(172_46_72/0.9)]">
