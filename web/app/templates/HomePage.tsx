@@ -317,8 +317,8 @@ function WhatsNew({ locale }: { locale: Locale }) {
       className="reveal group relative mt-12 flex flex-col gap-5 overflow-hidden rounded-2xl bg-gradient-to-r from-brand-maroon/30 via-white/[0.07] to-white/[0.04] p-6 ring-1 ring-white/20 backdrop-blur-md transition duration-300 hover:ring-white/45 sm:flex-row sm:items-center sm:gap-6 sm:p-7 lg:mt-14"
     >
       <div aria-hidden="true" className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-      {/* the festival's logo with its turning text, as on the festival page */}
-      <span aria-hidden="true" className="size-24 shrink-0 rounded-full shadow-[0_12px_32px_-10px_rgb(0_0_0/0.6)] ring-2 ring-white/25 sm:size-28">
+      {/* the festival's logo with its turning text, as on the festival page (not on phones) */}
+      <span aria-hidden="true" className="hidden size-28 shrink-0 rounded-full shadow-[0_12px_32px_-10px_rgb(0_0_0/0.6)] ring-2 ring-white/25 sm:block">
         <FestivalSeal label="" className="size-full" />
       </span>
       <div className="flex-1">
