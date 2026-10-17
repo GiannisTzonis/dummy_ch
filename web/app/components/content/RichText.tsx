@@ -3,6 +3,7 @@ import type { Locale, RichBlock } from "~/content/types";
 import { useLocale, tr } from "~/lib/locale";
 import { responsive, sized } from "~/lib/img";
 import { CompulsoryWorks } from "./CompulsoryWorks";
+import { ArtIcon } from "~/components/ArtIcons";
 
 // "@/festival/2022" is a link to another page of this site, in the current
 // language; anything else is used as written.
@@ -29,9 +30,7 @@ function inline(text: string, locale: Locale): ReactNode[] {
           className="type-small mt-1 inline-flex items-center gap-2 rounded-lg bg-brand-navy px-5 py-2.5 font-semibold text-white no-underline shadow-[0_10px_24px_-12px_rgb(43_40_122/0.7)] transition-colors duration-300 hover:bg-brand-navy-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy"
         >
           {!m[1].includes("↓") && (
-            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14" />
-            </svg>
+            <ArtIcon name="score" small className="size-4" />
           )}
           {inline(m[1], locale)}
         </a>
@@ -349,9 +348,7 @@ function EditionCard({ card, locale }: { card: EditionCardData; locale: Locale }
           className="relative h-full w-full object-contain p-3 drop-shadow-[0_10px_24px_rgb(0_0_0/0.35)] transition-transform duration-500 group-hover:scale-[1.03]"
         />
         <p className="type-caption absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 font-semibold text-brand-maroon shadow-sm backdrop-blur">
-          <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <ArtIcon name="calendar" small className="size-4" />
           {card.dates}
         </p>
       </div>

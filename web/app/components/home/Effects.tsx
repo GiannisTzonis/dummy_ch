@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Locale } from "~/content/types";
 import { tr } from "~/lib/locale";
+import { ArtIcon } from "~/components/ArtIcons";
 
 // Home page effects: the countdown to the festival, the figures that count up, and the cards that
 // tilt under the pointer. All new site furniture (marked for the
@@ -133,19 +134,8 @@ const figuresTitle = {
   es: "El festival en cifras",
 } as const;
 
-// line icons (24-unit grid, drawn with the current colour): voices, a note, a trophy
-const figureIcons = [
-  <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></>,
-  <><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" /></>,
-  <><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /><path d="M4 22h16" /><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></>,
-];
-function FigureIcon({ i, className }: { i: number; className: string }) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      {figureIcons[i]}
-    </svg>
-  );
-}
+// the figures' icons: the choirs, the festival's music, the competition's laurels
+const figureIcons = ["choir", "notes", "laurel"] as const;
 
 // The figures on a soft concert-hall light, over a faint staff: three cards, each with its icon,
 // its number counting up in the festival's colours, and a large ghost of the icon in the corner.
@@ -172,9 +162,9 @@ export function Figures({ locale }: { locale: Locale }) {
               <div className="group relative h-full overflow-hidden rounded-2xl bg-white/85 p-7 shadow-[0_10px_40px_-18px_rgb(43_40_122/0.35)] ring-1 ring-brand-navy/10 backdrop-blur-sm transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-20px_rgb(43_40_122/0.45)] lg:p-9">
                 {/* the festival's colours along the top edge, and a ghost of the icon */}
                 <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-navy via-[#5b3f8f] to-brand-maroon" />
-                <FigureIcon i={i} className="pointer-events-none absolute -right-6 -bottom-6 h-36 w-36 text-brand-navy/[0.05] transition duration-700 group-hover:-rotate-6 group-hover:text-brand-maroon/[0.08]" />
-                <span className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-navy to-brand-maroon text-white shadow-lg shadow-brand-navy/25">
-                  <FigureIcon i={i} className="h-6 w-6" />
+                <ArtIcon name={figureIcons[i]} className="pointer-events-none absolute -right-6 -bottom-6 size-36 text-brand-navy/[0.05] transition duration-700 group-hover:-rotate-6 group-hover:text-brand-maroon/[0.08]" />
+                <span className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-brand-navy to-brand-maroon text-white shadow-lg shadow-brand-navy/25">
+                  <ArtIcon name={figureIcons[i]} className="size-8" />
                 </span>
                 <p className="bg-gradient-to-br from-brand-navy via-[#5b3f8f] to-brand-maroon bg-clip-text font-semibold tracking-tight text-transparent [font-size:clamp(3.25rem,6vw,5rem)] leading-none">
                   <CountUp to={f.to} suffix={tr(f.suffix, locale)} />

@@ -5,6 +5,7 @@ import { localizedHref, pick, useLocale, tr } from "~/lib/locale";
 import { Stage } from "~/components/home/Stage";
 import { Countdown, Figures, Tilt } from "~/components/home/Effects";
 import { responsive, sized } from "~/lib/img";
+import { ArtIcon } from "~/components/ArtIcons";
 
 // Layout and styles follow index.html / indexGreek.html and css/main.css.
 
@@ -151,14 +152,6 @@ function Hero({ text, locale }: { text: string; locale: Locale }) {
   );
 }
 
-function DownloadIcon() {
-  return (
-    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-    </svg>
-  );
-}
-
 // A news card: framed, with the picture on a soft blurred copy of itself so posters and photos of
 // any shape fill the same 4:3 stage uncropped. The date sits on the picture as a chip, a maroon
 // rule leads into the title, and the whole card is one link that lifts on hover.
@@ -178,9 +171,7 @@ function NewsCard({ item, href, locale }: { item: HomePageContent["newsItems"][n
         />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/25 to-transparent" aria-hidden="true" />
         <p className="type-caption absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 font-semibold text-brand-maroon shadow-sm backdrop-blur">
-          <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <ArtIcon name="calendar" small className="size-4" />
           {pick(item.date, locale)}
         </p>
       </div>
@@ -326,12 +317,7 @@ function WhatsNew({ locale }: { locale: Locale }) {
     >
       <div aria-hidden="true" className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
       <span aria-hidden="true" className="grid size-14 shrink-0 place-items-center rounded-2xl bg-white/10 ring-1 ring-white/20">
-        {/* a pair of notes */}
-        <svg viewBox="0 0 24 24" className="size-7 fill-none stroke-white" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 18V5l12-2v13" />
-          <circle cx="6" cy="18" r="3" />
-          <circle cx="18" cy="16" r="3" />
-        </svg>
+        <ArtIcon name="notes" className="size-8 text-white" />
       </span>
       <div className="flex-1">
         <span className="type-label mb-2 inline-block rounded-full bg-brand-maroon px-2.5 py-1 text-white uppercase shadow-[0_6px_16px_-6px_rgb(172_46_72/0.9)]">
@@ -400,9 +386,7 @@ function Upcoming({ page, locale }: { page: HomePageContent; locale: Locale }) {
                 <h4 className="type-h5 mb-3 text-white">{tr(doc.label, locale)}</h4>
                 {doc.date && (
                   <div className="mb-5 flex items-center gap-2">
-                    <svg className="h-4 w-4 text-[#ff9db0]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
+                    <ArtIcon name="calendar" small className="size-4 text-[#ff9db0]" />
                     <span className="type-small font-semibold text-white/80">{tr(doc.date, locale)}</span>
                   </div>
                 )}
@@ -411,7 +395,7 @@ function Upcoming({ page, locale }: { page: HomePageContent; locale: Locale }) {
                   download
                   className="type-small mt-auto inline-flex items-center justify-center gap-2 self-start rounded-lg bg-white px-5 py-2.5 font-semibold text-brand-navy shadow-lg transition-colors duration-300 hover:bg-[#ffe3e9]"
                 >
-                  <DownloadIcon />
+                  <ArtIcon name="score" small className="size-5" />
                   <span>{tr(labels.download, locale)}</span>
                 </a>
               </div>

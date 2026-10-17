@@ -8,6 +8,7 @@ import { LightboxProvider, Zoomable, type LightboxImage } from "./Lightbox";
 import { FestivalSeal, SEAL_LOGO } from "./FestivalSeal";
 import type { FestivalResults } from "~/content/festival-results";
 import { responsive, sized } from "~/lib/img";
+import { ArtIcon } from "~/components/ArtIcons";
 
 type Localized = { en: RichBlock[]; el: RichBlock[] };
 type Heading = Extract<RichBlock, { heading: string }>;
@@ -788,9 +789,7 @@ export function FestivalContent({
         <div className={`${container} pt-[124px] pb-12 sm:pb-14 lg:pt-[150px] lg:pb-20`}>
           {dates && (
             <p className="type-label mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-3.5 py-1.5 font-semibold tracking-wide text-white ring-1 ring-white/30 backdrop-blur">
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+              <ArtIcon name="calendar" small className="size-4" />
               {dates}
             </p>
           )}

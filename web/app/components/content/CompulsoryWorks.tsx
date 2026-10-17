@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { Locale } from "~/content/types";
 import { page, labels, type CompulsoryWork } from "~/content/compulsory-works-2027";
 import { localizedHref, tr, useLocale } from "~/lib/locale";
+import { ArtIcon } from "~/components/ArtIcons";
 
 // The compulsory works of the 2027 competition, inside the festival page's own section (its
 // content places it with {embed: "compulsory-works-2027"} under the section title): an
@@ -79,9 +80,7 @@ function WorkCard({ work, locale }: { work: CompulsoryWork; locale: Locale }) {
           download
           className="type-small inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-navy px-5 py-2.5 font-semibold text-white shadow-[0_10px_24px_-12px_rgb(43_40_122/0.7)] transition-colors duration-300 hover:bg-brand-navy-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-navy"
         >
-          <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14" />
-          </svg>
+          <ArtIcon name="score" small className="size-4" />
           {tr(labels.score, locale)}
         </a>
         {work.note && <p className="type-caption mt-3 text-muted">{tr(work.note, locale)}</p>}
