@@ -72,6 +72,11 @@ export function Stage({ locale, children }: { locale: Locale; children: ReactNod
   const soundRef = useRef(false);
   soundRef.current = sound;
 
+  // with sound on, the picture itself is something to press (it sings), so it shows the hand cursor
+  useEffect(() => {
+    host.current?.style.setProperty("cursor", sound ? "pointer" : "");
+  }, [sound]);
+
   useEffect(() => {
     const section = host.current!, cv = canvas.current!;
     const ctx = cv.getContext("2d")!;

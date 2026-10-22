@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router";
 import page from "~/content/pages/our-choir";
-import { StaticPage } from "~/templates/StaticPage";
+import { ChoirPage } from "~/templates/ChoirPage";
 import { localeOf, pageTitle, tr } from "~/lib/locale";
 import { fallbackMeta, translate, translationId } from "~/lib/translations.server";
 
@@ -17,5 +17,5 @@ export function meta({ loaderData: data }: { loaderData: ReturnType<typeof loade
 }
 
 export default function OurChoirRoute() {
-  return <StaticPage page={useLoaderData<typeof loader>().page} />;
+  return <ChoirPage page={useLoaderData<typeof loader>().page} />;
 }
