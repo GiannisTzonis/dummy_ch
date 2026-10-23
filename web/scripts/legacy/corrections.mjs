@@ -318,6 +318,14 @@ export const baseCorrections = [
           </a>
         </div>`,
   },
+  {
+    why: "New photos from the choir (2026-10-23): three recent photos of the mixed choir, first on Our Choir (the first one is the page cover)",
+    files: ["ourchoir.html", "ourchoirGreek.html"],
+    find: /(<div class="main-choir info-thumb">\s*<img src="img\/pages\/about-img\.jpg")/,
+    replace: ["choir-aristotle-university.jpg", "choir-on-stage-thessaloniki.jpg", "choir-genk-2026.jpg"]
+      .map(f => `<div class="main-choir info-thumb">\n                        <img src="img/pages/${f}" class="img-fluid history-image" alt="alt img">\n                    </div>\n                    `)
+      .join("") + "$1",
+  },
 
   // --- client rule (2026-10-11): non-Greek names in Latin script on the Greek pages ------------
   // People, choirs/ensembles, composers and prizes named after people, spelled as on the English

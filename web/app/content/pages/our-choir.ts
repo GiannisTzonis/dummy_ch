@@ -18,6 +18,15 @@ const data: StaticPageContent = {
             "narrow": 6
           },
           {
+            "img": "/img/pages/choir-aristotle-university.webp"
+          },
+          {
+            "img": "/img/pages/choir-on-stage-thessaloniki.webp"
+          },
+          {
+            "img": "/img/pages/choir-genk-2026.webp"
+          },
+          {
             "img": "/img/pages/about-img.webp"
           },
           {
@@ -117,6 +126,15 @@ const data: StaticPageContent = {
         el: [
           {
             "narrow": 6
+          },
+          {
+            "img": "/img/pages/choir-aristotle-university.webp"
+          },
+          {
+            "img": "/img/pages/choir-on-stage-thessaloniki.webp"
+          },
+          {
+            "img": "/img/pages/choir-genk-2026.webp"
           },
           {
             "img": "/img/pages/about-img.webp"

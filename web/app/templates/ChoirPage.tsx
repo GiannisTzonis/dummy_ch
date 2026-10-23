@@ -163,6 +163,22 @@ function HistoryChapter({ chapter, id, locale, cover }: { chapter: Chapter; id: 
         )}
       </div>
 
+      {/* the chapter's other photos (more than the collage holds): a row below it */}
+      {photos.length > 2 && (
+        <div className={`${container} mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:mt-16 ${photos.length - 2 >= 3 ? "sm:grid-cols-3" : ""}`}>
+          {photos.slice(2).map((src, i, more) => (
+            <Photo
+              key={src}
+              images={gallery}
+              index={at(src)}
+              locale={locale}
+              sizes="(min-width: 640px) 33vw, 50vw"
+              className={`aspect-[4/3] ${more.length % 2 && i === more.length - 1 ? "max-sm:col-span-2 max-sm:aspect-[16/9]" : ""}`}
+            />
+          ))}
+        </div>
+      )}
+
       {chapter.list.length > 0 && (
         <div className={`${container} mt-16 lg:mt-24`}>
           <div className="-mx-4 bg-surface px-4 py-10 ring-1 ring-black/5 sm:mx-0 sm:rounded-3xl sm:px-10 sm:py-14 lg:px-14">
