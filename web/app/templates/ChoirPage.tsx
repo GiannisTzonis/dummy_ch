@@ -51,6 +51,8 @@ function mosaicClass(i: number, n: number) {
   return c;
 }
 
+const mobileCover = responsive("/img/pages/choir-on-stage-thessaloniki.webp", "100vw");
+
 export function ChoirPage({ page }: { page: StaticPageContent }) {
   const locale = useLocale();
   const chapters = chaptersOf(tr(page.sections[0].body, locale));
@@ -62,7 +64,11 @@ export function ChoirPage({ page }: { page: StaticPageContent }) {
       {/* Cover: the mixed choir, full width, with the title over a navy fade */}
       <section className="relative isolate flex min-h-[560px] items-end overflow-hidden bg-brand-navy-dark text-white h-[82svh] max-h-[880px] lg:h-[88svh]">
         {cover && (
-          <img {...responsive(cover, "100vw")} alt="" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_35%]" />
+          <picture>
+            {/* phones: the choir on stage in Thessaloniki, which holds up in a tall crop (owner's pick) */}
+            <source media="(max-width: 639px)" srcSet={mobileCover.srcSet} sizes={mobileCover.sizes} />
+            <img {...responsive(cover, "100vw")} alt="" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_35%]" />
+          </picture>
         )}
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/10 to-transparent [background-size:100%_40%] bg-no-repeat" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-navy-dark via-brand-navy-dark/55 to-transparent" />
