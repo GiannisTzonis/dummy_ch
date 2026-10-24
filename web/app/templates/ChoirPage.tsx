@@ -75,7 +75,7 @@ export function ChoirPage({ page }: { page: StaticPageContent }) {
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-black/45 via-black/5 to-transparent [background-size:100%_30%] bg-no-repeat" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-navy-dark/90 via-brand-navy-dark/30 via-35% to-transparent to-75%" />
         <div data-legacy-ignore="" className={`${container} w-full pb-12 sm:pb-16 lg:pb-20`}>
-          <p className="type-label inline-flex items-center gap-2 rounded-full bg-white/12 px-3.5 py-1.5 text-white ring-1 ring-white/30 backdrop-blur">
+          <p className="type-label inline-flex items-center gap-2 rounded-full bg-brand-navy-dark/70 px-3.5 py-1.5 text-white ring-1 ring-white/25 shadow-[0_6px_20px_-8px_rgb(0_0_0/0.6)] backdrop-blur-md">
             <ArtIcon name="choir" small className="size-4" />
             <span className="hidden sm:inline">{tr(L.society, locale)}</span>
             <span aria-hidden="true" className="hidden opacity-60 sm:inline">·</span>
