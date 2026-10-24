@@ -441,12 +441,6 @@
       row.querySelectorAll('[data-lane]').forEach((b) => b.setAttribute('aria-checked', String(b.dataset.lane === m.lane)));
     }
     document.querySelectorAll('#presets button').forEach((b) => b.classList.toggle('on', b.dataset.preset === state.preset));
-    $('#presetHint').textContent = {
-      all: 'Ακούς όλες τις φωνές μαζί, όπως στη χορωδία.',
-      lead: 'Η φωνή σου δυνατά, οι άλλες χαμηλά από πίσω: καλό για να μάθεις τις νότες σου μέσα στην αρμονία.',
-      only: 'Μόνο η φωνή σου: για να μάθεις τη μελωδία σου.',
-      without: 'Όλες εκτός από τη δική σου: τραγούδα εσύ το κομμάτι σου από πάνω.',
-    }[state.preset] || '';
     applyMix(false);
     store.set('mix', state.mix);
   }
@@ -460,14 +454,12 @@
       if (mine && p.divisi && state.myLane !== 'all') {
         // I sing only one half of this part: shape the two halves instead of the whole part
         m.on = true; m.lane = 'all';
-        m.vol = name === 'all' || name === 'without' ? 0.8 : 1;
-        m.split = { all: null, lead: { mine: 1, other: 0.25 }, only: { mine: 1, other: 0 }, without: { mine: 0, other: 1 } }[name];
+        m.vol = name === 'all' ? 0.8 : 1;
+        m.split = name === 'only' ? { mine: 1, other: 0 } : null;
         continue;
       }
       if (name === 'all') { m.on = true; m.vol = 0.8; }
-      if (name === 'lead') { m.on = true; m.vol = mine ? 1 : 0.25; }
       if (name === 'only') { m.on = mine; m.vol = 1; }
-      if (name === 'without') { m.on = !mine; m.vol = 0.8; }
     }
     syncMixer();
   }
@@ -822,12 +814,11 @@
 
   // The Α΄/Β΄ choice only shows when my section splits somewhere in this song
   function syncRole() {
-    const name = SECTION_NAME[state.mine];
     const splits = state.song && state.song.parts.some((p) => SECTION_OF[p.id] === state.mine && p.divisi);
     if (!splits && state.myLane !== 'all') { state.myLane = 'all'; store.set('myLane', 'all'); }
     $('#laneRow').hidden = !splits;
-    $('#laneRow .label').textContent = `${SECTION_PLURAL[state.mine]} χωρίζονται σε δύο σε κάποια σημεία. Εσύ;`;
-    const lbl = { all: 'Όλες οι νότες', u: `${name} Α΄ (πάνω)`, l: `${name} Β΄ (κάτω)` };
+    $('#laneRow .label').textContent = `Σε κάποια σημεία ${SECTION_PLURAL[state.mine].toLowerCase()} χωρίζονται σε Α΄ και Β΄. Εσύ ποιο λες;`;
+    const lbl = { all: 'Δεν ξέρω / όλες οι νότες', u: 'Α΄ (ψηλά)', l: 'Β΄ (χαμηλά)' };
     document.querySelectorAll('#myLane button').forEach((b) => {
       b.textContent = lbl[b.dataset.v];
       b.setAttribute('aria-checked', String(b.dataset.v === state.myLane));
@@ -898,14 +889,14 @@
       state.mine = v; store.set('mine', v);
       state.myLane = 'all'; store.set('myLane', 'all');
       syncRole();
-      const p = state.preset || 'lead';
+      const p = state.preset || 'all';
       applyPreset(p); store.set('preset', p);
       later(() => score.applyRole(true));
     });
     bindSeg('#myLane', state.myLane, (v) => {
       state.myLane = v; store.set('myLane', v);
       syncRole();
-      const p = state.preset || 'lead';
+      const p = state.preset || 'all';
       applyPreset(p); store.set('preset', p);
       later(() => score.applyRole(false));
     });
@@ -928,7 +919,10 @@
     const speed = $('#speed');
     speed.value = Math.round(state.speed * 100);
     $('#speedOut').textContent = speed.value + '%';
-    speed.oninput = () => { $('#speedOut').textContent = speed.value + '%'; setSpeed(speed.value / 100); store.set('speed', +speed.value); };
+    const pickSpeed = (v) => document.querySelectorAll('#speedPick button').forEach((b) => b.setAttribute('aria-checked', String(+b.dataset.v === v)));
+    speed.oninput = () => { $('#speedOut').textContent = speed.value + '%'; setSpeed(speed.value / 100); store.set('speed', +speed.value); pickSpeed(+speed.value); };
+    bindSeg('#speedPick', speed.value, (v) => { speed.value = v; speed.oninput(); });
+    pickSpeed(+speed.value);
     $('#metronome').checked = state.metronome;
     $('#metronome').onchange = (e) => { state.metronome = e.target.checked; store.set('metronome', state.metronome); };
     $('#countIn').checked = state.countIn;
@@ -966,7 +960,9 @@
     });
 
     await loadSong(sel.value);
-    const preset = store.get('preset', store.get('mix', null) ? null : 'all');
+    // two choices since 2026-10-24 ("my voice in front" and "without my voice" were dropped)
+    let preset = store.get('preset', store.get('mix', null) ? null : 'all');
+    if (preset === 'lead' || preset === 'without') preset = 'all';
     if (preset) applyPreset(preset);
   }
 

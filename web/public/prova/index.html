@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8b68d53aed">
+  <link rel="stylesheet" href="style.css?v=8a078aee9a">
 </head>
 <body>
   <div class="gate" id="gate" hidden>
@@ -59,75 +59,75 @@
     <section class="hero">
       <h1 id="songTitle">…</h1>
       <p id="songMeta" class="meta"></p>
-      <p class="meta small" id="songFacts"></p>
     </section>
 
     <section class="card who">
-      <div class="who-row">
-        <h2>Ποια φωνή είσαι;</h2>
-        <div class="seg" id="mySection" role="radiogroup" aria-label="Η φωνή μου">
-          <button data-v="S" role="radio">Σοπράνο</button>
-          <button data-v="A" role="radio">Άλτο</button>
-          <button data-v="T" role="radio">Τενόρος</button>
-          <button data-v="B" role="radio">Μπάσος</button>
-        </div>
+      <h2><span class="step">1</span> Ποια φωνή είσαι;</h2>
+      <div class="seg big" id="mySection" role="radiogroup" aria-label="Η φωνή μου">
+        <button data-v="S" role="radio">Σοπράνο</button>
+        <button data-v="A" role="radio">Άλτο</button>
+        <button data-v="T" role="radio">Τενόρος</button>
+        <button data-v="B" role="radio">Μπάσος</button>
       </div>
       <div class="lane-row" id="laneRow" hidden>
-        <span class="label"></span>
-        <div class="seg small" id="myLane" role="radiogroup" aria-label="Ποιο μισό της φωνής">
-          <button data-v="all" role="radio">Όλες οι νότες</button>
+        <p class="label"></p>
+        <div class="seg" id="myLane" role="radiogroup" aria-label="Ποιο μισό της φωνής">
           <button data-v="u" role="radio">Α΄</button>
           <button data-v="l" role="radio">Β΄</button>
+          <button data-v="all" role="radio">Όλες οι νότες</button>
         </div>
       </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="step">2</span> Τι θέλεις να ακούς;</h2>
       <div class="presets" id="presets">
-        <button data-preset="all">Όλη η χορωδία</button>
-        <button data-preset="lead">Η φωνή μου μπροστά</button>
-        <button data-preset="only">Μόνο η φωνή μου</button>
-        <button data-preset="without">Χωρίς τη φωνή μου</button>
+        <button data-preset="all"><b>Όλη τη χορωδία</b><span>Όλες οι φωνές μαζί, όπως στη συναυλία</span></button>
+        <button data-preset="only"><b>Μόνο τη φωνή μου</b><span>Για να μάθεις τις νότες σου</span></button>
       </div>
-      <p class="hint" id="presetHint"></p>
+      <p class="sub">Ταχύτητα</p>
+      <div class="seg wide" id="speedPick" role="radiogroup" aria-label="Ταχύτητα">
+        <button data-v="70" role="radio">Αργά</button>
+        <button data-v="85" role="radio">Λίγο αργά</button>
+        <button data-v="100" role="radio">Κανονικά</button>
+      </div>
     </section>
 
     <section class="card">
-      <div class="card-head">
-        <h2>Φωνές</h2>
-        <span class="hint inline">Πάτα το όνομα για ενεργοποίηση / απενεργοποίηση</span>
-      </div>
-      <div id="mixer" class="mixer"></div>
-    </section>
-
-    <section class="card">
-      <div class="card-head">
-        <h2>Ενότητες</h2>
-        <label class="check"><input type="checkbox" id="loopToggle"> Επανάληψη</label>
-      </div>
+      <h2><span class="step">3</span> Από πού να ξεκινήσει;</h2>
       <div class="chips" id="sections"></div>
+      <p class="hint">Ή πάτα πάνω στην παρτιτούρα, στο σημείο που θέλεις. Μετά πάτα το κόκκινο κουμπί ▶ κάτω.</p>
+    </section>
+
+    <details class="card more">
+      <summary>Περισσότερες ρυθμίσεις</summary>
+
+      <h3>Επανάληψη</h3>
+      <label class="check"><input type="checkbox" id="loopToggle"> Να ξαναπαίζει το ίδιο κομμάτι</label>
       <div class="loop-range" id="loopRange" hidden>
         <label>Από μέτρο <input type="number" id="loopFrom" min="1" value="1" inputmode="numeric"></label>
         <label>έως <input type="number" id="loopTo" min="1" value="4" inputmode="numeric"></label>
       </div>
-    </section>
 
-    <section class="card">
-      <div class="card-head"><h2>Ρυθμίσεις</h2></div>
-      <div class="settings">
-        <div class="setting">
-          <span class="label">Ήχος</span>
-          <div class="seg small" id="instrument" role="radiogroup" aria-label="Ήχος">
-            <button data-v="piano" role="radio">Πιάνο</button>
-            <button data-v="choir" role="radio">Φωνή «α»</button>
-            <button data-v="tone" role="radio">Καθαρός τόνος</button>
-          </div>
-        </div>
-        <div class="setting">
-          <span class="label">Ταχύτητα <b id="speedOut">100%</b></span>
-          <input type="range" id="speed" min="40" max="120" step="5" value="100">
-        </div>
-        <label class="check"><input type="checkbox" id="metronome"> Μετρονόμος (3+2+2)</label>
-        <label class="check"><input type="checkbox" id="countIn" checked> Μέτρημα ενός μέτρου πριν ξεκινήσει</label>
+      <h3>Ήχος</h3>
+      <div class="seg wide" id="instrument" role="radiogroup" aria-label="Ήχος">
+        <button data-v="piano" role="radio">Πιάνο</button>
+        <button data-v="choir" role="radio">Φωνή «α»</button>
+        <button data-v="tone" role="radio">Καθαρός τόνος</button>
       </div>
-    </section>
+
+      <h3>Ακριβής ταχύτητα <b id="speedOut">100%</b></h3>
+      <input type="range" id="speed" min="40" max="120" step="5" value="100" aria-label="Ταχύτητα">
+
+      <h3>Μέτρημα</h3>
+      <label class="check"><input type="checkbox" id="countIn" checked> Μέτρημα ενός μέτρου πριν ξεκινήσει</label>
+      <label class="check"><input type="checkbox" id="metronome"> Μετρονόμος (3+2+2)</label>
+
+      <h3>Οι φωνές μία μία</h3>
+      <p class="hint">Πάτα το όνομα για να κλείσεις ή να ανοίξεις μια φωνή. Η μπάρα αλλάζει την ένταση.</p>
+      <div id="mixer" class="mixer"></div>
+      <p class="meta small" id="songFacts"></p>
+    </details>
 
   </main>
 
@@ -136,16 +136,16 @@
       <div class="card-head">
         <h2>Παρτιτούρα</h2>
         <div class="score-tools">
-          <label class="check"><input type="checkbox" id="onlyMine"> Μόνο η φωνή μου</label>
-          <label class="check"><input type="checkbox" id="follow" checked> Ακολούθα</label>
+          <label class="check"><input type="checkbox" id="onlyMine"> Δείξε μόνο τη φωνή μου</label>
+          <label class="check"><input type="checkbox" id="follow" checked> Να γυρίζει μόνη της</label>
           <div class="zoom">
+            <span class="zoom-label">Μέγεθος</span>
             <button id="zoomOut" aria-label="Σμίκρυνση: περισσότερα μέτρα ανά σειρά">−</button>
             <span id="perLine" class="per-line"></span>
             <button id="zoomIn" aria-label="Μεγέθυνση: λιγότερα μέτρα ανά σειρά">+</button>
           </div>
         </div>
       </div>
-      <p class="hint">Πάτα σε ένα μέτρο για να ξεκινήσεις από εκεί.</p>
       <div id="score" class="score"><p class="loading">Φόρτωση παρτιτούρας…</p></div>
     </section>
   </div>
@@ -166,7 +166,7 @@
         <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         <svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
       </button>
-      <button id="giveNote" class="icon-btn text" aria-label="Δώσε μου τη νότα μου">Νότα</button>
+      <button id="giveNote" class="icon-btn text" aria-label="Άκου την πρώτη νότα σου">Η νότα μου</button>
       <button id="backToScore" class="back-to-score" hidden>↓ Πίσω στη θέση</button>
       <div class="pos">
         <div class="pos-top">
@@ -185,6 +185,6 @@
   </svg>
 
   <script src="vendor/opensheetmusicdisplay.min.js"></script>
-  <script src="app.js?v=8b68d53aed"></script>
+  <script src="app.js?v=8a078aee9a"></script>
 </body>
 </html>
