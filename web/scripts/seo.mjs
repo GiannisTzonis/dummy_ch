@@ -6,6 +6,8 @@
 //   - a page in French, Italian, German or Spanish not translated yet (it shows the English; its
 //     loader adds the "armonia-fallback" marker) points search engines at the English page and is
 //     left out of the sitemap and of the other pages' hreflang links
+//   - a page that repeats another page's article (COPIES: the legacy berlin2024 page carries the
+//     France 2024 story) points search engines at that page and is left out the same way
 //   - sitemap.xml (every page with its versions) and robots.txt
 //   - index.html (the root): a bare redirect to /en/
 //   - 404.html, which GitHub Pages serves for any unknown address: the app starts there and shows
@@ -33,6 +35,8 @@ const FALLBACK = {
 const SHARE = "/share.png";
 const OG_LOCALE = { en: "en_US", el: "el_GR", fr: "fr_FR", it: "it_IT", de: "de_DE", es: "es_ES" };
 const SITE_NAME = { en: "Armonia Choir", el: "Χορωδία Αρμονία", fr: "Chœur Armonia", it: "Coro Armonia", de: "Chor Armonia", es: "Coro Armonia" };
+// copies of another page's article, in every language: the copy's route -> the original's
+const COPIES = { "/news/berlin-2024/": "/news/france-2024/" };
 const MARK = /\n?<!--seo-->[\s\S]*?<!--\/seo-->/;
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -61,6 +65,8 @@ const swap = (route, l) => route.replace(/^\/[a-z]{2}\//, `/${l}/`);
 
 const htmlOf = new Map(pages.map((f) => [routeOf(f), fs.readFileSync(f, "utf8").replace(MARK, "")]));
 const fallbackRoutes = new Set([...htmlOf].filter(([, h]) => /<meta name="armonia-fallback"/.test(h)).map(([r]) => r));
+const originalOf = (route) => COPIES[route.replace(/^\/[a-z]{2}/, "")];
+for (const r of htmlOf.keys()) if (originalOf(r)) fallbackRoutes.add(r);
 // the page's versions in each language that has it translated: { en: "/en/...", fr: "/fr/...", ... }
 const versions = (route) => Object.fromEntries(LOCALES.map((l) => [l, swap(route, l)]).filter(([, r]) => htmlOf.has(r) && !fallbackRoutes.has(r)));
 
@@ -70,8 +76,9 @@ for (const file of pages) {
   let html = htmlOf.get(route);
   const lang = langOf(route);
   const isFallback = fallbackRoutes.has(route);
+  const original = originalOf(route);
   const alt = isFallback ? {} : versions(route);
-  const canonical = isFallback ? swap(route, "en") : route;
+  const canonical = original ? `/${lang}${original}` : isFallback ? swap(route, "en") : route;
 
   const title = decode(html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "Armonia Choir");
   const main = (html.match(/<main\b[\s\S]*?<\/main>/)?.[0] ?? html).replace(/<(script|style|nav|header|footer|aside)\b[\s\S]*?<\/\1>/g, "");
@@ -101,7 +108,7 @@ for (const file of pages) {
     !/<meta name="description"/.test(html) && `<meta name="description" content="${esc(description)}">`,
     `<meta property="og:type" content="website">`,
     `<meta property="og:site_name" content="${SITE_NAME[lang]}">`,
-    `<meta property="og:locale" content="${OG_LOCALE[isFallback ? "en" : lang]}">`,
+    `<meta property="og:locale" content="${OG_LOCALE[isFallback && !original ? "en" : lang]}">`,
     ...Object.keys(alt).filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}">`),
     `<meta property="og:title" content="${esc(title)}">`,
     `<meta property="og:description" content="${esc(description)}">`,
@@ -154,4 +161,4 @@ fs.writeFileSync(
   path.join(out, "index.html"),
   `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Armonia Choir | International Choral Festival of Preveza, Greece</title>\n<link rel="canonical" href="${SITE}/en/">\n${rootPreview}\n<meta http-equiv="refresh" content="0; url=/en/">\n<script>location.replace("/en/" + location.search + location.hash);</script>\n</head>\n<body><a href="/en/">${SITE}/en/</a></body>\n</html>\n`
 );
-console.log(`seo: ${pages.length} pages tagged (${fallbackRoutes.size} not yet translated, pointed at the English), sitemap.xml (${entries.length} URLs), robots.txt, 404.html, index.html (redirect)`);
+console.log(`seo: ${pages.length} pages tagged (${[...fallbackRoutes].filter((r) => !originalOf(r)).length} not yet translated, pointed at the English; ${[...fallbackRoutes].filter(originalOf).length} copies, pointed at their original), sitemap.xml (${entries.length} URLs), robots.txt, 404.html, index.html (redirect)`);
