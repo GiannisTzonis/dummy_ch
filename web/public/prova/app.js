@@ -417,7 +417,7 @@
           <span>${p.name}<small>${range}</small></span></button>
         <input class="ch-vol" type="range" min="0" max="1" step="0.05" aria-label="Ένταση ${p.name}">
         <div class="ch-extra">
-          ${p.divisi ? `<div class="seg" role="radiogroup" aria-label="Διβίζι">
+          ${p.divisi && SECTION_OF[p.id] ? `<div class="seg" role="radiogroup" aria-label="Διβίζι">
             <button data-lane="all" role="radio" title="Όλες οι νότες">Όλοι</button>
             <button data-lane="u" role="radio" title="Πάνω φωνή (1οι)">1οι</button>
             <button data-lane="l" role="radio" title="Κάτω φωνή (2οι)">2οι</button></div>` : ''}
@@ -896,6 +896,15 @@
       };
       secBox.appendChild(b);
     }
+    // long songs (Rhythm of Life has 22 starts): show the first 8 and the current one, the rest on demand
+    if (song.sections.length > 8) {
+      const t = document.createElement('button');
+      t.className = 'chips-toggle';
+      const set = (folded) => { secBox.classList.toggle('folded', folded); t.textContent = folded ? `Όλα τα σημεία (${song.sections.length}) ▾` : 'Λιγότερα ▴'; };
+      t.onclick = () => set(!secBox.classList.contains('folded'));
+      set(true);
+      secBox.appendChild(t);
+    } else secBox.classList.remove('folded');
     syncRole();
     buildMixer();
     if (ctx) { for (const id in partGain) partGain[id].disconnect(); partGain = {}; for (const p of song.parts) makePartBus(p.id); applyMix(true); loading.piano = loading.choir = null; buffers.piano.clear(); buffers.choir.clear(); }

@@ -53,6 +53,8 @@ body {
 }
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
+select, summary, label.check, input[type=checkbox], input[type=radio], input[type=range], label:has(> input[type=checkbox]) { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
 
@@ -151,6 +153,13 @@ input[type=range] { width: 100%; accent-color: var(--rose); height: 28px; }
 .chips button { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 10px 16px; font-size: 16px; min-height: 48px; }
 .chips button b { color: var(--ink-2); font-weight: 600; margin-right: 6px; font-size: 12px; }
 .chips button.now { border-color: var(--rose); color: var(--rose); background: var(--rose-soft); }
+.chips button { text-align: left; }
+.chips.folded > button[data-m]:nth-child(n+9):not(.now) { display: none; }
+.chips .chips-toggle { border-style: dashed; color: var(--ink-2); font-weight: 600; }
+@media (max-width: 520px) {
+  .chips { gap: 6px; }
+  .chips button { padding: 8px 12px; font-size: 15px; min-height: 44px; }
+}
 .loop-range[hidden] { display: none; }
 .loop-range { display: flex; gap: 14px; margin-top: 12px; flex-wrap: wrap; align-items: center; }
 .loop-range input { width: 72px; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); margin-left: 6px; }
