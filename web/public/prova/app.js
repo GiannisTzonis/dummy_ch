@@ -501,6 +501,10 @@
         // keep every bar its own measure (bars and the cursor map 1:1 to song bars); OSMD would
         // otherwise fold the piano-intro bars where the choir rests into one multi-bar rest
         autoGenerateMultipleRestMeasuresFromRestMeasures: false,
+        // the song files carry no beams: join eighths/sixteenths per beat group (7/8 -> 3+2+2)
+        autoBeam: true,
+        autoBeamOptions: { beam_rests: false, maintain_stem_directions: false,
+          groups: state.song.grouping.map((g) => [g, state.song.unit || 8]) },
       });
       this.osmd.EngravingRules.RenderMultipleRestMeasures = false;
       await this.osmd.load(url);
@@ -527,14 +531,23 @@
     layout() {
       const n = this.barsPerLine();
       const starts = new Set(state.song.sections.map((x) => x.measure));
+      const sms = this.osmd.Sheet.SourceMeasures;
+      // a section of L bars gets ceil(L/n) lines of even length (7 bars at 6/line -> 4+3, not 6+1),
+      // so no line holds a lone bar stretched across the whole width
+      const breakAt = new Set();
+      for (let a = 0; a < sms.length;) {
+        let b = a + 1;
+        while (b < sms.length && !starts.has(b + 1)) b++;
+        const len = b - a, k = Math.ceil(len / n);
+        for (let j = 0; j < k; j++) breakAt.add(a + Math.round((j * len) / k));
+        a = b;
+      }
       const lines = [];
-      let run = 0;
-      this.osmd.Sheet.SourceMeasures.forEach((sm, i) => {
-        const brk = i > 0 && (starts.has(i + 1) || run >= n);
-        if (i === 0 || brk) { lines.push([]); run = 0; }
+      sms.forEach((sm, i) => {
+        const brk = i > 0 && breakAt.has(i);
+        if (i === 0 || brk) lines.push([]);
         lines[lines.length - 1].push(i);
         sm.printNewSystemXml = brk;
-        run++;
       });
       const w = $('#score').clientWidth - 8;
       const systems = () => this.osmd.GraphicSheet.MusicPages.reduce((a, p) => a.concat(p.MusicSystems), []);
