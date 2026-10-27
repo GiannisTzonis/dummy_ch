@@ -8,7 +8,7 @@
   const SECTION_OF = { SS: 'S', S: 'S', A: 'A', TS: 'T', T: 'T', B: 'B' };
   const SECTION_NAME = { S: 'Σοπράνο', A: 'Άλτο', T: 'Τενόρος', B: 'Μπάσος' };
   const SECTION_PLURAL = { S: 'Οι σοπράνο', A: 'Οι άλτο', T: 'Οι τενόροι', B: 'Οι μπάσοι' };
-  const PAN = { SS: -0.35, S: -0.25, A: -0.1, TS: 0.35, T: 0.15, B: 0.05 };
+  const PAN = { P: 0, SS: -0.35, S: -0.25, A: -0.1, TS: 0.35, T: 0.15, B: 0.05 };
   const LOOKAHEAD = 0.15;
   const store = {
     get(k, d) { try { const v = localStorage.getItem('choir.' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
@@ -94,15 +94,24 @@
       for (const [m, b] of tempos) if (m <= bar) bpm = b;
       let eff = bpm;
       if (song.rall) {
-        const a = (song.rall[0] - 1) * 7, z = song.rall[1] * 7;
+        const a = (song.rall[0] - 1) * song.beatsPerBar, z = song.rall[1] * song.beatsPerBar;
         if (k >= a) eff = bpm * (1 - 0.4 * Math.min(1, (k - a) / (z - a)));
       }
-      let dur = 30 / eff;
-      if (song.fermata && bar === song.fermata && k % 7 >= 3) dur *= 1.8;
+      let dur = 240 / (eff * (song.unit || 8)); // a tick is a 1/unit note, bpm counts quarters
+      if (song.fermata && bar === song.fermata && k % song.beatsPerBar >= song.grouping[0]) dur *= 1.8;
       secAt[k + 1] = secAt[k] + dur;
     }
   }
+  // positions are in ticks (eighths for the 7/8 song, a 1/song.unit note in general)
+  const BPB = () => state.song.beatsPerBar;
   const totalEighths = () => state.song.measures * state.song.beatsPerBar;
+  // tick offsets in the bar where a beat group starts (7/8: 0,3,5; 4/4 in 16ths: 0,4,8,12)
+  function groupStarts(song) {
+    let acc = 0;
+    return song.grouping.map((g) => { const at = acc; acc += g; return at; });
+  }
+  // metronome clicks on every beat of the time signature (7/8: every eighth, 4/4: every quarter)
+  const clickEvery = (song) => Math.max(1, (song.unit || 8) / +((song.time || '7/8').split('/')[1]));
   function eighthAtSec(s) {
     let lo = 0, hi = secAt.length - 1;
     while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (secAt[mid] <= s) lo = mid; else hi = mid - 1; }
@@ -255,8 +264,8 @@
   function timeOf(k) { return sched.baseCtx + (secAt[k] - secAt[sched.basePos]) / state.speed; }
   function loopBounds() {
     if (!state.loop.on) return null;
-    const a = (Math.max(1, Math.min(state.loop.from, state.song.measures)) - 1) * 7;
-    const b = Math.max(a + 7, Math.min(state.loop.to, state.song.measures) * 7);
+    const a = (Math.max(1, Math.min(state.loop.from, state.song.measures)) - 1) * BPB();
+    const b = Math.max(a + BPB(), Math.min(state.loop.to, state.song.measures) * BPB());
     return [a, b];
   }
 
@@ -279,13 +288,14 @@
         break;
       }
       const when = timeOf(k);
-      const inBar = k % 7;
-      if (state.metronome) click(when, inBar === 0);
+      const inBar = k % BPB();
+      if (state.metronome && inBar % clickEvery(state.song) === 0) click(when, inBar === 0);
+      const accent = groupStarts(state.song).includes(inBar);
       const limit = lb ? lb[1] : total;
       for (const n of notesAt[k] || []) {
         const level = noteLevel(n);
         if (!laneAllowed(n) || level === 0) continue;
-        voice(n.m, when, timeOf(Math.min(k + n.d, limit)) - 0.01, n.p, inBar === 0 || inBar === 3 || inBar === 5, level);
+        voice(n.m, when, timeOf(Math.min(k + n.d, limit)) - 0.01, n.p, accent, level);
       }
       sched.nextK = k + 1;
     }
@@ -303,9 +313,10 @@
     if (start >= totalEighths()) start = 0;
     let t0 = ctx.currentTime + 0.08;
     if (state.countIn) {
-      const barSec = (secAt[Math.min(start + 7, secAt.length - 1)] - secAt[start]) / state.speed || 7 * 0.3;
-      const step = barSec / 7;
-      [0, 3, 5].forEach((e) => click(t0 + e * step, e === 0));
+      const bpb = BPB();
+      const barSec = (secAt[Math.min(start + bpb, secAt.length - 1)] - secAt[start]) / state.speed || bpb * 0.3;
+      const step = barSec / bpb;
+      groupStarts(state.song).forEach((e) => click(t0 + e * step, e === 0));
       t0 += barSec;
     }
     sched = { nextK: start, baseCtx: t0, basePos: start, segments: [{ at: 0, baseCtx: t0, basePos: start }] };
@@ -330,14 +341,14 @@
     silenceAll();
     setHold(false);
     document.body.classList.remove('playing');
-    if (toStart === true) state.pos = state.loop.on ? (state.loop.from - 1) * 7 : 0;
-    else state.pos = Math.floor(state.pos / 7) * 7; // resume from the start of the bar
+    if (toStart === true) state.pos = state.loop.on ? (state.loop.from - 1) * BPB() : 0;
+    else state.pos = Math.floor(state.pos / BPB()) * BPB(); // resume from the start of the bar
     render(true);
   }
   function seekBar(bar) {
     const wasPlaying = state.playing;
     if (wasPlaying) stop();
-    state.pos = (Math.max(1, Math.min(bar, state.song.measures)) - 1) * 7;
+    state.pos = (Math.max(1, Math.min(bar, state.song.measures)) - 1) * BPB();
     render(true, true);
     if (wasPlaying) play();
   }
@@ -360,7 +371,7 @@
   }
   function render(force, scroll) {
     const pos = currentPos();
-    const bar = Math.min(state.song.measures, Math.floor(pos / 7) + 1);
+    const bar = Math.min(state.song.measures, Math.floor(pos / BPB()) + 1);
     if (bar !== lastBar || force) {
       lastBar = bar;
       $('#barNow').textContent = bar;
@@ -487,7 +498,11 @@
         autoResize: false, newSystemFromXML: true, backend: 'svg', drawTitle: false, drawComposer: false, drawCredits: false,
         drawPartNames: true, drawPartAbbreviations: true, drawMeasureNumbers: true, coloringEnabled: true,
         followCursor: false, cursorsOptions: [{ type: 0, color: '#d24b58', alpha: 0.55, follow: false }],
+        // keep every bar its own measure (bars and the cursor map 1:1 to song bars); OSMD would
+        // otherwise fold the piano-intro bars where the choir rests into one multi-bar rest
+        autoGenerateMultipleRestMeasuresFromRestMeasures: false,
       });
+      this.osmd.EngravingRules.RenderMultipleRestMeasures = false;
       await this.osmd.load(url);
       this.osmd.EngravingRules.StretchLastSystemLine = true;
       this.applyThemeColors();
@@ -526,7 +541,8 @@
       const draw = (z) => { this.osmd.zoom = z; this.osmd.render(); return systems().length <= lines.length; };
       // Each render costs a lot, so the zoom is worked out from the natural bar widths (in OSMD units,
       // independent of zoom) measured on the first render, then drawn once more at that zoom.
-      const key = this.onlyMine ? 'mine:' + state.mine : 'all';
+      // per song: bar widths differ between songs (a cache from the other song gave NaN zoom)
+      const key = state.song.slug + ':' + (this.onlyMine ? 'mine:' + state.mine : 'all');
       this.metricsByKey ||= {};
       this.metrics = this.metricsByKey[key] || null;
       let z;
@@ -595,7 +611,7 @@
             const pid = ids[ins.indexOf(se.ParentStaff.ParentInstrument)];
             const split = state.myLane !== 'all' && SECTION_OF[pid] === state.mine;
             for (const ve of se.VoiceEntries) {
-              const t = Math.round((sm.AbsoluteTimestamp.RealValue + ve.Timestamp.RealValue) * 8);
+              const t = Math.round((sm.AbsoluteTimestamp.RealValue + ve.Timestamp.RealValue) * (state.song.unit || 8));
               for (const note of ve.Notes) {
                 if (note.isRest()) continue;
                 let color = null;
@@ -687,7 +703,7 @@
         }
       }
       this.activeBar = -1;
-      this.markActive(Math.floor(currentPos() / 7) + 1);
+      this.markActive(Math.floor(currentPos() / BPB()) + 1);
     },
     // Stronger tint on the system that is sounding now
     markActive(bar) {
@@ -702,7 +718,7 @@
       this.steps = [];
       let guard = 0;
       while (!c.Iterator.EndReached && guard++ < 5000) {
-        this.steps.push(Math.round(c.Iterator.currentTimeStamp.RealValue * 8));
+        this.steps.push(Math.round(c.Iterator.currentTimeStamp.RealValue * (state.song.unit || 8)));
         c.next();
       }
       c.reset(); this.idx = 0;
@@ -723,7 +739,7 @@
       let lo = 0, hi = this.steps.length - 1;
       while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (this.steps[mid] <= pos + 1e-6) lo = mid; else hi = mid - 1; }
       if (lo !== this.idx || force) this.moveTo(lo);
-      const bar = Math.floor(pos / 7);
+      const bar = Math.floor(pos / BPB());
       if (bar + 1 !== this.activeBar || force) { this.activeBar = bar + 1; this.markActive(bar + 1); }
       if (this.followOn && (bar !== this.lastScrollBar || force)) {
         this.lastScrollBar = bar;
@@ -844,7 +860,11 @@
     $('#songTitle').textContent = song.title;
     $('#songMeta').textContent = [song.composer, song.arranger].filter(Boolean).join(' · ');
     const tempos = Object.values(song.tempo);
-    $('#songFacts').textContent = `${song.beatsPerBar}/8 (${song.grouping.join('+')}) · ♩ = ${tempos.join(' → ')} · ${song.measures} μέτρα`;
+    const time = song.time || `${song.beatsPerBar}/8`;
+    const per8 = 8 / (song.unit || 8); // grouping shown in eighths, only when the beats are uneven
+    const uneven = new Set(song.grouping).size > 1;
+    $('#songFacts').textContent = `${time}${uneven ? ` (${song.grouping.map((g) => g * per8).join('+')})` : ''} · ♩ = ${tempos.join(' → ')} · ${song.measures} μέτρα`;
+    $('#metroGroup').textContent = uneven ? `(${song.grouping.map((g) => g * per8).join('+')})` : `(${time})`;
     $('#barTotal').textContent = song.measures;
     $('#scrub').max = song.measures;
     const secBox = $('#sections');
@@ -932,7 +952,7 @@
       state.loop.on = e.target.checked;
       $('#loopRange').hidden = !state.loop.on;
       if (state.loop.on) {
-        const bar = Math.floor(currentPos() / 7) + 1;
+        const bar = Math.floor(currentPos() / BPB()) + 1;
         const sec = currentSection(bar);
         const next = sec && state.song.sections.find((x) => x.measure > sec.measure);
         state.loop.from = sec ? sec.measure : 1;
