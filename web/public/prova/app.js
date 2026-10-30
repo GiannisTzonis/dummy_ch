@@ -72,6 +72,7 @@
     myLane: store.get('myLane', 'all'), // inside a split section: 'u' = Α΄ (upper), 'l' = Β΄ (lower)
     instrument: store.get('instrument', 'piano'),
     speed: store.get('speed', 100) / 100,
+    volume: store.get('volume', 100) / 100,
     metronome: store.get('metronome', false),
     countIn: store.get('countIn', true),
     preset: 'all',
@@ -128,10 +129,14 @@
   function ensureAudio() {
     if (ctx) return ctx;
     ctx = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
+    // louder than plain mixing: compress, add make-up gain, then a limiter so loud chords never clip
     const comp = ctx.createDynamicsCompressor();
-    comp.threshold.value = -14; comp.ratio.value = 3;
-    master = ctx.createGain(); master.gain.value = 0.8;
-    master.connect(comp).connect(ctx.destination);
+    comp.threshold.value = -20; comp.knee.value = 6; comp.ratio.value = 4; comp.attack.value = 0.005; comp.release.value = 0.2;
+    const makeup = ctx.createGain(); makeup.gain.value = 2.2;
+    const limiter = ctx.createDynamicsCompressor();
+    limiter.threshold.value = -1; limiter.knee.value = 0; limiter.ratio.value = 20; limiter.attack.value = 0.001; limiter.release.value = 0.1;
+    master = ctx.createGain(); master.gain.value = state.volume;
+    master.connect(comp).connect(makeup).connect(limiter).connect(ctx.destination);
     clickBus = ctx.createGain(); clickBus.gain.value = 0.5; clickBus.connect(master);
     for (const p of state.song.parts) makePartBus(p.id);
     applyMix(true);
@@ -926,6 +931,8 @@
     const fromHash = decodeURIComponent(location.hash.slice(1));
     sel.value = list.some((s) => s.slug === fromHash) ? fromHash : list[0].slug;
     sel.onchange = () => { location.hash = sel.value; loadSong(sel.value); };
+    // a picker with one song in it is just noise
+    sel.closest('.song-pick').hidden = list.length < 2;
 
     bindSeg('#mySection', state.mine, (v) => {
       state.mine = v; store.set('mine', v);
@@ -942,6 +949,16 @@
       applyPreset(p); store.set('preset', p);
       later(() => score.applyRole(false));
     });
+    // overall volume: speaker button in the bar opens a slider (0-150%), kept on this device
+    const volBtn = $('#volBtn'), volPop = $('#volPop'), vol = $('#volume');
+    const showVol = () => { $('#volOut').textContent = vol.value + '%'; volBtn.classList.toggle('muted', vol.value === '0'); };
+    vol.value = Math.round(state.volume * 100); showVol();
+    volBtn.onclick = (e) => { e.stopPropagation(); volPop.hidden = !volPop.hidden; volBtn.setAttribute('aria-expanded', String(!volPop.hidden)); };
+    document.addEventListener('click', (e) => { if (!volPop.hidden && !volPop.contains(e.target)) { volPop.hidden = true; volBtn.setAttribute('aria-expanded', 'false'); } });
+    vol.oninput = () => {
+      state.volume = vol.value / 100; store.set('volume', +vol.value); showVol();
+      if (master) master.gain.setTargetAtTime(state.volume, ctx.currentTime, 0.03);
+    };
     $('#themeBtn').onclick = () => { const t = isDark() ? 'light' : 'dark'; store.set('theme', t); setTheme(t); };
     // follow the phone/computer setting until a choice is made here
     if (window.matchMedia) {

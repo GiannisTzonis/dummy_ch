@@ -62,7 +62,7 @@ button:disabled { cursor: not-allowed; }
 .top { background: var(--paper); border-bottom: 1px solid var(--line); }
 .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; }
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; letter-spacing: .01em; white-space: nowrap; }
-@media (max-width: 420px) { .brand span { font-size: 15px; } .top .song-pick select { max-width: 38vw; } .top .theme-btn { width: 36px; height: 36px; } }
+@media (max-width: 420px) { .brand span { font-size: 15px; } .top .song-pick select { max-width: 30vw; } .top .theme-btn { width: 36px; height: 36px; } }
 .brand-mark { width: 22px; height: 22px; color: var(--rose); }
 .top-tools { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .theme-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--card); display: grid; place-items: center; flex: none; }
@@ -215,6 +215,16 @@ input[type=range] { width: 100%; accent-color: var(--rose); height: 28px; }
 .icon-btn svg { width: 20px; height: 20px; fill: var(--ink); }
 .icon-btn.text { width: auto; border-radius: 999px; padding: 0 14px; font-weight: 600; font-size: 15px; white-space: nowrap; }
 .pos { flex: 1; min-width: 0; }
+.top-tools { position: relative; }
+.song-pick[hidden] { display: none; }
+.vol-btn { color: var(--ink); cursor: pointer; }
+.vol-btn svg { fill: var(--ink); }
+.vol-btn.muted .wave { display: none; }
+.vol-pop { position: absolute; right: 0; top: calc(100% + 10px); z-index: 20; width: min(280px, calc(100vw - 32px)); background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px 14px; box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+.vol-pop[hidden] { display: none; }
+.vol-pop label { display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-2); margin-bottom: 8px; }
+.vol-pop label b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.vol-pop input { width: 100%; cursor: pointer; }
 .pos-top { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; color: var(--ink-2); white-space: nowrap; }
 .pos-top b { color: var(--ink); font-variant-numeric: tabular-nums; }
 .section-now { overflow: hidden; text-overflow: ellipsis; }
